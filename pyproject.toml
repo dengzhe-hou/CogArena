@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cogarena"
+version = "0.1.0"
+description = "A benchmark of 13 cognitive-science paradigms for evaluating LLMs and agents"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+authors = [
+    {name = "The CogArena Authors"},
+]
+keywords = ["llm", "benchmark", "cognitive-science", "evaluation", "psychometrics"]
+dependencies = [
+    "gymnasium>=1.0",
+]
+
+[project.scripts]
+cogarena = "cogarena.cli:main"
+
+[project.optional-dependencies]
+openai = ["openai>=1.0"]
+anthropic = ["anthropic>=0.20"]
+google = ["google-generativeai>=0.5"]
+all = ["openai>=1.0", "anthropic>=0.20", "google-generativeai>=0.5"]
+analysis = ["numpy", "scipy", "pandas", "scikit-learn", "matplotlib", "statsmodels"]
+dev = ["pytest", "ruff"]
+
+[tool.setuptools.packages.find]
+include = ["cogarena*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"

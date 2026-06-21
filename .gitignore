@@ -1,0 +1,42 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# --- CogArena outputs (regenerate by running the benchmark) ---
+cogarena_results/
+results/
+data/images/
+data/sanity_items/
+data/verify_fix*/
+
+# --- Paper sources & build artifacts (not part of the code release) ---
+paper/
+
+# --- Internal project / pipeline notes (not part of the release) ---
+.aris/
+.aris*/
+idea-stage/
+review-stage/
+refine-logs/
+ref/
+assets/
+F_*/
+IDEA_REPORT.md
+PLAN*.md
+STATUS.md
+RESEARCH_REVIEW*.md
+EXPERIMENT_AUDIT*
+
+# --- Editor / OS ---
+.DS_Store
+.idea/
+.vscode/
+*.swp

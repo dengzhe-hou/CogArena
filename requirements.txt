@@ -1,0 +1,15 @@
+# Core
+gymnasium>=1.0
+
+# At least one provider SDK (install the one(s) you use):
+openai>=1.0            # also covers any OpenAI-compatible endpoint (Ollama, vLLM, TGI, ...)
+# anthropic>=0.20
+# google-generativeai>=0.5
+
+# For reproducing the paper's analyses/figures (scripts/):
+# numpy
+# scipy
+# pandas
+# scikit-learn
+# matplotlib
+# statsmodels

@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use CogArena, please cite the paper below."
+title: "CogArena: Cognitive-Science Paradigms Reveal Broad Competence, Not Separable Cognitive Domains in LLMs"
+authors:
+  - name: "Anonymous"
+year: 2026
+preferred-citation:
+  type: article
+  title: "CogArena: Cognitive-Science Paradigms Reveal Broad Competence, Not Separable Cognitive Domains in LLMs"
+  authors:
+    - name: "Anonymous"
+  year: 2026

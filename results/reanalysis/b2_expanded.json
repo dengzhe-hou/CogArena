@@ -1,0 +1,176 @@
+{
+  "method": "B2 dimensional separability, 13 paradigms, 5 domains; static re-aggregated from details.json (continuous per-item-accuracy mean), multiturn n_back/operation_span/cvlt_word_list from MT aggregate; permutation n_perm=5000 seed=42.",
+  "n_models_old": 20,
+  "n_models_new": 35,
+  "n_models_total": 55,
+  "repro20": {
+    "n_models": 20,
+    "within_mean": 0.4145,
+    "cross_mean": 0.425,
+    "delta": -0.0106,
+    "ci_lo": -0.116,
+    "ci_hi": 0.1359,
+    "p_value": 0.53,
+    "n_perm": 5000,
+    "seed": 42,
+    "pass": false
+  },
+  "repro20_binarized_reference": {
+    "n_models": 20,
+    "within_mean": 0.4164,
+    "cross_mean": 0.413,
+    "delta": 0.0034,
+    "ci_lo": -0.1159,
+    "ci_hi": 0.1364,
+    "p_value": 0.4406,
+    "n_perm": 5000,
+    "seed": 42,
+    "pass": false
+  },
+  "repro20_matches_paper": true,
+  "paper_target": {
+    "within": 0.4145,
+    "cross": 0.425,
+    "delta": -0.0106,
+    "p": 0.53
+  },
+  "aggregation_note": "Static paradigms re-aggregated from per-item details.json. CONTINUOUS per-item-accuracy mean is used (NOT binarize>=0.5): only the continuous mean reproduces the published 20-model B2. After the confidence-calibration scorer fix the current paper reports within 0.4145 / cross 0.4250 / delta -0.0106 / p 0.53 (the repro20 block here); the pre-fix self-check vs analysis_b2_13paradigms.json was delta -0.0083. Binarizing alters drm_false_memory and source_monitoring (dict-valued, continuous in the paper) and gives a non-matching delta. Re-aggregation from details.json also fixes the NEW-model inline-aggregator bug (e.g. qwen3:4b had a genuine drm=0).",
+  "exp55": {
+    "n_models": 55,
+    "within_mean": 0.3551,
+    "cross_mean": 0.3599,
+    "delta": -0.0048,
+    "ci_lo": -0.0892,
+    "ci_hi": 0.1042,
+    "p_value": 0.5184,
+    "n_perm": 5000,
+    "seed": 42,
+    "pass": false
+  },
+  "scaling": {
+    "confidence_calibration": {
+      "pearson_r": 0.6168,
+      "mlm_beta": 0.1723,
+      "mlm_p": 0.0
+    },
+    "cvlt_word_list": {
+      "pearson_r": 0.1456,
+      "mlm_beta": 0.0751,
+      "mlm_p": 0.2862
+    },
+    "digit_span": {
+      "pearson_r": 0.4452,
+      "mlm_beta": 0.2806,
+      "mlm_p": 0.0
+    },
+    "drm_false_memory": {
+      "pearson_r": 0.7202,
+      "mlm_beta": 0.3936,
+      "mlm_p": 0.0
+    },
+    "epitome_tom": {
+      "pearson_r": 0.652,
+      "mlm_beta": 0.2069,
+      "mlm_p": 0.0
+    },
+    "false_belief": {
+      "pearson_r": 0.4727,
+      "mlm_beta": 0.3653,
+      "mlm_p": 0.0
+    },
+    "flanker": {
+      "pearson_r": 0.3815,
+      "mlm_beta": 0.1409,
+      "mlm_p": 0.0
+    },
+    "go_nogo": {
+      "pearson_r": 0.1432,
+      "mlm_beta": 0.1103,
+      "mlm_p": 0.039
+    },
+    "n_back": {
+      "pearson_r": 0.2365,
+      "mlm_beta": 0.2269,
+      "mlm_p": 0.0025
+    },
+    "operation_span": {
+      "pearson_r": 0.4259,
+      "mlm_beta": 0.274,
+      "mlm_p": 0.0
+    },
+    "post_decision_wagering": {
+      "pearson_r": 0.619,
+      "mlm_beta": 0.1755,
+      "mlm_p": 0.0
+    },
+    "source_monitoring": {
+      "pearson_r": 0.5996,
+      "mlm_beta": 0.2504,
+      "mlm_p": 0.0
+    },
+    "stroop": {
+      "pearson_r": 0.445,
+      "mlm_beta": 0.0878,
+      "mlm_p": 0.0001
+    }
+  },
+  "models_old": [
+    "command-r:35b",
+    "deepseek-r1:14b",
+    "deepseek-r1:7b",
+    "gemma2:27b",
+    "gemma2:2b",
+    "gemma2:9b",
+    "llama3.1:8b",
+    "llama3.2:1b",
+    "llama3.2:3b",
+    "mistral:7b",
+    "mixtral:8x7b",
+    "phi3:14b",
+    "qwen2.5:0.5b",
+    "qwen2.5:1.5b",
+    "qwen2.5:14b",
+    "qwen2.5:32b",
+    "qwen2.5:3b",
+    "qwen2.5:7b",
+    "tinyllama:1.1b",
+    "yi:34b"
+  ],
+  "models_new": [
+    "aya:8b",
+    "deepseek-llm:7b",
+    "exaone3.5:7.8b",
+    "falcon3:10b",
+    "falcon3:7b",
+    "gemma3:12b",
+    "gemma3:1b",
+    "gemma3:27b",
+    "glm4:9b",
+    "internlm2:7b",
+    "llama2:13b",
+    "llama2:7b",
+    "llama3.1:70b",
+    "mistral-nemo:12b",
+    "mixtral:8x22b",
+    "nemotron-mini:4b",
+    "olmo2:13b",
+    "olmo2:7b",
+    "openchat:7b",
+    "phi3:3.8b",
+    "phi4:14b",
+    "qwen2.5:72b",
+    "qwen3:0.6b",
+    "qwen3:1.7b",
+    "qwen3:14b",
+    "qwen3:4b",
+    "qwen3:8b",
+    "smollm2:1.7b",
+    "smollm2:360m",
+    "solar:10.7b",
+    "stablelm2:1.6b",
+    "starling-lm:7b",
+    "yi:6b",
+    "yi:9b",
+    "zephyr:7b"
+  ]
+}

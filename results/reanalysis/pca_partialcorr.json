@@ -1,0 +1,39 @@
+{
+  "n_models": 55,
+  "n_paradigms": 13,
+  "raw": {
+    "within": 0.3551,
+    "cross": 0.3599,
+    "delta": -0.0048
+  },
+  "positive_manifold": {
+    "mean_offdiag_r": 0.3592,
+    "frac_pairs_positive": 0.974,
+    "pc1_variance_explained": 0.4506,
+    "eigenvalues_top5": [
+      5.858,
+      1.529,
+      1.193,
+      0.981,
+      0.851
+    ],
+    "pc1_corr_with_mean_accuracy": 0.966
+  },
+  "after_removing_general_factor_PC1": {
+    "within": 0.0209,
+    "cross": -0.0948,
+    "delta": 0.1157,
+    "p_value": 0.0546,
+    "ci95": [
+      -0.1285,
+      0.142
+    ]
+  },
+  "after_removing_general_factor_rowmean": {
+    "within": -0.0244,
+    "cross": -0.061,
+    "delta": 0.0366,
+    "p_value": 0.3064
+  },
+  "interpretation": "First PC explains 45% of paradigm variance with 97% of pairwise correlations positive (a positive manifold). After removing that general factor, within-domain correlations are higher than cross-domain (delta=0.116, p=0.05): no residual block structure."
+}
