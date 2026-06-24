@@ -103,10 +103,29 @@ print(env.unwrapped.score())
 
 ## Reproduce the paper
 
-The analysis/figure scripts live in `scripts/` (and `scripts/reanalysis/`). They take the raw
-per-item eval outputs and produce the paper's tables, figures, and the dimensional-separability
-/ PCA / scaling results. See each script's header for inputs. (The full raw eval outputs are
-large; they are released separately — see the paper's reproducibility appendix.)
+**What is in this repo.** The analysis scripts (`scripts/` and `scripts/reanalysis/`) and the
+*derived* result files (`results/reanalysis/*.json` and `results/predictive_validity.json`) are
+committed. Those JSONs hold the paper's headline numbers: the dimensional-separability test
+(`b2_expanded.json`), the positive-manifold / general-factor analysis (`pca_partialcorr.json`),
+the restricted-range robustness (`restricted_range_robustness.json`), and the scaling,
+scorer-robustness, split-half-reliability, and signature-significance results. The reported
+values can therefore be inspected directly, without re-running anything.
+
+**What is not in this repo.** The *raw* per-item evaluation outputs (every model's
+`details.json` / `aggregate.json`, several hundred MB across the `results/full_eval_*` and
+`results/multiturn_*` directories) are not committed, because of their size. The analysis
+scripts read from those directories, so re-running an analysis end-to-end needs the raw outputs.
+Two ways to obtain them:
+
+1. **Regenerate** them by running the benchmark (`cogarena eval`, or the `scripts/run_*.sh`
+   drivers) over the model set; items are seeded, so generation is deterministic.
+2. Use the separately archived raw-output bundle (large; released alongside the paper).
+
+Scripts resolve the project root from their own location or from a `COGARENA_ROOT` environment
+variable, so they run from any checkout. The reanalysis scripts need the `analysis` extra
+(`pip install -e ".[analysis]"`: `numpy`, `scipy`, `pandas`, `scikit-learn`, `statsmodels`).
+Figure generation lives with the paper sources and is not part of this code release; figures are
+produced from the same derived JSONs.
 
 ## Citation
 
