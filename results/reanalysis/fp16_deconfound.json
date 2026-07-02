@@ -1,277 +1,277 @@
 {
-  "models": [
-    "qwen2.5:0.5b",
-    "qwen2.5:7b",
-    "qwen2.5:14b",
-    "gemma2:9b",
-    "llama3.1:8b",
-    "mistral:7b"
-  ],
-  "n_models": 6,
-  "static_only": true,
-  "per_paradigm": {
-    "pearson_r": 0.86,
-    "n_cells": 60,
-    "mean_abs_delta_pp": 6.9
+ "models": [
+  "qwen2.5:0.5b",
+  "qwen2.5:7b",
+  "qwen2.5:14b",
+  "gemma2:9b",
+  "llama3.1:8b",
+  "mistral:7b"
+ ],
+ "n_models": 6,
+ "static_only": true,
+ "per_paradigm": {
+  "pearson_r": 0.781,
+  "n_cells": 60,
+  "mean_abs_delta_pp": 6.3
+ },
+ "domain": {
+  "pearson_r": 0.808,
+  "n_cells": 30,
+  "mean_abs_delta_pp": 5.8
+ },
+ "note": "fp16 re-run of single-turn battery vs default-quant (Q4); re-aggregated from per-item details.json (the inline aggregate undercounts dict-scored paradigms). Each cell is [Q4, fp16] per-paradigm continuous-mean accuracy. 'domain' = the 5 theory groupings; no systematic precision reordering. Regenerated from corrected scorers + go_nogo rerun (2026-07). Regenerated from corrected scorers + go_nogo rerun (2026-07).",
+ "table_q4_vs_fp16": {
+  "gemma2:9b": {
+   "digit_span": [
+    0.96,
+    0.96
+   ],
+   "stroop": [
+    1.0,
+    0.9848
+   ],
+   "flanker": [
+    0.5455,
+    0.5455
+   ],
+   "go_nogo": [
+    0.98,
+    0.98
+   ],
+   "drm_false_memory": [
+    0.9527,
+    0.9535
+   ],
+   "source_monitoring": [
+    0.9855,
+    0.984
+   ],
+   "false_belief": [
+    1.0,
+    1.0
+   ],
+   "epitome_tom": [
+    0.96,
+    1.0
+   ],
+   "confidence_calibration": [
+    0.96,
+    0.92
+   ],
+   "post_decision_wagering": [
+    0.92,
+    0.92
+   ]
   },
-  "domain": {
-    "pearson_r": 0.784,
-    "n_cells": 30,
-    "mean_abs_delta_pp": 6.7
+  "llama3.1:8b": {
+   "digit_span": [
+    0.98,
+    0.98
+   ],
+   "stroop": [
+    1.0,
+    1.0
+   ],
+   "flanker": [
+    0.7576,
+    0.7727
+   ],
+   "go_nogo": [
+    1.0,
+    1.0
+   ],
+   "drm_false_memory": [
+    0.9644,
+    0.9796
+   ],
+   "source_monitoring": [
+    0.9315,
+    0.929
+   ],
+   "false_belief": [
+    0.9,
+    0.94
+   ],
+   "epitome_tom": [
+    0.96,
+    0.94
+   ],
+   "confidence_calibration": [
+    0.94,
+    0.94
+   ],
+   "post_decision_wagering": [
+    0.9,
+    0.9
+   ]
   },
-  "note": "fp16 re-run of single-turn battery vs default-quant (Q4); re-aggregated from per-item details.json (the inline aggregate undercounts dict-scored paradigms). Each cell is [Q4, fp16] per-paradigm continuous-mean accuracy. 'domain' = the 5 theory groupings; no systematic precision reordering.",
-  "table_q4_vs_fp16": {
-    "qwen2.5:0.5b": {
-      "digit_span": [
-        0.42,
-        0.44
-      ],
-      "stroop": [
-        0.727,
-        0.758
-      ],
-      "flanker": [
-        0.576,
-        0.591
-      ],
-      "go_nogo": [
-        0.22,
-        0.18
-      ],
-      "drm_false_memory": [
-        0.086,
-        0.23
-      ],
-      "source_monitoring": [
-        0.271,
-        0.303
-      ],
-      "false_belief": [
-        0.46,
-        0.06
-      ],
-      "epitome_tom": [
-        0.58,
-        0.74
-      ],
-      "confidence_calibration": [
-        0.58,
-        0.56
-      ],
-      "post_decision_wagering": [
-        0.58,
-        0.56
-      ]
-    },
-    "qwen2.5:7b": {
-      "digit_span": [
-        0.98,
-        1.0
-      ],
-      "stroop": [
-        1.0,
-        1.0
-      ],
-      "flanker": [
-        0.636,
-        0.636
-      ],
-      "go_nogo": [
-        0.48,
-        0.44
-      ],
-      "drm_false_memory": [
-        0.932,
-        0.935
-      ],
-      "source_monitoring": [
-        0.904,
-        0.877
-      ],
-      "false_belief": [
-        1.0,
-        1.0
-      ],
-      "epitome_tom": [
-        0.92,
-        0.98
-      ],
-      "confidence_calibration": [
-        0.92,
-        0.94
-      ],
-      "post_decision_wagering": [
-        0.9,
-        0.92
-      ]
-    },
-    "qwen2.5:14b": {
-      "digit_span": [
-        1.0,
-        1.0
-      ],
-      "stroop": [
-        1.0,
-        1.0
-      ],
-      "flanker": [
-        0.727,
-        0.636
-      ],
-      "go_nogo": [
-        0.18,
-        0.18
-      ],
-      "drm_false_memory": [
-        0.982,
-        0.974
-      ],
-      "source_monitoring": [
-        0.643,
-        0.299
-      ],
-      "false_belief": [
-        1.0,
-        1.0
-      ],
-      "epitome_tom": [
-        0.98,
-        1.0
-      ],
-      "confidence_calibration": [
-        0.92,
-        0.94
-      ],
-      "post_decision_wagering": [
-        0.92,
-        0.96
-      ]
-    },
-    "gemma2:9b": {
-      "digit_span": [
-        0.96,
-        0.96
-      ],
-      "stroop": [
-        1.0,
-        0.985
-      ],
-      "flanker": [
-        0.545,
-        0.545
-      ],
-      "go_nogo": [
-        0.44,
-        0.18
-      ],
-      "drm_false_memory": [
-        0.953,
-        0.954
-      ],
-      "source_monitoring": [
-        0.985,
-        0.984
-      ],
-      "false_belief": [
-        1.0,
-        1.0
-      ],
-      "epitome_tom": [
-        0.96,
-        1.0
-      ],
-      "confidence_calibration": [
-        0.9,
-        0.92
-      ],
-      "post_decision_wagering": [
-        0.92,
-        0.92
-      ]
-    },
-    "llama3.1:8b": {
-      "digit_span": [
-        0.98,
-        0.98
-      ],
-      "stroop": [
-        0.985,
-        0.924
-      ],
-      "flanker": [
-        0.758,
-        0.758
-      ],
-      "go_nogo": [
-        0.18,
-        0.18
-      ],
-      "drm_false_memory": [
-        0.964,
-        0.98
-      ],
-      "source_monitoring": [
-        0.935,
-        0.934
-      ],
-      "false_belief": [
-        0.9,
-        0.94
-      ],
-      "epitome_tom": [
-        0.96,
-        0.94
-      ],
-      "confidence_calibration": [
-        0.94,
-        0.94
-      ],
-      "post_decision_wagering": [
-        0.9,
-        0.9
-      ]
-    },
-    "mistral:7b": {
-      "digit_span": [
-        0.86,
-        0.06
-      ],
-      "stroop": [
-        0.97,
-        0.955
-      ],
-      "flanker": [
-        0.576,
-        0.439
-      ],
-      "go_nogo": [
-        0.64,
-        0.16
-      ],
-      "drm_false_memory": [
-        0.713,
-        0.753
-      ],
-      "source_monitoring": [
-        0.767,
-        0.564
-      ],
-      "false_belief": [
-        0.68,
-        0.98
-      ],
-      "epitome_tom": [
-        0.86,
-        0.82
-      ],
-      "confidence_calibration": [
-        0.88,
-        0.82
-      ],
-      "post_decision_wagering": [
-        0.82,
-        0.82
-      ]
-    }
+  "mistral:7b": {
+   "digit_span": [
+    0.86,
+    0.24
+   ],
+   "stroop": [
+    0.9697,
+    0.9545
+   ],
+   "flanker": [
+    0.6667,
+    0.5758
+   ],
+   "go_nogo": [
+    0.98,
+    0.06
+   ],
+   "drm_false_memory": [
+    0.713,
+    0.7531
+   ],
+   "source_monitoring": [
+    0.7669,
+    0.5638
+   ],
+   "false_belief": [
+    0.68,
+    0.98
+   ],
+   "epitome_tom": [
+    0.86,
+    0.82
+   ],
+   "confidence_calibration": [
+    0.9,
+    0.82
+   ],
+   "post_decision_wagering": [
+    0.82,
+    0.82
+   ]
+  },
+  "qwen2.5:0.5b": {
+   "digit_span": [
+    0.42,
+    0.44
+   ],
+   "stroop": [
+    0.7273,
+    0.7576
+   ],
+   "flanker": [
+    0.5758,
+    0.5909
+   ],
+   "go_nogo": [
+    0.16,
+    0.16
+   ],
+   "drm_false_memory": [
+    0.0862,
+    0.2299
+   ],
+   "source_monitoring": [
+    0.2644,
+    0.2748
+   ],
+   "false_belief": [
+    0.52,
+    0.3
+   ],
+   "epitome_tom": [
+    0.58,
+    0.74
+   ],
+   "confidence_calibration": [
+    0.58,
+    0.56
+   ],
+   "post_decision_wagering": [
+    0.58,
+    0.56
+   ]
+  },
+  "qwen2.5:14b": {
+   "digit_span": [
+    1.0,
+    1.0
+   ],
+   "stroop": [
+    1.0,
+    1.0
+   ],
+   "flanker": [
+    0.7273,
+    0.6364
+   ],
+   "go_nogo": [
+    1.0,
+    1.0
+   ],
+   "drm_false_memory": [
+    0.9823,
+    0.9743
+   ],
+   "source_monitoring": [
+    0.6384,
+    0.2917
+   ],
+   "false_belief": [
+    1.0,
+    1.0
+   ],
+   "epitome_tom": [
+    0.98,
+    1.0
+   ],
+   "confidence_calibration": [
+    0.94,
+    0.94
+   ],
+   "post_decision_wagering": [
+    0.92,
+    0.96
+   ]
+  },
+  "qwen2.5:7b": {
+   "digit_span": [
+    0.98,
+    1.0
+   ],
+   "stroop": [
+    1.0,
+    1.0
+   ],
+   "flanker": [
+    0.6364,
+    0.6364
+   ],
+   "go_nogo": [
+    1.0,
+    1.0
+   ],
+   "drm_false_memory": [
+    0.9321,
+    0.9352
+   ],
+   "source_monitoring": [
+    0.9015,
+    0.876
+   ],
+   "false_belief": [
+    1.0,
+    1.0
+   ],
+   "epitome_tom": [
+    0.92,
+    0.98
+   ],
+   "confidence_calibration": [
+    0.96,
+    0.94
+   ],
+   "post_decision_wagering": [
+    0.9,
+    0.92
+   ]
   }
+ }
 }

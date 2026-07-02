@@ -1,39 +1,35 @@
 {
-  "n_models": 55,
-  "n_paradigms": 13,
-  "raw": {
-    "within": 0.3551,
-    "cross": 0.3599,
-    "delta": -0.0048
-  },
-  "positive_manifold": {
-    "mean_offdiag_r": 0.3592,
-    "frac_pairs_positive": 0.974,
-    "pc1_variance_explained": 0.4506,
-    "eigenvalues_top5": [
-      5.858,
-      1.529,
-      1.193,
-      0.981,
-      0.851
-    ],
-    "pc1_corr_with_mean_accuracy": 0.966
-  },
-  "after_removing_general_factor_PC1": {
-    "within": 0.0209,
-    "cross": -0.0948,
-    "delta": 0.1157,
-    "p_value": 0.0546,
-    "ci95": [
-      -0.1285,
-      0.142
-    ]
-  },
-  "after_removing_general_factor_rowmean": {
-    "within": -0.0244,
-    "cross": -0.061,
-    "delta": 0.0366,
-    "p_value": 0.3064
-  },
-  "interpretation": "First PC explains 45% of paradigm variance with 97% of pairwise correlations positive (a positive manifold). After removing that general factor, within-domain correlations are higher than cross-domain (delta=0.116, p=0.05): no residual block structure."
+ "n_models": 55,
+ "n_paradigms": 13,
+ "raw": {
+  "within": 0.4834,
+  "cross": 0.4286,
+  "delta": 0.0548
+ },
+ "positive_manifold": {
+  "mean_offdiag_r": 0.4364,
+  "frac_pairs_positive": 1.0,
+  "pc1_variance_explained": 0.5017,
+  "eigenvalues_top5": [
+   6.522,
+   1.526,
+   1.063,
+   0.985,
+   0.701
+  ],
+  "pc1_corr_with_mean_accuracy": 0.988
+ },
+ "after_removing_general_factor_PC1": {
+  "delta": 0.2,
+  "p_value": 0.008,
+  "note": "biased downward (PC1-orthogonality artifact); reference only"
+ },
+ "after_removing_general_factor_rowmean": {
+  "within": 0.0633,
+  "cross": -0.0851,
+  "delta": 0.1484,
+  "p_value": 0.0379,
+  "p_value_two_sided": 0.058
+ },
+ "interpretation": "First PC explains 50 percent of paradigm variance with all pairwise correlations positive (a positive manifold, r=0.99 with mean accuracy). The raw within-minus-cross gap is small and non-significant (delta=0.055, one-sided p=0.11). After removing the general factor by row-mean residualization the within-grouping contrast is suggestive but reaches only one-sided significance (delta=0.148, one-sided p=0.04, two-sided p=0.06)."
 }

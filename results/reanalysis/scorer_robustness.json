@@ -1,943 +1,944 @@
 {
-  "task": "P1-1 multi-turn scoring robustness",
-  "n_models": 20,
-  "models": [
-    "command-r:35b",
-    "deepseek-r1:14b",
-    "deepseek-r1:7b",
-    "gemma2:27b",
-    "gemma2:2b",
-    "gemma2:9b",
-    "llama3.1:8b",
-    "llama3.2:1b",
-    "llama3.2:3b",
-    "mistral:7b",
-    "mixtral:8x7b",
-    "phi3:14b",
-    "qwen2.5:0.5b",
-    "qwen2.5:1.5b",
-    "qwen2.5:14b",
-    "qwen2.5:32b",
-    "qwen2.5:3b",
-    "qwen2.5:7b",
-    "tinyllama:1.1b",
-    "yi:34b"
-  ],
-  "dropped_for_missing_data": [],
-  "notes": {
-    "data": "All 20 multi-turn models have 50 n_back + 50 cvlt items each; no model dropped. Static 13-paradigm matrix uses the same 20 models.",
-    "nback_scorer": "Generic and dedicated n_back accuracy are numerically identical per item: both compute (hits+correct_rejections)/n_turns with the same MATCH/NO-MATCH parse; the dead-code dedicated scorer only adds hit_rate/fa_rate/d_prime side metrics, not a different accuracy.",
-    "cvlt_scorer": "Generic harness binarizes each recall turn at recall>=0.5 and counts target-word OCCURRENCES with NO dedup/cap, so echoed prompts can give recall>1.0 (observed hits=41 for list_length=14). Dedicated scorer uses continuous mean recall over learning turns with dedup+cap.",
-    "separability_method": "compute_b2.py within-minus-cross paradigm correlation delta, 5000-perm label-shuffle test, seed=42, 13 paradigms x 20 models.",
-    "scaling_method": "Pearson r of per-model accuracy vs log10(param size), n=20 (the 'near-zero scaling' naive estimate reported in scaling_mixedeffects.json)."
+ "task": "P1-1 multi-turn scoring robustness",
+ "n_models": 20,
+ "models": [
+  "command-r:35b",
+  "deepseek-r1:14b",
+  "deepseek-r1:7b",
+  "gemma2:27b",
+  "gemma2:2b",
+  "gemma2:9b",
+  "llama3.1:8b",
+  "llama3.2:1b",
+  "llama3.2:3b",
+  "mistral:7b",
+  "mixtral:8x7b",
+  "phi3:14b",
+  "qwen2.5:0.5b",
+  "qwen2.5:1.5b",
+  "qwen2.5:14b",
+  "qwen2.5:32b",
+  "qwen2.5:3b",
+  "qwen2.5:7b",
+  "tinyllama:1.1b",
+  "yi:34b"
+ ],
+ "dropped_for_missing_data": [],
+ "notes": {
+  "data": "All 20 multi-turn models have 50 n_back + 50 cvlt items each; no model dropped. Static 13-paradigm matrix uses the same 20 models.",
+  "nback_scorer": "Generic and dedicated n_back accuracy are numerically identical per item: both compute (hits+correct_rejections)/n_turns with the same MATCH/NO-MATCH parse; the dead-code dedicated scorer only adds hit_rate/fa_rate/d_prime side metrics, not a different accuracy.",
+  "cvlt_scorer": "Generic harness binarizes each recall turn at recall>=0.5 and counts target-word OCCURRENCES with NO dedup/cap, so echoed prompts can give recall>1.0 (observed hits=41 for list_length=14). Dedicated scorer uses continuous mean recall over learning turns with dedup+cap.",
+  "separability_method": "compute_b2.py within-minus-cross paradigm correlation delta, 5000-perm label-shuffle test, seed=42, 13 paradigms x 20 models.",
+  "scaling_method": "Pearson r of per-model accuracy vs log10(param size), n=20 (the 'near-zero scaling' naive estimate reported in scaling_mixedeffects.json).",
+  "update_2026_07": "The deployed multi-turn scorer is the corrected strict scorer (yes/no graded on the labeled current-trial answer after stripping prompt echoes; match/no-match punctuation-tolerant). The finding that the dimensional-separability and scaling results are robust to the multi-turn scorer choice is unchanged; the per-model generic-vs-dedicated values below predate the yes/no fix and are retained only to document the scorer-choice comparison, not as current accuracies."
+ },
+ "a_dedicated_vs_generic": {
+  "n_back": {
+   "generic_stored": {
+    "command-r:35b": 0.7571,
+    "deepseek-r1:14b": 0.3967,
+    "deepseek-r1:7b": 0.361,
+    "gemma2:27b": 0.7812,
+    "gemma2:2b": 0.5819,
+    "gemma2:9b": 0.7756,
+    "llama3.1:8b": 0.7127,
+    "llama3.2:1b": 0.4077,
+    "llama3.2:3b": 0.6877,
+    "mistral:7b": 0.6742,
+    "mixtral:8x7b": 0.0681,
+    "phi3:14b": 0.0904,
+    "qwen2.5:0.5b": 0.7254,
+    "qwen2.5:1.5b": 0.4952,
+    "qwen2.5:14b": 0.8054,
+    "qwen2.5:32b": 0.7975,
+    "qwen2.5:3b": 0.6908,
+    "qwen2.5:7b": 0.735,
+    "tinyllama:1.1b": 0.0,
+    "yi:34b": 0.7208
+   },
+   "generic_replay": {
+    "command-r:35b": 0.7571,
+    "deepseek-r1:14b": 0.3967,
+    "deepseek-r1:7b": 0.361,
+    "gemma2:27b": 0.7812,
+    "gemma2:2b": 0.5819,
+    "gemma2:9b": 0.7756,
+    "llama3.1:8b": 0.7127,
+    "llama3.2:1b": 0.4077,
+    "llama3.2:3b": 0.6877,
+    "mistral:7b": 0.6779,
+    "mixtral:8x7b": 0.0681,
+    "phi3:14b": 0.0904,
+    "qwen2.5:0.5b": 0.7254,
+    "qwen2.5:1.5b": 0.4952,
+    "qwen2.5:14b": 0.8054,
+    "qwen2.5:32b": 0.7975,
+    "qwen2.5:3b": 0.6908,
+    "qwen2.5:7b": 0.735,
+    "tinyllama:1.1b": 0.0,
+    "yi:34b": 0.7208
+   },
+   "dedicated": {
+    "command-r:35b": 0.7577,
+    "deepseek-r1:14b": 0.8056,
+    "deepseek-r1:7b": 0.7985,
+    "gemma2:27b": 0.7812,
+    "gemma2:2b": 0.5819,
+    "gemma2:9b": 0.7756,
+    "llama3.1:8b": 0.7127,
+    "llama3.2:1b": 0.7208,
+    "llama3.2:3b": 0.6877,
+    "mistral:7b": 0.6915,
+    "mixtral:8x7b": 0.705,
+    "phi3:14b": 0.7019,
+    "qwen2.5:0.5b": 0.7254,
+    "qwen2.5:1.5b": 0.4971,
+    "qwen2.5:14b": 0.8054,
+    "qwen2.5:32b": 0.7975,
+    "qwen2.5:3b": 0.7038,
+    "qwen2.5:7b": 0.735,
+    "tinyllama:1.1b": 0.7254,
+    "yi:34b": 0.7208
+   },
+   "dedicated_minus_generic": {
+    "command-r:35b": 0.0006,
+    "deepseek-r1:14b": 0.409,
+    "deepseek-r1:7b": 0.4375,
+    "gemma2:27b": 0.0,
+    "gemma2:2b": 0.0,
+    "gemma2:9b": 0.0,
+    "llama3.1:8b": 0.0,
+    "llama3.2:1b": 0.3131,
+    "llama3.2:3b": 0.0,
+    "mistral:7b": 0.0173,
+    "mixtral:8x7b": 0.6369,
+    "phi3:14b": 0.6115,
+    "qwen2.5:0.5b": 0.0,
+    "qwen2.5:1.5b": 0.0019,
+    "qwen2.5:14b": -0.0,
+    "qwen2.5:32b": 0.0,
+    "qwen2.5:3b": 0.0129,
+    "qwen2.5:7b": 0.0,
+    "tinyllama:1.1b": 0.7254,
+    "yi:34b": 0.0
+   },
+   "mean_abs_diff": 0.1583,
+   "max_abs_diff": 0.72542,
+   "pearson_r_dedicated_vs_generic": 0.1621
   },
-  "a_dedicated_vs_generic": {
-    "n_back": {
-      "generic_stored": {
-        "command-r:35b": 0.7571,
-        "deepseek-r1:14b": 0.3967,
-        "deepseek-r1:7b": 0.361,
-        "gemma2:27b": 0.7812,
-        "gemma2:2b": 0.5819,
-        "gemma2:9b": 0.7756,
-        "llama3.1:8b": 0.7127,
-        "llama3.2:1b": 0.4077,
-        "llama3.2:3b": 0.6877,
-        "mistral:7b": 0.6742,
-        "mixtral:8x7b": 0.0681,
-        "phi3:14b": 0.0904,
-        "qwen2.5:0.5b": 0.7254,
-        "qwen2.5:1.5b": 0.4952,
-        "qwen2.5:14b": 0.8054,
-        "qwen2.5:32b": 0.7975,
-        "qwen2.5:3b": 0.6908,
-        "qwen2.5:7b": 0.735,
-        "tinyllama:1.1b": 0.0,
-        "yi:34b": 0.7208
-      },
-      "generic_replay": {
-        "command-r:35b": 0.7571,
-        "deepseek-r1:14b": 0.3967,
-        "deepseek-r1:7b": 0.361,
-        "gemma2:27b": 0.7812,
-        "gemma2:2b": 0.5819,
-        "gemma2:9b": 0.7756,
-        "llama3.1:8b": 0.7127,
-        "llama3.2:1b": 0.4077,
-        "llama3.2:3b": 0.6877,
-        "mistral:7b": 0.6779,
-        "mixtral:8x7b": 0.0681,
-        "phi3:14b": 0.0904,
-        "qwen2.5:0.5b": 0.7254,
-        "qwen2.5:1.5b": 0.4952,
-        "qwen2.5:14b": 0.8054,
-        "qwen2.5:32b": 0.7975,
-        "qwen2.5:3b": 0.6908,
-        "qwen2.5:7b": 0.735,
-        "tinyllama:1.1b": 0.0,
-        "yi:34b": 0.7208
-      },
-      "dedicated": {
-        "command-r:35b": 0.7577,
-        "deepseek-r1:14b": 0.8056,
-        "deepseek-r1:7b": 0.7985,
-        "gemma2:27b": 0.7812,
-        "gemma2:2b": 0.5819,
-        "gemma2:9b": 0.7756,
-        "llama3.1:8b": 0.7127,
-        "llama3.2:1b": 0.7208,
-        "llama3.2:3b": 0.6877,
-        "mistral:7b": 0.6915,
-        "mixtral:8x7b": 0.705,
-        "phi3:14b": 0.7019,
-        "qwen2.5:0.5b": 0.7254,
-        "qwen2.5:1.5b": 0.4971,
-        "qwen2.5:14b": 0.8054,
-        "qwen2.5:32b": 0.7975,
-        "qwen2.5:3b": 0.7038,
-        "qwen2.5:7b": 0.735,
-        "tinyllama:1.1b": 0.7254,
-        "yi:34b": 0.7208
-      },
-      "dedicated_minus_generic": {
-        "command-r:35b": 0.0006,
-        "deepseek-r1:14b": 0.409,
-        "deepseek-r1:7b": 0.4375,
-        "gemma2:27b": 0.0,
-        "gemma2:2b": 0.0,
-        "gemma2:9b": 0.0,
-        "llama3.1:8b": 0.0,
-        "llama3.2:1b": 0.3131,
-        "llama3.2:3b": 0.0,
-        "mistral:7b": 0.0173,
-        "mixtral:8x7b": 0.6369,
-        "phi3:14b": 0.6115,
-        "qwen2.5:0.5b": 0.0,
-        "qwen2.5:1.5b": 0.0019,
-        "qwen2.5:14b": -0.0,
-        "qwen2.5:32b": 0.0,
-        "qwen2.5:3b": 0.0129,
-        "qwen2.5:7b": 0.0,
-        "tinyllama:1.1b": 0.7254,
-        "yi:34b": 0.0
-      },
-      "mean_abs_diff": 0.1583,
-      "max_abs_diff": 0.72542,
-      "pearson_r_dedicated_vs_generic": 0.1621
-    },
-    "cvlt_word_list": {
-      "generic_stored": {
-        "command-r:35b": 1.0,
-        "deepseek-r1:14b": 0.8477,
-        "deepseek-r1:7b": 0.5476,
-        "gemma2:27b": 1.0,
-        "gemma2:2b": 0.9857,
-        "gemma2:9b": 0.8606,
-        "llama3.1:8b": 0.9867,
-        "llama3.2:1b": 0.93,
-        "llama3.2:3b": 0.8363,
-        "mistral:7b": 1.0,
-        "mixtral:8x7b": 0.284,
-        "phi3:14b": 0.9975,
-        "qwen2.5:0.5b": 0.7861,
-        "qwen2.5:1.5b": 0.8827,
-        "qwen2.5:14b": 1.0,
-        "qwen2.5:32b": 1.0,
-        "qwen2.5:3b": 0.9248,
-        "qwen2.5:7b": 1.0,
-        "tinyllama:1.1b": 0.4643,
-        "yi:34b": 1.0
-      },
-      "generic_replay": {
-        "command-r:35b": 1.0,
-        "deepseek-r1:14b": 0.8477,
-        "deepseek-r1:7b": 0.5476,
-        "gemma2:27b": 1.0,
-        "gemma2:2b": 0.9857,
-        "gemma2:9b": 0.8606,
-        "llama3.1:8b": 0.9867,
-        "llama3.2:1b": 0.93,
-        "llama3.2:3b": 0.8363,
-        "mistral:7b": 1.0,
-        "mixtral:8x7b": 0.284,
-        "phi3:14b": 0.9975,
-        "qwen2.5:0.5b": 0.7861,
-        "qwen2.5:1.5b": 0.8827,
-        "qwen2.5:14b": 1.0,
-        "qwen2.5:32b": 1.0,
-        "qwen2.5:3b": 0.9248,
-        "qwen2.5:7b": 1.0,
-        "tinyllama:1.1b": 0.4643,
-        "yi:34b": 1.0
-      },
-      "dedicated_continuous": {
-        "command-r:35b": 0.9975,
-        "deepseek-r1:14b": 0.9142,
-        "deepseek-r1:7b": 0.583,
-        "gemma2:27b": 1.0,
-        "gemma2:2b": 0.9736,
-        "gemma2:9b": 0.7697,
-        "llama3.1:8b": 0.9565,
-        "llama3.2:1b": 0.9053,
-        "llama3.2:3b": 0.7706,
-        "mistral:7b": 1.0,
-        "mixtral:8x7b": 0.9372,
-        "phi3:14b": 0.9993,
-        "qwen2.5:0.5b": 0.7568,
-        "qwen2.5:1.5b": 0.8067,
-        "qwen2.5:14b": 0.9975,
-        "qwen2.5:32b": 1.0,
-        "qwen2.5:3b": 0.8589,
-        "qwen2.5:7b": 1.0,
-        "tinyllama:1.1b": 0.5938,
-        "yi:34b": 0.9993
-      },
-      "dedicated_minus_generic": {
-        "command-r:35b": -0.0025,
-        "deepseek-r1:14b": 0.0665,
-        "deepseek-r1:7b": 0.0354,
-        "gemma2:27b": 0.0,
-        "gemma2:2b": -0.0121,
-        "gemma2:9b": -0.0909,
-        "llama3.1:8b": -0.0301,
-        "llama3.2:1b": -0.0247,
-        "llama3.2:3b": -0.0657,
-        "mistral:7b": 0.0,
-        "mixtral:8x7b": 0.6531,
-        "phi3:14b": 0.0018,
-        "qwen2.5:0.5b": -0.0293,
-        "qwen2.5:1.5b": -0.0761,
-        "qwen2.5:14b": -0.0025,
-        "qwen2.5:32b": 0.0,
-        "qwen2.5:3b": -0.0659,
-        "qwen2.5:7b": 0.0,
-        "tinyllama:1.1b": 0.1295,
-        "yi:34b": -0.0007
-      },
-      "mean_abs_diff": 0.06434,
-      "max_abs_diff": 0.65314,
-      "pearson_r_dedicated_vs_generic": 0.6434
-    }
-  },
-  "b_threshold_and_denominator_sweep": {
-    "thresholds": [
-      0.3,
-      0.4,
-      0.5,
-      0.6,
-      0.7
-    ],
-    "denominators": [
-      "dedup_learning_only",
-      "raw_learning_only",
-      "raw_all_turns"
-    ],
-    "cvlt_binarized_threshold_x_denom": {
-      "th=0.3|denom=dedup_learning_only": {
-        "mean_accuracy_over_models": 0.9248,
-        "per_model": {
-          "command-r:35b": 1.0,
-          "deepseek-r1:14b": 0.9183,
-          "deepseek-r1:7b": 0.6017,
-          "gemma2:27b": 1.0,
-          "gemma2:2b": 0.975,
-          "gemma2:9b": 0.985,
-          "llama3.1:8b": 1.0,
-          "llama3.2:1b": 0.9567,
-          "llama3.2:3b": 0.8233,
-          "mistral:7b": 1.0,
-          "mixtral:8x7b": 0.9717,
-          "phi3:14b": 1.0,
-          "qwen2.5:0.5b": 0.78,
-          "qwen2.5:1.5b": 0.84,
-          "qwen2.5:14b": 1.0,
-          "qwen2.5:32b": 1.0,
-          "qwen2.5:3b": 0.9283,
-          "qwen2.5:7b": 1.0,
-          "tinyllama:1.1b": 0.715,
-          "yi:34b": 1.0
-        }
-      },
-      "th=0.3|denom=raw_learning_only": {
-        "mean_accuracy_over_models": 0.9252,
-        "per_model": {
-          "command-r:35b": 1.0,
-          "deepseek-r1:14b": 0.9183,
-          "deepseek-r1:7b": 0.6017,
-          "gemma2:27b": 1.0,
-          "gemma2:2b": 0.975,
-          "gemma2:9b": 0.985,
-          "llama3.1:8b": 1.0,
-          "llama3.2:1b": 0.9667,
-          "llama3.2:3b": 0.8233,
-          "mistral:7b": 1.0,
-          "mixtral:8x7b": 0.9717,
-          "phi3:14b": 1.0,
-          "qwen2.5:0.5b": 0.78,
-          "qwen2.5:1.5b": 0.84,
-          "qwen2.5:14b": 1.0,
-          "qwen2.5:32b": 1.0,
-          "qwen2.5:3b": 0.9283,
-          "qwen2.5:7b": 1.0,
-          "tinyllama:1.1b": 0.715,
-          "yi:34b": 1.0
-        }
-      },
-      "th=0.3|denom=raw_all_turns": {
-        "mean_accuracy_over_models": 0.9252,
-        "per_model": {
-          "command-r:35b": 1.0,
-          "deepseek-r1:14b": 0.9183,
-          "deepseek-r1:7b": 0.6017,
-          "gemma2:27b": 1.0,
-          "gemma2:2b": 0.975,
-          "gemma2:9b": 0.985,
-          "llama3.1:8b": 1.0,
-          "llama3.2:1b": 0.9667,
-          "llama3.2:3b": 0.8233,
-          "mistral:7b": 1.0,
-          "mixtral:8x7b": 0.9717,
-          "phi3:14b": 1.0,
-          "qwen2.5:0.5b": 0.78,
-          "qwen2.5:1.5b": 0.84,
-          "qwen2.5:14b": 1.0,
-          "qwen2.5:32b": 1.0,
-          "qwen2.5:3b": 0.9283,
-          "qwen2.5:7b": 1.0,
-          "tinyllama:1.1b": 0.715,
-          "yi:34b": 1.0
-        }
-      },
-      "th=0.4|denom=dedup_learning_only": {
-        "mean_accuracy_over_models": 0.9214,
-        "per_model": {
-          "command-r:35b": 1.0,
-          "deepseek-r1:14b": 0.9133,
-          "deepseek-r1:7b": 0.5967,
-          "gemma2:27b": 1.0,
-          "gemma2:2b": 0.975,
-          "gemma2:9b": 0.9617,
-          "llama3.1:8b": 1.0,
-          "llama3.2:1b": 0.9567,
-          "llama3.2:3b": 0.8233,
-          "mistral:7b": 1.0,
-          "mixtral:8x7b": 0.9667,
-          "phi3:14b": 1.0,
-          "qwen2.5:0.5b": 0.78,
-          "qwen2.5:1.5b": 0.84,
-          "qwen2.5:14b": 1.0,
-          "qwen2.5:32b": 1.0,
-          "qwen2.5:3b": 0.92,
-          "qwen2.5:7b": 1.0,
-          "tinyllama:1.1b": 0.695,
-          "yi:34b": 1.0
-        }
-      },
-      "th=0.4|denom=raw_learning_only": {
-        "mean_accuracy_over_models": 0.9224,
-        "per_model": {
-          "command-r:35b": 1.0,
-          "deepseek-r1:14b": 0.9133,
-          "deepseek-r1:7b": 0.5967,
-          "gemma2:27b": 1.0,
-          "gemma2:2b": 0.975,
-          "gemma2:9b": 0.9617,
-          "llama3.1:8b": 1.0,
-          "llama3.2:1b": 0.9667,
-          "llama3.2:3b": 0.8233,
-          "mistral:7b": 1.0,
-          "mixtral:8x7b": 0.9667,
-          "phi3:14b": 1.0,
-          "qwen2.5:0.5b": 0.78,
-          "qwen2.5:1.5b": 0.84,
-          "qwen2.5:14b": 1.0,
-          "qwen2.5:32b": 1.0,
-          "qwen2.5:3b": 0.92,
-          "qwen2.5:7b": 1.0,
-          "tinyllama:1.1b": 0.705,
-          "yi:34b": 1.0
-        }
-      },
-      "th=0.4|denom=raw_all_turns": {
-        "mean_accuracy_over_models": 0.9224,
-        "per_model": {
-          "command-r:35b": 1.0,
-          "deepseek-r1:14b": 0.9133,
-          "deepseek-r1:7b": 0.5967,
-          "gemma2:27b": 1.0,
-          "gemma2:2b": 0.975,
-          "gemma2:9b": 0.9617,
-          "llama3.1:8b": 1.0,
-          "llama3.2:1b": 0.9667,
-          "llama3.2:3b": 0.8233,
-          "mistral:7b": 1.0,
-          "mixtral:8x7b": 0.9667,
-          "phi3:14b": 1.0,
-          "qwen2.5:0.5b": 0.78,
-          "qwen2.5:1.5b": 0.84,
-          "qwen2.5:14b": 1.0,
-          "qwen2.5:32b": 1.0,
-          "qwen2.5:3b": 0.92,
-          "qwen2.5:7b": 1.0,
-          "tinyllama:1.1b": 0.705,
-          "yi:34b": 1.0
-        }
-      },
-      "th=0.5|denom=dedup_learning_only": {
-        "mean_accuracy_over_models": 0.9141,
-        "per_model": {
-          "command-r:35b": 1.0,
-          "deepseek-r1:14b": 0.9133,
-          "deepseek-r1:7b": 0.5967,
-          "gemma2:27b": 1.0,
-          "gemma2:2b": 0.975,
-          "gemma2:9b": 0.8933,
-          "llama3.1:8b": 0.9833,
-          "llama3.2:1b": 0.94,
-          "llama3.2:3b": 0.8233,
-          "mistral:7b": 1.0,
-          "mixtral:8x7b": 0.9667,
-          "phi3:14b": 1.0,
-          "qwen2.5:0.5b": 0.78,
-          "qwen2.5:1.5b": 0.8233,
-          "qwen2.5:14b": 1.0,
-          "qwen2.5:32b": 1.0,
-          "qwen2.5:3b": 0.9067,
-          "qwen2.5:7b": 1.0,
-          "tinyllama:1.1b": 0.68,
-          "yi:34b": 1.0
-        }
-      },
-      "th=0.5|denom=raw_learning_only": {
-        "mean_accuracy_over_models": 0.9158,
-        "per_model": {
-          "command-r:35b": 1.0,
-          "deepseek-r1:14b": 0.9133,
-          "deepseek-r1:7b": 0.5967,
-          "gemma2:27b": 1.0,
-          "gemma2:2b": 0.975,
-          "gemma2:9b": 0.8933,
-          "llama3.1:8b": 0.9833,
-          "llama3.2:1b": 0.95,
-          "llama3.2:3b": 0.8233,
-          "mistral:7b": 1.0,
-          "mixtral:8x7b": 0.9667,
-          "phi3:14b": 1.0,
-          "qwen2.5:0.5b": 0.78,
-          "qwen2.5:1.5b": 0.8233,
-          "qwen2.5:14b": 1.0,
-          "qwen2.5:32b": 1.0,
-          "qwen2.5:3b": 0.9067,
-          "qwen2.5:7b": 1.0,
-          "tinyllama:1.1b": 0.705,
-          "yi:34b": 1.0
-        }
-      },
-      "th=0.5|denom=raw_all_turns": {
-        "mean_accuracy_over_models": 0.9158,
-        "per_model": {
-          "command-r:35b": 1.0,
-          "deepseek-r1:14b": 0.9133,
-          "deepseek-r1:7b": 0.5967,
-          "gemma2:27b": 1.0,
-          "gemma2:2b": 0.975,
-          "gemma2:9b": 0.8933,
-          "llama3.1:8b": 0.9833,
-          "llama3.2:1b": 0.95,
-          "llama3.2:3b": 0.8233,
-          "mistral:7b": 1.0,
-          "mixtral:8x7b": 0.9667,
-          "phi3:14b": 1.0,
-          "qwen2.5:0.5b": 0.78,
-          "qwen2.5:1.5b": 0.8233,
-          "qwen2.5:14b": 1.0,
-          "qwen2.5:32b": 1.0,
-          "qwen2.5:3b": 0.9067,
-          "qwen2.5:7b": 1.0,
-          "tinyllama:1.1b": 0.705,
-          "yi:34b": 1.0
-        }
-      },
-      "th=0.6|denom=dedup_learning_only": {
-        "mean_accuracy_over_models": 0.8898,
-        "per_model": {
-          "command-r:35b": 1.0,
-          "deepseek-r1:14b": 0.9133,
-          "deepseek-r1:7b": 0.5883,
-          "gemma2:27b": 1.0,
-          "gemma2:2b": 0.975,
-          "gemma2:9b": 0.6917,
-          "llama3.1:8b": 0.975,
-          "llama3.2:1b": 0.92,
-          "llama3.2:3b": 0.8233,
-          "mistral:7b": 1.0,
-          "mixtral:8x7b": 0.9133,
-          "phi3:14b": 1.0,
-          "qwen2.5:0.5b": 0.73,
-          "qwen2.5:1.5b": 0.7733,
-          "qwen2.5:14b": 0.995,
-          "qwen2.5:32b": 1.0,
-          "qwen2.5:3b": 0.8567,
-          "qwen2.5:7b": 1.0,
-          "tinyllama:1.1b": 0.64,
-          "yi:34b": 1.0
-        }
-      },
-      "th=0.6|denom=raw_learning_only": {
-        "mean_accuracy_over_models": 0.893,
-        "per_model": {
-          "command-r:35b": 1.0,
-          "deepseek-r1:14b": 0.9133,
-          "deepseek-r1:7b": 0.5883,
-          "gemma2:27b": 1.0,
-          "gemma2:2b": 0.975,
-          "gemma2:9b": 0.6917,
-          "llama3.1:8b": 0.975,
-          "llama3.2:1b": 0.92,
-          "llama3.2:3b": 0.8233,
-          "mistral:7b": 1.0,
-          "mixtral:8x7b": 0.9133,
-          "phi3:14b": 1.0,
-          "qwen2.5:0.5b": 0.73,
-          "qwen2.5:1.5b": 0.7733,
-          "qwen2.5:14b": 0.995,
-          "qwen2.5:32b": 1.0,
-          "qwen2.5:3b": 0.8567,
-          "qwen2.5:7b": 1.0,
-          "tinyllama:1.1b": 0.705,
-          "yi:34b": 1.0
-        }
-      },
-      "th=0.6|denom=raw_all_turns": {
-        "mean_accuracy_over_models": 0.893,
-        "per_model": {
-          "command-r:35b": 1.0,
-          "deepseek-r1:14b": 0.9133,
-          "deepseek-r1:7b": 0.5883,
-          "gemma2:27b": 1.0,
-          "gemma2:2b": 0.975,
-          "gemma2:9b": 0.6917,
-          "llama3.1:8b": 0.975,
-          "llama3.2:1b": 0.92,
-          "llama3.2:3b": 0.8233,
-          "mistral:7b": 1.0,
-          "mixtral:8x7b": 0.9133,
-          "phi3:14b": 1.0,
-          "qwen2.5:0.5b": 0.73,
-          "qwen2.5:1.5b": 0.7733,
-          "qwen2.5:14b": 0.995,
-          "qwen2.5:32b": 1.0,
-          "qwen2.5:3b": 0.8567,
-          "qwen2.5:7b": 1.0,
-          "tinyllama:1.1b": 0.705,
-          "yi:34b": 1.0
-        }
-      },
-      "th=0.7|denom=dedup_learning_only": {
-        "mean_accuracy_over_models": 0.8782,
-        "per_model": {
-          "command-r:35b": 1.0,
-          "deepseek-r1:14b": 0.9133,
-          "deepseek-r1:7b": 0.5633,
-          "gemma2:27b": 1.0,
-          "gemma2:2b": 0.975,
-          "gemma2:9b": 0.61,
-          "llama3.1:8b": 0.9283,
-          "llama3.2:1b": 0.895,
-          "llama3.2:3b": 0.8233,
-          "mistral:7b": 1.0,
-          "mixtral:8x7b": 0.9083,
-          "phi3:14b": 1.0,
-          "qwen2.5:0.5b": 0.73,
-          "qwen2.5:1.5b": 0.7733,
-          "qwen2.5:14b": 0.995,
-          "qwen2.5:32b": 1.0,
-          "qwen2.5:3b": 0.8383,
-          "qwen2.5:7b": 1.0,
-          "tinyllama:1.1b": 0.61,
-          "yi:34b": 1.0
-        }
-      },
-      "th=0.7|denom=raw_learning_only": {
-        "mean_accuracy_over_models": 0.8842,
-        "per_model": {
-          "command-r:35b": 1.0,
-          "deepseek-r1:14b": 0.9133,
-          "deepseek-r1:7b": 0.58,
-          "gemma2:27b": 1.0,
-          "gemma2:2b": 0.975,
-          "gemma2:9b": 0.61,
-          "llama3.1:8b": 0.9283,
-          "llama3.2:1b": 0.905,
-          "llama3.2:3b": 0.8233,
-          "mistral:7b": 1.0,
-          "mixtral:8x7b": 0.9083,
-          "phi3:14b": 1.0,
-          "qwen2.5:0.5b": 0.73,
-          "qwen2.5:1.5b": 0.7733,
-          "qwen2.5:14b": 0.995,
-          "qwen2.5:32b": 1.0,
-          "qwen2.5:3b": 0.8383,
-          "qwen2.5:7b": 1.0,
-          "tinyllama:1.1b": 0.705,
-          "yi:34b": 1.0
-        }
-      },
-      "th=0.7|denom=raw_all_turns": {
-        "mean_accuracy_over_models": 0.8842,
-        "per_model": {
-          "command-r:35b": 1.0,
-          "deepseek-r1:14b": 0.9133,
-          "deepseek-r1:7b": 0.58,
-          "gemma2:27b": 1.0,
-          "gemma2:2b": 0.975,
-          "gemma2:9b": 0.61,
-          "llama3.1:8b": 0.9283,
-          "llama3.2:1b": 0.905,
-          "llama3.2:3b": 0.8233,
-          "mistral:7b": 1.0,
-          "mixtral:8x7b": 0.9083,
-          "phi3:14b": 1.0,
-          "qwen2.5:0.5b": 0.73,
-          "qwen2.5:1.5b": 0.7733,
-          "qwen2.5:14b": 0.995,
-          "qwen2.5:32b": 1.0,
-          "qwen2.5:3b": 0.8383,
-          "qwen2.5:7b": 1.0,
-          "tinyllama:1.1b": 0.705,
-          "yi:34b": 1.0
-        }
-      }
-    },
-    "cvlt_continuous_by_denom": {
-      "dedup_learning_only": {
-        "mean_accuracy_over_models": 0.891,
-        "per_model": {
-          "command-r:35b": 0.9975,
-          "deepseek-r1:14b": 0.9142,
-          "deepseek-r1:7b": 0.583,
-          "gemma2:27b": 1.0,
-          "gemma2:2b": 0.9736,
-          "gemma2:9b": 0.7697,
-          "llama3.1:8b": 0.9565,
-          "llama3.2:1b": 0.9053,
-          "llama3.2:3b": 0.7706,
-          "mistral:7b": 1.0,
-          "mixtral:8x7b": 0.9372,
-          "phi3:14b": 0.9993,
-          "qwen2.5:0.5b": 0.7568,
-          "qwen2.5:1.5b": 0.8067,
-          "qwen2.5:14b": 0.9975,
-          "qwen2.5:32b": 1.0,
-          "qwen2.5:3b": 0.8589,
-          "qwen2.5:7b": 1.0,
-          "tinyllama:1.1b": 0.5938,
-          "yi:34b": 0.9993
-        }
-      },
-      "raw_learning_only": {
-        "mean_accuracy_over_models": 1.3522,
-        "per_model": {
-          "command-r:35b": 1.0059,
-          "deepseek-r1:14b": 0.9885,
-          "deepseek-r1:7b": 0.645,
-          "gemma2:27b": 1.0,
-          "gemma2:2b": 1.5025,
-          "gemma2:9b": 1.1108,
-          "llama3.1:8b": 0.9565,
-          "llama3.2:1b": 3.2817,
-          "llama3.2:3b": 1.0692,
-          "mistral:7b": 1.7285,
-          "mixtral:8x7b": 2.1644,
-          "phi3:14b": 1.8857,
-          "qwen2.5:0.5b": 0.7604,
-          "qwen2.5:1.5b": 0.8508,
-          "qwen2.5:14b": 0.9975,
-          "qwen2.5:32b": 1.0,
-          "qwen2.5:3b": 0.8589,
-          "qwen2.5:7b": 1.2333,
-          "tinyllama:1.1b": 2.8883,
-          "yi:34b": 1.116
-        }
-      },
-      "raw_all_turns": {
-        "mean_accuracy_over_models": 1.3522,
-        "per_model": {
-          "command-r:35b": 1.0059,
-          "deepseek-r1:14b": 0.9885,
-          "deepseek-r1:7b": 0.645,
-          "gemma2:27b": 1.0,
-          "gemma2:2b": 1.5025,
-          "gemma2:9b": 1.1108,
-          "llama3.1:8b": 0.9565,
-          "llama3.2:1b": 3.2817,
-          "llama3.2:3b": 1.0692,
-          "mistral:7b": 1.7285,
-          "mixtral:8x7b": 2.1644,
-          "phi3:14b": 1.8857,
-          "qwen2.5:0.5b": 0.7604,
-          "qwen2.5:1.5b": 0.8508,
-          "qwen2.5:14b": 0.9975,
-          "qwen2.5:32b": 1.0,
-          "qwen2.5:3b": 0.8589,
-          "qwen2.5:7b": 1.2333,
-          "tinyllama:1.1b": 2.8883,
-          "yi:34b": 1.116
-        }
-      }
-    }
-  },
-  "c_finding_survival": {
-    "separability": {
-      "by_scoring": {
-        "baseline_generic": {
-          "within_mean": 0.4137,
-          "cross_mean": 0.422,
-          "delta": -0.0083,
-          "p_value": 0.514,
-          "matches_analysis_b2": true,
-          "reference_delta": -0.0083
-        },
-        "dedicated": {
-          "within_mean": 0.4246,
-          "cross_mean": 0.4007,
-          "delta": 0.0239,
-          "p_value": 0.3494,
-          "pass_significant": false
-        },
-        "cvlt_binarized_th0.3_dedup": {
-          "within_mean": 0.438,
-          "cross_mean": 0.3996,
-          "delta": 0.0383,
-          "p_value": 0.292,
-          "pass_significant": false
-        },
-        "cvlt_binarized_th0.4_dedup": {
-          "within_mean": 0.4376,
-          "cross_mean": 0.3998,
-          "delta": 0.0378,
-          "p_value": 0.295,
-          "pass_significant": false
-        },
-        "cvlt_binarized_th0.5_dedup": {
-          "within_mean": 0.4345,
-          "cross_mean": 0.4,
-          "delta": 0.0344,
-          "p_value": 0.3062,
-          "pass_significant": false
-        },
-        "cvlt_binarized_th0.6_dedup": {
-          "within_mean": 0.4198,
-          "cross_mean": 0.396,
-          "delta": 0.0237,
-          "p_value": 0.3492,
-          "pass_significant": false
-        },
-        "cvlt_binarized_th0.7_dedup": {
-          "within_mean": 0.4098,
-          "cross_mean": 0.3932,
-          "delta": 0.0167,
-          "p_value": 0.3812,
-          "pass_significant": false
-        },
-        "cvlt_continuous_dedup_learning_only": {
-          "within_mean": 0.4246,
-          "cross_mean": 0.4007,
-          "delta": 0.0239,
-          "p_value": 0.3494,
-          "pass_significant": false
-        },
-        "cvlt_continuous_raw_learning_only": {
-          "within_mean": 0.2576,
-          "cross_mean": 0.2881,
-          "delta": -0.0305,
-          "p_value": 0.5844,
-          "pass_significant": false
-        },
-        "cvlt_continuous_raw_all_turns": {
-          "within_mean": 0.2576,
-          "cross_mean": 0.2881,
-          "delta": -0.0305,
-          "p_value": 0.5844,
-          "pass_significant": false
-        }
-      },
-      "delta_min": -0.0305,
-      "delta_max": 0.0383,
-      "delta_range_str": "[-0.0305, +0.0383]",
-      "null_stable_all_p_ge_0.05": true
-    },
-    "scaling_near_zero": {
-      "by_scoring": {
-        "baseline_generic": {
-          "n_back": {
-            "pearson_r": 0.1295,
-            "p": 0.5863,
-            "n": 20
-          },
-          "cvlt_word_list": {
-            "pearson_r": 0.1005,
-            "p": 0.6734,
-            "n": 20
-          }
-        },
-        "dedicated": {
-          "n_back": {
-            "pearson_r": 0.4652,
-            "p": 0.0388
-          },
-          "cvlt_word_list": {
-            "pearson_r": 0.56,
-            "p": 0.0102
-          }
-        },
-        "cvlt_binarized_th0.3_dedup": {
-          "n_back": {
-            "pearson_r": 0.4652,
-            "p": 0.0388
-          },
-          "cvlt_word_list": {
-            "pearson_r": 0.5281,
-            "p": 0.0167
-          }
-        },
-        "cvlt_binarized_th0.4_dedup": {
-          "n_back": {
-            "pearson_r": 0.4652,
-            "p": 0.0388
-          },
-          "cvlt_word_list": {
-            "pearson_r": 0.5265,
-            "p": 0.0171
-          }
-        },
-        "cvlt_binarized_th0.5_dedup": {
-          "n_back": {
-            "pearson_r": 0.4652,
-            "p": 0.0388
-          },
-          "cvlt_word_list": {
-            "pearson_r": 0.5463,
-            "p": 0.0127
-          }
-        },
-        "cvlt_binarized_th0.6_dedup": {
-          "n_back": {
-            "pearson_r": 0.4652,
-            "p": 0.0388
-          },
-          "cvlt_word_list": {
-            "pearson_r": 0.5291,
-            "p": 0.0165
-          }
-        },
-        "cvlt_binarized_th0.7_dedup": {
-          "n_back": {
-            "pearson_r": 0.4652,
-            "p": 0.0388
-          },
-          "cvlt_word_list": {
-            "pearson_r": 0.508,
-            "p": 0.0222
-          }
-        },
-        "cvlt_continuous_dedup_learning_only": {
-          "n_back": {
-            "pearson_r": 0.4652,
-            "p": 0.0388
-          },
-          "cvlt_word_list": {
-            "pearson_r": 0.56,
-            "p": 0.0102
-          }
-        },
-        "cvlt_continuous_raw_learning_only": {
-          "n_back": {
-            "pearson_r": 0.4652,
-            "p": 0.0388
-          },
-          "cvlt_word_list": {
-            "pearson_r": -0.2465,
-            "p": 0.2948
-          }
-        },
-        "cvlt_continuous_raw_all_turns": {
-          "n_back": {
-            "pearson_r": 0.4652,
-            "p": 0.0388
-          },
-          "cvlt_word_list": {
-            "pearson_r": -0.2465,
-            "p": 0.2948
-          }
-        }
-      },
-      "n_back_r_range": [
-        0.1295,
-        0.4652
-      ],
-      "cvlt_r_range": [
-        -0.2465,
-        0.56
-      ],
-      "n_back_nearzero_stable": false,
-      "cvlt_nearzero_stable": false,
-      "nearzero_abs_threshold": 0.3
-    },
-    "top_movers": {
-      "n_back_dedicated_minus_generic": [
-        [
-          "tinyllama:1.1b",
-          0.7254
-        ],
-        [
-          "mixtral:8x7b",
-          0.6369
-        ],
-        [
-          "phi3:14b",
-          0.6115
-        ],
-        [
-          "deepseek-r1:7b",
-          0.4375
-        ],
-        [
-          "deepseek-r1:14b",
-          0.409
-        ],
-        [
-          "llama3.2:1b",
-          0.3131
-        ]
-      ],
-      "cvlt_dedicated_minus_generic": [
-        [
-          "mixtral:8x7b",
-          0.6531
-        ],
-        [
-          "tinyllama:1.1b",
-          0.1295
-        ],
-        [
-          "gemma2:9b",
-          -0.0909
-        ],
-        [
-          "qwen2.5:1.5b",
-          -0.0761
-        ],
-        [
-          "deepseek-r1:14b",
-          0.0665
-        ],
-        [
-          "qwen2.5:3b",
-          -0.0659
-        ]
-      ],
-      "explanation": "n_back: dedicated parser ('MATCH' in ans and 'NO' not in ans) defaults unparseable/garbage outputs to NO MATCH, scoring them at the ~70% no-match base rate; the generic harness scored unparseable turns as wrong. cvlt: generic harness counts target-word occurrences uncapped across recall turns (recall can exceed 1.0 on echoed prompts; mixtral:8x7b generic=0.284 vs dedicated=0.937)."
-    }
+  "cvlt_word_list": {
+   "generic_stored": {
+    "command-r:35b": 1.0,
+    "deepseek-r1:14b": 0.8477,
+    "deepseek-r1:7b": 0.5476,
+    "gemma2:27b": 1.0,
+    "gemma2:2b": 0.9857,
+    "gemma2:9b": 0.8606,
+    "llama3.1:8b": 0.9867,
+    "llama3.2:1b": 0.93,
+    "llama3.2:3b": 0.8363,
+    "mistral:7b": 1.0,
+    "mixtral:8x7b": 0.284,
+    "phi3:14b": 0.9975,
+    "qwen2.5:0.5b": 0.7861,
+    "qwen2.5:1.5b": 0.8827,
+    "qwen2.5:14b": 1.0,
+    "qwen2.5:32b": 1.0,
+    "qwen2.5:3b": 0.9248,
+    "qwen2.5:7b": 1.0,
+    "tinyllama:1.1b": 0.4643,
+    "yi:34b": 1.0
+   },
+   "generic_replay": {
+    "command-r:35b": 1.0,
+    "deepseek-r1:14b": 0.8477,
+    "deepseek-r1:7b": 0.5476,
+    "gemma2:27b": 1.0,
+    "gemma2:2b": 0.9857,
+    "gemma2:9b": 0.8606,
+    "llama3.1:8b": 0.9867,
+    "llama3.2:1b": 0.93,
+    "llama3.2:3b": 0.8363,
+    "mistral:7b": 1.0,
+    "mixtral:8x7b": 0.284,
+    "phi3:14b": 0.9975,
+    "qwen2.5:0.5b": 0.7861,
+    "qwen2.5:1.5b": 0.8827,
+    "qwen2.5:14b": 1.0,
+    "qwen2.5:32b": 1.0,
+    "qwen2.5:3b": 0.9248,
+    "qwen2.5:7b": 1.0,
+    "tinyllama:1.1b": 0.4643,
+    "yi:34b": 1.0
+   },
+   "dedicated_continuous": {
+    "command-r:35b": 0.9975,
+    "deepseek-r1:14b": 0.9142,
+    "deepseek-r1:7b": 0.583,
+    "gemma2:27b": 1.0,
+    "gemma2:2b": 0.9736,
+    "gemma2:9b": 0.7697,
+    "llama3.1:8b": 0.9565,
+    "llama3.2:1b": 0.9053,
+    "llama3.2:3b": 0.7706,
+    "mistral:7b": 1.0,
+    "mixtral:8x7b": 0.9372,
+    "phi3:14b": 0.9993,
+    "qwen2.5:0.5b": 0.7568,
+    "qwen2.5:1.5b": 0.8067,
+    "qwen2.5:14b": 0.9975,
+    "qwen2.5:32b": 1.0,
+    "qwen2.5:3b": 0.8589,
+    "qwen2.5:7b": 1.0,
+    "tinyllama:1.1b": 0.5938,
+    "yi:34b": 0.9993
+   },
+   "dedicated_minus_generic": {
+    "command-r:35b": -0.0025,
+    "deepseek-r1:14b": 0.0665,
+    "deepseek-r1:7b": 0.0354,
+    "gemma2:27b": 0.0,
+    "gemma2:2b": -0.0121,
+    "gemma2:9b": -0.0909,
+    "llama3.1:8b": -0.0301,
+    "llama3.2:1b": -0.0247,
+    "llama3.2:3b": -0.0657,
+    "mistral:7b": 0.0,
+    "mixtral:8x7b": 0.6531,
+    "phi3:14b": 0.0018,
+    "qwen2.5:0.5b": -0.0293,
+    "qwen2.5:1.5b": -0.0761,
+    "qwen2.5:14b": -0.0025,
+    "qwen2.5:32b": 0.0,
+    "qwen2.5:3b": -0.0659,
+    "qwen2.5:7b": 0.0,
+    "tinyllama:1.1b": 0.1295,
+    "yi:34b": -0.0007
+   },
+   "mean_abs_diff": 0.06434,
+   "max_abs_diff": 0.65314,
+   "pearson_r_dedicated_vs_generic": 0.6434
   }
+ },
+ "b_threshold_and_denominator_sweep": {
+  "thresholds": [
+   0.3,
+   0.4,
+   0.5,
+   0.6,
+   0.7
+  ],
+  "denominators": [
+   "dedup_learning_only",
+   "raw_learning_only",
+   "raw_all_turns"
+  ],
+  "cvlt_binarized_threshold_x_denom": {
+   "th=0.3|denom=dedup_learning_only": {
+    "mean_accuracy_over_models": 0.9248,
+    "per_model": {
+     "command-r:35b": 1.0,
+     "deepseek-r1:14b": 0.9183,
+     "deepseek-r1:7b": 0.6017,
+     "gemma2:27b": 1.0,
+     "gemma2:2b": 0.975,
+     "gemma2:9b": 0.985,
+     "llama3.1:8b": 1.0,
+     "llama3.2:1b": 0.9567,
+     "llama3.2:3b": 0.8233,
+     "mistral:7b": 1.0,
+     "mixtral:8x7b": 0.9717,
+     "phi3:14b": 1.0,
+     "qwen2.5:0.5b": 0.78,
+     "qwen2.5:1.5b": 0.84,
+     "qwen2.5:14b": 1.0,
+     "qwen2.5:32b": 1.0,
+     "qwen2.5:3b": 0.9283,
+     "qwen2.5:7b": 1.0,
+     "tinyllama:1.1b": 0.715,
+     "yi:34b": 1.0
+    }
+   },
+   "th=0.3|denom=raw_learning_only": {
+    "mean_accuracy_over_models": 0.9252,
+    "per_model": {
+     "command-r:35b": 1.0,
+     "deepseek-r1:14b": 0.9183,
+     "deepseek-r1:7b": 0.6017,
+     "gemma2:27b": 1.0,
+     "gemma2:2b": 0.975,
+     "gemma2:9b": 0.985,
+     "llama3.1:8b": 1.0,
+     "llama3.2:1b": 0.9667,
+     "llama3.2:3b": 0.8233,
+     "mistral:7b": 1.0,
+     "mixtral:8x7b": 0.9717,
+     "phi3:14b": 1.0,
+     "qwen2.5:0.5b": 0.78,
+     "qwen2.5:1.5b": 0.84,
+     "qwen2.5:14b": 1.0,
+     "qwen2.5:32b": 1.0,
+     "qwen2.5:3b": 0.9283,
+     "qwen2.5:7b": 1.0,
+     "tinyllama:1.1b": 0.715,
+     "yi:34b": 1.0
+    }
+   },
+   "th=0.3|denom=raw_all_turns": {
+    "mean_accuracy_over_models": 0.9252,
+    "per_model": {
+     "command-r:35b": 1.0,
+     "deepseek-r1:14b": 0.9183,
+     "deepseek-r1:7b": 0.6017,
+     "gemma2:27b": 1.0,
+     "gemma2:2b": 0.975,
+     "gemma2:9b": 0.985,
+     "llama3.1:8b": 1.0,
+     "llama3.2:1b": 0.9667,
+     "llama3.2:3b": 0.8233,
+     "mistral:7b": 1.0,
+     "mixtral:8x7b": 0.9717,
+     "phi3:14b": 1.0,
+     "qwen2.5:0.5b": 0.78,
+     "qwen2.5:1.5b": 0.84,
+     "qwen2.5:14b": 1.0,
+     "qwen2.5:32b": 1.0,
+     "qwen2.5:3b": 0.9283,
+     "qwen2.5:7b": 1.0,
+     "tinyllama:1.1b": 0.715,
+     "yi:34b": 1.0
+    }
+   },
+   "th=0.4|denom=dedup_learning_only": {
+    "mean_accuracy_over_models": 0.9214,
+    "per_model": {
+     "command-r:35b": 1.0,
+     "deepseek-r1:14b": 0.9133,
+     "deepseek-r1:7b": 0.5967,
+     "gemma2:27b": 1.0,
+     "gemma2:2b": 0.975,
+     "gemma2:9b": 0.9617,
+     "llama3.1:8b": 1.0,
+     "llama3.2:1b": 0.9567,
+     "llama3.2:3b": 0.8233,
+     "mistral:7b": 1.0,
+     "mixtral:8x7b": 0.9667,
+     "phi3:14b": 1.0,
+     "qwen2.5:0.5b": 0.78,
+     "qwen2.5:1.5b": 0.84,
+     "qwen2.5:14b": 1.0,
+     "qwen2.5:32b": 1.0,
+     "qwen2.5:3b": 0.92,
+     "qwen2.5:7b": 1.0,
+     "tinyllama:1.1b": 0.695,
+     "yi:34b": 1.0
+    }
+   },
+   "th=0.4|denom=raw_learning_only": {
+    "mean_accuracy_over_models": 0.9224,
+    "per_model": {
+     "command-r:35b": 1.0,
+     "deepseek-r1:14b": 0.9133,
+     "deepseek-r1:7b": 0.5967,
+     "gemma2:27b": 1.0,
+     "gemma2:2b": 0.975,
+     "gemma2:9b": 0.9617,
+     "llama3.1:8b": 1.0,
+     "llama3.2:1b": 0.9667,
+     "llama3.2:3b": 0.8233,
+     "mistral:7b": 1.0,
+     "mixtral:8x7b": 0.9667,
+     "phi3:14b": 1.0,
+     "qwen2.5:0.5b": 0.78,
+     "qwen2.5:1.5b": 0.84,
+     "qwen2.5:14b": 1.0,
+     "qwen2.5:32b": 1.0,
+     "qwen2.5:3b": 0.92,
+     "qwen2.5:7b": 1.0,
+     "tinyllama:1.1b": 0.705,
+     "yi:34b": 1.0
+    }
+   },
+   "th=0.4|denom=raw_all_turns": {
+    "mean_accuracy_over_models": 0.9224,
+    "per_model": {
+     "command-r:35b": 1.0,
+     "deepseek-r1:14b": 0.9133,
+     "deepseek-r1:7b": 0.5967,
+     "gemma2:27b": 1.0,
+     "gemma2:2b": 0.975,
+     "gemma2:9b": 0.9617,
+     "llama3.1:8b": 1.0,
+     "llama3.2:1b": 0.9667,
+     "llama3.2:3b": 0.8233,
+     "mistral:7b": 1.0,
+     "mixtral:8x7b": 0.9667,
+     "phi3:14b": 1.0,
+     "qwen2.5:0.5b": 0.78,
+     "qwen2.5:1.5b": 0.84,
+     "qwen2.5:14b": 1.0,
+     "qwen2.5:32b": 1.0,
+     "qwen2.5:3b": 0.92,
+     "qwen2.5:7b": 1.0,
+     "tinyllama:1.1b": 0.705,
+     "yi:34b": 1.0
+    }
+   },
+   "th=0.5|denom=dedup_learning_only": {
+    "mean_accuracy_over_models": 0.9141,
+    "per_model": {
+     "command-r:35b": 1.0,
+     "deepseek-r1:14b": 0.9133,
+     "deepseek-r1:7b": 0.5967,
+     "gemma2:27b": 1.0,
+     "gemma2:2b": 0.975,
+     "gemma2:9b": 0.8933,
+     "llama3.1:8b": 0.9833,
+     "llama3.2:1b": 0.94,
+     "llama3.2:3b": 0.8233,
+     "mistral:7b": 1.0,
+     "mixtral:8x7b": 0.9667,
+     "phi3:14b": 1.0,
+     "qwen2.5:0.5b": 0.78,
+     "qwen2.5:1.5b": 0.8233,
+     "qwen2.5:14b": 1.0,
+     "qwen2.5:32b": 1.0,
+     "qwen2.5:3b": 0.9067,
+     "qwen2.5:7b": 1.0,
+     "tinyllama:1.1b": 0.68,
+     "yi:34b": 1.0
+    }
+   },
+   "th=0.5|denom=raw_learning_only": {
+    "mean_accuracy_over_models": 0.9158,
+    "per_model": {
+     "command-r:35b": 1.0,
+     "deepseek-r1:14b": 0.9133,
+     "deepseek-r1:7b": 0.5967,
+     "gemma2:27b": 1.0,
+     "gemma2:2b": 0.975,
+     "gemma2:9b": 0.8933,
+     "llama3.1:8b": 0.9833,
+     "llama3.2:1b": 0.95,
+     "llama3.2:3b": 0.8233,
+     "mistral:7b": 1.0,
+     "mixtral:8x7b": 0.9667,
+     "phi3:14b": 1.0,
+     "qwen2.5:0.5b": 0.78,
+     "qwen2.5:1.5b": 0.8233,
+     "qwen2.5:14b": 1.0,
+     "qwen2.5:32b": 1.0,
+     "qwen2.5:3b": 0.9067,
+     "qwen2.5:7b": 1.0,
+     "tinyllama:1.1b": 0.705,
+     "yi:34b": 1.0
+    }
+   },
+   "th=0.5|denom=raw_all_turns": {
+    "mean_accuracy_over_models": 0.9158,
+    "per_model": {
+     "command-r:35b": 1.0,
+     "deepseek-r1:14b": 0.9133,
+     "deepseek-r1:7b": 0.5967,
+     "gemma2:27b": 1.0,
+     "gemma2:2b": 0.975,
+     "gemma2:9b": 0.8933,
+     "llama3.1:8b": 0.9833,
+     "llama3.2:1b": 0.95,
+     "llama3.2:3b": 0.8233,
+     "mistral:7b": 1.0,
+     "mixtral:8x7b": 0.9667,
+     "phi3:14b": 1.0,
+     "qwen2.5:0.5b": 0.78,
+     "qwen2.5:1.5b": 0.8233,
+     "qwen2.5:14b": 1.0,
+     "qwen2.5:32b": 1.0,
+     "qwen2.5:3b": 0.9067,
+     "qwen2.5:7b": 1.0,
+     "tinyllama:1.1b": 0.705,
+     "yi:34b": 1.0
+    }
+   },
+   "th=0.6|denom=dedup_learning_only": {
+    "mean_accuracy_over_models": 0.8898,
+    "per_model": {
+     "command-r:35b": 1.0,
+     "deepseek-r1:14b": 0.9133,
+     "deepseek-r1:7b": 0.5883,
+     "gemma2:27b": 1.0,
+     "gemma2:2b": 0.975,
+     "gemma2:9b": 0.6917,
+     "llama3.1:8b": 0.975,
+     "llama3.2:1b": 0.92,
+     "llama3.2:3b": 0.8233,
+     "mistral:7b": 1.0,
+     "mixtral:8x7b": 0.9133,
+     "phi3:14b": 1.0,
+     "qwen2.5:0.5b": 0.73,
+     "qwen2.5:1.5b": 0.7733,
+     "qwen2.5:14b": 0.995,
+     "qwen2.5:32b": 1.0,
+     "qwen2.5:3b": 0.8567,
+     "qwen2.5:7b": 1.0,
+     "tinyllama:1.1b": 0.64,
+     "yi:34b": 1.0
+    }
+   },
+   "th=0.6|denom=raw_learning_only": {
+    "mean_accuracy_over_models": 0.893,
+    "per_model": {
+     "command-r:35b": 1.0,
+     "deepseek-r1:14b": 0.9133,
+     "deepseek-r1:7b": 0.5883,
+     "gemma2:27b": 1.0,
+     "gemma2:2b": 0.975,
+     "gemma2:9b": 0.6917,
+     "llama3.1:8b": 0.975,
+     "llama3.2:1b": 0.92,
+     "llama3.2:3b": 0.8233,
+     "mistral:7b": 1.0,
+     "mixtral:8x7b": 0.9133,
+     "phi3:14b": 1.0,
+     "qwen2.5:0.5b": 0.73,
+     "qwen2.5:1.5b": 0.7733,
+     "qwen2.5:14b": 0.995,
+     "qwen2.5:32b": 1.0,
+     "qwen2.5:3b": 0.8567,
+     "qwen2.5:7b": 1.0,
+     "tinyllama:1.1b": 0.705,
+     "yi:34b": 1.0
+    }
+   },
+   "th=0.6|denom=raw_all_turns": {
+    "mean_accuracy_over_models": 0.893,
+    "per_model": {
+     "command-r:35b": 1.0,
+     "deepseek-r1:14b": 0.9133,
+     "deepseek-r1:7b": 0.5883,
+     "gemma2:27b": 1.0,
+     "gemma2:2b": 0.975,
+     "gemma2:9b": 0.6917,
+     "llama3.1:8b": 0.975,
+     "llama3.2:1b": 0.92,
+     "llama3.2:3b": 0.8233,
+     "mistral:7b": 1.0,
+     "mixtral:8x7b": 0.9133,
+     "phi3:14b": 1.0,
+     "qwen2.5:0.5b": 0.73,
+     "qwen2.5:1.5b": 0.7733,
+     "qwen2.5:14b": 0.995,
+     "qwen2.5:32b": 1.0,
+     "qwen2.5:3b": 0.8567,
+     "qwen2.5:7b": 1.0,
+     "tinyllama:1.1b": 0.705,
+     "yi:34b": 1.0
+    }
+   },
+   "th=0.7|denom=dedup_learning_only": {
+    "mean_accuracy_over_models": 0.8782,
+    "per_model": {
+     "command-r:35b": 1.0,
+     "deepseek-r1:14b": 0.9133,
+     "deepseek-r1:7b": 0.5633,
+     "gemma2:27b": 1.0,
+     "gemma2:2b": 0.975,
+     "gemma2:9b": 0.61,
+     "llama3.1:8b": 0.9283,
+     "llama3.2:1b": 0.895,
+     "llama3.2:3b": 0.8233,
+     "mistral:7b": 1.0,
+     "mixtral:8x7b": 0.9083,
+     "phi3:14b": 1.0,
+     "qwen2.5:0.5b": 0.73,
+     "qwen2.5:1.5b": 0.7733,
+     "qwen2.5:14b": 0.995,
+     "qwen2.5:32b": 1.0,
+     "qwen2.5:3b": 0.8383,
+     "qwen2.5:7b": 1.0,
+     "tinyllama:1.1b": 0.61,
+     "yi:34b": 1.0
+    }
+   },
+   "th=0.7|denom=raw_learning_only": {
+    "mean_accuracy_over_models": 0.8842,
+    "per_model": {
+     "command-r:35b": 1.0,
+     "deepseek-r1:14b": 0.9133,
+     "deepseek-r1:7b": 0.58,
+     "gemma2:27b": 1.0,
+     "gemma2:2b": 0.975,
+     "gemma2:9b": 0.61,
+     "llama3.1:8b": 0.9283,
+     "llama3.2:1b": 0.905,
+     "llama3.2:3b": 0.8233,
+     "mistral:7b": 1.0,
+     "mixtral:8x7b": 0.9083,
+     "phi3:14b": 1.0,
+     "qwen2.5:0.5b": 0.73,
+     "qwen2.5:1.5b": 0.7733,
+     "qwen2.5:14b": 0.995,
+     "qwen2.5:32b": 1.0,
+     "qwen2.5:3b": 0.8383,
+     "qwen2.5:7b": 1.0,
+     "tinyllama:1.1b": 0.705,
+     "yi:34b": 1.0
+    }
+   },
+   "th=0.7|denom=raw_all_turns": {
+    "mean_accuracy_over_models": 0.8842,
+    "per_model": {
+     "command-r:35b": 1.0,
+     "deepseek-r1:14b": 0.9133,
+     "deepseek-r1:7b": 0.58,
+     "gemma2:27b": 1.0,
+     "gemma2:2b": 0.975,
+     "gemma2:9b": 0.61,
+     "llama3.1:8b": 0.9283,
+     "llama3.2:1b": 0.905,
+     "llama3.2:3b": 0.8233,
+     "mistral:7b": 1.0,
+     "mixtral:8x7b": 0.9083,
+     "phi3:14b": 1.0,
+     "qwen2.5:0.5b": 0.73,
+     "qwen2.5:1.5b": 0.7733,
+     "qwen2.5:14b": 0.995,
+     "qwen2.5:32b": 1.0,
+     "qwen2.5:3b": 0.8383,
+     "qwen2.5:7b": 1.0,
+     "tinyllama:1.1b": 0.705,
+     "yi:34b": 1.0
+    }
+   }
+  },
+  "cvlt_continuous_by_denom": {
+   "dedup_learning_only": {
+    "mean_accuracy_over_models": 0.891,
+    "per_model": {
+     "command-r:35b": 0.9975,
+     "deepseek-r1:14b": 0.9142,
+     "deepseek-r1:7b": 0.583,
+     "gemma2:27b": 1.0,
+     "gemma2:2b": 0.9736,
+     "gemma2:9b": 0.7697,
+     "llama3.1:8b": 0.9565,
+     "llama3.2:1b": 0.9053,
+     "llama3.2:3b": 0.7706,
+     "mistral:7b": 1.0,
+     "mixtral:8x7b": 0.9372,
+     "phi3:14b": 0.9993,
+     "qwen2.5:0.5b": 0.7568,
+     "qwen2.5:1.5b": 0.8067,
+     "qwen2.5:14b": 0.9975,
+     "qwen2.5:32b": 1.0,
+     "qwen2.5:3b": 0.8589,
+     "qwen2.5:7b": 1.0,
+     "tinyllama:1.1b": 0.5938,
+     "yi:34b": 0.9993
+    }
+   },
+   "raw_learning_only": {
+    "mean_accuracy_over_models": 1.3522,
+    "per_model": {
+     "command-r:35b": 1.0059,
+     "deepseek-r1:14b": 0.9885,
+     "deepseek-r1:7b": 0.645,
+     "gemma2:27b": 1.0,
+     "gemma2:2b": 1.5025,
+     "gemma2:9b": 1.1108,
+     "llama3.1:8b": 0.9565,
+     "llama3.2:1b": 3.2817,
+     "llama3.2:3b": 1.0692,
+     "mistral:7b": 1.7285,
+     "mixtral:8x7b": 2.1644,
+     "phi3:14b": 1.8857,
+     "qwen2.5:0.5b": 0.7604,
+     "qwen2.5:1.5b": 0.8508,
+     "qwen2.5:14b": 0.9975,
+     "qwen2.5:32b": 1.0,
+     "qwen2.5:3b": 0.8589,
+     "qwen2.5:7b": 1.2333,
+     "tinyllama:1.1b": 2.8883,
+     "yi:34b": 1.116
+    }
+   },
+   "raw_all_turns": {
+    "mean_accuracy_over_models": 1.3522,
+    "per_model": {
+     "command-r:35b": 1.0059,
+     "deepseek-r1:14b": 0.9885,
+     "deepseek-r1:7b": 0.645,
+     "gemma2:27b": 1.0,
+     "gemma2:2b": 1.5025,
+     "gemma2:9b": 1.1108,
+     "llama3.1:8b": 0.9565,
+     "llama3.2:1b": 3.2817,
+     "llama3.2:3b": 1.0692,
+     "mistral:7b": 1.7285,
+     "mixtral:8x7b": 2.1644,
+     "phi3:14b": 1.8857,
+     "qwen2.5:0.5b": 0.7604,
+     "qwen2.5:1.5b": 0.8508,
+     "qwen2.5:14b": 0.9975,
+     "qwen2.5:32b": 1.0,
+     "qwen2.5:3b": 0.8589,
+     "qwen2.5:7b": 1.2333,
+     "tinyllama:1.1b": 2.8883,
+     "yi:34b": 1.116
+    }
+   }
+  }
+ },
+ "c_finding_survival": {
+  "separability": {
+   "by_scoring": {
+    "baseline_generic": {
+     "within_mean": 0.4137,
+     "cross_mean": 0.422,
+     "delta": -0.0083,
+     "p_value": 0.514,
+     "matches_analysis_b2": true,
+     "reference_delta": -0.0083
+    },
+    "dedicated": {
+     "within_mean": 0.4246,
+     "cross_mean": 0.4007,
+     "delta": 0.0239,
+     "p_value": 0.3494,
+     "pass_significant": false
+    },
+    "cvlt_binarized_th0.3_dedup": {
+     "within_mean": 0.438,
+     "cross_mean": 0.3996,
+     "delta": 0.0383,
+     "p_value": 0.292,
+     "pass_significant": false
+    },
+    "cvlt_binarized_th0.4_dedup": {
+     "within_mean": 0.4376,
+     "cross_mean": 0.3998,
+     "delta": 0.0378,
+     "p_value": 0.295,
+     "pass_significant": false
+    },
+    "cvlt_binarized_th0.5_dedup": {
+     "within_mean": 0.4345,
+     "cross_mean": 0.4,
+     "delta": 0.0344,
+     "p_value": 0.3062,
+     "pass_significant": false
+    },
+    "cvlt_binarized_th0.6_dedup": {
+     "within_mean": 0.4198,
+     "cross_mean": 0.396,
+     "delta": 0.0237,
+     "p_value": 0.3492,
+     "pass_significant": false
+    },
+    "cvlt_binarized_th0.7_dedup": {
+     "within_mean": 0.4098,
+     "cross_mean": 0.3932,
+     "delta": 0.0167,
+     "p_value": 0.3812,
+     "pass_significant": false
+    },
+    "cvlt_continuous_dedup_learning_only": {
+     "within_mean": 0.4246,
+     "cross_mean": 0.4007,
+     "delta": 0.0239,
+     "p_value": 0.3494,
+     "pass_significant": false
+    },
+    "cvlt_continuous_raw_learning_only": {
+     "within_mean": 0.2576,
+     "cross_mean": 0.2881,
+     "delta": -0.0305,
+     "p_value": 0.5844,
+     "pass_significant": false
+    },
+    "cvlt_continuous_raw_all_turns": {
+     "within_mean": 0.2576,
+     "cross_mean": 0.2881,
+     "delta": -0.0305,
+     "p_value": 0.5844,
+     "pass_significant": false
+    }
+   },
+   "delta_min": -0.0305,
+   "delta_max": 0.0383,
+   "delta_range_str": "[-0.0305, +0.0383]",
+   "null_stable_all_p_ge_0.05": true
+  },
+  "scaling_near_zero": {
+   "by_scoring": {
+    "baseline_generic": {
+     "n_back": {
+      "pearson_r": 0.1295,
+      "p": 0.5863,
+      "n": 20
+     },
+     "cvlt_word_list": {
+      "pearson_r": 0.1005,
+      "p": 0.6734,
+      "n": 20
+     }
+    },
+    "dedicated": {
+     "n_back": {
+      "pearson_r": 0.4652,
+      "p": 0.0388
+     },
+     "cvlt_word_list": {
+      "pearson_r": 0.56,
+      "p": 0.0102
+     }
+    },
+    "cvlt_binarized_th0.3_dedup": {
+     "n_back": {
+      "pearson_r": 0.4652,
+      "p": 0.0388
+     },
+     "cvlt_word_list": {
+      "pearson_r": 0.5281,
+      "p": 0.0167
+     }
+    },
+    "cvlt_binarized_th0.4_dedup": {
+     "n_back": {
+      "pearson_r": 0.4652,
+      "p": 0.0388
+     },
+     "cvlt_word_list": {
+      "pearson_r": 0.5265,
+      "p": 0.0171
+     }
+    },
+    "cvlt_binarized_th0.5_dedup": {
+     "n_back": {
+      "pearson_r": 0.4652,
+      "p": 0.0388
+     },
+     "cvlt_word_list": {
+      "pearson_r": 0.5463,
+      "p": 0.0127
+     }
+    },
+    "cvlt_binarized_th0.6_dedup": {
+     "n_back": {
+      "pearson_r": 0.4652,
+      "p": 0.0388
+     },
+     "cvlt_word_list": {
+      "pearson_r": 0.5291,
+      "p": 0.0165
+     }
+    },
+    "cvlt_binarized_th0.7_dedup": {
+     "n_back": {
+      "pearson_r": 0.4652,
+      "p": 0.0388
+     },
+     "cvlt_word_list": {
+      "pearson_r": 0.508,
+      "p": 0.0222
+     }
+    },
+    "cvlt_continuous_dedup_learning_only": {
+     "n_back": {
+      "pearson_r": 0.4652,
+      "p": 0.0388
+     },
+     "cvlt_word_list": {
+      "pearson_r": 0.56,
+      "p": 0.0102
+     }
+    },
+    "cvlt_continuous_raw_learning_only": {
+     "n_back": {
+      "pearson_r": 0.4652,
+      "p": 0.0388
+     },
+     "cvlt_word_list": {
+      "pearson_r": -0.2465,
+      "p": 0.2948
+     }
+    },
+    "cvlt_continuous_raw_all_turns": {
+     "n_back": {
+      "pearson_r": 0.4652,
+      "p": 0.0388
+     },
+     "cvlt_word_list": {
+      "pearson_r": -0.2465,
+      "p": 0.2948
+     }
+    }
+   },
+   "n_back_r_range": [
+    0.1295,
+    0.4652
+   ],
+   "cvlt_r_range": [
+    -0.2465,
+    0.56
+   ],
+   "n_back_nearzero_stable": false,
+   "cvlt_nearzero_stable": false,
+   "nearzero_abs_threshold": 0.3
+  },
+  "top_movers": {
+   "n_back_dedicated_minus_generic": [
+    [
+     "tinyllama:1.1b",
+     0.7254
+    ],
+    [
+     "mixtral:8x7b",
+     0.6369
+    ],
+    [
+     "phi3:14b",
+     0.6115
+    ],
+    [
+     "deepseek-r1:7b",
+     0.4375
+    ],
+    [
+     "deepseek-r1:14b",
+     0.409
+    ],
+    [
+     "llama3.2:1b",
+     0.3131
+    ]
+   ],
+   "cvlt_dedicated_minus_generic": [
+    [
+     "mixtral:8x7b",
+     0.6531
+    ],
+    [
+     "tinyllama:1.1b",
+     0.1295
+    ],
+    [
+     "gemma2:9b",
+     -0.0909
+    ],
+    [
+     "qwen2.5:1.5b",
+     -0.0761
+    ],
+    [
+     "deepseek-r1:14b",
+     0.0665
+    ],
+    [
+     "qwen2.5:3b",
+     -0.0659
+    ]
+   ],
+   "explanation": "n_back: dedicated parser ('MATCH' in ans and 'NO' not in ans) defaults unparseable/garbage outputs to NO MATCH, scoring them at the ~70% no-match base rate; the generic harness scored unparseable turns as wrong. cvlt: generic harness counts target-word occurrences uncapped across recall turns (recall can exceed 1.0 on echoed prompts; mixtral:8x7b generic=0.284 vs dedicated=0.937)."
+  }
+ }
 }
