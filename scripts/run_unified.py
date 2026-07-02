@@ -86,6 +86,9 @@ def score_simple(expected: str, response: str) -> bool:
             resp = resp[len(art):]
     if not exp:
         return False
+    if not resp:
+        # An empty response must never match ('' is a substring of anything)
+        return False
     return exp == resp or exp in resp or resp in exp
 
 

@@ -13,6 +13,7 @@ is ONLY used as a contamination probe.
 from __future__ import annotations
 
 import random
+import re
 from typing import Any, Dict, List, Optional
 
 from cogarena.core import (
@@ -467,14 +468,28 @@ class FalseBeliefGenerator:
         ego_answer = task.metadata.parameters["egocentric_answer"].lower()
 
         # Flexible matching: check if correct answer is contained in response
-        is_correct = correct_lower in resp_lower
-        is_egocentric = ego_answer in resp_lower and not is_correct
+        is_correct = _location_match(correct_lower, resp_lower)
+        is_egocentric = _location_match(ego_answer, resp_lower) and not is_correct
 
         return {
             "accuracy": 1.0 if is_correct else 0.0,
             "egocentric_error": 1.0 if is_egocentric else 0.0,
             "order": float(task.metadata.parameters["order"]),
         }
+
+
+def _location_match(target_lower: str, resp_lower: str) -> bool:
+    """Substring match tolerant to a missing leading article.
+
+    Expected answers are article-prefixed ("the tote bag"); a bare
+    "tote bag" response must still count.
+    """
+    if not target_lower:
+        return False
+    if target_lower in resp_lower:
+        return True
+    bare = re.sub(r"^(?:the|a|an)\s+", "", target_lower)
+    return bool(bare) and bare != target_lower and bare in resp_lower
 
 
 def score_false_belief(
@@ -487,8 +502,8 @@ def score_false_belief(
     correct_lower = str(expected).strip().lower()
     ego_answer = metadata.parameters.get("egocentric_answer", "").lower()
 
-    is_correct = correct_lower in resp_lower
-    is_egocentric = ego_answer in resp_lower and not is_correct
+    is_correct = _location_match(correct_lower, resp_lower)
+    is_egocentric = _location_match(ego_answer, resp_lower) and not is_correct
 
     return {
         "accuracy": 1.0 if is_correct else 0.0,
@@ -1097,12 +1112,7 @@ class EpitomeToMGenerator:
         correct = str(task.expected_response).strip().upper()
         sub_cap = task.metadata.parameters["sub_capacity"]
 
-        # Match on letter (A, B, C, D) — extract first letter from response
-        resp_letter = ""
-        for ch in resp_clean:
-            if ch in "ABCD":
-                resp_letter = ch
-                break
+        resp_letter = _extract_choice_letter(resp_clean)
 
         is_correct = resp_letter == correct
 
@@ -1110,6 +1120,32 @@ class EpitomeToMGenerator:
             "accuracy": 1.0 if is_correct else 0.0,
             "sub_capacity": sub_cap,
         }
+
+
+def _extract_choice_letter(text: str) -> str:
+    """Extract the intended A-D choice from an uppercased response.
+
+    Tiers: a letter opening the response, then the last explicit marker
+    ("ANSWER: C", "OPTION B"), then a lone parenthesized letter, then a
+    lone standalone letter. Plural phrasings like "THE OTHER OPTIONS
+    (B, C, D)" must not match, and a bare echo of several "(A) ... (B) ..."
+    options is unparseable, not an answer.
+    """
+    m = re.match(r"\s*\(?([A-D])[\)\].:,\s]", text + " ")
+    if m:
+        return m.group(1)
+    marks = re.findall(
+        r"\b(?:ANSWER|CHOICE|OPTION|FINAL)\s*(?:IS)?\s*[:\-]?\s*\(?([A-D])\b", text)
+    if marks:
+        return marks[-1]
+    parens = set(re.findall(r"\(([A-D])\)", text))
+    if len(parens) == 1:
+        return next(iter(parens))
+    if not parens:
+        m = re.search(r"\b([A-D])\b", text)
+        if m:
+            return m.group(1)
+    return ""
 
 
 def score_epitome_tom(
@@ -1121,12 +1157,7 @@ def score_epitome_tom(
     resp_clean = str(response).strip().upper()
     correct = str(expected).strip().upper()
 
-    # Extract first A/B/C/D letter from response
-    resp_letter = ""
-    for ch in resp_clean:
-        if ch in "ABCD":
-            resp_letter = ch
-            break
+    resp_letter = _extract_choice_letter(resp_clean)
 
     is_correct = resp_letter == correct
 

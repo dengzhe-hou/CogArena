@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import math
 import random
+import re
 import string
 from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional, Tuple
@@ -87,6 +88,30 @@ def _make_cc_item(
 def _get_scoring_config(task: TaskInstance) -> Dict[str, Any]:
     """Retrieve the scoring_config dict from a (nested) TaskInstance."""
     return task.metadata.parameters.get("_scoring_config", {})
+
+
+def _match_option_token(expected: str, response: str, stimulus: str) -> bool:
+    """Punctuation-tolerant token match, strict on two-option ambiguity.
+
+    'Left.' or 'The center letter is "K".' must match the answer token; a
+    response naming BOTH options of a forced choice earns no credit. Items
+    without a parseable two-option line (counts, letters) keep plain
+    token-presence semantics.
+    """
+    expected = str(expected).strip().lower()
+    given = response.strip().lower()
+    if expected == given:
+        return True
+    tokens = re.findall(r"[a-z0-9]+", given)
+    if expected not in tokens:
+        return False
+    m = re.search(r"answer with exactly one word:\s*([a-z0-9]+)\s+or\s+([a-z0-9]+)",
+                  stimulus.lower())
+    if m:
+        alt = m.group(2) if m.group(1) == expected else m.group(1)
+        if alt != expected and alt in tokens:
+            return False
+    return True
 
 
 def _resolve_paradigm_score(paradigm: str, task, response: str, sc_config: Dict[str, Any]) -> Dict[str, Any]:
@@ -366,10 +391,7 @@ class StroopParadigm:
         Returns dict with keys: correct (bool), condition, conflict_type,
         is_contamination_probe.
         """
-        expected = task.expected_response.strip().lower()
-        given = response.strip().lower()
-        # Flexible matching: accept if the expected answer appears in response
-        correct = expected == given or expected in given.split()
+        correct = _match_option_token(task.expected_response, response, task.stimulus)
         sc = _get_scoring_config(task)
 
         return {
@@ -677,9 +699,7 @@ class FlankerParadigm:
     @staticmethod
     def score(task: TaskInstance, response: str) -> Dict[str, Any]:
         """Score a single Flanker trial."""
-        expected = task.expected_response.strip().lower()
-        given = response.strip().lower()
-        correct = expected == given or expected in given.split()
+        correct = _match_option_token(task.expected_response, response, task.stimulus)
         sc = _get_scoring_config(task)
 
         return {
@@ -929,11 +949,10 @@ class GoNoGoParadigm:
                 expected = "NO-GO"
                 condition = "nogo"
 
-            # First trial includes the rule; subsequent trials just show stimulus
-            if trial_idx == 0:
-                stimulus = f"{rule_instruction}\nTrial {trial_idx + 1}: {word}\nYour response (GO or NO-GO):"
-            else:
-                stimulus = f"Trial {trial_idx + 1}: {word}\nYour response (GO or NO-GO):"
+            # Every trial carries the rule: items are dispatched as isolated
+            # single-turn prompts, so a rule shown only on trial 0 never
+            # reaches the model on later trials.
+            stimulus = f"{rule_instruction}\nTrial {trial_idx + 1}: {word}\nYour response (GO or NO-GO):"
 
             items.append(_make_cc_item(
                 task_id=f"gonogo_{go_cat}_{nogo_cat}_{trial_idx:04d}",
@@ -970,13 +989,19 @@ class GoNoGoParadigm:
         (hit, miss, correct_rejection, false_alarm).
         """
         expected = task.expected_response.strip().upper()
-        given = response.strip().upper().replace(" ", "").replace("-", "")
-        # Normalize: "NOGO" or "NO-GO" or "NO GO" -> "NOGO"
-        given_norm = given.replace("GO", "").strip()
-        if given_norm == "NO" or "NOGO" in given or "NO-GO" in response.upper():
+        # The rule text shown on every trial contains both GO and NO-GO, so
+        # prompt echoes must not count as answers: strip them, then grade the
+        # first standalone GO / NO-GO token. A substring test biased toward
+        # NO-GO flips "GO" answers that go on to mention NO-GO.
+        text = response.upper()
+        text = re.sub(r"RESPOND WITH EXACTLY:?\s*NO[\s\-_]?GO", " ", text)
+        text = re.sub(r"RESPOND WITH EXACTLY:?\s*GO", " ", text)
+        text = re.sub(r"(?:THE\s+WORD\s+)?GO\s+OR\s+(?:THE\s+WORD\s+)?NO[\s\-_]?GO", " ", text)
+        m = re.search(r"\b(NO[\s\-_]?GO|GO)\b", text)
+        if m:
+            given_clean = "GO" if m.group(1) == "GO" else "NO-GO"
+        elif text.strip().rstrip(".!") == "NO":
             given_clean = "NO-GO"
-        elif "GO" in given:
-            given_clean = "GO"
         else:
             given_clean = response.strip().upper()
 

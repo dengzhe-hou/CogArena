@@ -13,6 +13,7 @@ import argparse
 import importlib
 import json
 import os
+import re
 import sys
 import time
 from pathlib import Path
@@ -237,10 +238,25 @@ def score_multiturn_item(item, responses: list) -> dict:
             # Strict matching for multi-turn responses
             # For n_back: "match" vs "no match" must be exact (not substring)
             if exp_str in ("match", "no match"):
-                correct = exp_str == act_str or act_str.startswith(exp_str + " ") or act_str == exp_str
+                # Tolerate trailing punctuation/quotes ("no match." is a
+                # valid answer), keep everything else strict.
+                act_core = act_str.strip().strip('."\'!').strip()
+                correct = act_core == exp_str or act_core.startswith(exp_str + " ")
                 # Double-check: "no match" should NOT match expected "match"
                 if exp_str == "match" and "no" in act_str:
                     correct = False
+            elif exp_str in ("yes", "no"):
+                # Closed-set yes/no: after dropping echoes of the prompt
+                # phrases ("yes or no", "yes/no"), grade the answer the model
+                # labeled for THIS trial when it replies as a labeled list,
+                # else the first standalone yes/no. A bare substring test
+                # credited prompt echoes for either answer; a response with
+                # no standalone yes/no earns no credit.
+                cleaned = re.sub(r"\byes\s*(?:or|/)\s*no\b", " ", act_str)
+                lab = re.search(rf"\b(?:trial|item)\s*#?\s*{i + 1}\b", cleaned)
+                seg = cleaned[lab.end():] if lab else cleaned
+                m = re.search(r"\b(yes|no)\b", seg)
+                correct = bool(m) and m.group(1) == exp_str
             else:
                 correct = exp_str == act_str or exp_str in act_str
             turn_scores.append({"trial": i + 1, "correct": correct, "expected": exp_str, "response": act_str[:100]})

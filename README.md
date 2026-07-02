@@ -22,11 +22,11 @@ memorize.
 ## Install
 
 ```bash
-git clone https://github.com/<your-org>/cogarena.git   # TODO: set the repo URL
+git clone https://github.com/dengzhe-hou/cogarena.git
 cd cogarena
 pip install -e .            # core (gymnasium)
 pip install -e ".[openai]"  # + OpenAI / any OpenAI-compatible endpoint
-# extras: ".[anthropic]", ".[google]", ".[all]", ".[analysis]"
+# extras: ".[anthropic]", ".[google]", ".[image]", ".[all]", ".[analysis]"
 ```
 
 Requires Python ≥ 3.10.

@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import math
 import random
+import re
 from typing import Any, Dict, List
 
 from cogarena.core import (
@@ -595,13 +596,21 @@ class DigitSpanGenerator:
         expected_tokens = str(task.expected_response).split()
         response_tokens = response.strip().split()
 
-        # Exact match
+        # Exact match on whitespace tokens, else on the digit sequence the
+        # response actually contains: a verbose but correct answer like
+        # "The reversed sequence is: 9 2 3" must not score 0. A response
+        # that also echoes the input digits stays incorrect (its digit
+        # sequence no longer equals the expected one).
         exact = 1.0 if response_tokens == expected_tokens else 0.0
+        exp_digits = re.findall(r"\d", str(task.expected_response))
+        resp_digits = re.findall(r"\d", response)
+        if exact == 0.0 and resp_digits == exp_digits:
+            exact = 1.0
 
-        # Partial credit: proportion of positions matching
-        max_len = max(len(expected_tokens), len(response_tokens), 1)
+        # Partial credit: proportion of digit positions matching
+        max_len = max(len(exp_digits), len(resp_digits), 1)
         matches = sum(
-            1 for a, b in zip(expected_tokens, response_tokens) if a == b
+            1 for a, b in zip(exp_digits, resp_digits) if a == b
         )
         partial = matches / max_len
 

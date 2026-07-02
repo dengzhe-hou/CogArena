@@ -6,6 +6,9 @@ openai>=1.0            # also covers any OpenAI-compatible endpoint (Ollama, vLL
 # anthropic>=0.20
 # google-generativeai>=0.5
 
+# For VLM (image) modes and image-stimulus generation only:
+# pillow>=9.0
+
 # For reproducing the paper's analyses/figures (scripts/):
 # numpy
 # scipy

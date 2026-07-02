@@ -1645,6 +1645,10 @@ def _score_source_monitoring_response(
         # Try to match the attributed source to one of the known sources
         matched_source = None
         attr_lower = attributed.lower()
+        if not attr_lower.strip():
+            # Missing/unparseable attribution earns no credit: an empty
+            # string would otherwise substring-match the first source.
+            continue
         for s in sources:
             if s.lower() in attr_lower or attr_lower in s.lower():
                 matched_source = s

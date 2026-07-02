@@ -93,7 +93,15 @@ class TaskInstance:
         """Score a response against this task instance."""
         if self.scoring_fn is not None:
             return self.scoring_fn(response, self.expected_response, self.metadata)
-        return score_item(response, self.expected_response, self.metadata.scoring)
+        scoring = self.metadata.scoring
+        if scoring is not None and scoring.method == "custom":
+            fn_path = scoring.params.get("fn")
+            if fn_path is not None:
+                fn = _import_callable(fn_path)
+                # Custom scorers take the full TaskMetadata; routing through
+                # score_item would hand them the scoring-params dict instead.
+                return fn(response, self.expected_response, self.metadata)
+        return score_item(response, self.expected_response, scoring)
 
 
 @dataclass

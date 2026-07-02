@@ -1,0 +1,142 @@
+{
+  "qwen3:0.6b": {
+    "size_b": 0.6,
+    "family": "qwen3"
+  },
+  "qwen3:1.7b": {
+    "size_b": 1.7,
+    "family": "qwen3"
+  },
+  "qwen3:4b": {
+    "size_b": 4,
+    "family": "qwen3"
+  },
+  "qwen3:8b": {
+    "size_b": 8,
+    "family": "qwen3"
+  },
+  "qwen3:14b": {
+    "size_b": 14,
+    "family": "qwen3"
+  },
+  "gemma3:1b": {
+    "size_b": 1,
+    "family": "gemma3"
+  },
+  "gemma3:12b": {
+    "size_b": 12,
+    "family": "gemma3"
+  },
+  "gemma3:27b": {
+    "size_b": 27,
+    "family": "gemma3"
+  },
+  "phi3:3.8b": {
+    "size_b": 3.8,
+    "family": "phi"
+  },
+  "phi4:14b": {
+    "size_b": 14,
+    "family": "phi"
+  },
+  "llama2:7b": {
+    "size_b": 7,
+    "family": "llama2"
+  },
+  "llama2:13b": {
+    "size_b": 13,
+    "family": "llama2"
+  },
+  "mistral-nemo:12b": {
+    "size_b": 12,
+    "family": "mistral"
+  },
+  "yi:6b": {
+    "size_b": 6,
+    "family": "yi"
+  },
+  "yi:9b": {
+    "size_b": 9,
+    "family": "yi"
+  },
+  "falcon3:7b": {
+    "size_b": 7,
+    "family": "falcon3"
+  },
+  "falcon3:10b": {
+    "size_b": 10,
+    "family": "falcon3"
+  },
+  "olmo2:7b": {
+    "size_b": 7,
+    "family": "olmo2"
+  },
+  "olmo2:13b": {
+    "size_b": 13,
+    "family": "olmo2"
+  },
+  "smollm2:1.7b": {
+    "size_b": 1.7,
+    "family": "smollm2"
+  },
+  "smollm2:360m": {
+    "size_b": 0.36,
+    "family": "smollm2"
+  },
+  "internlm2:7b": {
+    "size_b": 7,
+    "family": "internlm2"
+  },
+  "glm4:9b": {
+    "size_b": 9,
+    "family": "glm4"
+  },
+  "aya:8b": {
+    "size_b": 8,
+    "family": "aya"
+  },
+  "solar:10.7b": {
+    "size_b": 10.7,
+    "family": "solar"
+  },
+  "exaone3.5:7.8b": {
+    "size_b": 7.8,
+    "family": "exaone"
+  },
+  "stablelm2:1.6b": {
+    "size_b": 1.6,
+    "family": "stablelm2"
+  },
+  "deepseek-llm:7b": {
+    "size_b": 7,
+    "family": "deepseek"
+  },
+  "openchat:7b": {
+    "size_b": 7,
+    "family": "openchat"
+  },
+  "zephyr:7b": {
+    "size_b": 7,
+    "family": "zephyr"
+  },
+  "starling-lm:7b": {
+    "size_b": 7,
+    "family": "starling"
+  },
+  "nemotron-mini:4b": {
+    "size_b": 4,
+    "family": "nemotron"
+  },
+  "llama3.1:70b": {
+    "size_b": 70,
+    "family": "llama3.1"
+  },
+  "qwen2.5:72b": {
+    "size_b": 72,
+    "family": "qwen2.5"
+  },
+  "mixtral:8x22b": {
+    "size_b": 141,
+    "family": "mixtral"
+  }
+}
