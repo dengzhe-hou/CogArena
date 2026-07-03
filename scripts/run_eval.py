@@ -339,6 +339,15 @@ def run_multiturn_item(model_id, item, results_dir, max_context_turns=30):
         else:
             prompt = "\n".join(history_lines) + f"\nTrial {i+1}: {stimulus_text}\nYour response:"
 
+        # Context guard: a served model with a smaller context window than the
+        # prompt silently truncates it front-first (dropping the instructions
+        # this sliding window deliberately retains). Warn loudly so affected
+        # episodes are visible in the run log.
+        est_tokens = len(prompt) // 4
+        if est_tokens > int(os.environ.get("COGARENA_CTX_TOKENS", "4096")):
+            print(f"    WARNING: {task_id} turn {i+1}: prompt ~{est_tokens} tokens may "
+                  f"exceed the served context window (instructions can be truncated)")
+
         response = call_llm(model_id, prompt, SYSTEM_PROMPT)
         responses.append({"trial": i + 1, "stimulus": str(stimulus_text)[:200], "response": response})
 
