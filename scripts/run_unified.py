@@ -2,13 +2,13 @@
 """Unified CogArena evaluation runner supporting 3 modes: text, image, agent.
 
 Usage:
-    # Text mode (default) — LLM answers directly
+    # Text mode (default). The LLM answers directly.
     python scripts/run_unified.py --model openai/qwen2.5:7b --mode text
 
-    # Image mode — VLM sees image stimuli
+    # Image mode. The VLM sees image stimuli.
     python scripts/run_unified.py --model openai/qwen2.5vl:7b --mode image
 
-    # Agent mode — LLM + ReAct scaffold + tools
+    # Agent mode. The LLM uses a ReAct scaffold and tools.
     python scripts/run_unified.py --model openai/qwen2.5:7b --mode agent
 """
 
@@ -92,9 +92,9 @@ def score_simple(expected: str, response: str) -> bool:
     return exp == resp or exp in resp or resp in exp
 
 
-# ── Image mode paradigms ──────────────────────────────────────────────
+# Image mode paradigms
 
-# WCST removed from image mode — it requires multi-turn feedback loop (use agent mode instead)
+# WCST is excluded from image mode because it requires a multi-turn feedback loop.
 IMAGE_PARADIGMS = {
     "stroop": {"gen": generate_stroop_set, "dimension": "cognitive_control"},
     "flanker": {"gen": generate_flanker_set, "dimension": "cognitive_control"},
@@ -233,7 +233,7 @@ def make_trial_generator(paradigm_name: str, seed: int, difficulty: str):
         params = item.metadata.parameters if hasattr(item, "metadata") else {}
         turns = params.get("turns", [])
 
-        # Static paradigms (no turns) — wrap as single-turn episode
+        # Wrap static paradigms without turns as single-turn episodes.
         if not turns and item.stimulus:
             return [{
                 "stimulus": item.stimulus,
@@ -465,7 +465,7 @@ def aggregate_by_paradigm(results: list) -> dict:
     """Aggregate a list of result records into per-paradigm correct/count/accuracy.
 
     Binary paradigms (stroop, flanker, go_nogo, digit_span, false_belief, ...)
-    are counted via :func:`_item_accuracy` binarized at >= 0.5 — this is what
+    are counted via :func:`_item_accuracy` binarized at >= 0.5. This
     keeps dict-score paradigms (``{"accuracy": 1.0, ...}``) from being miscounted
     as 0. Partial-credit paradigms use mean(accuracy).
     """

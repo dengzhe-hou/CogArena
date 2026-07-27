@@ -313,7 +313,7 @@ def analyze_b2(text_results):
     print(f"Permutation test p-value:           {p_value:.3f} (n_perm={n_perm})")
 
     sig = observed_diff > 0 and ci_lo > 0
-    print(f"\nB2 Result: {'PASS' if sig else 'WEAK'} — within-cross diff = {observed_diff:+.3f}, CI [{ci_lo:+.3f}, {ci_hi:+.3f}], p={p_value:.3f}")
+    print(f"\nB2 result | {'PASS' if sig else 'WEAK'} | within-cross diff = {observed_diff:+.3f}, CI [{ci_lo:+.3f}, {ci_hi:+.3f}], p={p_value:.3f}")
 
     return {"within_mean": float(within_mean), "cross_mean": float(cross_mean),
             "diff": float(observed_diff), "ci_lo": float(ci_lo), "ci_hi": float(ci_hi),
@@ -425,9 +425,9 @@ def analyze_b4(text_results, image_results, agent_results):
                     agt_accs.append(v.get("accuracy", 0))
         agt_mean = np.mean(agt_accs) if agt_accs else -1
 
-        t_str = f"{text_mean:.0%} ({len(text_accs)})" if text_mean >= 0 else "—"
-        i_str = f"{img_mean:.0%} ({len(img_accs)})" if img_mean >= 0 else "—"
-        a_str = f"{agt_mean:.0%} ({len(agt_accs)})" if agt_mean >= 0 else "—"
+        t_str = f"{text_mean:.0%} ({len(text_accs)})" if text_mean >= 0 else "NA"
+        i_str = f"{img_mean:.0%} ({len(img_accs)})" if img_mean >= 0 else "NA"
+        a_str = f"{agt_mean:.0%} ({len(agt_accs)})" if agt_mean >= 0 else "NA"
         print(f"{para:<20} {t_str:>22} {i_str:>16} {a_str:>18}")
 
     # Agent-only paradigms
@@ -468,7 +468,7 @@ def analyze_b4(text_results, image_results, agent_results):
 
 def main():
     eval_dir = "results/full_eval_20260525_1522"
-    print(f"CogArena Analysis — {datetime.now().isoformat()}")
+    print(f"CogArena analysis | {datetime.now().isoformat()}")
     print(f"Data: {eval_dir}\n")
 
     text_results, image_results, agent_results = load_all_results(eval_dir)

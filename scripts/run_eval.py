@@ -494,9 +494,9 @@ def main():
                     status = f"acc={score['accuracy']:.2f}"
                 else:
                     status = "OK"
-                print(f"  [{i+1}/{len(items)}] {paradigm} — {status}")
+                print(f"  [{i+1}/{len(items)}] {paradigm} | {status}")
             except Exception as e:
-                print(f"  [{i+1}/{len(items)}] {paradigm} — EXCEPTION: {e}")
+                print(f"  [{i+1}/{len(items)}] {paradigm} | EXCEPTION: {e}")
 
     # Save aggregate
     agg = compute_aggregate(all_results)

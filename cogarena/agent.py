@@ -158,7 +158,7 @@ Rules:
 - Use TOOL memory_recall to retrieve previously stored information.
 - Use TOOL calculate for any arithmetic.
 - Only the text after "ANSWER: " is sent to the environment.
-- Keep your ANSWER short — typically just a number, word, or short phrase.
+- Keep your ANSWER short. Use a number, word, or short phrase when possible.
 """
 
 _TURN_TEMPLATE = """\

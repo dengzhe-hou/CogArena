@@ -1388,8 +1388,8 @@ class SourceMonitoringGenerator:
     Presents factual statements attributed to specific named sources.
     The model must later identify which source made each statement.
 
-    This tests episodic binding — remembering not just *what* was said
-    but *who* said it.
+    This tests episodic binding by requiring the model to remember not only
+    what was said, but also who said it.
     """
 
     PARADIGM = "source_monitoring"

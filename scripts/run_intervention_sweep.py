@@ -4,7 +4,7 @@
 For each paradigm, sweep ONE difficulty parameter and measure
 the dose-response curve. Compare against published human patterns.
 
-This is CogArena's key methodological contribution — showing that
+This analysis tests whether
 paradigms respond to construct-relevant interventions, not just
 prompt-specific artifacts.
 

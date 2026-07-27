@@ -11,13 +11,13 @@ response-format, context-window, prompt-length, and full-GPU feasibility. The
 replication remains a separate study with a separate specification, output
 root, raw closure, and analysis manifest.
 
-The inference records remain bound to the submission-injected inference
+The inference records remain bound to the launch-injected inference
 revision. Final analysis reuses the parent analyzer but replaces only its
 confirmatory pilot-freeze check with a replication-specific provenance gate.
-The analysis-adapter revision is injected separately at submission. All
+The analysis-adapter revision is injected separately at launch. All
 record, replay, scorer, manifest, and aggregate-output checks remain active.
 
-Submission sequence:
+Launch sequence
 
 ```bash
 INFERENCE_HEAD=$(git rev-parse HEAD)
@@ -32,9 +32,9 @@ sbatch --dependency=afterok:"${RAW}" \
   scripts/experiments/scaffold_wording_replication_20260725/finalize.sbatch
 ```
 
-The reviewed aggregate result is reported as a post-hoc wording sensitivity
+The frozen aggregate result is reported as a post-hoc wording sensitivity
 in the paper. It does not replace the outcome-frozen parent study. The
-anonymous release includes the frozen specification, item manifests,
+public release includes the frozen specification, item manifests,
 provenance, run manifest, aggregate result, and analysis manifest. Raw
 responses and scheduler logs remain excluded.
 

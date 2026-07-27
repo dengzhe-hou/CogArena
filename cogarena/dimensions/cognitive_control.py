@@ -54,7 +54,7 @@ def _make_cc_item(
         adaptation_distance=_adapt_map.get(adaptation_distance, AdaptationDistance.MEDIUM),
     )
 
-    # Lazy-bind paradigm scorer — resolved at first call via scoring_fn
+    # Lazy-bind the paradigm scorer. It is resolved at first call via scoring_fn.
     _scorer_map = {
         "stroop": lambda r, e, m: StroopParadigm.score.__func__(None, _current_task[0], r),
         "flanker": lambda r, e, m: FlankerParadigm.score.__func__(None, _current_task[0], r),

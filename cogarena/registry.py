@@ -1,8 +1,8 @@
 """Task and dimension registry for CogArena.
 
 Provides:
-- :class:`DimensionRegistry` — register cognitive dimensions and their paradigms
-- :class:`TaskRegistry` — register task generators, load from YAML configs
+- :class:`DimensionRegistry` registers cognitive dimensions and their paradigms
+- :class:`TaskRegistry` registers task generators and loads YAML configs
 - Module-level convenience functions for a shared default registry
 """
 

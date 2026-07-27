@@ -1,10 +1,10 @@
 """CogArena core data models and evaluation API.
 
 Defines:
-- TaskMetadata, TaskInstance, EpisodeTrace, CognitiveProfile — core data models
-- CogArenaEnv — Gymnasium-style environment for multi-turn cognitive tasks
-- LLMEvaluator — wrapper for running static/multi-turn tasks on LLMs
-- Scoring helpers — item-level and dimension-level scoring
+- TaskMetadata, TaskInstance, EpisodeTrace, and CognitiveProfile are core data models
+- CogArenaEnv is a Gymnasium-style environment for multi-turn cognitive tasks
+- LLMEvaluator runs static and multi-turn tasks on LLMs
+- Scoring helpers provide item-level and dimension-level scoring
 """
 
 from __future__ import annotations
@@ -349,7 +349,7 @@ def aggregate_dimension_scores(
 
 
 # ---------------------------------------------------------------------------
-# CogArenaEnv — Gymnasium-style environment for multi-turn cognitive tasks
+# CogArenaEnv provides a Gymnasium-style environment for multi-turn cognitive tasks
 # ---------------------------------------------------------------------------
 
 class CogArenaEnv:
@@ -541,7 +541,7 @@ class CogArenaEnv:
 
 
 # ---------------------------------------------------------------------------
-# LLMEvaluator — run static or multi-turn evaluations
+# LLMEvaluator runs static or multi-turn evaluations
 # ---------------------------------------------------------------------------
 
 class LLMEvaluator:

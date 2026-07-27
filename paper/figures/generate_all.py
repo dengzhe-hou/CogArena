@@ -17,7 +17,7 @@ matplotlib.rcParams['ps.fonttype'] = 42
 import matplotlib.pyplot as plt
 from matplotlib import font_manager
 
-# Match AAAI's newtx body face when a figure is promoted to the main paper.
+# Match the manuscript's NewTX body face in figures used in the paper.
 # Text is converted to vector paths at export, so the PDF remains font-free.
 _NEWTX_FONT_DIR = Path.home() / '.TinyTeX/texmf-dist/fonts/opentype/public/newtx'
 _NEWTX_FONT_FILES = [
@@ -164,8 +164,8 @@ DOMAIN_COLORS = {
     'Metacognition': '#9467bd'
 }
 
-# ── Publication style shared by the compact and scaling-summary figures.
-#    TeX Gyre TermesX matches the AAAI template's NewTX body face. ──
+# Publication style shared by the compact and scaling-summary figures.
+# TeX Gyre TermesX matches the manuscript's NewTX body face.
 PUB_RC = {
     'font.family': 'serif',
     'font.serif': [_MAIN_FIGURE_FONT, 'DejaVu Serif', 'serif'],
@@ -382,7 +382,7 @@ def load_all_details():
 
 def fig2_behavioral_signatures(text_data):
     global _CURRENT_K; _CURRENT_K = _FIG_K['signatures']
-    """Panel of behavioral signature effects — ALL values computed from details.json."""
+    """Panel of behavioral signature effects computed from details.json."""
     all_items = load_all_details()
     models = sorted(set(i['_model'] for i in all_items))
 

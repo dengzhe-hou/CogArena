@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Restricted-range robustness for the positive-manifold / dimensional-null result.
 
-A reviewer can argue the positive manifold and the within<=cross null are driven
+The positive manifold and the within<=cross null could be driven
 by restricted-range paradigms (floor OR ceiling): low-variance columns attenuate
 and distort correlations. This script tests whether the two headline claims
 survive removing such paradigms.

@@ -64,10 +64,10 @@ class LLMClient:
     Supported providers (set via ``provider`` key in config or
     ``COGARENA_LLM_PROVIDER`` env var):
 
-    - ``"openai"``   — OpenAI Chat Completions (GPT-4o, etc.)
-    - ``"anthropic"`` — Anthropic Messages API (Claude)
-    - ``"google"``   — Google Generative AI (Gemini)
-    - ``"local"``    — Any OpenAI-compatible server (e.g. vLLM, Ollama)
+    - ``"openai"`` uses OpenAI Chat Completions (GPT-4o, etc.)
+    - ``"anthropic"`` uses the Anthropic Messages API (Claude)
+    - ``"google"`` uses Google Generative AI (Gemini)
+    - ``"local"`` uses an OpenAI-compatible server (e.g. vLLM, Ollama)
 
     Example::
 

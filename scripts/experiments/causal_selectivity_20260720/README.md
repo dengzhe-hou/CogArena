@@ -7,9 +7,9 @@ prompting or chain-of-thought sweep: the pre-specified estimand is the diagonal
 advantage of a 5 intervention × 5 grouping matrix, with global gain, shuffled
 mapping, family consistency, and response-format controls.
 
-The design deliberately retains CogBench's useful commitments—procedurally
+The design retains CogBench's useful commitments, including procedurally
 generated psychology tasks, separate performance/behavioral metrics, nested
-model-lineage analysis, and hypothesis-driven prompt interventions—but changes
+model-lineage analysis, and hypothesis-driven prompt interventions. It changes
 the scientific target. CogBench phenotypes models and reports task-specific
 prompt effects; here every scaffold is crossed with every grouping on the same
 held-out items, compared with a length-matched placebo, and evaluated for a
@@ -245,7 +245,7 @@ pre-freeze capacity gate; never weaken the hardware-name content gate.
 The final sequence after both closures was:
 
 1. inspect only completeness, finish reasons, parser coverage, context, GPU,
-   digest, and latency gates—not intervention contrasts;
+   digest, and latency gates rather than intervention contrasts;
 2. add the actual freeze timestamp, `RUN_MANIFEST_pilot.json` SHA-256, and
    `CAPACITY_GATE_MANIFEST.json` SHA-256 to the spec;
 3. set `status` to `formal_frozen_after_pilot`;

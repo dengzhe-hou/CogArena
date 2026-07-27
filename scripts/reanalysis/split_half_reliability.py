@@ -68,7 +68,7 @@ def item_accuracy(score):
 def model_items(model):
     """Return {paradigm: [(task_id, accuracy), ...]} for one model, using the
     CORRECTED per-item accuracies (rescore overlays + go_nogo rerun) via
-    apply_corrected_results.corrected_static_items — the same item source as
+    apply_corrected_results.corrected_static_items, the same item source as
     the corrected matrix, so this artifact matches the paper's scoring canon."""
     import sys as _sys
     _sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))

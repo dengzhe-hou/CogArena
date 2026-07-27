@@ -8,7 +8,7 @@
 #SBATCH --time=12:00:00
 #SBATCH --output=results/full_eval_expansion/slurm_large_%A_%a.out
 #
-# Larger-OPEN-model extension (a reviewer's highest-leverage ask): does the
+# Larger open-model extension. This tests whether the
 # positive manifold / dimensional null / scaling hold beyond 47B?
 # 3 models, one per array task, 2x A100-80GB each (Mixtral-8x22B Q4 ~80GB needs >1 card).
 # Writes into the SAME dirs as the 32-model expansion so compute_b2_expanded.py picks

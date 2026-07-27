@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""CogArena command-line interface — evaluate ANY LLM on the cognitive-paradigm battery.
+"""CogArena command-line interface for evaluating LLMs on the cognitive-paradigm battery.
 
 The single-turn battery (10 paradigms across 5 theory-motivated groupings) runs out
 of the box against any provider. Bring your own model in one of three ways:

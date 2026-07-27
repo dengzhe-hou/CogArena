@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""R004: Contamination probe test (v2 — fixed).
+"""R004 contamination probe test, version 2.
 
 For each paradigm, compare accuracy on:
 - Classic items (likely in training data)
@@ -111,7 +111,7 @@ def evaluate_group(model_id: str, items: list, label: str) -> dict:
 
 def test_stroop(model_id, n):
     """Stroop: classic color-word vs novel color-word (same construct, different colors)."""
-    # Both use color-word conflict type — only difference is familiarity
+    # Both use the color-word conflict type. Only familiarity differs.
     classic = StroopParadigm.generate(seed=100, n_congruent=n//2, n_incongruent=n//2,
                                        conflict_type="color_word", contamination_probe=False)
     novel = StroopParadigm.generate(seed=100, n_congruent=n//2, n_incongruent=n//2,
@@ -240,7 +240,7 @@ STATIC_PARADIGMS = [
     "drm", "source_monitoring",
 ]
 
-# Multi-turn paradigms (need special handling — skip in v2, test format only)
+# Multi-turn paradigms need special handling and are skipped in version 2.
 MULTITURN_PARADIGMS = [
     "n_back", "operation_span", "wcst", "reversal_learning", "cvlt",
 ]

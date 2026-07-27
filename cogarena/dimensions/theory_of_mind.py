@@ -372,7 +372,7 @@ class FalseBeliefGenerator:
         )
         return "\n".join(lines)
 
-    # Classic false-belief scenario variants — all well-known in the
+    # Classic false-belief scenario variants, all well-known in the
     # cognitive science literature and likely in LLM training data.
     _CLASSIC_VARIANTS = [
         # Original Sally-Anne (Baron-Cohen et al., 1985)
