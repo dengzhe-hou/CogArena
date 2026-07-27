@@ -1,0 +1,21 @@
+{
+ "spec": "OSpan blind adjudication package, masked, seed-42 shuffle",
+ "masking": "narrow verbatim echo mask (MASK_RE) plus semantic redaction of transcript/instructor-voiced lines (KEEP/MASK rules and per-line audit frozen in build_ospan_blind_package.py + redaction_audit.json); text_sha256 in blind_mapping.json is over the RAW unmasked response",
+ "n_unique_texts": 483,
+ "n_blind_episodes": 516,
+ "n_masked_texts": 126,
+ "n_texts_semantically_changed": 126,
+ "n_changed_lines": 1326,
+ "n_noop_rule_hits": 830,
+ "n_manual_decisions_applied": 36,
+ "class_counts": {
+  "machine_sequence": 2143,
+  "blind": 516,
+  "machine_empty": 91
+ },
+ "blind_package_sha256": "1cd0289daa0c10ebdeb2b4094c58c963ffd35f3f0ff5c17013909ad256a8cbe8",
+ "instructions_sha256": "b60f4d66aef5d5f41ff256f1cfb1b3efa9411addf9809b6ecef6b5d868fe3640",
+ "blind_mapping_sha256": "ee6f83b6df142458031285eacc6af45f07cdc0bb04717d063ac0b75c8049e2fb",
+ "redaction_audit_sha256": "840e7499ef1269d3b1fbeb2fc3c25d951dc2cbf254f596c20a244bcca49a7a8d",
+ "manual_decisions_sha256": "799b06f7078480f8405b4907ed21f54598e0f62045511b7aeca6bb6f32e22e0e"
+}

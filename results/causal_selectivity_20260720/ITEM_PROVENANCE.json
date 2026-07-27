@@ -1,0 +1,456 @@
+{
+  "cross_profile_disjoint": true,
+  "formal_manifest_sha256": "0b8a54402104bcb266d06b7ee3c281d225876107e4b41e9c50c51bf8917202a0",
+  "formal_response_format_and_context_audit": {
+    "by_paradigm": {
+      "confidence_calibration": {
+        "item_count": 18,
+        "max_context_prompt_estimate_tokens": 452,
+        "max_declared_characters": 50,
+        "max_declared_lines": 2,
+        "max_declared_whitespace_tokens": 6,
+        "max_reserved_prompt_plus_completion_tokens": 964
+      },
+      "cvlt_word_list": {
+        "item_count": 18,
+        "max_context_prompt_estimate_tokens": 2398,
+        "max_declared_characters": 136,
+        "max_declared_lines": 16,
+        "max_declared_whitespace_tokens": 16,
+        "max_reserved_prompt_plus_completion_tokens": 2910
+      },
+      "digit_span": {
+        "item_count": 18,
+        "max_context_prompt_estimate_tokens": 400,
+        "max_declared_characters": 9,
+        "max_declared_lines": 1,
+        "max_declared_whitespace_tokens": 5,
+        "max_reserved_prompt_plus_completion_tokens": 912
+      },
+      "drm_false_memory": {
+        "item_count": 18,
+        "max_context_prompt_estimate_tokens": 943,
+        "max_declared_characters": 404,
+        "max_declared_lines": 35,
+        "max_declared_whitespace_tokens": 71,
+        "max_reserved_prompt_plus_completion_tokens": 1455
+      },
+      "epitome_tom": {
+        "item_count": 18,
+        "max_context_prompt_estimate_tokens": 480,
+        "max_declared_characters": 1,
+        "max_declared_lines": 1,
+        "max_declared_whitespace_tokens": 1,
+        "max_reserved_prompt_plus_completion_tokens": 992
+      },
+      "false_belief": {
+        "item_count": 18,
+        "max_context_prompt_estimate_tokens": 585,
+        "max_declared_characters": 17,
+        "max_declared_lines": 1,
+        "max_declared_whitespace_tokens": 3,
+        "max_reserved_prompt_plus_completion_tokens": 1097
+      },
+      "flanker": {
+        "item_count": 18,
+        "max_context_prompt_estimate_tokens": 379,
+        "max_declared_characters": 5,
+        "max_declared_lines": 1,
+        "max_declared_whitespace_tokens": 1,
+        "max_reserved_prompt_plus_completion_tokens": 891
+      },
+      "go_nogo": {
+        "item_count": 18,
+        "max_context_prompt_estimate_tokens": 475,
+        "max_declared_characters": 5,
+        "max_declared_lines": 1,
+        "max_declared_whitespace_tokens": 1,
+        "max_reserved_prompt_plus_completion_tokens": 987
+      },
+      "n_back": {
+        "item_count": 18,
+        "max_context_prompt_estimate_tokens": 607,
+        "max_declared_characters": 272,
+        "max_declared_lines": 32,
+        "max_declared_whitespace_tokens": 59,
+        "max_reserved_prompt_plus_completion_tokens": 1119
+      },
+      "operation_span": {
+        "item_count": 18,
+        "max_context_prompt_estimate_tokens": 677,
+        "max_declared_characters": 13,
+        "max_declared_lines": 1,
+        "max_declared_whitespace_tokens": 7,
+        "max_reserved_prompt_plus_completion_tokens": 1189
+      },
+      "post_decision_wagering": {
+        "item_count": 18,
+        "max_context_prompt_estimate_tokens": 469,
+        "max_declared_characters": 32,
+        "max_declared_lines": 2,
+        "max_declared_whitespace_tokens": 5,
+        "max_reserved_prompt_plus_completion_tokens": 981
+      },
+      "source_monitoring": {
+        "item_count": 18,
+        "max_context_prompt_estimate_tokens": 1980,
+        "max_declared_characters": 431,
+        "max_declared_lines": 22,
+        "max_declared_whitespace_tokens": 66,
+        "max_reserved_prompt_plus_completion_tokens": 2492
+      },
+      "stroop": {
+        "item_count": 18,
+        "max_context_prompt_estimate_tokens": 398,
+        "max_declared_characters": 6,
+        "max_declared_lines": 1,
+        "max_declared_whitespace_tokens": 1,
+        "max_reserved_prompt_plus_completion_tokens": 910
+      }
+    },
+    "completion_budget_tokens": 512,
+    "context_stress": {
+      "filler_response_characters": 1024,
+      "max_reserved_prompt_plus_completion_tokens": 2910,
+      "minimum_reserved_margin_tokens": 1186,
+      "served_context_tokens": 4096,
+      "worst_paradigm": "cvlt_word_list"
+    },
+    "contract": "Aggregate-only static audit over all selected items. Multiline lists are kept one element per line; CVLT filler history is stressed with a 1,024-character response; runtime's conservative char/3+64 estimator reserves the complete completion budget for every simulated call.",
+    "declared_answer_completion_budget_multiple": 7.211267605633803,
+    "declared_response_global_max": {
+      "characters": 431,
+      "lines": 35,
+      "whitespace_tokens": 71
+    },
+    "item_payload_terminator_collision_count": 0,
+    "response_format_policy": {
+      "multiline": {
+        "paradigms": [
+          "drm_false_memory",
+          "source_monitoring",
+          "confidence_calibration",
+          "post_decision_wagering"
+        ],
+        "stop_sequences": [
+          "\n\n",
+          "<END_COGARENA_RESPONSE>"
+        ]
+      },
+      "single_line": {
+        "paradigms": [
+          "digit_span",
+          "n_back",
+          "operation_span",
+          "stroop",
+          "flanker",
+          "go_nogo",
+          "cvlt_word_list",
+          "false_belief",
+          "epitome_tom"
+        ],
+        "stop_sequences": [
+          "\n",
+          "<END_COGARENA_RESPONSE>"
+        ]
+      }
+    },
+    "stop_sequence_collisions_with_declared_call_responses": 0,
+    "terminator_absent_from_all_item_payloads_and_condition_scaffolds": true,
+    "transport_terminator": "<END_COGARENA_RESPONSE>",
+    "user_prompt_format_overrides": {
+      "cvlt_word_list": {
+        "instruction_characters": 125,
+        "instruction_sha256": "fa0b62049e0f0296d428690d5e474779bf4d1645a4299c959f31846d55b68ab9",
+        "instruction_whitespace_tokens": 21
+      }
+    }
+  },
+  "pilot_manifest_sha256": "679b2762ae6bca98aefbd657d076e3cc57027319827b0ed777c7bc0e35138156",
+  "pilot_response_format_and_context_audit": {
+    "by_paradigm": {
+      "confidence_calibration": {
+        "item_count": 3,
+        "max_context_prompt_estimate_tokens": 452,
+        "max_declared_characters": 43,
+        "max_declared_lines": 2,
+        "max_declared_whitespace_tokens": 6,
+        "max_reserved_prompt_plus_completion_tokens": 964
+      },
+      "cvlt_word_list": {
+        "item_count": 3,
+        "max_context_prompt_estimate_tokens": 2387,
+        "max_declared_characters": 124,
+        "max_declared_lines": 16,
+        "max_declared_whitespace_tokens": 16,
+        "max_reserved_prompt_plus_completion_tokens": 2899
+      },
+      "digit_span": {
+        "item_count": 3,
+        "max_context_prompt_estimate_tokens": 399,
+        "max_declared_characters": 7,
+        "max_declared_lines": 1,
+        "max_declared_whitespace_tokens": 4,
+        "max_reserved_prompt_plus_completion_tokens": 911
+      },
+      "drm_false_memory": {
+        "item_count": 3,
+        "max_context_prompt_estimate_tokens": 929,
+        "max_declared_characters": 380,
+        "max_declared_lines": 35,
+        "max_declared_whitespace_tokens": 70,
+        "max_reserved_prompt_plus_completion_tokens": 1441
+      },
+      "epitome_tom": {
+        "item_count": 3,
+        "max_context_prompt_estimate_tokens": 473,
+        "max_declared_characters": 1,
+        "max_declared_lines": 1,
+        "max_declared_whitespace_tokens": 1,
+        "max_reserved_prompt_plus_completion_tokens": 985
+      },
+      "false_belief": {
+        "item_count": 3,
+        "max_context_prompt_estimate_tokens": 539,
+        "max_declared_characters": 16,
+        "max_declared_lines": 1,
+        "max_declared_whitespace_tokens": 3,
+        "max_reserved_prompt_plus_completion_tokens": 1051
+      },
+      "flanker": {
+        "item_count": 3,
+        "max_context_prompt_estimate_tokens": 379,
+        "max_declared_characters": 4,
+        "max_declared_lines": 1,
+        "max_declared_whitespace_tokens": 1,
+        "max_reserved_prompt_plus_completion_tokens": 891
+      },
+      "go_nogo": {
+        "item_count": 3,
+        "max_context_prompt_estimate_tokens": 473,
+        "max_declared_characters": 2,
+        "max_declared_lines": 1,
+        "max_declared_whitespace_tokens": 1,
+        "max_reserved_prompt_plus_completion_tokens": 985
+      },
+      "n_back": {
+        "item_count": 3,
+        "max_context_prompt_estimate_tokens": 608,
+        "max_declared_characters": 266,
+        "max_declared_lines": 32,
+        "max_declared_whitespace_tokens": 57,
+        "max_reserved_prompt_plus_completion_tokens": 1120
+      },
+      "operation_span": {
+        "item_count": 3,
+        "max_context_prompt_estimate_tokens": 650,
+        "max_declared_characters": 11,
+        "max_declared_lines": 1,
+        "max_declared_whitespace_tokens": 6,
+        "max_reserved_prompt_plus_completion_tokens": 1162
+      },
+      "post_decision_wagering": {
+        "item_count": 3,
+        "max_context_prompt_estimate_tokens": 468,
+        "max_declared_characters": 28,
+        "max_declared_lines": 2,
+        "max_declared_whitespace_tokens": 5,
+        "max_reserved_prompt_plus_completion_tokens": 980
+      },
+      "source_monitoring": {
+        "item_count": 3,
+        "max_context_prompt_estimate_tokens": 1951,
+        "max_declared_characters": 406,
+        "max_declared_lines": 22,
+        "max_declared_whitespace_tokens": 66,
+        "max_reserved_prompt_plus_completion_tokens": 2463
+      },
+      "stroop": {
+        "item_count": 3,
+        "max_context_prompt_estimate_tokens": 396,
+        "max_declared_characters": 5,
+        "max_declared_lines": 1,
+        "max_declared_whitespace_tokens": 1,
+        "max_reserved_prompt_plus_completion_tokens": 908
+      }
+    },
+    "completion_budget_tokens": 512,
+    "context_stress": {
+      "filler_response_characters": 1024,
+      "max_reserved_prompt_plus_completion_tokens": 2899,
+      "minimum_reserved_margin_tokens": 1197,
+      "served_context_tokens": 4096,
+      "worst_paradigm": "cvlt_word_list"
+    },
+    "contract": "Aggregate-only static audit over all selected items. Multiline lists are kept one element per line; CVLT filler history is stressed with a 1,024-character response; runtime's conservative char/3+64 estimator reserves the complete completion budget for every simulated call.",
+    "declared_answer_completion_budget_multiple": 7.314285714285714,
+    "declared_response_global_max": {
+      "characters": 406,
+      "lines": 35,
+      "whitespace_tokens": 70
+    },
+    "item_payload_terminator_collision_count": 0,
+    "response_format_policy": {
+      "multiline": {
+        "paradigms": [
+          "drm_false_memory",
+          "source_monitoring",
+          "confidence_calibration",
+          "post_decision_wagering"
+        ],
+        "stop_sequences": [
+          "\n\n",
+          "<END_COGARENA_RESPONSE>"
+        ]
+      },
+      "single_line": {
+        "paradigms": [
+          "digit_span",
+          "n_back",
+          "operation_span",
+          "stroop",
+          "flanker",
+          "go_nogo",
+          "cvlt_word_list",
+          "false_belief",
+          "epitome_tom"
+        ],
+        "stop_sequences": [
+          "\n",
+          "<END_COGARENA_RESPONSE>"
+        ]
+      }
+    },
+    "stop_sequence_collisions_with_declared_call_responses": 0,
+    "terminator_absent_from_all_item_payloads_and_condition_scaffolds": true,
+    "transport_terminator": "<END_COGARENA_RESPONSE>",
+    "user_prompt_format_overrides": {
+      "cvlt_word_list": {
+        "instruction_characters": 125,
+        "instruction_sha256": "fa0b62049e0f0296d428690d5e474779bf4d1645a4299c959f31846d55b68ab9",
+        "instruction_whitespace_tokens": 21
+      }
+    }
+  },
+  "prompt_length_audit": {
+    "conditions": [
+      {
+        "complete_system_characters": 456,
+        "complete_system_sha256": "26fad7fde2dad9481303c81951f42f25423006bf01f48959378949c009e25c0c",
+        "complete_system_whitespace_tokens": 69,
+        "condition_id": "baseline",
+        "kind": "baseline",
+        "scaffold_characters": 0,
+        "scaffold_utf8_bytes": 0,
+        "scaffold_whitespace_tokens": 0,
+        "target_group": null
+      },
+      {
+        "complete_system_characters": 822,
+        "complete_system_sha256": "9f98901732c47cc3fa2c4faf2b3a4f629c1259ca64c7b10f4fc11a0240081485",
+        "complete_system_whitespace_tokens": 121,
+        "condition_id": "neutral_placebo",
+        "kind": "placebo",
+        "scaffold_characters": 342,
+        "scaffold_utf8_bytes": 342,
+        "scaffold_whitespace_tokens": 50,
+        "target_group": null
+      },
+      {
+        "complete_system_characters": 824,
+        "complete_system_sha256": "4462a99745718dcb22a3888804a6237aa95767befcd46dc1cb78e425534a4aed",
+        "complete_system_whitespace_tokens": 121,
+        "condition_id": "working_memory_ledger",
+        "kind": "targeted",
+        "scaffold_characters": 344,
+        "scaffold_utf8_bytes": 344,
+        "scaffold_whitespace_tokens": 50,
+        "target_group": "working_memory"
+      },
+      {
+        "complete_system_characters": 828,
+        "complete_system_sha256": "12c3afa3e801dc29932055267349993c4d79867c39f2e8b6a8427e9c3395f85f",
+        "complete_system_whitespace_tokens": 120,
+        "condition_id": "control_rule_rehearsal",
+        "kind": "targeted",
+        "scaffold_characters": 348,
+        "scaffold_utf8_bytes": 348,
+        "scaffold_whitespace_tokens": 49,
+        "target_group": "cognitive_control"
+      },
+      {
+        "complete_system_characters": 833,
+        "complete_system_sha256": "465f5df610a7c7a27e1ec8bbecda1d1a9cf288a8659a8e158671470e82255fa0",
+        "complete_system_whitespace_tokens": 120,
+        "condition_id": "episodic_source_binding",
+        "kind": "targeted",
+        "scaffold_characters": 353,
+        "scaffold_utf8_bytes": 353,
+        "scaffold_whitespace_tokens": 49,
+        "target_group": "episodic_memory"
+      },
+      {
+        "complete_system_characters": 813,
+        "complete_system_sha256": "8415015156c6e689f39891105ead54128c7a539295610c44f673cddfebf11f72",
+        "complete_system_whitespace_tokens": 122,
+        "condition_id": "belief_state_ledger",
+        "kind": "targeted",
+        "scaffold_characters": 333,
+        "scaffold_utf8_bytes": 333,
+        "scaffold_whitespace_tokens": 51,
+        "target_group": "theory_of_mind"
+      },
+      {
+        "complete_system_characters": 827,
+        "complete_system_sha256": "1d838ca77ca9b0984ae5807a6a17c62b80fa081fc3217989528c03564c86d157",
+        "complete_system_whitespace_tokens": 120,
+        "condition_id": "metacognitive_forecast",
+        "kind": "targeted",
+        "scaffold_characters": 347,
+        "scaffold_utf8_bytes": 347,
+        "scaffold_whitespace_tokens": 49,
+        "target_group": "metacognition"
+      }
+    ],
+    "count_definition": "Whitespace-delimited tokens plus Unicode character and UTF-8 byte counts; no model-specific tokenizer is assumed across six model families.",
+    "targeted_vs_placebo_max_absolute_whitespace_token_delta": 1,
+    "targeted_vs_placebo_max_character_fraction_delta": 0.03216374269005848
+  },
+  "repository_base_revision": "590462cc9195925bcbf31c01607ea963281a5dea",
+  "schema_version": "cogarena.causal_selectivity.item_provenance.v1",
+  "source_sha256": {
+    "cogarena/core.py": "c381d26f0f5c941ec771760c2ace9d9041f8fcbf39e274b37a7f42d3bca66f40",
+    "cogarena/dimensions/cognitive_control.py": "50b18389684ee6989a072c9e0f6ff8fdb408a8535fbb952131024e6cdece8cd1",
+    "cogarena/dimensions/episodic_memory.py": "c42a0158e24183a3b9244558512f4215c12a1c7107d383c2981f1083dcfbcd4b",
+    "cogarena/dimensions/metacognition.py": "affdcbf1784cdad2ed13b8fb002db3cbc074bbe66e7fcc098581d5804463a825",
+    "cogarena/dimensions/theory_of_mind.py": "a6008cb95d54d1dd848843c522c055a9e4a0ce1133e96b3d57bd8028521dc475",
+    "cogarena/dimensions/working_memory.py": "85d5fe55b391ef0f73ac99e7d62887269491dcf7a4964274e23991cc9b782dec",
+    "cogarena/generators/cognitive_control_gen.py": "0b816dec1c3ca3fa5f5b5970d92652110ce0a1dd7b98c6d7d16a6b58d559d4dc",
+    "cogarena/generators/episodic_memory_gen.py": "99889e0fe7ac312c28e66cd31abb49a632e257d326c97e6fd312f1e9c8a5693d",
+    "cogarena/generators/metacognition_gen.py": "61f8e85bd529735812ed2ae1c07e60b47ee98dd4694eb8d77923d81ca54377f4",
+    "cogarena/generators/theory_of_mind_gen.py": "d98a9ef843743ba074050c5654f4bddefe9aad58a5971f38a2c164a49cd73bc9",
+    "cogarena/generators/working_memory_gen.py": "5012532fa1bae728790f0ad79088afac3860078a7ddc48a898695236ab9ffc03",
+    "scripts/experiments/causal_selectivity_20260720/analyze.py": "400db81a59bcd91e59154ed2a1f1811477801fd04f995bf8c9de1c13aaea487f",
+    "scripts/experiments/causal_selectivity_20260720/analyze.sbatch": "6529fc9e8c99de3c9496e2ec761b33c9b07f9ddfb225f6018236aebb1be2d877",
+    "scripts/experiments/causal_selectivity_20260720/build_item_manifests.py": "a4da97320edc2cad3ecafca2e550a0f916f087d40b7338fd142e32dc177e4f11",
+    "scripts/experiments/causal_selectivity_20260720/capacity_probe.py": "0afe6bd4b1f2b6657fd70b69e7551ee9800846330c09a92a0e460bceca3bfedf",
+    "scripts/experiments/causal_selectivity_20260720/capacity_probe.sbatch": "6613a81f2b14c96b6ac4dee6c6de85af831db401b6dd700c30be463dd9eac5ad",
+    "scripts/experiments/causal_selectivity_20260720/common.py": "a7f31829e016d6ce07747e3288cbf2317608ed32e1cd5bae9125a832cd2df54b",
+    "scripts/experiments/causal_selectivity_20260720/finalize.sbatch": "d30fd630f81d3069d305013f0f67514109102519e140aabdc0a9b3fd99df6056",
+    "scripts/experiments/causal_selectivity_20260720/finalize_capacity.sbatch": "afc80413e536449de792783ba0da1d74c7ec7420767e59eb5907486683e7b644",
+    "scripts/experiments/causal_selectivity_20260720/full.sbatch": "ffb35d571c2c34c22dd3ee1b9a3aeebb1901ede9fafce8d8505fe5aec4ba0381",
+    "scripts/experiments/causal_selectivity_20260720/pilot.sbatch": "eb9dcd39ea815d7166ebce03fd73fbf3634d610f4240612a9b083efde364f966",
+    "scripts/experiments/causal_selectivity_20260720/preflight.py": "4ebc382044a0fa72ac0947584379b50243b965ceb3da92d4fba5b72b29eb398e",
+    "scripts/experiments/causal_selectivity_20260720/prepare.sbatch": "f162554fcdfdff1cfcb96cf9a00f30f568d729e110054625097800f188c5dbde",
+    "scripts/experiments/causal_selectivity_20260720/run_capacity_probe.sh": "cf34acf901b1432f1e0017e98aad3275ef971d1a52fcec3d6ec75b1302e3e419",
+    "scripts/experiments/causal_selectivity_20260720/run_model.py": "82dc68b378848fa6e36e0a4d53b41cff8a4e426a346f04a2adeb9b92da86b5b8",
+    "scripts/experiments/causal_selectivity_20260720/run_one_model.sh": "4bebcf25b335c8626629323c56a60a584c19760140ccf74b08269aec02e11cfa",
+    "scripts/experiments/causal_selectivity_20260720/scorer_adapter.py": "ec73b6598c482cb11bb2d638de1a7bcc7d268e3c781741770d6f7463d5b2f5a3",
+    "scripts/experiments/causal_selectivity_20260720/verify_capacity.py": "2333132b62ff39bbda66163682092a34b178e501d9ef58fad531ee1ccc7fc3ff",
+    "scripts/experiments/causal_selectivity_20260720/verify_model.py": "147134d684880830a7ed5ee074983ecd12d1fc1adbd5ed829ee0f19ed799b82a",
+    "scripts/experiments/causal_selectivity_20260720/verify_run.py": "e9c4eccc4efeb8b287c363ffb91a5a5b17a07fe1db25cbc387e408d54b7a06d0",
+    "scripts/reanalysis/aplus_rescore_20260718.py": "d287d14498d0e1c30628e7c5ec8caebae12378442fefbde5942635fa2fac3e52"
+  },
+  "spec_sha256": "8367e0db2e9bd03a4fa3d3dc283b0be955203f938b889550e3a61a7b45b0ff40",
+  "study_id": "causal_selectivity_20260720"
+}

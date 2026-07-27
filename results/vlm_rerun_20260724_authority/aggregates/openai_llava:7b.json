@@ -1,0 +1,96 @@
+{
+  "conditions": {
+    "flanker": {
+      "congruent": {
+        "accuracy": 0.5,
+        "blank": 0,
+        "blank_rate": 0.0,
+        "correct": 25,
+        "count": 50
+      },
+      "incongruent": {
+        "accuracy": 0.5,
+        "blank": 0,
+        "blank_rate": 0.0,
+        "correct": 25,
+        "count": 50
+      }
+    },
+    "stroop": {
+      "congruent": {
+        "accuracy": 1.0,
+        "blank": 0,
+        "blank_rate": 0.0,
+        "correct": 50,
+        "count": 50
+      },
+      "incongruent": {
+        "accuracy": 0.0,
+        "blank": 0,
+        "blank_rate": 0.0,
+        "correct": 0,
+        "count": 50
+      }
+    }
+  },
+  "model_digest": "8dd30f6b0cb19f555f2c7a7ebda861449ea2cc76bf1f44e262931f45fc81d081",
+  "model_id": "openai/llava:7b",
+  "n_records": 250,
+  "paradigms": {
+    "false_belief": {
+      "accuracy": 0.0,
+      "blank": 0,
+      "blank_rate": 0.0,
+      "correct": 0,
+      "count": 50,
+      "non_stop": 3
+    },
+    "flanker": {
+      "accuracy": 0.5,
+      "blank": 0,
+      "blank_rate": 0.0,
+      "correct": 50,
+      "count": 100,
+      "non_stop": 0
+    },
+    "stroop": {
+      "accuracy": 0.5,
+      "blank": 0,
+      "blank_rate": 0.0,
+      "correct": 50,
+      "count": 100,
+      "non_stop": 0
+    }
+  },
+  "record_counts_by_session": {
+    "13041d8875a76a37651e7cdc": 250
+  },
+  "serving_sessions": {
+    "13041d8875a76a37651e7cdc": {
+      "node": "c03",
+      "sha256": "ff2083144013701e4f683b215a612305f6ca80102c24cbd5b626d0e456d81358",
+      "slurm_job_id": "8873",
+      "source_revision": "76fce6076e64fd7a90bea32b5e94c0ab5c09fd72"
+    }
+  },
+  "session_ids": [
+    "13041d8875a76a37651e7cdc"
+  ],
+  "usage": {
+    "false_belief": {
+      "max_completion_tokens": 256,
+      "max_prompt_tokens": 642,
+      "min_prompt_tokens": 641
+    },
+    "flanker": {
+      "max_completion_tokens": 10,
+      "max_prompt_tokens": 623,
+      "min_prompt_tokens": 623
+    },
+    "stroop": {
+      "max_completion_tokens": 4,
+      "max_prompt_tokens": 632,
+      "min_prompt_tokens": 632
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+ "dropped": [
+  "cvlt_word_list",
+  "go_nogo",
+  "stroop"
+ ],
+ "kept": [
+  "confidence_calibration",
+  "digit_span",
+  "drm_false_memory",
+  "epitome_tom",
+  "false_belief",
+  "flanker",
+  "n_back",
+  "operation_span",
+  "post_decision_wagering",
+  "source_monitoring"
+ ],
+ "accuracy": {
+  "pc1": 0.5645,
+  "raw (d, p1, p2)": [
+   0.147,
+   0.0192,
+   0.0212
+  ],
+  "rowmean_resid (d, p1, p2)": [
+   0.3055,
+   0.0128,
+   0.0128
+  ],
+  "n_within_pairs": 6,
+  "n_cross_pairs": 39
+ },
+ "construct": {
+  "pc1": 0.3939,
+  "raw (d, p1, p2)": [
+   0.0954,
+   0.2144,
+   0.4409
+  ],
+  "rowmean_resid (d, p1, p2)": [
+   0.0198,
+   0.4207,
+   0.8896
+  ],
+  "n_within_pairs": 6,
+  "n_cross_pairs": 39
+ }
+}

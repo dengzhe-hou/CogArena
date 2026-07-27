@@ -1,0 +1,367 @@
+{
+  "schema_version": "cogarena.signature_family_sensitivity.v1",
+  "status": "post_hoc_sensitivity",
+  "checkpoint_analysis_sha256": "2f06254215e52febd916e5dc2479017af4e04c92b2c692b09362fc9420dfe448",
+  "family_map_sha256": "329d307d47114bca073ceea014810517879759c04f8b4127a0ace783d032f8fc",
+  "sampling_unit_note": "Family means, not checkpoints, are the inferential units. Ties and zero family means do not count in the expected direction.",
+  "paradigms": {
+    "stroop": {
+      "raw": {
+        "n_families": 11,
+        "k_family_means_expected_direction": 5,
+        "fraction": "5/11",
+        "p_direction_binomial_one_sided": 0.7255859375,
+        "mean_of_family_mean_deltas": 0.04609518181818182,
+        "family_mean_deltas": {
+          "command-r": 0.0,
+          "deepseek-r1": -0.016544,
+          "gemma2": -0.0030636666666666664,
+          "llama3.1": 0.0,
+          "llama3.2": 0.141544,
+          "mistral": 0.058824,
+          "mixtral": -0.068015,
+          "phi3": 0.058824,
+          "qwen2.5": 0.06709566666666666,
+          "tinyllama": 0.268382,
+          "yi": 0.0
+        },
+        "continuous_exact_sign_flip": {
+          "n_permutations": 2048,
+          "observed_mean_delta": 0.04609518181818182,
+          "p_one_sided": 0.078125,
+          "p_two_sided": 0.15625
+        },
+        "p_direction_binomial_bh": 0.7255859375,
+        "p_continuous_sign_flip_one_sided_bh": 0.078125
+      },
+      "merged": {
+        "n_families": 10,
+        "k_family_means_expected_direction": 5,
+        "fraction": "5/10",
+        "p_direction_binomial_one_sided": 0.623046875,
+        "mean_of_family_mean_deltas": 0.04598656666666666,
+        "family_mean_deltas": {
+          "command-r": 0.0,
+          "deepseek-r": -0.016544,
+          "gemma": -0.0030636666666666664,
+          "llama": 0.09436266666666666,
+          "mistral": 0.058824,
+          "mixtral": -0.068015,
+          "phi": 0.058824,
+          "qwen": 0.06709566666666666,
+          "tinyllama": 0.268382,
+          "yi": 0.0
+        },
+        "continuous_exact_sign_flip": {
+          "n_permutations": 1024,
+          "observed_mean_delta": 0.04598656666666666,
+          "p_one_sided": 0.078125,
+          "p_two_sided": 0.15625
+        },
+        "p_direction_binomial_bh": 0.623046875,
+        "p_continuous_sign_flip_one_sided_bh": 0.078125
+      }
+    },
+    "flanker": {
+      "raw": {
+        "n_families": 11,
+        "k_family_means_expected_direction": 11,
+        "fraction": "11/11",
+        "p_direction_binomial_one_sided": 0.00048828125,
+        "mean_of_family_mean_deltas": 0.2242925909090909,
+        "family_mean_deltas": {
+          "command-r": 0.637868,
+          "deepseek-r1": 0.06341949999999999,
+          "gemma2": 0.269608,
+          "llama3.1": 0.045956,
+          "llama3.2": 0.037683999999999995,
+          "mistral": 0.040441,
+          "mixtral": 0.101103,
+          "phi3": 0.431985,
+          "qwen2.5": 0.280331,
+          "tinyllama": 0.393382,
+          "yi": 0.165441
+        },
+        "continuous_exact_sign_flip": {
+          "n_permutations": 2048,
+          "observed_mean_delta": 0.2242925909090909,
+          "p_one_sided": 0.00048828125,
+          "p_two_sided": 0.0009765625
+        },
+        "p_direction_binomial_bh": 0.00244140625,
+        "p_continuous_sign_flip_one_sided_bh": 0.00244140625
+      },
+      "merged": {
+        "n_families": 10,
+        "k_family_means_expected_direction": 10,
+        "fraction": "10/10",
+        "p_direction_binomial_one_sided": 0.0009765625,
+        "mean_of_family_mean_deltas": 0.2424019833333333,
+        "family_mean_deltas": {
+          "command-r": 0.637868,
+          "deepseek-r": 0.06341949999999999,
+          "gemma": 0.269608,
+          "llama": 0.04044133333333333,
+          "mistral": 0.040441,
+          "mixtral": 0.101103,
+          "phi": 0.431985,
+          "qwen": 0.280331,
+          "tinyllama": 0.393382,
+          "yi": 0.165441
+        },
+        "continuous_exact_sign_flip": {
+          "n_permutations": 1024,
+          "observed_mean_delta": 0.2424019833333333,
+          "p_one_sided": 0.0009765625,
+          "p_two_sided": 0.001953125
+        },
+        "p_direction_binomial_bh": 0.0048828125,
+        "p_continuous_sign_flip_one_sided_bh": 0.0048828125
+      }
+    },
+    "n_back_load": {
+      "raw": {
+        "n_families": 11,
+        "k_family_means_expected_direction": 8,
+        "fraction": "8/11",
+        "p_direction_binomial_one_sided": 0.11328125,
+        "mean_of_family_mean_deltas": 0.058751621212121206,
+        "family_mean_deltas": {
+          "command-r": 0.002604,
+          "deepseek-r1": 0.2825525,
+          "gemma2": 0.140625,
+          "llama3.1": 0.127604,
+          "llama3.2": -0.141927,
+          "mistral": 0.072917,
+          "mixtral": -0.015625,
+          "phi3": 0.026042,
+          "qwen2.5": 0.09939233333333335,
+          "tinyllama": 0.0,
+          "yi": 0.052083
+        },
+        "continuous_exact_sign_flip": {
+          "n_permutations": 2048,
+          "observed_mean_delta": 0.058751621212121206,
+          "p_one_sided": 0.05078125,
+          "p_two_sided": 0.1015625
+        },
+        "p_direction_binomial_bh": 0.1416015625,
+        "p_continuous_sign_flip_one_sided_bh": 0.0634765625
+      },
+      "merged": {
+        "n_families": 10,
+        "k_family_means_expected_direction": 7,
+        "fraction": "7/10",
+        "p_direction_binomial_one_sided": 0.171875,
+        "mean_of_family_mean_deltas": 0.060850749999999995,
+        "family_mean_deltas": {
+          "command-r": 0.002604,
+          "deepseek-r": 0.2825525,
+          "gemma": 0.140625,
+          "llama": -0.052083333333333336,
+          "mistral": 0.072917,
+          "mixtral": -0.015625,
+          "phi": 0.026042,
+          "qwen": 0.09939233333333335,
+          "tinyllama": 0.0,
+          "yi": 0.052083
+        },
+        "continuous_exact_sign_flip": {
+          "n_permutations": 1024,
+          "observed_mean_delta": 0.060850749999999995,
+          "p_one_sided": 0.02734375,
+          "p_two_sided": 0.0546875
+        },
+        "p_direction_binomial_bh": 0.21484375,
+        "p_continuous_sign_flip_one_sided_bh": 0.0341796875
+      }
+    },
+    "false_belief": {
+      "raw": {
+        "n_families": 11,
+        "k_family_means_expected_direction": 8,
+        "fraction": "8/11",
+        "p_direction_binomial_one_sided": 0.11328125,
+        "mean_of_family_mean_deltas": 0.15575757575757576,
+        "family_mean_deltas": {
+          "command-r": 0.12,
+          "deepseek-r1": 0.18,
+          "gemma2": -0.16,
+          "llama3.1": 0.2,
+          "llama3.2": 0.32,
+          "mistral": 0.24,
+          "mixtral": 0.56,
+          "phi3": 0.04,
+          "qwen2.5": 0.2933333333333334,
+          "tinyllama": -0.08,
+          "yi": 0.0
+        },
+        "continuous_exact_sign_flip": {
+          "n_permutations": 2048,
+          "observed_mean_delta": 0.15575757575757576,
+          "p_one_sided": 0.015625,
+          "p_two_sided": 0.03125
+        },
+        "p_direction_binomial_bh": 0.1416015625,
+        "p_continuous_sign_flip_one_sided_bh": 0.026041666666666668
+      },
+      "merged": {
+        "n_families": 10,
+        "k_family_means_expected_direction": 7,
+        "fraction": "7/10",
+        "p_direction_binomial_one_sided": 0.171875,
+        "mean_of_family_mean_deltas": 0.14733333333333332,
+        "family_mean_deltas": {
+          "command-r": 0.12,
+          "deepseek-r": 0.18,
+          "gemma": -0.16,
+          "llama": 0.28,
+          "mistral": 0.24,
+          "mixtral": 0.56,
+          "phi": 0.04,
+          "qwen": 0.2933333333333334,
+          "tinyllama": -0.08,
+          "yi": 0.0
+        },
+        "continuous_exact_sign_flip": {
+          "n_permutations": 1024,
+          "observed_mean_delta": 0.14733333333333332,
+          "p_one_sided": 0.02734375,
+          "p_two_sided": 0.0546875
+        },
+        "p_direction_binomial_bh": 0.21484375,
+        "p_continuous_sign_flip_one_sided_bh": 0.0341796875
+      }
+    },
+    "drm_false_memory": {
+      "raw": {
+        "n_families": 11,
+        "k_family_means_expected_direction": 10,
+        "fraction": "10/11",
+        "p_direction_binomial_one_sided": 0.005859375,
+        "mean_of_family_mean_deltas": 0.26926393939393944,
+        "family_mean_deltas": {
+          "command-r": 0.082016,
+          "deepseek-r1": 0.073451,
+          "gemma2": 0.490791,
+          "llama3.1": 0.141042,
+          "llama3.2": 0.0915955,
+          "mistral": 0.699174,
+          "mixtral": 0.289808,
+          "phi3": 0.377684,
+          "qwen2.5": 0.14863883333333333,
+          "tinyllama": -0.000358,
+          "yi": 0.568061
+        },
+        "continuous_exact_sign_flip": {
+          "n_permutations": 2048,
+          "observed_mean_delta": 0.26926393939393944,
+          "p_one_sided": 0.0009765625,
+          "p_two_sided": 0.001953125
+        },
+        "p_direction_binomial_bh": 0.0146484375,
+        "p_continuous_sign_flip_one_sided_bh": 0.00244140625
+      },
+      "merged": {
+        "n_families": 10,
+        "k_family_means_expected_direction": 9,
+        "fraction": "9/10",
+        "p_direction_binomial_one_sided": 0.0107421875,
+        "mean_of_family_mean_deltas": 0.28373435,
+        "family_mean_deltas": {
+          "command-r": 0.082016,
+          "deepseek-r": 0.073451,
+          "gemma": 0.490791,
+          "llama": 0.10807766666666667,
+          "mistral": 0.699174,
+          "mixtral": 0.289808,
+          "phi": 0.377684,
+          "qwen": 0.14863883333333333,
+          "tinyllama": -0.000358,
+          "yi": 0.568061
+        },
+        "continuous_exact_sign_flip": {
+          "n_permutations": 1024,
+          "observed_mean_delta": 0.28373435,
+          "p_one_sided": 0.001953125,
+          "p_two_sided": 0.00390625
+        },
+        "p_direction_binomial_bh": 0.02685546875,
+        "p_continuous_sign_flip_one_sided_bh": 0.0048828125
+      }
+    },
+    "epitome": {
+      "pool": "35-model expansion",
+      "contrast": "desire minus belief accuracy",
+      "excluded_from_five_paradigm_bh": true,
+      "raw": {
+        "n_families": 23,
+        "k_family_means_expected_direction": 19,
+        "fraction": "19/23",
+        "p_direction_binomial_one_sided": 0.001299738883972168,
+        "mean_of_family_mean_deltas": 0.2525083612040133,
+        "family_mean_deltas": {
+          "aya": 0.3846153846153846,
+          "deepseek": 0.46153846153846156,
+          "exaone": 0.07692307692307687,
+          "falcon3": 0.11538461538461536,
+          "gemma3": 0.23076923076923075,
+          "glm4": 0.15384615384615385,
+          "internlm2": 0.23076923076923073,
+          "llama2": 0.6923076923076923,
+          "llama3.1": 0.0,
+          "mistral": 0.0,
+          "mixtral": 0.0,
+          "nemotron": 0.5384615384615384,
+          "olmo2": 0.07692307692307693,
+          "openchat": 0.15384615384615385,
+          "phi": 0.07692307692307693,
+          "qwen2.5": 0.0,
+          "qwen3": 0.23076923076923078,
+          "smollm2": 0.2692307692307692,
+          "solar": 0.3846153846153846,
+          "stablelm2": 0.8461538461538461,
+          "starling": 0.3846153846153846,
+          "yi": 0.1923076923076923,
+          "zephyr": 0.3076923076923077
+        },
+        "continuous_exact_sign_flip": {
+          "status": "not_run_for_separate_35_model_epitome_pool"
+        }
+      },
+      "merged": {
+        "n_families": 21,
+        "k_family_means_expected_direction": 19,
+        "fraction": "19/21",
+        "p_direction_binomial_one_sided": 0.000110626220703125,
+        "mean_of_family_mean_deltas": 0.26373626373626374,
+        "family_mean_deltas": {
+          "aya": 0.3846153846153846,
+          "deepseek": 0.46153846153846156,
+          "exaone": 0.07692307692307687,
+          "falcon": 0.11538461538461536,
+          "gemma": 0.23076923076923075,
+          "glm": 0.15384615384615385,
+          "internlm": 0.23076923076923073,
+          "llama": 0.4615384615384615,
+          "mistral": 0.0,
+          "mixtral": 0.0,
+          "nemotron": 0.5384615384615384,
+          "olmo": 0.07692307692307693,
+          "openchat": 0.15384615384615385,
+          "phi": 0.07692307692307693,
+          "qwen": 0.19230769230769232,
+          "smollm": 0.2692307692307692,
+          "solar": 0.3846153846153846,
+          "stablelm": 0.8461538461538461,
+          "starling": 0.3846153846153846,
+          "yi": 0.1923076923076923,
+          "zephyr": 0.3076923076923077
+        },
+        "continuous_exact_sign_flip": {
+          "status": "not_run_for_separate_35_model_epitome_pool"
+        }
+      }
+    }
+  }
+}

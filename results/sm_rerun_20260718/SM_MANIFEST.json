@@ -1,0 +1,165 @@
+{
+ "spec": "SM rerun chain provenance (dedup-fixed 11 episodes x 55 models, two serving arms)",
+ "outputs": {
+  "sm_scores_overlay.json": "19bfea4a590801fa7fb74f579e764f07af872532125386d2c13af9ce31846faf",
+  "sm_rerun_summary.json": "2b0ccb77b1924c9348ce7ae1dda4d0552fd319f4734578004758c1f389bb4cc8"
+ },
+ "scripts": {
+  "results/sm_rerun_20260718/run_sm_rerun.py": "5b7a93dd4788e6db47c0cdfe1dafb1d9f60426c6e92534ad97af207eb2dfd943",
+  "results/sm_rerun_20260718/summarize_sm_rerun.py": "151f0f0abf3895fafe7de87655df5ef1119ca9267ce75c87b4622948346160b0",
+  "results/sm_rerun_20260718/job.sbatch": "8d1c8555667d031c019c7d587442398b7b6bf5599219268a34bbc8a105f8639c",
+  "results/sm_rerun_20260718/build_sm_manifest.py": "e1ae18e2e6ec2a880bf8d0b801045e7b973c2669a448622813c5b1d42d56b27d",
+  "results/sm_rerun_default_ctx_20260718/job.sbatch": "5a37a04d96266e12cd0dc304c61a833501abc5fe56402d1cb708a7fa8fcc97b4",
+  "results/sm_rerun_default_ctx_20260718/compare_serving_arms.py": "5b239df8e10de6c0839941838b0bee7fc493b6065d748bf915d69d741abed527"
+ },
+ "manifests": {
+  "rerun_manifest.json": "5c378c4ef1e869abeed34dd1c410af15a2f10b5632cc87daac2c07e988af687c",
+  "source_monitoring_exclusions.json": "646a9a126869365ef75c6907a4113ae105f21135863d6d6b51780812ff04fe0e"
+ },
+ "inputs_local_only": {
+  "note": "raw per-item responses are untracked; tree hashes below let local holders verify byte identity. The zero-mismatch rescore gate (G4) is therefore local verification; a clean checkout re-verifies outputs, scripts, and manifests only.",
+  "rescore_20260702_overlay_tree": {
+   "n_files": 116,
+   "sha256": "e3d2f52bd8f09ef57c3758654cba0684cf0b2abcba98b346ecfc01e725f49624"
+  },
+  "frozen_sm_item_tree": {
+   "n_files": 3050,
+   "sha256": "93880d4dcded1595afa03945286061cee2a1a48f53f3a299669e8f2f43eb72e4"
+  },
+  "arm_4096_item_tree": {
+   "n_files": 605,
+   "sha256": "007b78090ed39d4431d482861e865c33393a8eaa30be436834e7ebc6a1bb2855"
+  },
+  "arm_default_item_tree": {
+   "n_files": 231,
+   "sha256": "414416f72108ccd5da500cd0181f4c8d33e73ab4443898786174d60b0732ed98"
+  }
+ },
+ "generator_scorer_provenance": {
+  "bug_origin_commit": "ed15dea",
+  "fixed_generator_commit": "9cfad4f",
+  "episodic_memory_module_blob_now": "d4d233914a739efed83efb61c1a75e2039d917fc",
+  "repo_head_at_manifest": "f6d6285"
+ },
+ "serving": {
+  "job_6803_partial_first_32_models": {
+   "context": "ollama default (no override)",
+   "flash_attention_env": "1",
+   "note": "cancelled at llama3.1:70b after n_ctx=131072 KV spill; its 352 files kept"
+  },
+  "job_6805_resume_23_models": {
+   "context": "OLLAMA_CONTEXT_LENGTH=4096",
+   "flash_attention_env": "unset (auto)",
+   "matches_original_contract_for": [
+    "llama3.1:70b",
+    "mixtral:8x22b"
+   ]
+  },
+  "job_6807_default_arm_21_models": {
+   "context": "ollama default (no override)",
+   "flash_attention_env": "unset (auto)",
+   "purpose": "serving alignment for the 21 ordinary resumed models; 4096 results kept as sensitivity arm"
+  },
+  "ollama_model_digests": {
+   "arm_default": {
+    "mixtral:8x22b": "e8479ee1cb51a2b82027bab45847b043be6de2cc5993bda964e931b6f934544b",
+    "llama3.1:70b": "711a9e8463afd8edd580debd3b5c521521ebe55ba95bb80d576f4149969e07c6",
+    "qwen2.5:72b": "424bad2cc13f72f5bcd8085de63f48e7ef2ae5bf50a30be4b3ade7d3258f5796",
+    "nemotron-mini:4b": "ed76ab18784f5a01c9ec5b3c250e964d4f9c7a983e59ba041bb995f0fe2e8fb3",
+    "starling-lm:7b": "39153f619be614bf1b8b91cf31afe53ec107d70b6b7bb4118aa52bccc107ca7e",
+    "zephyr:7b": "bbe38b81adec6be8ff951d148864ed15a368aa2e8534a5092d444f184a56e354",
+    "openchat:7b": "537a4e03b649d93bf57381199a85f412bfc35912e46db197407740230968e71f",
+    "deepseek-llm:7b": "9aab369a853bb12b8187d14eca701385f0a564cd2ae938fb4cbdb31bf2d43fc2",
+    "stablelm2:1.6b": "714a6116cffa8b415b52c62a7a2d09ba6227ed733baa0025c937a36aee5504f3",
+    "exaone3.5:7.8b": "c7c4e3d1ca22fe9225f18b35eb719f67e2ca96a42e7fd17294a45b83ba8fbf03",
+    "solar:10.7b": "059fdabbe6e66af42bb0e9fa07d9dd359c085d5973df1345d94327e9117d9cd9",
+    "aya:8b": "7ef8c4942023233f441474200440ada6cb37ca276e52861e0fe8dd7aea570224",
+    "glm4:9b": "5b699761eca535dc55047ad9d2dbf54e3b8697709419ef78a70503ed4bfbcf44",
+    "internlm2:7b": "5050e36678abc59da7cfdfd29744f2c45acf3ca21e58c106220e84ba06d36747",
+    "smollm2:360m": "297281b699fc51376006233ca400cd664c4f7b80ed88a47ef084f1e4b089803b",
+    "smollm2:1.7b": "cef4a1e09247f018ca0c482ad4c2ce1474aba5e87f245dacf97f07948d05d8b4",
+    "olmo2:13b": "6c279ebc980fb07ca7b49cccf17b5faef6a73082cac4b3d44d2226981de676da",
+    "olmo2:7b": "4208d3b406db076e1569c97a2fb67cf9c86b845544c1a61ff218259daf9e3538",
+    "falcon3:10b": "1653ff122acd9292fe21a097c0f08ce419439be595b312d6d6d06ee33df91b88",
+    "falcon3:7b": "472ea1c89f64f932368963bfb8c7f54bd797f2161932cf0a72766a587b2e586d",
+    "yi:9b": "3af70141e8ebd597c62c01a8521b8833656e9a734bfb258803bc2ea21987587a",
+    "yi:6b": "a7f031bb846ffb148caf7c67f4ad50bf0487f2c0b13882cff74b9668674e959a",
+    "mistral-nemo:12b": "e7e06d107c6c86ed0cf45445f1790720b5092149c4c95f4d965844e9afbfdc89",
+    "llama2:13b": "d475bf4c50bc4d29f333023e38cd56535039eec11052204e5304c8773cc8416c",
+    "llama2:7b": "78e26419b4469263f75331927a00a0284ef6544c1975b826b15abdaef17bb962",
+    "phi4:14b": "ac896e5b8b34a1f4efa7b14d7520725140d5512484457fab45d2a4ea14c69dba",
+    "phi3:3.8b": "4f222292793889a9a40a020799cfd28d53f3e01af25d48e06c5e708610fc47e9",
+    "gemma3:27b": "a418f5838eaf7fe2cfe0a3046c8384b68ba43a4435542c942f9db00a5f342203",
+    "gemma3:12b": "f4031aab637d1ffa37b42570452ae0e4fad0314754d17ded67322e4b95836f8a",
+    "gemma3:1b": "8648f39daa8fbf5b18c7b4e6a8fb4990c692751d49917417b8842ca5758e7ffc",
+    "qwen3:14b": "bdbd181c33f2ed1b31c972991882db3cf4d192569092138a7d29e973cd9debe8",
+    "qwen3:8b": "500a1f067a9f782620b40bee6f7b0c89e17ae61f686b92c24933e4ca4b2b8b41",
+    "qwen3:4b": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+    "qwen3:1.7b": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+    "qwen3:0.6b": "7df6b6e09427a769808717c0a93cadc4ae99ed4eb8bf5ca557c90846becea435",
+    "mistral:7b-instruct-fp16": "7334da3db4d23521655f7a494a65e01f6347f353ce46e12598f7f060d33952c4",
+    "llama3.1:8b-instruct-fp16": "4aacac4194543ff7f70dab3f2ebc169c132d5319bb36f7a7e99c4ff525ebcc09",
+    "gemma2:9b-instruct-fp16": "28e6684b085085f78551db7c96a9daa546161b1da9d055ea01b84cb1163013cf",
+    "qwen2.5:14b-instruct-fp16": "06c8c6f15cf918350c8e6a1ed6780e5589dc6900b8a67ec0348bc5da3cdd6518",
+    "qwen2.5:7b-instruct-fp16": "59805ce4a4046be2d8f63231a78daacd2e66f5dccf1a64d0d138ebeeb26ff16c",
+    "qwen2.5:0.5b-instruct-fp16": "c82efd44bfdceead1596114a378e8c9f4f3c4509e98af0c034e1dcd5396f0547",
+    "llama3.2-vision:11b": "6f2f9757ae97e8a3f8ea33d6adb2b11d93d9a35bef277cd2c0b1b5af8e8d0b1e",
+    "minicpm-v:8b": "c92bfad0120556eda311984f1ac2f0d0a589b8d68c4053c13486b526276aa205",
+    "moondream:1.8b": "55fc3abd386771e5b5d1bbcc732f3c3f4df6e9f9f08f1131f9cc27ba2d1eec5b",
+    "gemma3:4b": "a2af6cc3eb7fa8be8504abaf9b04e88f17a119ec3f04a3addf55f92841195f5a",
+    "llava:7b": "8dd30f6b0cb19f555f2c7a7ebda861449ea2cc76bf1f44e262931f45fc81d081",
+    "qwen2.5:32b": "9f13ba1299afea09d9a956fc6a85becc99115a6d596fae201a5487a03bdc4368",
+    "qwen2.5vl:7b": "5ced39dfa4bac325dc183dd1e4febaa1c46b3ea28bce48896c8e69c1e79611cc",
+    "deepseek-r1:14b": "c333b7232bdb521236694ffbb5f5a6b11cc45d98e9142c73123b670fca400b09",
+    "mistral:7b": "6577803aa9a036369e481d648a2baebb381ebc6e897f2bb9a766a2aa7bfbc1cf",
+    "gemma2:27b": "53261bc9c192c1cb5fcc898dd3aa15da093f5ab6f08e17e48cf838bb1c58abfe",
+    "llama3.1:8b": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+    "qwen2.5:14b": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+    "qwen2.5:7b": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+    "tinyllama:1.1b": "2644915ede352ea7bdfaff0bfac0be74c719d5d5202acb63a6fb095b52f394a4",
+    "gemma2:2b": "8ccf136fdd5298f3ffe2d69862750ea7fb56555fa4d5b18c04e3fa4d82ee09d7",
+    "llama3.2:1b": "baf6a787fdffd633537aa2eb51cfd54cb93ff08e28040095462bb63daf552878",
+    "qwen2.5:1.5b": "65ec06548149b04c096a120e4a6da9d4017ea809c91734ea5631e89f96ddc57b",
+    "qwen2.5:0.5b": "a8b0c51577010a279d933d14c2a8ab4b268079d44c5c8830c0a93900f1827c67",
+    "yi:34b": "ff94bc7c1b7a4792e2fb6a9e8d1062e205c97180b18cc93c4ec943961bd8ab53",
+    "command-r:35b": "7d96360d357f979f63a2be43d5bde200bfcbead950a4072e805d2196ae589aaa",
+    "deepseek-r1:7b": "755ced02ce7befdb13b7ca74e1e4d08cddba4986afdb63a480f2c93d3140383f",
+    "mixtral:8x7b": "a3b6bef0f836ff29ddb576a80eeb1b7def43ec9b809466f62e96adb871fe8498",
+    "llama3.2:3b": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+    "qwen2.5:3b": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+    "gemma2:9b": "ff02c3702f322b9e075e9568332d96c0a7028002f1a5a056e0a6784320a4db0b",
+    "phi3:14b": "cf611a26b048362dce8f39ef9bb1c9c33c06b70408fe88eb2286253c707d7471"
+   },
+   "arm_4096": "not captured in-job (jobs 6803/6805 predate the capture step); models served from the same shared store as the default arm"
+  }
+ },
+ "adoption": {
+  "schema_valid": true,
+  "serving_source_map_sha256": "59586f16741f9f67230f4ca70e5cb717eb8d399262562d67c711e559403be4a6",
+  "serving_arm_comparison_sha256": "00ba500e4acee3b48cfdecee81278dc71d514fdd4c905a85da95120366897a72",
+  "modellist_sha256": "b248e2fd2235122f7f1adb452845102a4fe86efc99135e9be8f9a6f88431f461",
+  "modellist_resume_sha256": "2afff82bd40acb801c88f8b9b75e1c695920447f4ed9faf80a7070a115aa1342",
+  "modellist_default_ctx_sha256": "102f8e08f9c88116e1613becfd11758b5ed87088d07a3853b942c4b2f667dc2b",
+  "n_default_arm_models": 21,
+  "n_primary_root_models": 34,
+  "actual_context_counts": {
+   "default": 53,
+   "explicit_4096": 2
+  },
+  "explicit_4096_models": [
+   "llama3.1:70b",
+   "mixtral:8x22b"
+  ],
+  "context_capture": {
+   "slurm_6807_log_sha256": "afe032730071bcd9a1e5427076c0dd3de5f338a8fa8a467b13ebff40fb06bc1c",
+   "note": "the 6807 log records per-model `ollama ps` (actual n_ctx / VRAM split) and env; api_tags_*.json files carry model digests"
+  }
+ },
+ "adoption_status": "adopted",
+ "local_provenance_verified": true,
+ "overlay_content_verified": {
+  "ok": true,
+  "detail": "overlay and summary match the gated recomputation exactly (strict types)"
+ },
+ "status": "final"
+}

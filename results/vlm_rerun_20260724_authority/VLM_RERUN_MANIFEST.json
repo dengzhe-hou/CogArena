@@ -1,0 +1,82 @@
+{
+  "blank_counts": {
+    "openai/gemma3:4b": {
+      "false_belief": 0,
+      "flanker": 0,
+      "stroop": 0
+    },
+    "openai/llama3.2-vision:11b": {
+      "false_belief": 0,
+      "flanker": 0,
+      "stroop": 0
+    },
+    "openai/llava:7b": {
+      "false_belief": 0,
+      "flanker": 0,
+      "stroop": 0
+    },
+    "openai/minicpm-v:8b": {
+      "false_belief": 0,
+      "flanker": 0,
+      "stroop": 0
+    },
+    "openai/moondream:1.8b": {
+      "false_belief": 0,
+      "flanker": 100,
+      "stroop": 85
+    },
+    "openai/qwen2.5vl:7b": {
+      "false_belief": 0,
+      "flanker": 0,
+      "stroop": 0
+    }
+  },
+  "completed_at": "2026-07-24T09:35:16.216813+00:00",
+  "image_manifest": {
+    "path": "stimuli/IMAGE_MANIFEST.json",
+    "sha256": "94fb4cb526ccc6161af5fe260e9681b7350492932d49e9e26da2caa39ad942b9"
+  },
+  "models": [
+    "openai/qwen2.5vl:7b",
+    "openai/llava:7b",
+    "openai/gemma3:4b",
+    "openai/moondream:1.8b",
+    "openai/llama3.2-vision:11b",
+    "openai/minicpm-v:8b"
+  ],
+  "outputs": {
+    "VLM_RERUN_SUMMARY.json": "bcb26049ca64eca1c69a65b96f7ba1929bb7e4e4f20999c1e54b962ccf4bf696",
+    "aggregates/openai_gemma3:4b.json": "e5afb5df98c97843274c4e28e433cc27a39be209146b9301b45b8053b3b5f9a3",
+    "aggregates/openai_llama3.2-vision:11b.json": "73fbc72b6c357df81d52b2758cc612eb72b0e62a3a64d4016e9a0c7cef11cae4",
+    "aggregates/openai_llava:7b.json": "6b300a85d4564a69b8b9fc65a47aa182b78008a6ff705d8f672f2fdf3e67eb3e",
+    "aggregates/openai_minicpm-v:8b.json": "ad0a916e7860f0304d69711a32333e2602e412876ddd744f79b0663537e280e2",
+    "aggregates/openai_moondream:1.8b.json": "2dfa70abcc829681fcb6e4017dea2f3a74778e9809b37beaae1775420f2817a3",
+    "aggregates/openai_qwen2.5vl:7b.json": "c5decfd7b0bffa97e936996ccd315630d0120d5f81683dd81cc164304f45ef06"
+  },
+  "raw_tree_sha256": "a3391e3a936f7232a204842e6901a2998ec025b0a55bfcc0587b9674f6f3fc39",
+  "record_count": 1500,
+  "replayed_score_count": 1500,
+  "schema_version": 1,
+  "scorer_id": "paradigm-label-parser-v1",
+  "scoring_contract": {
+    "path": "stimuli/SCORING_LABELS.json",
+    "sha256": "f356d3ec81fa79a6cf9b1451c2fc1aa934fc6ad1d76de36d4e048766308d054d",
+    "source_files": {
+      "scripts/experiments/vlm_rerun_20260724/build_scoring_contract.py": "f6d8b44bf551dc4222c1a999c4bc1374d49f9799377f190c098354a89d7a46a2",
+      "scripts/experiments/vlm_rerun_20260724/scoring.py": "f22fefb15e017072edf81083bf5600726f084788f3688174db0d3bbfd736eccd"
+    }
+  },
+  "source_files": {
+    "scripts/experiments/vlm_rerun_20260724/common.py": "2aa2f345e3d2759ee2389b5705053d292988cf416b04c9d5e8179a49c8e90a06",
+    "scripts/experiments/vlm_rerun_20260724/finalize.sbatch": "df2170b4637dddcf68a519a6fe261e64b415d0eb3bf0d291fd95138926749e56",
+    "scripts/experiments/vlm_rerun_20260724/models.txt": "0194638d708253fd758237a99333a13767b7016c84a31aeb2d7e31e9413d2921",
+    "scripts/experiments/vlm_rerun_20260724/run_array.sbatch": "cc74087350d56164bdc37c9c67c6ce3876f1da9af3ca7126509d99aff7f4175d",
+    "scripts/experiments/vlm_rerun_20260724/run_model.py": "110c45a7cb3abd9fb56a38c8df7cfab2da4ab58d6f433cb56f5a362dd6f95df4",
+    "scripts/experiments/vlm_rerun_20260724/scoring.py": "f22fefb15e017072edf81083bf5600726f084788f3688174db0d3bbfd736eccd",
+    "scripts/experiments/vlm_rerun_20260724/verify.py": "7727a4cfdc3da3f08d2d9b966a30a2d3c5ef255fddb392193215c35eeeee7e86",
+    "scripts/experiments/vlm_rerun_20260724/verify_cache.py": "462ebc890cb9802b23ea99da638f2ca846cccba376fd63f789d8185a4dae7e8d"
+  },
+  "source_revision": "76fce6076e64fd7a90bea32b5e94c0ab5c09fd72",
+  "status": "final",
+  "stimulus_design_id": "balanced_montage_v2"
+}

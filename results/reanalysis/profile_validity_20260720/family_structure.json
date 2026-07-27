@@ -1,0 +1,283 @@
+{
+  "code_sha256": {
+    "scripts/experiments/profile_validity_20260720/family_structure.py": "813b9568b17e3cd926b14fd2a31fc2385b574e83ba4751b9b5a600325a67a7a8",
+    "scripts/experiments/profile_validity_20260720/family_structure.sbatch": "967ef9a381ef80f07efb79e470a97a67f196a8726218a06fdbe8e975b2aad261",
+    "tests/test_family_structure.py": "0fc4127e3304d9dd2ea3def5ffc96374336668d3b00e157ea8d8aaeb50f15077"
+  },
+  "construct_native": {
+    "base_55_models": {
+      "cross": 0.2339460237766807,
+      "delta": -0.022515619929867448,
+      "exact_partition": {
+        "n_partitions": 600600,
+        "p_one_sided": 0.5921828171828172,
+        "p_two_sided": 0.7577056277056277
+      },
+      "within": 0.21143040384681325
+    },
+    "between_24_family_centroids": {
+      "cross": 0.21229555395558422,
+      "delta": -0.09053567279555524,
+      "exact_partition": {
+        "n_partitions": 600600,
+        "p_one_sided": 0.859971694971695,
+        "p_two_sided": 0.2872077922077922
+      },
+      "within": 0.12175988116002898
+    },
+    "input": "results/reanalysis/aplus_20260718/matrix_construct_aplus_strict.csv",
+    "same_11_families_decomposition": {
+      "between_family_centroids": {
+        "cross": 0.1707231891040638,
+        "delta": 0.034446988426942854,
+        "exact_partition": {
+          "n_partitions": 600600,
+          "p_one_sided": 0.36369130869130867,
+          "p_two_sided": 0.7790942390942391
+        },
+        "within": 0.20517017753100666
+      },
+      "paired_family_bootstrap": {
+        "between_family_delta": {
+          "ci95": [
+            -0.07060360116293588,
+            0.2152498501894667
+          ],
+          "fraction_le_zero": 0.25195,
+          "mean": 0.04971499641845268
+        },
+        "between_minus_within_delta": {
+          "ci95": [
+            -0.10450006524759245,
+            0.24036627125826374
+          ],
+          "fraction_le_zero": 0.2885,
+          "mean": 0.05589104699913771
+        },
+        "n_effective": 20000,
+        "n_requested": 20000,
+        "seed": 42,
+        "within_family_delta": {
+          "ci95": [
+            -0.11444496589939557,
+            0.09748361189159693
+          ],
+          "fraction_le_zero": 0.4834,
+          "mean": -0.006176050580685037
+        }
+      },
+      "within_family_centered": {
+        "cross": 0.2511606644920159,
+        "delta": 0.005964358143962567,
+        "exact_partition": {
+          "n_partitions": 600600,
+          "p_one_sided": 0.43645854145854146,
+          "p_two_sided": 0.934060939060939
+        },
+        "within": 0.2571250226359785
+      }
+    },
+    "sha256": "c19b88694100e411761e0f3ab5493211d728cb9dbb54c8c490f99246fbf34219",
+    "within_11_multicheckpoint_families": {
+      "cross": 0.2511606644920159,
+      "delta": 0.005964358143962567,
+      "exact_partition": {
+        "n_partitions": 600600,
+        "p_one_sided": 0.43645854145854146,
+        "p_two_sided": 0.934060939060939
+      },
+      "families": [
+        "deepseek-r",
+        "falcon",
+        "gemma",
+        "llama",
+        "mistral",
+        "mixtral",
+        "olmo",
+        "phi",
+        "qwen",
+        "smollm",
+        "yi"
+      ],
+      "family_bootstrap": {
+        "ci95": [
+          -0.11444496589939557,
+          0.09748361189159693
+        ],
+        "fraction_le_zero": 0.4834,
+        "mean": -0.006176050580685037,
+        "n_effective": 20000,
+        "n_requested": 20000,
+        "seed": 42
+      },
+      "leave_one_family_out_delta": {
+        "deepseek-r": 0.003909964288084766,
+        "falcon": 0.00162092296616273,
+        "gemma": 0.020076427277327363,
+        "llama": 0.036554538328609054,
+        "mistral": 0.022851413611055194,
+        "mixtral": 0.0014198589617868684,
+        "olmo": 0.011381212532756757,
+        "phi": 0.015034834447750889,
+        "qwen": -0.08023610646703286,
+        "smollm": 0.010857758792140293,
+        "yi": 0.002137624935118154
+      },
+      "leave_one_family_out_range": [
+        -0.08023610646703286,
+        0.036554538328609054
+      ],
+      "n_families": 11,
+      "n_models": 42,
+      "within": 0.2571250226359785
+    }
+  },
+  "execution": {
+    "git_head": "48a8f72ff8aa6501ddb3296c78a5882add2ea981",
+    "node": "c01",
+    "script_sha256": "813b9568b17e3cd926b14fd2a31fc2385b574e83ba4751b9b5a600325a67a7a8",
+    "slurm_job_id": "6911"
+  },
+  "family_map": {
+    "n_merged": 24,
+    "path": "results/reanalysis/aplus_20260718/family_map.json",
+    "sha256": "329d307d47114bca073ceea014810517879759c04f8b4127a0ace783d032f8fc"
+  },
+  "inference": {
+    "bootstrap_replicates": 20000,
+    "bootstrap_unit": "merged model family",
+    "exact_partition_space": "all 600600 unlabeled 3,3,3,2,2 partitions",
+    "post_hoc": true,
+    "seed": 42
+  },
+  "spec": "family-structure-v1-prospective-20260720",
+  "status": "complete",
+  "strict_accuracy": {
+    "base_55_models": {
+      "cross": 0.41467252981455904,
+      "delta": 0.08116100871923937,
+      "exact_partition": {
+        "n_partitions": 600600,
+        "p_one_sided": 0.03637362637362637,
+        "p_two_sided": 0.05727938727938728
+      },
+      "within": 0.4958335385337984
+    },
+    "between_24_family_centroids": {
+      "cross": 0.3847746663883128,
+      "delta": 0.07931473489647028,
+      "exact_partition": {
+        "n_partitions": 600600,
+        "p_one_sided": 0.10023310023310024,
+        "p_two_sided": 0.18354312354312355
+      },
+      "within": 0.4640894012847831
+    },
+    "input": "results/reanalysis/aplus_20260718/matrix_aplus_strict.csv",
+    "same_11_families_decomposition": {
+      "between_family_centroids": {
+        "cross": 0.2450662560414206,
+        "delta": 0.13916179187247937,
+        "exact_partition": {
+          "n_partitions": 600600,
+          "p_one_sided": 0.09118714618714618,
+          "p_two_sided": 0.1537962037962038
+        },
+        "within": 0.3842280479139
+      },
+      "paired_family_bootstrap": {
+        "between_family_delta": {
+          "ci95": [
+            -0.01913970532738168,
+            0.41830865918212234
+          ],
+          "fraction_le_zero": 0.04765,
+          "mean": 0.1603821879455723
+        },
+        "between_minus_within_delta": {
+          "ci95": [
+            -0.027378225247379376,
+            0.41506665873470094
+          ],
+          "fraction_le_zero": 0.056,
+          "mean": 0.15706534653919138
+        },
+        "n_effective": 20000,
+        "n_requested": 20000,
+        "seed": 42,
+        "within_family_delta": {
+          "ci95": [
+            -0.08745305143550641,
+            0.0849735302511
+          ],
+          "fraction_le_zero": 0.437,
+          "mean": 0.0033168414063808782
+        }
+      },
+      "within_family_centered": {
+        "cross": 0.49960828193109574,
+        "delta": 0.010549998174124275,
+        "exact_partition": {
+          "n_partitions": 600600,
+          "p_one_sided": 0.3869314019314019,
+          "p_two_sided": 0.7980586080586081
+        },
+        "within": 0.51015828010522
+      }
+    },
+    "sha256": "4dec4dd68bb2b7b801156765783445cbfe5f7503021dd12fc520f46fe9d9c933",
+    "within_11_multicheckpoint_families": {
+      "cross": 0.49960828193109574,
+      "delta": 0.010549998174124275,
+      "exact_partition": {
+        "n_partitions": 600600,
+        "p_one_sided": 0.3869314019314019,
+        "p_two_sided": 0.7980586080586081
+      },
+      "families": [
+        "deepseek-r",
+        "falcon",
+        "gemma",
+        "llama",
+        "mistral",
+        "mixtral",
+        "olmo",
+        "phi",
+        "qwen",
+        "smollm",
+        "yi"
+      ],
+      "family_bootstrap": {
+        "ci95": [
+          -0.08745305143550641,
+          0.0849735302511
+        ],
+        "fraction_le_zero": 0.437,
+        "mean": 0.0033168414063808782,
+        "n_effective": 20000,
+        "n_requested": 20000,
+        "seed": 42
+      },
+      "leave_one_family_out_delta": {
+        "deepseek-r": -0.0016886381937726291,
+        "falcon": 0.020294231359211823,
+        "gemma": 0.022315504812489673,
+        "llama": 0.026028102079145965,
+        "mistral": 0.017838919665649877,
+        "mixtral": 0.009540275635064877,
+        "olmo": 0.007031377681110951,
+        "phi": 0.033449391568467934,
+        "qwen": -0.051321980271734347,
+        "smollm": 0.005660195205718477,
+        "yi": 0.01116602570894798
+      },
+      "leave_one_family_out_range": [
+        -0.051321980271734347,
+        0.033449391568467934
+      ],
+      "n_families": 11,
+      "n_models": 42,
+      "within": 0.51015828010522
+    }
+  }
+}

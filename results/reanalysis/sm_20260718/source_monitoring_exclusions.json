@@ -1,0 +1,337 @@
+{
+ "spec": "SM cross-source duplicate exclusions, frozen battery seed42 snapshot 2026-07-15",
+ "snapshot_sha256": {
+  "gz_file": "ee630a088f2e49a3d50a38c9bc750677eb6bfd2af4d6acea38bfc49622571b8f",
+  "uncompressed_json": "9414f0c75c352343384d0689eff78899e3a396853753454fe44e7f91a44db6e3"
+ },
+ "generator_bug": "statement dedup was within-source only (episodic_memory.py); a statement shared by two sources makes its source-identification probe ambiguous",
+ "resolution": "generator fixed to episode-wide uniqueness; the 11 affected episodes regenerate under the same task_id/seed and are rerun on all 55 models; frozen scores for these episodes are void",
+ "n_sm_episodes": 50,
+ "n_affected_episodes": 11,
+ "n_ambiguous_probes": 20,
+ "unaffected_episodes_verified_byte_identical": 39,
+ "episodes": [
+  {
+   "task_id": "em_srcmon_gen_medium_src4_s1870914451",
+   "difficulty": "medium",
+   "n_duplicate_statements": 1,
+   "n_test_items": 14,
+   "ambiguous_probes": [
+    {
+     "test_position": 12,
+     "statement_sha16": "a181b9f236ea68bc",
+     "gold_source": "Professor Oliveira",
+     "valid_sources": [
+      "Professor Nielsen",
+      "Professor Oliveira"
+     ],
+     "reason": "statement attributed to multiple sources in study list"
+    },
+    {
+     "test_position": 13,
+     "statement_sha16": "a181b9f236ea68bc",
+     "gold_source": "Professor Nielsen",
+     "valid_sources": [
+      "Professor Nielsen",
+      "Professor Oliveira"
+     ],
+     "reason": "statement attributed to multiple sources in study list"
+    }
+   ],
+   "stimulus_sha256_frozen": "d8db18f0c704e0e3b6d67092320899dd115237c68e528c05deb25029aec38579"
+  },
+  {
+   "task_id": "em_srcmon_gen_medium_src4_s1006373501",
+   "difficulty": "medium",
+   "n_duplicate_statements": 1,
+   "n_test_items": 14,
+   "ambiguous_probes": [
+    {
+     "test_position": 8,
+     "statement_sha16": "42d72f06d91a410e",
+     "gold_source": "Professor Tanaka",
+     "valid_sources": [
+      "Dr. Lehmann",
+      "Professor Tanaka"
+     ],
+     "reason": "statement attributed to multiple sources in study list"
+    },
+    {
+     "test_position": 10,
+     "statement_sha16": "42d72f06d91a410e",
+     "gold_source": "Dr. Lehmann",
+     "valid_sources": [
+      "Dr. Lehmann",
+      "Professor Tanaka"
+     ],
+     "reason": "statement attributed to multiple sources in study list"
+    }
+   ],
+   "stimulus_sha256_frozen": "ae4b95f27a8287b6ae6af559c13ae52ee7be1cac26be474d42efc805761373c7"
+  },
+  {
+   "task_id": "em_srcmon_gen_medium_src4_s313377666",
+   "difficulty": "medium",
+   "n_duplicate_statements": 1,
+   "n_test_items": 14,
+   "ambiguous_probes": [
+    {
+     "test_position": 1,
+     "statement_sha16": "3c5162777c19c6ab",
+     "gold_source": "Dr. Kowalski",
+     "valid_sources": [
+      "Dr. Andersen",
+      "Dr. Kowalski"
+     ],
+     "reason": "statement attributed to multiple sources in study list"
+    },
+    {
+     "test_position": 12,
+     "statement_sha16": "3c5162777c19c6ab",
+     "gold_source": "Dr. Andersen",
+     "valid_sources": [
+      "Dr. Andersen",
+      "Dr. Kowalski"
+     ],
+     "reason": "statement attributed to multiple sources in study list"
+    }
+   ],
+   "stimulus_sha256_frozen": "a5d4a99fca05a1faef840ddd4d6a3a39c043d47676acf53099399a1c33ed3060"
+  },
+  {
+   "task_id": "em_srcmon_gen_medium_src4_s1480059613",
+   "difficulty": "medium",
+   "n_duplicate_statements": 1,
+   "n_test_items": 14,
+   "ambiguous_probes": [
+    {
+     "test_position": 5,
+     "statement_sha16": "acd7e771b9741305",
+     "gold_source": "Professor Okafor",
+     "valid_sources": [
+      "Dr. Okafor",
+      "Professor Okafor"
+     ],
+     "reason": "statement attributed to multiple sources in study list"
+    },
+    {
+     "test_position": 11,
+     "statement_sha16": "acd7e771b9741305",
+     "gold_source": "Dr. Okafor",
+     "valid_sources": [
+      "Dr. Okafor",
+      "Professor Okafor"
+     ],
+     "reason": "statement attributed to multiple sources in study list"
+    }
+   ],
+   "stimulus_sha256_frozen": "b491eed12ce48aa79ce1dae4685a4acd78fc3ba5df8925f974226d2c4376da5b"
+  },
+  {
+   "task_id": "em_srcmon_gen_medium_src4_s656593681",
+   "difficulty": "medium",
+   "n_duplicate_statements": 1,
+   "n_test_items": 14,
+   "ambiguous_probes": [
+    {
+     "test_position": 4,
+     "statement_sha16": "f9f16a3a386378fe",
+     "gold_source": "Professor Silva",
+     "valid_sources": [
+      "Dr. Oliveira",
+      "Professor Silva"
+     ],
+     "reason": "statement attributed to multiple sources in study list"
+    },
+    {
+     "test_position": 9,
+     "statement_sha16": "f9f16a3a386378fe",
+     "gold_source": "Dr. Oliveira",
+     "valid_sources": [
+      "Dr. Oliveira",
+      "Professor Silva"
+     ],
+     "reason": "statement attributed to multiple sources in study list"
+    }
+   ],
+   "stimulus_sha256_frozen": "e11a5d1dface2efa6cd6a03ff5d39ae2ca1f9ee94a97fbe16ef463a3f156f7d6"
+  },
+  {
+   "task_id": "em_srcmon_gen_hard_src5_s525279675",
+   "difficulty": "hard",
+   "n_duplicate_statements": 1,
+   "n_test_items": 22,
+   "ambiguous_probes": [
+    {
+     "test_position": 18,
+     "statement_sha16": "293b15492d56af52",
+     "gold_source": "Professor Bergstrom",
+     "valid_sources": [
+      "Dr. Kimura",
+      "Professor Bergstrom"
+     ],
+     "reason": "statement attributed to multiple sources in study list"
+    },
+    {
+     "test_position": 21,
+     "statement_sha16": "293b15492d56af52",
+     "gold_source": "Dr. Kimura",
+     "valid_sources": [
+      "Dr. Kimura",
+      "Professor Bergstrom"
+     ],
+     "reason": "statement attributed to multiple sources in study list"
+    }
+   ],
+   "stimulus_sha256_frozen": "d720efa73ce9f935fc6906b51300c308cdbabef0c899223391c6cdd146f4badc"
+  },
+  {
+   "task_id": "em_srcmon_gen_hard_src5_s1468399101",
+   "difficulty": "hard",
+   "n_duplicate_statements": 2,
+   "n_test_items": 22,
+   "ambiguous_probes": [
+    {
+     "test_position": 1,
+     "statement_sha16": "a164da83b0091460",
+     "gold_source": "Professor Okafor",
+     "valid_sources": [
+      "Dr. Kowalski",
+      "Professor Okafor"
+     ],
+     "reason": "statement attributed to multiple sources in study list"
+    },
+    {
+     "test_position": 4,
+     "statement_sha16": "677aab68cc2eb446",
+     "gold_source": "Professor Walker",
+     "valid_sources": [
+      "Dr. Kowalski",
+      "Professor Walker"
+     ],
+     "reason": "statement attributed to multiple sources in study list"
+    },
+    {
+     "test_position": 5,
+     "statement_sha16": "a164da83b0091460",
+     "gold_source": "Dr. Kowalski",
+     "valid_sources": [
+      "Dr. Kowalski",
+      "Professor Okafor"
+     ],
+     "reason": "statement attributed to multiple sources in study list"
+    },
+    {
+     "test_position": 20,
+     "statement_sha16": "677aab68cc2eb446",
+     "gold_source": "Dr. Kowalski",
+     "valid_sources": [
+      "Dr. Kowalski",
+      "Professor Walker"
+     ],
+     "reason": "statement attributed to multiple sources in study list"
+    }
+   ],
+   "stimulus_sha256_frozen": "e1177de1134a9a6dd5fa66e9e169004a5bc82c599d7b8ed8217df107a0c1f504"
+  },
+  {
+   "task_id": "em_srcmon_gen_hard_src5_s212522555",
+   "difficulty": "hard",
+   "n_duplicate_statements": 2,
+   "n_test_items": 22,
+   "ambiguous_probes": [
+    {
+     "test_position": 5,
+     "statement_sha16": "0036be9bbd441a71",
+     "gold_source": "Professor Nakamura",
+     "valid_sources": [
+      "Dr. Tanaka",
+      "Professor Nakamura"
+     ],
+     "reason": "statement attributed to multiple sources in study list"
+    }
+   ],
+   "stimulus_sha256_frozen": "99c2deeafcd63d07ed34f27ca3c03377612460a06aed0c399d89aded7617c2b8"
+  },
+  {
+   "task_id": "em_srcmon_gen_hard_src5_s526649753",
+   "difficulty": "hard",
+   "n_duplicate_statements": 1,
+   "n_test_items": 22,
+   "ambiguous_probes": [],
+   "stimulus_sha256_frozen": "dc462bdf43f48b68e81a4553e5553a07b69dd3845a1d042b67ab4f7330e19942"
+  },
+  {
+   "task_id": "em_srcmon_gen_hard_src5_s2072125834",
+   "difficulty": "hard",
+   "n_duplicate_statements": 1,
+   "n_test_items": 22,
+   "ambiguous_probes": [
+    {
+     "test_position": 1,
+     "statement_sha16": "77e09dca35365bbc",
+     "gold_source": "Professor Muller",
+     "valid_sources": [
+      "Professor Kowalski",
+      "Professor Muller"
+     ],
+     "reason": "statement attributed to multiple sources in study list"
+    }
+   ],
+   "stimulus_sha256_frozen": "48954362776a5136b29d61e092e7e9839b504211d360a1847dd35c3aca58679f"
+  },
+  {
+   "task_id": "em_srcmon_gen_hard_src5_s941324913",
+   "difficulty": "hard",
+   "n_duplicate_statements": 1,
+   "n_test_items": 22,
+   "ambiguous_probes": [
+    {
+     "test_position": 3,
+     "statement_sha16": "22b560764254daa2",
+     "gold_source": "Professor Petrov",
+     "valid_sources": [
+      "Dr. Nakamura",
+      "Professor Petrov"
+     ],
+     "reason": "statement attributed to multiple sources in study list"
+    },
+    {
+     "test_position": 8,
+     "statement_sha16": "22b560764254daa2",
+     "gold_source": "Dr. Nakamura",
+     "valid_sources": [
+      "Dr. Nakamura",
+      "Professor Petrov"
+     ],
+     "reason": "statement attributed to multiple sources in study list"
+    }
+   ],
+   "stimulus_sha256_frozen": "953bead502e2db7b567c08aa98fd203425aef578435436c7ab37c72d81594d46"
+  }
+ ],
+ "provenance": {
+  "fixed_generator_commit": "9cfad4f",
+  "generation_call": "generate_em_items(seed=42, n_per_paradigm=50, include_contamination_probes=False)",
+  "contamination_probes_flag_note": "flag must be False to match the frozen battery; True shifts the master-RNG sub-seed sequence",
+  "runtime": "Python 3.13.12",
+  "fixed_stimulus_sha256": {
+   "em_srcmon_gen_hard_src5_s1468399101": "bf0fedab0786f0c29cd6d85e632c2a349188815a06d8bbeb5900ae5d8f34186e",
+   "em_srcmon_gen_hard_src5_s2072125834": "844011d7c5841b51c9416b27f17bc6f6c288add4472ddc7c9fa06be73e45bcf4",
+   "em_srcmon_gen_hard_src5_s212522555": "6ab5e4c90570cbf6f24195ff3fb431784078130bdaf6ef521cdd54918508700e",
+   "em_srcmon_gen_hard_src5_s525279675": "13de35b935415ab37b141fb88f5e4f9e77cbdb4118f67d9e7aaeecd3c3ec7eb5",
+   "em_srcmon_gen_hard_src5_s526649753": "e9ff21666a4998f98e335603dadbbdc61fd257c8ff829d484a3e8d201d1fcf13",
+   "em_srcmon_gen_hard_src5_s941324913": "dc82d732b0fedde99bc620839256301c499a64a0c0045378595d14ff9ba6264c",
+   "em_srcmon_gen_medium_src4_s1006373501": "1c16aea9ca4004055e70990e5726946fac7e0f3fa0f3676f19d10af8ba854c18",
+   "em_srcmon_gen_medium_src4_s1480059613": "b2edac4d076f879a16fb3eaae7b162f34f7fae7ce0ecb0b9e9de57b79e191948",
+   "em_srcmon_gen_medium_src4_s1870914451": "bf9815c46d1034ddc9c3cccbd7eb21635c6e0e18ddee17e41e8d5f4a84793d2a",
+   "em_srcmon_gen_medium_src4_s313377666": "a3128476025cf916b683006f43e909b3c7a597c7cb047f1a47044999d3eebcbe",
+   "em_srcmon_gen_medium_src4_s656593681": "6a536170824467fa4c659a81ca08adbf88b62321d74cba8d4ede0d4cc3c3db6b"
+  },
+  "bug_origin_commit": "ed15dea (within-source-only dedup present since the initial anonymized commit)",
+  "snapshot_generator_module_blob": "6eee9cf3aa82ad05df30e814eb2ce8a9cb5c3891 (cogarena/dimensions/episodic_memory.py content that generated the 2026-07-15 snapshot; = blob at 999ac7e and at 9cfad4f~1)",
+  "snapshot_repo_commit": "unknown (no reliable record of the checked-out commit at snapshot time; the module blob above pins the generator content)"
+ },
+ "void_notice": "the frozen 11x55 source_monitoring outputs for the affected task_ids are VOID for all aggregate statistics; the dedup-fixed reruns in results/sm_rerun_20260718/ replace them",
+ "hash_disclosure_note": "statement_sha16 values contain no plaintext, but the public generator pool is small (~915 candidate statements), so the hashes are enumerable against it; treat them as identifying, not concealing, statement content"
+}

@@ -1,0 +1,62 @@
+{
+  "actual_context_tokens": 4096,
+  "all_probes_fully_gpu_served": true,
+  "closed_at": "2026-07-20T04:58:47.185965+00:00",
+  "execution_nodes": [
+    "c04"
+  ],
+  "hardware_labels": [
+    "pro6000"
+  ],
+  "model": "qwen2.5:32b",
+  "pilot_item_manifest_sha256": "b33cfc99b56bbbee9554180fb1ef7998dd3f0e04f063762f7c55a88b4c9c31bb",
+  "probes": [
+    {
+      "label": "pro6000",
+      "path": "${COGARENA_ROOT}/results/causal_selectivity_20260720/capacity/pro6000/CAPACITY_PROBE.json",
+      "sha256": "585c9e17c79dc579f9cb8f4d7aef65c80acf4a017b53ed6481aed5707a0cfc60"
+    }
+  ],
+  "processor_requirement": "100% GPU",
+  "reasoning_effort": "none",
+  "reasoning_request_verified": true,
+  "required_gpu_name_fragment": "RTX PRO 6000",
+  "schema_version": "cogarena.causal_selectivity.capacity_gate.v1",
+  "served_model_digest": "9f13ba1299afea09d9a956fc6a85becc99115a6d596fae201a5487a03bdc4368",
+  "source_revision": "25d6ae8c4ca89262eb69fdadc748829e381fdb97",
+  "spec_sha256": "99eafd310a15e83c4cf2299f1ab790ebd5053768e41a214e442d3d7c1523415b",
+  "status": "pass",
+  "stop_policy": {
+    "multiline": {
+      "paradigms": [
+        "drm_false_memory",
+        "source_monitoring",
+        "confidence_calibration",
+        "post_decision_wagering"
+      ],
+      "stop_sequences": [
+        "\n\n",
+        "<END_COGARENA_RESPONSE>"
+      ]
+    },
+    "single_line": {
+      "paradigms": [
+        "digit_span",
+        "n_back",
+        "operation_span",
+        "stroop",
+        "flanker",
+        "go_nogo",
+        "cvlt_word_list",
+        "false_belief",
+        "epitome_tom"
+      ],
+      "stop_sequences": [
+        "\n",
+        "<END_COGARENA_RESPONSE>"
+      ]
+    }
+  },
+  "stop_sequence_request_verified": true,
+  "study_id": "causal_selectivity_20260720"
+}

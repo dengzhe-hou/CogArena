@@ -1,0 +1,165 @@
+{
+  "all_execution_guards_verified_complete": true,
+  "all_model_replays_passed": true,
+  "all_models_fully_gpu_served": true,
+  "api_call_count": 2919,
+  "closed_at": "2026-07-20T04:58:27.075473+00:00",
+  "condition_invalid_record_counts": {
+    "baseline": 0,
+    "belief_state_ledger": 0,
+    "control_rule_rehearsal": 0,
+    "episodic_source_binding": 0,
+    "metacognitive_forecast": 0,
+    "neutral_placebo": 0,
+    "working_memory_ledger": 0
+  },
+  "condition_invalid_record_rates": {
+    "baseline": 0.0,
+    "belief_state_ledger": 0.0,
+    "control_rule_rehearsal": 0.0,
+    "episodic_source_binding": 0.0,
+    "metacognitive_forecast": 0.0,
+    "neutral_placebo": 0.0,
+    "working_memory_ledger": 0.0
+  },
+  "condition_record_counts": {
+    "baseline": 117,
+    "belief_state_ledger": 117,
+    "control_rule_rehearsal": 117,
+    "episodic_source_binding": 117,
+    "metacognitive_forecast": 117,
+    "neutral_placebo": 117,
+    "working_memory_ledger": 117
+  },
+  "condition_recovered_terminal_metadata_fault_record_counts": {
+    "baseline": 0,
+    "belief_state_ledger": 0,
+    "control_rule_rehearsal": 0,
+    "episodic_source_binding": 0,
+    "metacognitive_forecast": 0,
+    "neutral_placebo": 0,
+    "working_memory_ledger": 0
+  },
+  "condition_recovered_terminal_metadata_fault_record_rates": {
+    "baseline": 0.0,
+    "belief_state_ledger": 0.0,
+    "control_rule_rehearsal": 0.0,
+    "episodic_source_binding": 0.0,
+    "metacognitive_forecast": 0.0,
+    "neutral_placebo": 0.0,
+    "working_memory_ledger": 0.0
+  },
+  "condition_transport_protocol_invalid_rates": {
+    "baseline": 0.0,
+    "belief_state_ledger": 0.0,
+    "control_rule_rehearsal": 0.0,
+    "episodic_source_binding": 0.0,
+    "metacognitive_forecast": 0.0,
+    "neutral_placebo": 0.0,
+    "working_memory_ledger": 0.0
+  },
+  "condition_transport_protocol_invalid_record_counts": {
+    "baseline": 0,
+    "belief_state_ledger": 0,
+    "control_rule_rehearsal": 0,
+    "episodic_source_binding": 0,
+    "metacognitive_forecast": 0,
+    "neutral_placebo": 0,
+    "working_memory_ledger": 0
+  },
+  "condition_truncated_record_counts": {
+    "baseline": 0,
+    "belief_state_ledger": 0,
+    "control_rule_rehearsal": 0,
+    "episodic_source_binding": 0,
+    "metacognitive_forecast": 0,
+    "neutral_placebo": 0,
+    "working_memory_ledger": 0
+  },
+  "condition_truncation_rates": {
+    "baseline": 0.0,
+    "belief_state_ledger": 0.0,
+    "control_rule_rehearsal": 0.0,
+    "episodic_source_binding": 0.0,
+    "metacognitive_forecast": 0.0,
+    "neutral_placebo": 0.0,
+    "working_memory_ledger": 0.0
+  },
+  "empty_response_count": 0,
+  "execution_guard_count": 3,
+  "execution_guard_tree_sha256": "66dd11079e2865545638fd41a62579e0979845fb1e0c40c8a050ce99be505385",
+  "execution_nodes": [
+    "c04"
+  ],
+  "fully_gpu_served_model_count": 3,
+  "invalid_record_count": 0,
+  "item_manifest_sha256": "b33cfc99b56bbbee9554180fb1ef7998dd3f0e04f063762f7c55a88b4c9c31bb",
+  "max_reported_completion_tokens": 339,
+  "max_reported_prompt_tokens": 1671,
+  "max_reported_total_tokens": 1765,
+  "minimum_reported_prompt_reservation_margin_tokens": 1913,
+  "model_count": 3,
+  "model_manifest_tree_sha256": "fbca019b890f2025837594ad13d5bc4270ae06f958f319c00a1de45a63634fd4",
+  "operation_span_nonparseable_count": 16,
+  "operation_span_protocol_invalid_not_evaluated_count": 0,
+  "processor_requirement": "100% GPU",
+  "profile": "pilot",
+  "profile_array_job_id": "7138",
+  "reasoning_effort": "none",
+  "reasoning_request_verified": true,
+  "record_count": 819,
+  "record_reuse_allowed": false,
+  "recovered_terminal_metadata_fault_logical_call_count": 0,
+  "recovered_terminal_metadata_fault_record_count": 0,
+  "reported_usage_context_budget_verified": true,
+  "request_error_attempt_count": 0,
+  "required_gpu_name_fragment": "RTX PRO 6000",
+  "response_unit_count": 2919,
+  "schema_version": "cogarena.causal_selectivity.run_manifest.v3",
+  "source_revision": "25d6ae8c4ca89262eb69fdadc748829e381fdb97",
+  "spec_sha256": "99eafd310a15e83c4cf2299f1ab790ebd5053768e41a214e442d3d7c1523415b",
+  "static_prompt_budget_verified_for_all_logical_calls": true,
+  "status": "engineering_pilot_complete",
+  "stop_policy": {
+    "multiline": {
+      "paradigms": [
+        "drm_false_memory",
+        "source_monitoring",
+        "confidence_calibration",
+        "post_decision_wagering"
+      ],
+      "stop_sequences": [
+        "\n\n",
+        "<END_COGARENA_RESPONSE>"
+      ]
+    },
+    "single_line": {
+      "paradigms": [
+        "digit_span",
+        "n_back",
+        "operation_span",
+        "stroop",
+        "flanker",
+        "go_nogo",
+        "cvlt_word_list",
+        "false_belief",
+        "epitome_tom"
+      ],
+      "stop_sequences": [
+        "\n",
+        "<END_COGARENA_RESPONSE>"
+      ]
+    }
+  },
+  "stop_sequence_request_verified": true,
+  "study_id": "causal_selectivity_20260720",
+  "terminal_metadata_fault_attempt_count": 0,
+  "transport_attempt_count": 2919,
+  "transport_incomplete_logical_call_count": 0,
+  "transport_protocol_invalid_record_count": 0,
+  "transport_retry_count": 0,
+  "truncated_api_call_count": 0,
+  "truncated_completion_count": 0,
+  "truncated_record_count": 0,
+  "usage_metadata_valid_logical_call_count": 2919
+}

@@ -1,0 +1,456 @@
+{
+  "authoritative_confirmatory_gate_remains": false,
+  "authoritative_primary_gamma_reproduced": 0.019920160380257602,
+  "confirmatory_role": "none",
+  "family_paradigm_item_bootstrap": {
+    "descriptive_sign_tail_fraction_two_sided": 0.0406,
+    "gamma_ci95": [
+      0.0007300157217011379,
+      0.04195891983392111
+    ],
+    "inferential_scope_warning": "only two or three observed paradigms occur in each theoretical stratum; this interval is a weak design-sensitivity diagnostic, not strong population-of-paradigms inference",
+    "method": "resample six families retaining both checkpoints; resample paradigms within each frozen theoretical group retaining 3/3/3/2/2 stratum sizes; resample 18 items within each selected paradigm",
+    "n_bootstrap": 20000,
+    "s_ci95": [
+      [
+        -0.012751908215755439,
+        0.13382334246399175
+      ],
+      [
+        -0.054654592785493825,
+        0.06212983165233684
+      ],
+      [
+        -0.03036282352292768,
+        0.10354860311948853
+      ],
+      [
+        -0.017541634850489013,
+        0.08024288267095551
+      ],
+      [
+        -0.057287302789802784,
+        0.03840541573973864
+      ]
+    ],
+    "seed": 5201,
+    "status": "post_hoc_exploratory"
+  },
+  "interpretation_constraints": [
+    "All outputs are post-hoc and exploratory regardless of p-values or interval endpoints.",
+    "The frozen primary analysis_results.json and its nine-gate FAIL decision remain authoritative and unchanged.",
+    "The paradigm bootstrap is not strong population inference because each theoretical stratum contains only two or three paradigms.",
+    "Observable evaluability is a response-format diagnostic, not a complete measure of semantic parse validity.",
+    "Neutral-placebo comparisons audit the control condition and are not evidence for construct-selective effects.",
+    "With six families, exact family tests have coarse resolution and must be reported alongside every family estimate."
+  ],
+  "leave_one_paradigm_out": {
+    "all_same_sign": true,
+    "gamma_max": 0.023686559131883205,
+    "gamma_min": 0.016436768500703684,
+    "gamma_range": 0.007249790631179521,
+    "method": "recompute frozen estimator after each of all 13 single-paradigm omissions; no selected exclusions",
+    "rows": [
+      {
+        "gamma": 0.020974903610621206,
+        "omitted_paradigm": "digit_span",
+        "s": [
+          0.053717461419753094,
+          0.0023376543209876525,
+          0.030155431853811487,
+          0.024826437389770722,
+          -0.006162466931216928
+        ]
+      },
+      {
+        "gamma": 0.023686559131883205,
+        "omitted_paradigm": "n_back",
+        "s": [
+          0.06464049382716049,
+          0.002980658436213988,
+          0.030546592690574165,
+          0.02673615961199295,
+          -0.006471108906525573
+        ]
+      },
+      {
+        "gamma": 0.016716305727023317,
+        "omitted_paradigm": "operation_span",
+        "s": [
+          0.016101720679012343,
+          0.007410650597687637,
+          0.03830994880462473,
+          0.02777396825396825,
+          -0.006014759700176367
+        ]
+      },
+      {
+        "gamma": 0.01863807559278855,
+        "omitted_paradigm": "stroop",
+        "s": [
+          0.046793835733882023,
+          -0.013173888888888888,
+          0.03581386806780325,
+          0.029456067019400355,
+          -0.005699503968253968
+        ]
+      },
+      {
+        "gamma": 0.018566059131883205,
+        "omitted_paradigm": "flanker",
+        "s": [
+          0.041135399519890266,
+          0.009974259259259259,
+          0.02398259234763864,
+          0.023437548500881835,
+          -0.005699503968253968
+        ]
+      },
+      {
+        "gamma": 0.0223109150989614,
+        "omitted_paradigm": "go_nogo",
+        "s": [
+          0.0457650291495199,
+          0.014603888888888888,
+          0.030669835145992547,
+          0.02528940035273369,
+          -0.004773578042328041
+        ]
+      },
+      {
+        "gamma": 0.019055953140309626,
+        "omitted_paradigm": "cvlt_word_list",
+        "s": [
+          0.045229192386831284,
+          0.0024601312953164787,
+          0.031384584435626105,
+          0.02503311728395062,
+          -0.008827259700176365
+        ]
+      },
+      {
+        "gamma": 0.021093857314324907,
+        "omitted_paradigm": "drm_false_memory",
+        "s": [
+          0.04531857853223594,
+          0.00590488683127572,
+          0.03437050815696649,
+          0.025551483686067022,
+          -0.0056761706349206355
+        ]
+      },
+      {
+        "gamma": 0.021392501347246712,
+        "omitted_paradigm": "source_monitoring",
+        "s": [
+          0.04861281721536351,
+          0.0039687757201646075,
+          0.026811943342151673,
+          0.02800731701940035,
+          -0.0004383465608465628
+        ]
+      },
+      {
+        "gamma": 0.016436768500703684,
+        "omitted_paradigm": "false_belief",
+        "s": [
+          0.042678609396433476,
+          0.00028004115226337495,
+          0.0316986417303547,
+          0.014151980118646787,
+          -0.0066254298941798954
+        ]
+      },
+      {
+        "gamma": 0.022372982492473235,
+        "omitted_paradigm": "epitome_tom",
+        "s": [
+          0.04473622256515775,
+          0.004909670781893004,
+          0.03015543185381148,
+          0.037300128266794935,
+          -0.005236541005291005
+        ]
+      },
+      {
+        "gamma": 0.01863226447900522,
+        "omitted_paradigm": "confidence_calibration",
+        "s": [
+          0.04164980281207133,
+          0.0033664609053497946,
+          0.02706901210072506,
+          0.022048659611992944,
+          -0.0009726130351130358
+        ]
+      },
+      {
+        "gamma": 0.019084939376124564,
+        "omitted_paradigm": "post_decision_wagering",
+        "s": [
+          0.04627943244170097,
+          0.004395267489711933,
+          0.03015543185381148,
+          0.024826437389770726,
+          -0.010231872294372295
+        ]
+      }
+    ],
+    "status": "post_hoc_exploratory"
+  },
+  "neutral_placebo_vs_baseline": {
+    "contrast": "neutral_placebo_minus_baseline_on_identical_items",
+    "log1p_primary_response_characters": {
+      "baseline_mean": 3.053925651099418,
+      "crossed_family_item_bootstrap": {
+        "ci95": [
+          -0.06532012679901052,
+          0.019848967666070465
+        ],
+        "descriptive_sign_tail_fraction_two_sided": 0.3175,
+        "n_bootstrap": 20000,
+        "seed": 5205
+      },
+      "neutral_placebo_mean": 3.032588323073088,
+      "paired_difference": -0.021337328026330038
+    },
+    "observable_evaluability": {
+      "baseline_mean": 0.9497863247863247,
+      "crossed_family_item_bootstrap": {
+        "ci95": [
+          -0.03311965811965811,
+          -0.0007122507122507122
+        ],
+        "descriptive_sign_tail_fraction_two_sided": 0.0414,
+        "n_bootstrap": 20000,
+        "seed": 5204
+      },
+      "neutral_placebo_mean": 0.9337606837606838,
+      "paired_difference": -0.016025641025641024
+    },
+    "primary_accuracy": {
+      "baseline_mean": 0.7662381401777235,
+      "by_family": {
+        "falcon3": -0.04840141432641433,
+        "gemma2": 0.007087174399674399,
+        "gemma3": -0.011143162393162391,
+        "llama2": -0.016559513634513637,
+        "olmo2": -0.005647400284900284,
+        "qwen2.5": -0.0025422364672364668
+      },
+      "by_grouping": {
+        "cognitive_control": -0.010802469135802469,
+        "episodic_memory": -0.01720300558495003,
+        "metacognition": -0.009259259259259259,
+        "theory_of_mind": -0.004629629629629629,
+        "working_memory": -0.018495554085831863
+      },
+      "by_paradigm": {
+        "confidence_calibration": -0.027777777777777776,
+        "cvlt_word_list": -0.006916887125220459,
+        "digit_span": -0.041666666666666664,
+        "drm_false_memory": -0.007458333333333334,
+        "epitome_tom": 0.009259259259259259,
+        "false_belief": -0.018518518518518517,
+        "flanker": 0.027777777777777776,
+        "go_nogo": -0.032407407407407406,
+        "n_back": 0.015721450617283948,
+        "operation_span": -0.029541446208112877,
+        "post_decision_wagering": 0.009259259259259259,
+        "source_monitoring": -0.03723379629629629,
+        "stroop": -0.027777777777777776
+      },
+      "crossed_family_item_bootstrap": {
+        "ci95": [
+          -0.03138572410035951,
+          0.0024887418387939137
+        ],
+        "descriptive_sign_tail_fraction_two_sided": 0.111,
+        "n_bootstrap": 20000,
+        "seed": 5203
+      },
+      "neutral_placebo_mean": 0.7533703813932981,
+      "paired_difference": -0.012867758784425453
+    },
+    "status": "post_hoc_exploratory_control_condition_audit",
+    "weighting": "equal item within paradigm, equal paradigm within model, equal model"
+  },
+  "observable_response_validity_and_accuracy_contributions": {
+    "evaluable_rate": {
+      "baseline": 0.9497863247863247,
+      "neutral_placebo": 0.9337606837606838,
+      "targeted": {
+        "belief_state_ledger": 0.9387464387464387,
+        "control_rule_rehearsal": 0.9330484330484331,
+        "episodic_source_binding": 0.9554843304843305,
+        "metacognitive_forecast": 0.9184472934472935,
+        "working_memory_ledger": 0.9494301994301995
+      }
+    },
+    "observable_evaluability_rule": "complete task record is protocol-valid; every response unit consumed by the primary scorer is nonempty; operation-span strict parser status is not none",
+    "paired_accuracy_contribution_by_observed_evaluability_stratum": {
+      "absolute_reconstruction_error": 0.0,
+      "identity": "for each pair, primary gain equals the sum of gain times the four mutually exclusive evaluability indicators; the frozen estimator is linear",
+      "maximum_s_reconstruction_error": 6.938893903907228e-18,
+      "primary_gamma": 0.019920160380257602,
+      "rows": [
+        {
+          "accuracy_contribution_gamma": 0.01296249333947945,
+          "accuracy_contribution_s": [
+            0.014171432980599646,
+            0.010466040564373898,
+            0.02924294348912404,
+            0.016699129188712525,
+            -0.0057670795254128595
+          ],
+          "pair_count": 12935,
+          "pair_fraction": 0.9212962962962963,
+          "stratum": "both_evaluable"
+        },
+        {
+          "accuracy_contribution_gamma": 0.006159315696649029,
+          "accuracy_contribution_s": [
+            0.028535370370370364,
+            -0.005293994708994709,
+            0.004852292768959434,
+            0.007134840468173802,
+            -0.0044319304152637485
+          ],
+          "pair_count": 249,
+          "pair_fraction": 0.017735042735042734,
+          "stratum": "target_only_evaluable"
+        },
+        {
+          "accuracy_contribution_gamma": -5.791301907968633e-05,
+          "accuracy_contribution_s": [
+            0.0016831944444444448,
+            -0.002216635802469137,
+            -0.006004475308641975,
+            0.0018996001683501684,
+            0.0043487514029180675
+          ],
+          "pair_count": 175,
+          "pair_fraction": 0.012464387464387465,
+          "stratum": "placebo_only_evaluable"
+        },
+        {
+          "accuracy_contribution_gamma": 0.0008562643632088077,
+          "accuracy_contribution_s": [
+            0.00042989417989417996,
+            0.0008460097001763669,
+            0.0027649176954732506,
+            -7.51563251563252e-06,
+            0.00024801587301587284
+          ],
+          "pair_count": 681,
+          "pair_fraction": 0.048504273504273505,
+          "stratum": "neither_evaluable"
+        }
+      ],
+      "sum_gamma": 0.019920160380257602
+    },
+    "scope_limitation": "does not identify semantic parse failures outside operation span and is not a mediator or counterfactual decomposition",
+    "status": "post_hoc_exploratory",
+    "target_minus_placebo_evaluability_selectivity": {
+      "bootstrap": {
+        "descriptive_bootstrap_sign_tail_fraction_two_sided": 0.391,
+        "gamma_ci95": [
+          -0.006743125701459034,
+          0.02456523569023568
+        ],
+        "n_bootstrap": 20000,
+        "s_ci95": [
+          [
+            -0.0018518518518518517,
+            0.07083333333333333
+          ],
+          [
+            -0.07407407407407407,
+            0.0220679012345679
+          ],
+          [
+            -0.04552469135802469,
+            0.044753086419753084
+          ],
+          [
+            -0.001683501683501684,
+            0.0707070707070707
+          ],
+          [
+            -0.032407407407407406,
+            0.05219381313131268
+          ]
+        ],
+        "seed": 5202
+      },
+      "gamma": 0.007166105499438831,
+      "s": [
+        0.029783950617283946,
+        -0.0191358024691358,
+        -0.006172839506172842,
+        0.024200336700336698,
+        0.007154882154882154
+      ]
+    }
+  },
+  "schema_version": "cogarena.causal_selectivity.exploratory_analysis.v1",
+  "small_g_family_inference": {
+    "exact_binomial_sign_test": {
+      "assumption": "under the null, positive and negative family effects are equiprobable; magnitudes are ignored",
+      "negative": 1,
+      "nonzero_families": 6,
+      "p_one_sided_positive": 0.109375,
+      "p_two_sided_doubled_minimum_tail": 0.21875,
+      "positive": 5
+    },
+    "exact_family_sign_flip_test": {
+      "assumption": "the six family-level effects are independent and sign-symmetric under the null",
+      "minimum_attainable_one_sided_p": 0.015625,
+      "n_assignments": 64,
+      "observed_mean_family_gamma": 0.019920160380257602,
+      "p_one_sided_positive": 0.03125,
+      "p_two_sided_absolute": 0.0625
+    },
+    "family_gamma": {
+      "falcon3": 0.036243542608625945,
+      "gemma2": -0.0006656547218213886,
+      "gemma3": 0.02092061163219497,
+      "llama2": 0.04471703427128427,
+      "olmo2": 0.0007013392255892264,
+      "qwen2.5": 0.0176040892656726
+    },
+    "family_unit": "mean of the two frozen checkpoints within each model family",
+    "interpretation": "six clusters give coarse exact-test resolution; report every family estimate and do not substitute asymptotic cluster-robust inference",
+    "leave_one_family_out": {
+      "gamma_max": 0.024037323400673404,
+      "gamma_min": 0.01496078560205227,
+      "rows": [
+        {
+          "gamma": 0.020383374603174603,
+          "omitted_family": "qwen2.5"
+        },
+        {
+          "gamma": 0.024037323400673404,
+          "omitted_family": "gemma2"
+        },
+        {
+          "gamma": 0.01496078560205227,
+          "omitted_family": "llama2"
+        },
+        {
+          "gamma": 0.019720070129870128,
+          "omitted_family": "gemma3"
+        },
+        {
+          "gamma": 0.016655483934583933,
+          "omitted_family": "falcon3"
+        },
+        {
+          "gamma": 0.023763924611191277,
+          "omitted_family": "olmo2"
+        }
+      ]
+    },
+    "status": "post_hoc_exploratory_small_G"
+  },
+  "status": "post_hoc_exploratory_only"
+}

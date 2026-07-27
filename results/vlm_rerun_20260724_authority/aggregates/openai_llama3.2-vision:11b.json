@@ -1,0 +1,96 @@
+{
+  "conditions": {
+    "flanker": {
+      "congruent": {
+        "accuracy": 0.84,
+        "blank": 0,
+        "blank_rate": 0.0,
+        "correct": 42,
+        "count": 50
+      },
+      "incongruent": {
+        "accuracy": 0.5,
+        "blank": 0,
+        "blank_rate": 0.0,
+        "correct": 25,
+        "count": 50
+      }
+    },
+    "stroop": {
+      "congruent": {
+        "accuracy": 1.0,
+        "blank": 0,
+        "blank_rate": 0.0,
+        "correct": 50,
+        "count": 50
+      },
+      "incongruent": {
+        "accuracy": 0.82,
+        "blank": 0,
+        "blank_rate": 0.0,
+        "correct": 41,
+        "count": 50
+      }
+    }
+  },
+  "model_digest": "6f2f9757ae97e8a3f8ea33d6adb2b11d93d9a35bef277cd2c0b1b5af8e8d0b1e",
+  "model_id": "openai/llama3.2-vision:11b",
+  "n_records": 250,
+  "paradigms": {
+    "false_belief": {
+      "accuracy": 0.38,
+      "blank": 0,
+      "blank_rate": 0.0,
+      "correct": 19,
+      "count": 50,
+      "non_stop": 0
+    },
+    "flanker": {
+      "accuracy": 0.67,
+      "blank": 0,
+      "blank_rate": 0.0,
+      "correct": 67,
+      "count": 100,
+      "non_stop": 0
+    },
+    "stroop": {
+      "accuracy": 0.91,
+      "blank": 0,
+      "blank_rate": 0.0,
+      "correct": 91,
+      "count": 100,
+      "non_stop": 0
+    }
+  },
+  "record_counts_by_session": {
+    "246f564f1ecdd6b1fc2d218c": 250
+  },
+  "serving_sessions": {
+    "246f564f1ecdd6b1fc2d218c": {
+      "node": "c03",
+      "sha256": "f16dc5d05ab51ed06800fffa1d7dc8652e84830ebd729f077bb81612fdde91c9",
+      "slurm_job_id": "8876",
+      "source_revision": "76fce6076e64fd7a90bea32b5e94c0ab5c09fd72"
+    }
+  },
+  "session_ids": [
+    "246f564f1ecdd6b1fc2d218c"
+  ],
+  "usage": {
+    "false_belief": {
+      "max_completion_tokens": 239,
+      "max_prompt_tokens": 58,
+      "min_prompt_tokens": 58
+    },
+    "flanker": {
+      "max_completion_tokens": 9,
+      "max_prompt_tokens": 40,
+      "min_prompt_tokens": 40
+    },
+    "stroop": {
+      "max_completion_tokens": 7,
+      "max_prompt_tokens": 51,
+      "min_prompt_tokens": 51
+    }
+  }
+}

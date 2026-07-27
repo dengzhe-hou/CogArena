@@ -1,0 +1,61 @@
+{
+  "all_model_replays_passed": true,
+  "all_models_fully_gpu_served": true,
+  "api_call_count": 2919,
+  "closed_at": "2026-07-19T19:39:11.142249+00:00",
+  "condition_record_counts": {
+    "baseline": 117,
+    "belief_state_ledger": 117,
+    "control_rule_rehearsal": 117,
+    "episodic_source_binding": 117,
+    "metacognitive_forecast": 117,
+    "neutral_placebo": 117,
+    "working_memory_ledger": 117
+  },
+  "condition_truncated_record_counts": {
+    "baseline": 0,
+    "belief_state_ledger": 0,
+    "control_rule_rehearsal": 0,
+    "episodic_source_binding": 0,
+    "metacognitive_forecast": 0,
+    "neutral_placebo": 0,
+    "working_memory_ledger": 0
+  },
+  "condition_truncation_rates": {
+    "baseline": 0.0,
+    "belief_state_ledger": 0.0,
+    "control_rule_rehearsal": 0.0,
+    "episodic_source_binding": 0.0,
+    "metacognitive_forecast": 0.0,
+    "neutral_placebo": 0.0,
+    "working_memory_ledger": 0.0
+  },
+  "empty_response_count": 0,
+  "execution_nodes": [
+    "c04"
+  ],
+  "fully_gpu_served_model_count": 3,
+  "item_manifest_sha256": "07120819b2b7f2902f5e985d8b01902ffef1e11be27db757594aeda397ea8a35",
+  "model_count": 3,
+  "model_manifest_tree_sha256": "eed967ca76466996296c8e6d1f91231380fa74566c50f39e8bbaf56a7c272608",
+  "operation_span_nonparseable_count": 12,
+  "processor_requirement": "100% GPU",
+  "profile": "pilot",
+  "reasoning_effort": "none",
+  "reasoning_request_verified": true,
+  "record_count": 819,
+  "required_gpu_name_fragment": "RTX PRO 6000",
+  "response_unit_count": 2919,
+  "schema_version": "cogarena.causal_selectivity.run_manifest.v2",
+  "source_revision": "144fe23b4a0a5609e287c5ec0aad29b048f480f5",
+  "spec_sha256": "ca6251f199880eb176d9861388b42efa75692e630be30672976ecac4e08e6abd",
+  "status": "engineering_pilot_complete",
+  "stop_sequence_request_verified": true,
+  "stop_sequences": [
+    "\n"
+  ],
+  "study_id": "causal_selectivity_20260720",
+  "truncated_api_call_count": 0,
+  "truncated_completion_count": 0,
+  "truncated_record_count": 0
+}

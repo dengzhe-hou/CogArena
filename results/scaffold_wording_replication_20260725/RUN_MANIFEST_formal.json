@@ -1,0 +1,165 @@
+{
+  "all_execution_guards_verified_complete": true,
+  "all_model_replays_passed": true,
+  "all_models_fully_gpu_served": true,
+  "api_call_count": 69720,
+  "closed_at": "2026-07-26T04:28:37.170401+00:00",
+  "condition_invalid_record_counts": {
+    "baseline": 5,
+    "belief_state_ledger": 12,
+    "control_rule_rehearsal": 10,
+    "episodic_source_binding": 10,
+    "metacognitive_forecast": 12,
+    "neutral_placebo": 4,
+    "working_memory_ledger": 9
+  },
+  "condition_invalid_record_rates": {
+    "baseline": 0.0017806267806267807,
+    "belief_state_ledger": 0.004273504273504274,
+    "control_rule_rehearsal": 0.0035612535612535613,
+    "episodic_source_binding": 0.0035612535612535613,
+    "metacognitive_forecast": 0.004273504273504274,
+    "neutral_placebo": 0.0014245014245014246,
+    "working_memory_ledger": 0.003205128205128205
+  },
+  "condition_record_counts": {
+    "baseline": 2808,
+    "belief_state_ledger": 2808,
+    "control_rule_rehearsal": 2808,
+    "episodic_source_binding": 2808,
+    "metacognitive_forecast": 2808,
+    "neutral_placebo": 2808,
+    "working_memory_ledger": 2808
+  },
+  "condition_recovered_terminal_metadata_fault_record_counts": {
+    "baseline": 0,
+    "belief_state_ledger": 0,
+    "control_rule_rehearsal": 0,
+    "episodic_source_binding": 0,
+    "metacognitive_forecast": 0,
+    "neutral_placebo": 0,
+    "working_memory_ledger": 0
+  },
+  "condition_recovered_terminal_metadata_fault_record_rates": {
+    "baseline": 0.0,
+    "belief_state_ledger": 0.0,
+    "control_rule_rehearsal": 0.0,
+    "episodic_source_binding": 0.0,
+    "metacognitive_forecast": 0.0,
+    "neutral_placebo": 0.0,
+    "working_memory_ledger": 0.0
+  },
+  "condition_transport_protocol_invalid_rates": {
+    "baseline": 0.0,
+    "belief_state_ledger": 0.0,
+    "control_rule_rehearsal": 0.0,
+    "episodic_source_binding": 0.0,
+    "metacognitive_forecast": 0.00035612535612535614,
+    "neutral_placebo": 0.0,
+    "working_memory_ledger": 0.0
+  },
+  "condition_transport_protocol_invalid_record_counts": {
+    "baseline": 0,
+    "belief_state_ledger": 0,
+    "control_rule_rehearsal": 0,
+    "episodic_source_binding": 0,
+    "metacognitive_forecast": 1,
+    "neutral_placebo": 0,
+    "working_memory_ledger": 0
+  },
+  "condition_truncated_record_counts": {
+    "baseline": 5,
+    "belief_state_ledger": 12,
+    "control_rule_rehearsal": 10,
+    "episodic_source_binding": 10,
+    "metacognitive_forecast": 11,
+    "neutral_placebo": 4,
+    "working_memory_ledger": 9
+  },
+  "condition_truncation_rates": {
+    "baseline": 0.0017806267806267807,
+    "belief_state_ledger": 0.004273504273504274,
+    "control_rule_rehearsal": 0.0035612535612535613,
+    "episodic_source_binding": 0.0035612535612535613,
+    "metacognitive_forecast": 0.003917378917378918,
+    "neutral_placebo": 0.0014245014245014246,
+    "working_memory_ledger": 0.003205128205128205
+  },
+  "empty_response_count": 1635,
+  "execution_guard_count": 12,
+  "execution_guard_tree_sha256": "e32f0ef3e233c048fba31e6e05c616924c4382dc713955aae0abf5d036784f71",
+  "execution_nodes": [
+    "c04"
+  ],
+  "fully_gpu_served_model_count": 12,
+  "invalid_record_count": 62,
+  "item_manifest_sha256": "795ba14db8baa96564dc92e5bafe5c6a91a8ddf3c483d3a40c6e616df72ccea7",
+  "max_reported_completion_tokens": 512,
+  "max_reported_prompt_tokens": 2135,
+  "max_reported_total_tokens": 2257,
+  "minimum_reported_prompt_reservation_margin_tokens": 1449,
+  "model_count": 12,
+  "model_manifest_tree_sha256": "da588ae2f43fda18eb12089366b5da40ba3059e9ee0ae086d9f415b30f5e1ab8",
+  "operation_span_nonparseable_count": 282,
+  "operation_span_protocol_invalid_not_evaluated_count": 0,
+  "processor_requirement": "100% GPU",
+  "profile": "formal",
+  "profile_array_job_id": "10952",
+  "reasoning_effort": "none",
+  "reasoning_request_verified": true,
+  "record_count": 19656,
+  "record_reuse_allowed": false,
+  "recovered_terminal_metadata_fault_logical_call_count": 0,
+  "recovered_terminal_metadata_fault_record_count": 0,
+  "reported_usage_context_budget_verified": true,
+  "request_error_attempt_count": 0,
+  "required_gpu_name_fragment": "RTX PRO 6000",
+  "response_unit_count": 69720,
+  "schema_version": "cogarena.causal_selectivity.run_manifest.v3",
+  "source_revision": "a07798f31af846ad2603683b969cb01f372aff1d",
+  "spec_sha256": "045ff1668616b85f1425bad7aa146f29a1aff2fd63271809cb856ce9be0c4144",
+  "static_prompt_budget_verified_for_all_logical_calls": true,
+  "status": "formal_raw_complete",
+  "stop_policy": {
+    "multiline": {
+      "paradigms": [
+        "drm_false_memory",
+        "source_monitoring",
+        "confidence_calibration",
+        "post_decision_wagering"
+      ],
+      "stop_sequences": [
+        "\n\n",
+        "<END_COGARENA_RESPONSE>"
+      ]
+    },
+    "single_line": {
+      "paradigms": [
+        "digit_span",
+        "n_back",
+        "operation_span",
+        "stroop",
+        "flanker",
+        "go_nogo",
+        "cvlt_word_list",
+        "false_belief",
+        "epitome_tom"
+      ],
+      "stop_sequences": [
+        "\n",
+        "<END_COGARENA_RESPONSE>"
+      ]
+    }
+  },
+  "stop_sequence_request_verified": true,
+  "study_id": "scaffold_wording_replication_20260725",
+  "terminal_metadata_fault_attempt_count": 3,
+  "transport_attempt_count": 69722,
+  "transport_incomplete_logical_call_count": 1,
+  "transport_protocol_invalid_record_count": 1,
+  "transport_retry_count": 2,
+  "truncated_api_call_count": 62,
+  "truncated_completion_count": 62,
+  "truncated_record_count": 61,
+  "usage_metadata_valid_logical_call_count": 69719
+}

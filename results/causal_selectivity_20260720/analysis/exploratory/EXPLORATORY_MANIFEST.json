@@ -1,0 +1,70 @@
+{
+  "code_sha256": {
+    "analyze_exploratory.py": "1200afd035291c11419a28b41258180be8a07eb97e02251487d74e6ee917df2e",
+    "analyze_exploratory.sbatch": "b7fead64d9ed58b60241434cac122a343f3df47483a1b196a3ad12fc587b0bc7",
+    "primary_loader_analyze_amended.py": "5c5ce1caeacb4f1eebfcc666f8f0fabc0a30db8b5e81ad6af2640fa596e83742"
+  },
+  "completed_at": "2026-07-20T12:24:41.856743+00:00",
+  "confirmatory_role": "none",
+  "execution_guard_sha256": {
+    "falcon3:10b": "a72492209c3510d65a941e77126bf5fb9ba6deb8dac55a198225d23f1697106d",
+    "falcon3:7b": "5f6c17f5dff645a05673dae74b0459fd829f7f58acd8edf8faefa31792a1aca8",
+    "gemma2:2b": "1211b15f33233171c9bba8f54b022acad7ae2a73fe1fd63c35f370e3e6b76a41",
+    "gemma2:9b": "9e98c19f39ef7ca77ff041bffaafe4d5bb9bd63ba7e7341d9e061ac658816b58",
+    "gemma3:12b": "59496fbcc4596f6411fa3d1805997f6beaedd3ae61687ad48262bd5831136800",
+    "gemma3:27b": "d1d4dbbac09bc624e0fc63dbc68e822871d855067c884c9aa29115770709cbee",
+    "llama2:13b": "858162d9092396aef8854d035f0f2550e70facfa18d38ccda82862ce13cb7136",
+    "llama2:7b": "c201ffee609d6ecb5311d47e4ce65943e3e6a98728a8e2a59d183552302bc87c",
+    "olmo2:13b": "c8e1aed1deb146159362e2a8825d88dc98a54d3cafd8dc4126a578e3647504ba",
+    "olmo2:7b": "a871cd1b2f5e92efd97abf14c18a83c4642a4b0ee38f8688a1bfaf3b136b2a4d",
+    "qwen2.5:14b": "3c7f65dbddb3005f20b0250acba538447d2ab082308373ad4c2ea8c3a517d68d",
+    "qwen2.5:3b": "6cbd6d05790e56aaf99f113d05f9b1b10104ac1ee6409e30485cfa346a3d784f"
+  },
+  "exploratory_analysis_revision": "bc2c50026202718844a18f743315ef2bcb10a03f",
+  "formal_raw_source_revision": "4d6c2ff920af5b6ff592b8361e9f5d03eb306da7",
+  "inputs_sha256": {
+    "ANALYSIS_MANIFEST.json": "59b7caa81a80a68e551c7e7cfe9a406a5d1d6ca4f575ba40c33b82a479760f66",
+    "EXPLORATORY_ANALYSIS_SPEC.json": "bf578d72318935a7c59ff99fc98f8f5bba552be434b907e516e8d0ddaf5fd182",
+    "PREPILOT_SPEC.json": "8367e0db2e9bd03a4fa3d3dc283b0be955203f938b889550e3a61a7b45b0ff40",
+    "RUN_MANIFEST_formal.json": "ca92d4133add092af27b18bfceb7616e6437993346c749060553bb5de6b04894",
+    "analysis_results.json": "d5230dff75701eaea1bd1f1670847f4c24655ec3d4bedf760fa9469a030a226e",
+    "formal_item_manifest.json": "0b8a54402104bcb266d06b7ee3c281d225876107e4b41e9c50c51bf8917202a0"
+  },
+  "model_manifest_sha256": {
+    "falcon3:10b": "56d90ef07ad4c9271b94849a543408838affb66e7469941072f08a2283d10361",
+    "falcon3:7b": "ccd8d0bfbf25e7ff3e8c9de252130f00be8e04b591d1fef8e6939a2d4f7e4427",
+    "gemma2:2b": "06a3758c9ce7e1697d0c62ac1c2701c3a3c98c069df09584deb5bb73a02e7a48",
+    "gemma2:9b": "a8fc20e48ef39952771887d8fca543a32d02fb1f31cb3b65a68cfb334e5ea5d8",
+    "gemma3:12b": "39bfa02827d77fdc81a53f1852afb2642dfe38c9e6fb5cc2f179f729f0b4215e",
+    "gemma3:27b": "4703488555e0df11da5d1ac5ad1fb978ed088228f2894c006e52cae53576ad6a",
+    "llama2:13b": "86fdda84133a3403e8aae2fff1270faa1dfc0497429b72be7d0c7174479644fd",
+    "llama2:7b": "5d1e1e115a1d6f16101ce44dfa92debc65a0c4ea63d337019b1828d61212ea23",
+    "olmo2:13b": "f1e955d8cd60a6ed6266485752266770097f1450bf12d57d49e2bff44b299a24",
+    "olmo2:7b": "1c5143229a86639ebd8d0b0081cf3b7dc52958d08a0d3948edb306aa3c612627",
+    "qwen2.5:14b": "f811365c6b4038c954fb063a1eaea3e8fa499d497bfa9573c798f847b942dba5",
+    "qwen2.5:3b": "6c489668a282491c3c7af3a14305f0d2550174dfc2ada110e4f3c7fc273988b0"
+  },
+  "n_bootstrap": 20000,
+  "numeric_runtime": {
+    "numpy": "2.4.3",
+    "platform": "Linux-6.12.0-124.55.3.el10_1.x86_64-x86_64-with-glibc2.39",
+    "python": "3.13.12",
+    "quantile_method": "numpy.quantile default linear"
+  },
+  "outputs_sha256": {
+    "exploratory_results.json": "16ae77325be53132da877270a2b4bb8193e014c1dc33af396659836681368843"
+  },
+  "primary_artifacts_modified": false,
+  "primary_confirmatory_gate_remains_fail": true,
+  "raw_content_emitted": false,
+  "schema_version": "cogarena.causal_selectivity.exploratory_manifest.v1",
+  "seeds": {
+    "family_paradigm_item_primary": 5201,
+    "neutral_placebo_accuracy": 5203,
+    "neutral_placebo_evaluability": 5204,
+    "neutral_placebo_log_response_length": 5205,
+    "observable_evaluability": 5202
+  },
+  "status": "complete_post_hoc_exploratory",
+  "study_id": "causal_selectivity_20260720"
+}

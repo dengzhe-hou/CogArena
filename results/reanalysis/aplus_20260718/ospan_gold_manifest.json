@@ -1,0 +1,748 @@
+{
+ "wm_ospan_gen_easy_sz3_s1119734592": {
+  "letters": [
+   "Y",
+   "L",
+   "X"
+  ],
+  "math_expected": [
+   "NO",
+   "NO",
+   "NO"
+  ]
+ },
+ "wm_ospan_gen_easy_sz3_s1177900914": {
+  "letters": [
+   "C",
+   "Z",
+   "H"
+  ],
+  "math_expected": [
+   "YES",
+   "YES",
+   "NO"
+  ]
+ },
+ "wm_ospan_gen_easy_sz3_s1240269710": {
+  "letters": [
+   "M",
+   "J",
+   "F"
+  ],
+  "math_expected": [
+   "YES",
+   "YES",
+   "YES"
+  ]
+ },
+ "wm_ospan_gen_easy_sz3_s314461773": {
+  "letters": [
+   "P",
+   "R",
+   "N"
+  ],
+  "math_expected": [
+   "NO",
+   "NO",
+   "NO"
+  ]
+ },
+ "wm_ospan_gen_easy_sz3_s658515823": {
+  "letters": [
+   "Y",
+   "X",
+   "H"
+  ],
+  "math_expected": [
+   "NO",
+   "NO",
+   "YES"
+  ]
+ },
+ "wm_ospan_gen_easy_sz3_s937971127": {
+  "letters": [
+   "M",
+   "E",
+   "L"
+  ],
+  "math_expected": [
+   "YES",
+   "YES",
+   "NO"
+  ]
+ },
+ "wm_ospan_gen_easy_sz4_s1377018420": {
+  "letters": [
+   "T",
+   "S",
+   "V",
+   "H"
+  ],
+  "math_expected": [
+   "YES",
+   "NO",
+   "NO",
+   "NO"
+  ]
+ },
+ "wm_ospan_gen_easy_sz4_s1451786244": {
+  "letters": [
+   "N",
+   "R",
+   "M",
+   "X"
+  ],
+  "math_expected": [
+   "NO",
+   "YES",
+   "NO",
+   "NO"
+  ]
+ },
+ "wm_ospan_gen_easy_sz4_s1880545305": {
+  "letters": [
+   "H",
+   "X",
+   "F",
+   "W"
+  ],
+  "math_expected": [
+   "NO",
+   "YES",
+   "YES",
+   "YES"
+  ]
+ },
+ "wm_ospan_gen_easy_sz4_s2076015361": {
+  "letters": [
+   "W",
+   "F",
+   "P",
+   "V"
+  ],
+  "math_expected": [
+   "YES",
+   "NO",
+   "YES",
+   "NO"
+  ]
+ },
+ "wm_ospan_gen_easy_sz4_s258561316": {
+  "letters": [
+   "V",
+   "C",
+   "K",
+   "Z"
+  ],
+  "math_expected": [
+   "YES",
+   "YES",
+   "YES",
+   "YES"
+  ]
+ },
+ "wm_ospan_gen_easy_sz4_s456435782": {
+  "letters": [
+   "X",
+   "E",
+   "Y",
+   "S"
+  ],
+  "math_expected": [
+   "NO",
+   "YES",
+   "YES",
+   "NO"
+  ]
+ },
+ "wm_ospan_gen_hard_sz4_s1468399101": {
+  "letters": [
+   "W",
+   "G",
+   "B",
+   "Y"
+  ],
+  "math_expected": [
+   "YES",
+   "YES",
+   "YES",
+   "NO"
+  ]
+ },
+ "wm_ospan_gen_hard_sz4_s42267626": {
+  "letters": [
+   "T",
+   "F",
+   "G",
+   "X"
+  ],
+  "math_expected": [
+   "YES",
+   "NO",
+   "NO",
+   "YES"
+  ]
+ },
+ "wm_ospan_gen_hard_sz4_s525279675": {
+  "letters": [
+   "J",
+   "F",
+   "G",
+   "Z"
+  ],
+  "math_expected": [
+   "YES",
+   "NO",
+   "NO",
+   "YES"
+  ]
+ },
+ "wm_ospan_gen_hard_sz5_s428403958": {
+  "letters": [
+   "C",
+   "K",
+   "W",
+   "M",
+   "Y"
+  ],
+  "math_expected": [
+   "NO",
+   "YES",
+   "YES",
+   "YES",
+   "NO"
+  ]
+ },
+ "wm_ospan_gen_hard_sz5_s677733891": {
+  "letters": [
+   "Z",
+   "B",
+   "X",
+   "W",
+   "Y"
+  ],
+  "math_expected": [
+   "YES",
+   "NO",
+   "NO",
+   "NO",
+   "YES"
+  ]
+ },
+ "wm_ospan_gen_hard_sz5_s863098460": {
+  "letters": [
+   "H",
+   "X",
+   "P",
+   "M",
+   "L"
+  ],
+  "math_expected": [
+   "NO",
+   "NO",
+   "NO",
+   "NO",
+   "YES"
+  ]
+ },
+ "wm_ospan_gen_hard_sz6_s212522555": {
+  "letters": [
+   "D",
+   "Y",
+   "Z",
+   "K",
+   "B",
+   "G"
+  ],
+  "math_expected": [
+   "YES",
+   "NO",
+   "NO",
+   "YES",
+   "YES",
+   "NO"
+  ]
+ },
+ "wm_ospan_gen_hard_sz6_s526649753": {
+  "letters": [
+   "H",
+   "L",
+   "S",
+   "Z",
+   "V",
+   "C"
+  ],
+  "math_expected": [
+   "NO",
+   "YES",
+   "YES",
+   "YES",
+   "YES",
+   "NO"
+  ]
+ },
+ "wm_ospan_gen_hard_sz6_s710676627": {
+  "letters": [
+   "V",
+   "S",
+   "P",
+   "F",
+   "G",
+   "H"
+  ],
+  "math_expected": [
+   "YES",
+   "NO",
+   "NO",
+   "NO",
+   "NO",
+   "YES"
+  ]
+ },
+ "wm_ospan_gen_hard_sz7_s1813525872": {
+  "letters": [
+   "Z",
+   "B",
+   "R",
+   "E",
+   "H",
+   "K",
+   "W"
+  ],
+  "math_expected": [
+   "YES",
+   "NO",
+   "YES",
+   "YES",
+   "NO",
+   "NO",
+   "NO"
+  ]
+ },
+ "wm_ospan_gen_hard_sz7_s2072125834": {
+  "letters": [
+   "W",
+   "E",
+   "C",
+   "X",
+   "T",
+   "H",
+   "J"
+  ],
+  "math_expected": [
+   "NO",
+   "YES",
+   "NO",
+   "NO",
+   "NO",
+   "NO",
+   "NO"
+  ]
+ },
+ "wm_ospan_gen_hard_sz7_s941324913": {
+  "letters": [
+   "N",
+   "E",
+   "R",
+   "G",
+   "J",
+   "T",
+   "K"
+  ],
+  "math_expected": [
+   "NO",
+   "NO",
+   "YES",
+   "YES",
+   "NO",
+   "NO",
+   "YES"
+  ]
+ },
+ "wm_ospan_gen_medium_sz3_s1181204778": {
+  "letters": [
+   "R",
+   "N",
+   "B"
+  ],
+  "math_expected": [
+   "YES",
+   "NO",
+   "YES"
+  ]
+ },
+ "wm_ospan_gen_medium_sz3_s1254875685": {
+  "letters": [
+   "J",
+   "E",
+   "P"
+  ],
+  "math_expected": [
+   "NO",
+   "YES",
+   "NO"
+  ]
+ },
+ "wm_ospan_gen_medium_sz3_s1283019627": {
+  "letters": [
+   "F",
+   "H",
+   "L"
+  ],
+  "math_expected": [
+   "YES",
+   "YES",
+   "NO"
+  ]
+ },
+ "wm_ospan_gen_medium_sz3_s1583662362": {
+  "letters": [
+   "X",
+   "L",
+   "T"
+  ],
+  "math_expected": [
+   "YES",
+   "YES",
+   "NO"
+  ]
+ },
+ "wm_ospan_gen_medium_sz3_s1706711949": {
+  "letters": [
+   "C",
+   "Z",
+   "N"
+  ],
+  "math_expected": [
+   "YES",
+   "YES",
+   "YES"
+  ]
+ },
+ "wm_ospan_gen_medium_sz3_s1870914451": {
+  "letters": [
+   "T",
+   "H",
+   "D"
+  ],
+  "math_expected": [
+   "YES",
+   "NO",
+   "YES"
+  ]
+ },
+ "wm_ospan_gen_medium_sz3_s474795769": {
+  "letters": [
+   "N",
+   "K",
+   "G"
+  ],
+  "math_expected": [
+   "NO",
+   "YES",
+   "NO"
+  ]
+ },
+ "wm_ospan_gen_medium_sz4_s1006373501": {
+  "letters": [
+   "J",
+   "Y",
+   "N",
+   "C"
+  ],
+  "math_expected": [
+   "YES",
+   "NO",
+   "NO",
+   "NO"
+  ]
+ },
+ "wm_ospan_gen_medium_sz4_s112295151": {
+  "letters": [
+   "D",
+   "K",
+   "M",
+   "Y"
+  ],
+  "math_expected": [
+   "NO",
+   "NO",
+   "NO",
+   "NO"
+  ]
+ },
+ "wm_ospan_gen_medium_sz4_s1518826954": {
+  "letters": [
+   "W",
+   "P",
+   "B",
+   "R"
+  ],
+  "math_expected": [
+   "NO",
+   "YES",
+   "YES",
+   "YES"
+  ]
+ },
+ "wm_ospan_gen_medium_sz4_s1866651411": {
+  "letters": [
+   "T",
+   "C",
+   "H",
+   "M"
+  ],
+  "math_expected": [
+   "NO",
+   "NO",
+   "NO",
+   "NO"
+  ]
+ },
+ "wm_ospan_gen_medium_sz4_s312906026": {
+  "letters": [
+   "S",
+   "B",
+   "J",
+   "M"
+  ],
+  "math_expected": [
+   "YES",
+   "NO",
+   "NO",
+   "NO"
+  ]
+ },
+ "wm_ospan_gen_medium_sz4_s626195215": {
+  "letters": [
+   "L",
+   "W",
+   "B",
+   "E"
+  ],
+  "math_expected": [
+   "YES",
+   "YES",
+   "NO",
+   "NO"
+  ]
+ },
+ "wm_ospan_gen_medium_sz4_s910832625": {
+  "letters": [
+   "E",
+   "P",
+   "V",
+   "M"
+  ],
+  "math_expected": [
+   "NO",
+   "NO",
+   "YES",
+   "NO"
+  ]
+ },
+ "wm_ospan_gen_medium_sz5_s1322025037": {
+  "letters": [
+   "H",
+   "G",
+   "B",
+   "T",
+   "F"
+  ],
+  "math_expected": [
+   "NO",
+   "NO",
+   "YES",
+   "YES",
+   "NO"
+  ]
+ },
+ "wm_ospan_gen_medium_sz5_s1480059613": {
+  "letters": [
+   "J",
+   "B",
+   "P",
+   "V",
+   "K"
+  ],
+  "math_expected": [
+   "YES",
+   "NO",
+   "YES",
+   "YES",
+   "YES"
+  ]
+ },
+ "wm_ospan_gen_medium_sz5_s306121630": {
+  "letters": [
+   "F",
+   "V",
+   "K",
+   "Z",
+   "E"
+  ],
+  "math_expected": [
+   "NO",
+   "YES",
+   "YES",
+   "YES",
+   "NO"
+  ]
+ },
+ "wm_ospan_gen_medium_sz5_s313377666": {
+  "letters": [
+   "C",
+   "V",
+   "S",
+   "K",
+   "Z"
+  ],
+  "math_expected": [
+   "YES",
+   "YES",
+   "YES",
+   "YES",
+   "YES"
+  ]
+ },
+ "wm_ospan_gen_medium_sz5_s455266562": {
+  "letters": [
+   "D",
+   "M",
+   "P",
+   "L",
+   "N"
+  ],
+  "math_expected": [
+   "YES",
+   "YES",
+   "NO",
+   "YES",
+   "YES"
+  ]
+ },
+ "wm_ospan_gen_medium_sz5_s656593681": {
+  "letters": [
+   "H",
+   "G",
+   "F",
+   "P",
+   "Y"
+  ],
+  "math_expected": [
+   "YES",
+   "YES",
+   "YES",
+   "NO",
+   "NO"
+  ]
+ },
+ "wm_ospan_gen_medium_sz6_s1236676182": {
+  "letters": [
+   "Z",
+   "L",
+   "F",
+   "X",
+   "J",
+   "C"
+  ],
+  "math_expected": [
+   "NO",
+   "NO",
+   "YES",
+   "NO",
+   "NO",
+   "NO"
+  ]
+ },
+ "wm_ospan_gen_medium_sz6_s141861822": {
+  "letters": [
+   "F",
+   "C",
+   "N",
+   "Y",
+   "X",
+   "W"
+  ],
+  "math_expected": [
+   "YES",
+   "NO",
+   "NO",
+   "NO",
+   "YES",
+   "YES"
+  ]
+ },
+ "wm_ospan_gen_medium_sz6_s179212328": {
+  "letters": [
+   "P",
+   "T",
+   "M",
+   "S",
+   "L",
+   "R"
+  ],
+  "math_expected": [
+   "NO",
+   "YES",
+   "NO",
+   "NO",
+   "YES",
+   "NO"
+  ]
+ },
+ "wm_ospan_gen_medium_sz6_s1891927760": {
+  "letters": [
+   "N",
+   "B",
+   "S",
+   "F",
+   "C",
+   "V"
+  ],
+  "math_expected": [
+   "NO",
+   "NO",
+   "NO",
+   "NO",
+   "YES",
+   "YES"
+  ]
+ },
+ "wm_ospan_gen_medium_sz6_s452057988": {
+  "letters": [
+   "L",
+   "J",
+   "M",
+   "B",
+   "P",
+   "H"
+  ],
+  "math_expected": [
+   "NO",
+   "YES",
+   "NO",
+   "NO",
+   "YES",
+   "YES"
+  ]
+ },
+ "wm_ospan_gen_medium_sz6_s694448684": {
+  "letters": [
+   "T",
+   "Y",
+   "G",
+   "R",
+   "L",
+   "P"
+  ],
+  "math_expected": [
+   "YES",
+   "NO",
+   "YES",
+   "YES",
+   "YES",
+   "YES"
+  ]
+ }
+}

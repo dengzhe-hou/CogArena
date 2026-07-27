@@ -1,0 +1,127 @@
+{
+  "summary": "Row-by-row verify whether each human-accuracy number in CogArena Table tab:human_comparison traces to its cited source; classify traceable / approximate / better-source-found",
+  "agentCount": 10,
+  "logs": [],
+  "result": [
+    {
+      "paradigm": "Stroop",
+      "verdict": "approximate",
+      "cited_source_reports_this_accuracy": false,
+      "what_source_actually_reports": "MacLeod (1991), 'Half a century of research on the Stroop effect: an integrative review,' Psychological Bulletin 109(2):163-203, is a narrative integrative REVIEW of the Stroop literature (it organizes \"over 50 years and some 400 studies\" and isolates \"18 reliable empirical findings\"). It is framed almost entirely around reaction time / naming latency interference (congruent vs. incongruent RT), which is THE Stroop dependent measure. It does NOT report any single aggregate human ACCURACY figure, and specifically does not report ~96% correct. It also does not contain the \"31 studies / 30,000+ participants\" descriptor used in the paper's Table 1 (that count does not match this 400-study review). Independent confirmation that accuracy is the wrong lens: the Scarpina & Tagini (2017) Frontiers review notes error rates in healthy adults are near-ceiling and non-discriminative, and that the field scores speed, with no consolidated accuracy percentage; large normative samples (e.g., Van der Elst et al. 2006, N=1,856) likewise find errors rare and demographic effects sitting in speed, not accuracy. The paper itself concedes (supplementary.tex line 85) that \"in humans, interference is primarily in RT.\" So 96% is a plausible near-ceiling estimate (human Stroop accuracy typically ~90-100%), but it is not a number the cited review reports.",
+      "stated_human_pct": 96,
+      "suggested_citation_and_N": "",
+      "recommended_action": "mark approx.",
+      "confidence": "high",
+      "_stated": 96,
+      "_src": "MacLeod 1991, 'Half a century of research on the Stroop effect: an integrative review', Psychological Bulletin (an integrative REVIEW; paper cites '31 studies, N=30K+')"
+    },
+    {
+      "paradigm": "Flanker",
+      "verdict": "approximate",
+      "cited_source_reports_this_accuracy": false,
+      "stated_human_pct": 95,
+      "what_source_actually_reports": "Eriksen & Eriksen (1974, Perception & Psychophysics 16:143-149) is a reaction-time study, not an accuracy study. 12 highly practiced subjects viewed a 1-second tachistoscopic display and made a right/left lever-press to a central target letter (H/K or S/C) flanked by noise letters; the primary dependent variable was choice reaction time, compared between response-compatible vs. response-incompatible flanker conditions. The headline result (the 'flanker effect') is an RT difference: RT was slower for incompatible flankers and decreased as letter spacing increased. The paper does NOT report a human accuracy of ~95% as a primary measure; accuracy/errors were a secondary measure and near ceiling. No single 'human accuracy = 95%' figure on this paradigm appears in the original article. Confirmed via Wikipedia (en.wikipedia.org/wiki/Eriksen_flanker_task: 'Choice reaction times ... were then recorded and compared between congruent and incongruent conditions') and the Springer abstract (link.springer.com/article/10.3758/BF03203267). The paper's N=12 is the original RT-study subject count, not the basis of an accuracy norm.",
+      "suggested_citation_and_N": "",
+      "recommended_action": "mark approx.",
+      "confidence": "high",
+      "_stated": 95,
+      "_src": "Eriksen & Eriksen 1974, 'Effects of noise letters upon the identification of a target letter in a nonsearch task', Perception & Psychophysics (original study, paper lists N=12)"
+    },
+    {
+      "paradigm": "Go/No-Go",
+      "verdict": "approximate",
+      "cited_source_reports_this_accuracy": false,
+      "stated_human_pct": 93,
+      "what_source_actually_reports": "Votruba & Langenecker 2013 (J Clin Exp Neuropsychol 35(2):132-146, \"Factor structure, construct validity, and age- and education-based normative data for the Parametric Go/No-Go Test\"; PMC4040279) is a HEALTHY normative study with N=276 (ages 18-60), NOT N=883 and NOT a clinical sample. It reports NO single headline ~93% accuracy. Instead it gives level- and metric-specific percent-correct: Level 1 go-target ~97-98%, Level 2 go-target ~95-97.5%, Level 3 go-target ~82-92.5%, and crucially NO-GO INHIBITION accuracy (the construct the task is named for) only ~65-84%. Its emphasized primary outcomes are reaction time, RT variability/coefficient of variation, percent-correct to go-targets, percent-correct inhibition to no-go lures, and accuracy/speed efficiency ratios. ~93% is at best a rough average of go-target hit rates across levels (and would actually OVERSTATE the inhibition construct, which is 65-84%). The cited N=883 is unsupported: the normative N is 276; 883 looks like a mis-sum of pooled validation samples merely *referenced* in the paper (e.g. 73 controls+367 patients; 57 controls+216 bipolar), which are clinical, not the normative norm.",
+      "recommended_action": "mark approx.",
+      "suggested_citation_and_N": "No swap needed: the cited paper is real and correctly attributed (Votruba & Langenecker 2013, J Clin Exp Neuropsychol 35(2):132-146) and does contain human go-target accuracy data spanning ~82-98%, so ~93% is a defensible representative go-accuracy figure. Correct N to 276 (healthy normative sample) rather than 883. If a single source-of-record number is wanted, Level-3 go-target accuracy for young adults (~92-92.5%, N=276) is the closest matched value.",
+      "confidence": "high",
+      "_stated": 93,
+      "_src": "Votruba & Langenecker 2013, Go/No-Go normative study (paper lists N=883)"
+    },
+    {
+      "paradigm": "Digit Span",
+      "verdict": "approximate",
+      "cited_source_reports_this_accuracy": false,
+      "what_source_actually_reports": "WAIS-IV (Wechsler 2008) standardized the Digit Span subtest on N=2,200 U.S. adults (ages 16-90, census-stratified) — the N=2.2K in the paper is correct. But the subtest does NOT report a percent-correct accuracy. It yields a raw score (count of correctly recalled trials across Digit Span Forward, Backward, and Sequencing) that is converted to a scaled score (mean=10, SD=3, range 1-19) and percentile ranks. The interpretable metrics are span length (max 9 digits forward, 2-9 range) and the normed scaled score; by construction the median examinee sits at scaled score 10 / 50th percentile. There is no '80%' accuracy anywhere in WAIS-IV norms. The classic span benchmark in the broader literature is 7±2 digits (Miller 1956), reported as span length, not percent-correct. The 80% is an author-imposed interpretation/conversion of a span-length instrument into a percentage.",
+      "stated_human_pct": 80,
+      "suggested_citation_and_N": "",
+      "recommended_action": "mark approx.",
+      "confidence": "high",
+      "_stated": 80,
+      "_src": "WAIS-IV (Wechsler 2008) standardized norms (paper lists N=2.2K)"
+    },
+    {
+      "paradigm": "DRM False Memory",
+      "verdict": "approximate",
+      "cited_source_reports_this_accuracy": false,
+      "what_source_actually_reports": "see above",
+      "stated_human_pct": 80,
+      "suggested_citation_and_N": "",
+      "recommended_action": "mark approx.",
+      "confidence": "high",
+      "_stated": 80,
+      "_src": "Roediger & McDermott 1995, 'Creating false memories', JEP:LMC (paper lists N=1K+)"
+    },
+    {
+      "paradigm": "Source Monitoring",
+      "verdict": "approximate",
+      "cited_source_reports_this_accuracy": false,
+      "what_source_actually_reports": "Johnson, Hashtroudi & Lindsay (1993), Psychological Bulletin 114(1):3-28, is a theoretical REVIEW article (PubMed PMID 8346328 publication type = Review), not an empirical study. It lays out the 'source-monitoring framework,' synthesizing many phenomena (old-new recognition, indirect tests, eyewitness testimony, misattributed familiarity, cryptomnesia, fiction-into-fact, aging, amnesia, confabulation, brain regions) across hundreds of prior studies. It has NO single sample (N) and reports NO single human accuracy figure; its central thesis is that source attributions are inferential and error-prone. There is no '90% correct' anywhere in it. The paper's own N=--- marking is therefore honest.",
+      "stated_human_pct": 90,
+      "recommended_action": "mark approx.",
+      "suggested_citation_and_N": "No single empirical study cleanly reports ~90% source-monitoring accuracy that I could verify. Real source-monitoring/reality-monitoring studies report substantially LOWER accuracy: e.g., reality-monitoring accuracy ~62-64% in a controlled tDCS study (N=36 per experiment, PMC6227377). Classic misinformation source-attribution work (Mitchell, Johnson & Mather 2003, Applied Cognitive Psychology 17:107-119, N=51 young+older adults) uses a non-mutually-exclusive multi-response design with no single 'percent correct source attribution' headline figure. None supports ~90%, so no clean better_source swap is available.",
+      "confidence": "high",
+      "_stated": 90,
+      "_src": "Johnson, Hashtroudi & Lindsay 1993, 'Source monitoring', Psychological Bulletin (a theoretical REVIEW, no single sample; paper marks N=---)"
+    },
+    {
+      "paradigm": "False Belief",
+      "verdict": "approximate",
+      "cited_source_reports_this_accuracy": false,
+      "stated_human_pct": 97,
+      "what_source_actually_reports": "Neither cited source reports a literal \"97%\" human accuracy. (1) Wellman, Cross & Watson 2001 (Child Development 72(3):655-684) is a DEVELOPMENTAL meta-analysis of 178 studies of CHILDREN's false-belief pass rates. Its headline outputs are the developmental trajectory (preschoolers move from below-chance to above-chance between ~3 and 5 years) and a regression model accounting for 55% of variance (R^2=.55). It does NOT report a single overall human accuracy of 97%, and its population is children, not adults. (2) Strachan et al. 2024 (Nature Human Behaviour 8:1285-1295) DOES support a near-ceiling adult false-belief accuracy: for the false-belief test 'Both human participants and LLMs performed at ceiling,' with only 5 of 51 humans making a single error (per-item human accuracy ~90%+/near-perfect), and the false-belief results were explicitly NOT subjected to inferential statistics 'owing to the ceiling performance and lack of variance.' The N=1,907 is the total sample across the FULL ToM battery, not false-belief-specific; the false-belief task itself had ~49-51 human participants (Fig.1b N=49). The paper already footnotes the N=1,907 caveat correctly, and its Section 6 text already cites Strachan for '>95% adult 1st-order false belief.' So 97% is a representative ceiling estimate consistent with Strachan's qualitative 'at ceiling' finding but is not a verbatim figure from either source, and Wellman supports a child developmental story rather than a 97% adult accuracy.",
+      "suggested_citation_and_N": "Strachan, J.W.A., Albergo, D., Borghini, G. et al. (2024), 'Testing theory of mind in large language models and humans', Nature Human Behaviour 8:1285-1295. False-belief-specific human N approximately 49-51 (Fig.1b N=49); humans 'at ceiling,' only 5/51 made a single error (~90%+ perfect, near-100% per item). This is a real, verifiable empirical study reporting a comparable near-ceiling adult human false-belief accuracy.",
+      "recommended_action": "mark approx.",
+      "confidence": "high",
+      "_stated": 97,
+      "_src": "Wellman, Cross & Watson 2001 meta-analysis (178 studies) + Strachan 2024 (N=1,907 across full ToM battery, not false-belief-specific)"
+    },
+    {
+      "paradigm": "EPITOME",
+      "verdict": "better_source",
+      "cited_source_reports_this_accuracy": false,
+      "stated_human_pct": 95,
+      "what_source_actually_reports": "The cited source (Jones, Trott & Bergen 2024, TACL, EPITOME) is real and correctly attributed, but it does NOT report a ~95% human accuracy. EPITOME is a battery of six diverse ToM tasks, and its central finding is UNEVEN performance, so there is no single aggregate human accuracy. Table 1 gives per-task HUMAN accuracy (%) of: False Belief (FB)=83, Recursive Mindreading (RM)=84, Short Story (ShS)=46, Strange Story (StS)=86, Indirect Request (IR)=63 (text says 62), Scalar Implicature E1 (SI1)=59 (text mean 56), Scalar Implicature E2 (SI2)=73. The maximum human accuracy on any task is 86% (Strange Story); the column mean is ~70.6%. The only '95' values in the paper are unrelated: a zip code (9500 Gilman Dr), a literature-review note that GPT-3 davinci reaches '90% and 95%' on a DIFFERENT benchmark (a model, not human, not EPITOME), 'we removed 95 [free responses]', the ada-model cell in Table 1 (ada=95 on ShS, a model not a human), and '95% CI' in a figure caption. Sample sizes vary by task and are NOT a single 'N=500+': FB used 1156 MTurk workers (publicly available Trott et al. 2023 data); novel undergraduate samples were N=72 (RM), N=44 (StS), N=69 (SI/MTurk), with sub-analysis groups of 16-55. So '95% human accuracy, N=500+' is not supported by anything in the cited paper.",
+      "suggested_citation_and_N": "Jones, Trott & Bergen 2024, \"Comparing Humans and Large Language Models on an Experimental Protocol Inventory for Theory of Mind Evaluation (EPITOME),\" TACL 12:803-819. Per-task human accuracy (Table 1): FB 83% (N=1156, MTurk, data from Trott et al. 2023); RM 84% (N=72 undergrads); ShS 46% (MTurk); StS 86% (N=44 undergrads); IR 63% (MTurk); Scalar Implicature 59%/73% (N=69 MTurk / undergrads). Best single-task human accuracy = 86% (Strange Story). No task reaches 95%.",
+      "recommended_action": "swap to Jones/Trott/Bergen 2024 TACL Table 1 per-task human accuracy (range 46%-86%), N=1156 (FB) or N=44-72 (novel tasks)",
+      "confidence": "high",
+      "_stated": 95,
+      "_src": "Jones, Trott & Bergen 2024, EPITOME, TACL (paper lists N=500+)"
+    },
+    {
+      "paradigm": "Confidence Calibration",
+      "verdict": "approximate",
+      "cited_source_reports_this_accuracy": false,
+      "what_source_actually_reports": "Lichtenstein & Fischhoff 1977, \"Do those who know more also know more about how much they know?\" (Organizational Behavior and Human Performance 20(2):159-183) is a CALIBRATION study: its dependent variable throughout is confidence-accuracy correspondence (calibration curves, over/underconfidence, resolution), not raw percent-correct. It reports no single human accuracy. Percent-correct varies by experiment and item difficulty: across its experiments accuracy ranges roughly 47%-80% (e.g., children's-drawings task ~53%, stock charts ~47%, untrained handwriting ~51%, general-knowledge experiment ~64%, graduate-student items ~75-76%, difficulty-matched hard/easy ~60%/~80%). There is no overall ~68% accuracy. Critically, the number 68 that recurs in this literature is the MEAN CONFIDENCE rating, not accuracy: in the companion difficult two-alternative work (Fischhoff, Slovic & Lichtenstein 1977, \"Knowing with certainty\"), subjects were ~68% confident while only ~53% correct. The paper's table therefore (a) attributes an accuracy figure to a confidence-calibration study whose own accuracy is task-dependent and never 68%, and (b) very likely imports a confidence value as if it were accuracy. Sample size is also misstated: the cited 1977 paper's experiments have ~40-120 subjects each (low hundreds in total), not the listed N=1K+. Sources: home.csulb.edu/~cwallis/382/certainty/chapter19.html; researchgate.net/publication/222917287; academia.edu/26381975; en.wikipedia.org/wiki/Overconfidence_effect.",
+      "suggested_citation_and_N": "No clean swap verified at N=1K+. Closest genuine empirical anchor reporting HUMAN ACCURACY on a confidence/general-knowledge task: a large-scale online study reports humans answered ~66% of general-knowledge questions correctly (believed ~70%), but exact author/year/venue/N were not verifiable in this audit, so it is not citation-grade. The cited Lichtenstein & Fischhoff 1977 Experiment-3 general-knowledge accuracy (~64%, N~120) is the nearest in-source figure but is single-experiment and unverified to digit precision.",
+      "recommended_action": "mark approx.",
+      "confidence": "high",
+      "stated_human_pct": 68,
+      "_stated": 68,
+      "_src": "Lichtenstein & Fischhoff 1977 calibration study (paper lists N=1K+)"
+    },
+    {
+      "paradigm": "Post-decision Wagering",
+      "verdict": "approximate",
+      "cited_source_reports_this_accuracy": false,
+      "stated_human_pct": 75,
+      "what_source_actually_reports": "Persaud, McLeod & Cowey 2007 (Nat Neurosci, nn1840) introduces post-decision wagering as an OBJECTIVE MEASURE OF AWARENESS/METACOGNITION, not as a human-accuracy benchmark. The '75%' in the paper is real but is the discrimination performance of a SINGLE blindsight patient, G.Y. ('In a discrimination task in which his performance was 75% correct, blindsight patient G.Y. was incapable of betting appropriately...'). It is one patient's score (N=1 for the blindsight component), NOT a normal-human population accuracy norm. The paper's actual reported/headline metric is the dissociation between accuracy and wagering advantage (metacognitive sensitivity): G.Y. discriminated at 75% above chance yet wagered at chance. The normal-subject experiments (artificial grammar, Iowa gambling task; small groups) demonstrate above-chance performance WITHOUT advantageous wagering and do not establish a ~75% accuracy norm. The paper does not support 'N=100+'; the blindsight case is N=1 and the normal-subject groups are small. The caveat 'wagering measures metacognitive awareness' is correct and confirms the metric mismatch.",
+      "suggested_citation_and_N": "No single canonical study cleanly reports a normal-human ~75% accuracy for post-decision wagering. Closest real normal-subject data: Dienes & Seth 2010 (Consciousness & Cognition), 'Gambling on the unconscious', artificial-grammar variant, reports overall classification ~65-71% correct, total N≈70 (40 wagering + 30 confidence) — a DIFFERENT number (65-71%, not 75%), so it does not cleanly supersede the cited figure.",
+      "recommended_action": "mark approx.",
+      "confidence": "high",
+      "_stated": 75,
+      "_src": "Persaud, McLeod & Cowey 2007, 'Post-decision wagering objectively measures awareness', Nature Neuroscience (paper lists N=100+)"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "inputs": {
+    "results/reanalysis/aplus_20260718/family_map.json": "329d307d47114bca073ceea014810517879759c04f8b4127a0ace783d032f8fc",
+    "results/reanalysis/aplus_20260718/matrix_aplus_strict.csv": "4dec4dd68bb2b7b801156765783445cbfe5f7503021dd12fc520f46fe9d9c933"
+  },
+  "outputs": {
+    "SUMMARY.md": "2d1db6f212d14f856855fccd865dedd48848d54e6300cda05a780afff0a5b51c",
+    "exploratory_bifactor_results.json": "34dc012d99258d2c1c0074d910c75e16dc193f776ef56f0508e314b1995cd6d1",
+    "family_heldout_log_scores.csv": "0a74ca35e7cb404b55cc187c2ecb16f2bc9b17cc29680850d344c238ea6b19bf"
+  },
+  "script": "scripts/reanalysis/exploratory_bayesian_bifactor_20260727.py",
+  "script_sha256": "0b3cf245a92c75103cae20e43b6165b5425cad2af33f4dba8bdefb4255b0c8c9",
+  "status": "exploratory_not_in_frozen_chain"
+}

@@ -1,0 +1,44 @@
+{
+  "all_gates_passed": true,
+  "analysis_script_sha256": "f0537187b120f63e585b87fdb289b7517e26b1958fbd9e99716e7e46f5aa086e",
+  "bootstrap": {
+    "method": "merged-family cluster percentile",
+    "n_reps": 20000,
+    "seed": 42
+  },
+  "frozen_specification_sha256": "f21dc4c1515891bf5bf5ce8f4b78575213ca5098a56022e7e09f75749a18eff0",
+  "git_head": "48a8f72ff8aa6501ddb3296c78a5882add2ea981",
+  "inputs": {
+    "family_map_sha256": "329d307d47114bca073ceea014810517879759c04f8b4127a0ace783d032f8fc",
+    "generated_item_bundle_sha256": "91ddbdfb327abec0a3b31e640c068b9971e90565e3d78b338ad34937163d9b78",
+    "occasion_a": {
+      "consumed_tree_sha256": "a71278626bd69ecaa272c6f3e450f7153c195b7826d73d4b7b0b5fbe893403f3",
+      "n_files": 8420,
+      "path": "results/_archive/full_eval_20260525_1522"
+    },
+    "occasion_b": {
+      "consumed_tree_sha256": "8a223450f3f1c01c2e0924089b85dcdaa0e7d28ccfbf2f70b39e96e94c96b159",
+      "n_files": 8420,
+      "path": "results/full_eval_20260526_2208"
+    },
+    "primary_matrix_sha256": "4dec4dd68bb2b7b801156765783445cbfe5f7503021dd12fc520f46fe9d9c933",
+    "rescore_overlay_tree_sha256": "e072cfb3720a2784542920ae495eb89aa08bb191d0c9112abe7613c0d1309840",
+    "scorer_generator_code_tree_sha256": "e307c7511083925cb26f7de81cd1fd9297539ee7018865a970afe1ca39f3c90d",
+    "sm_overlay_sha256": "19bfea4a590801fa7fb74f579e764f07af872532125386d2c13af9ce31846faf",
+    "source_monitoring_exclusions_sha256": "646a9a126869365ef75c6907a4113ae105f21135863d6d6b51780812ff04fe0e",
+    "wager_manifest_sha256": "f0d3c7c448536b83f1f2c6a374525003206395280099102c2b2ff7d71000f8f1",
+    "wager_overlay_sha256": "132b440a63a894484ffb6a9cbc452a10c968475f7a4954c3931f1cab6032f1ec"
+  },
+  "outputs": {
+    "paired_scores.csv": "7d8a69e833c21ff87169de69367e56e1880b9b2eb28777f72b75fddda314d5cb",
+    "test_retest_results.json": "6270ea591ba8b8a6ebb836f71d0880cc518a115a3984e5b45509feb0b99be1f7"
+  },
+  "privacy_gate": {
+    "answer_keys_written": false,
+    "raw_response_text_written": false,
+    "stimulus_text_written": false
+  },
+  "schema_version": "cogarena-test-retest-manifest-v1",
+  "slurm_job_script_sha256": "c558fca89d06da602768953f3a3b0d94f39bac6099319c26b62cc230c9ac2918",
+  "status": "final"
+}

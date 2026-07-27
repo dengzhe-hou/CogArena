@@ -1,0 +1,59 @@
+{
+  "schema_version": "cogarena.causal_selectivity.failed_attempt.v1",
+  "study_id": "causal_selectivity_20260720",
+  "attempt_jobs": {
+    "pilot_array": 7038,
+    "running_array_task": 7039,
+    "capacity_canceled_before_run": 7040,
+    "pilot_closure_canceled_before_run": 7041,
+    "capacity_closure_canceled_before_run": 7042
+  },
+  "source_revision": "c0c17ae0788befca270fc965d443c3bd965f2749",
+  "spec_sha256": "429dfd5be6add9f8c730ec8f3cc3b2e146108bd374045f7a1073858b78197816",
+  "model": "qwen2.5:1.5b",
+  "record_count_before_cancellation_completed": 231,
+  "api_call_count": 811,
+  "length_limited_api_call_count": 68,
+  "condition_record_counts": {
+    "baseline": 34,
+    "belief_state_ledger": 35,
+    "control_rule_rehearsal": 33,
+    "episodic_source_binding": 32,
+    "metacognitive_forecast": 33,
+    "neutral_placebo": 30,
+    "working_memory_ledger": 34
+  },
+  "condition_length_limited_record_counts_at_filesystem_quiescence": {
+    "baseline": 1,
+    "belief_state_ledger": 1,
+    "control_rule_rehearsal": 3,
+    "episodic_source_binding": 3,
+    "metacognitive_forecast": 5,
+    "neutral_placebo": 1,
+    "working_memory_ledger": 1
+  },
+  "early_stop_decision": "The array was canceled once metacognitive_forecast had three length-limited records. Even if both unrun pilot models had zero, the frozen final rate was at least 3/117=0.025641, above the unchanged 0.01 gate. Two additional records completed while cancellation propagated.",
+  "response_shape_only_diagnosis": {
+    "n_back": {
+      "length_limited_calls": 60,
+      "line_range": [205, 256],
+      "unique_line_range": [1, 2]
+    },
+    "cvlt_word_list": {
+      "length_limited_calls": 5,
+      "line_range": [26, 40],
+      "unique_line_range": [10, 14],
+      "all_contained_blank_line": true
+    },
+    "operation_span": {
+      "length_limited_calls": 3,
+      "line_range": [38, 61],
+      "unique_line_range": [20, 35]
+    }
+  },
+  "outcome_accuracy_inspected": false,
+  "intervention_contrast_inspected": false,
+  "selectivity_estimate_inspected": false,
+  "records_reused": false,
+  "disposition": "All partial records were quarantined. The fixed response-format routing amendment was based only on declared task formats, finish reasons, line counts, and repeated-line counts."
+}

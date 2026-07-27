@@ -1,0 +1,47 @@
+{
+  "schema_version": "cogarena.vlm_figure_addendum.v1",
+  "status": "final_post_chain_figure_replacement",
+  "figure_commit": "13a463f8565ec59f11ac3a0ba738e514bde918cd",
+  "figure": {
+    "path": "paper/figures/fig4_cross_system.pdf",
+    "sha256": "b5bcc12b50845da48a25f8edfc159f8879d3a2defa58ed5d3775ba17289e6580"
+  },
+  "generator": {
+    "path": "paper/figures/generate_all.py",
+    "sha256": "2bb993e8db92d158c7bc1e9dc930c08a006561222ab2eaf9e0a74236f76eb523"
+  },
+  "authority_inputs": {
+    "manifest_path": "results/vlm_rerun_20260724_authority/VLM_RERUN_MANIFEST.json",
+    "manifest_sha256": "cf7972a960b341b3eebec192c01f5008d09229e6db1859c371c50392e36163bc",
+    "summary_path": "results/vlm_rerun_20260724_authority/VLM_RERUN_SUMMARY.json",
+    "summary_sha256": "bcb26049ca64eca1c69a65b96f7ba1929bb7e4e4f20999c1e54b962ccf4bf696"
+  },
+  "frozen_chain_reference": {
+    "manifest_path": "results/reanalysis/aplus_20260718/CHAIN_MANIFEST.json",
+    "manifest_sha256": "f961a7da78b39786d8b557175423d740d667c165d212b043d25bf6858aa1a93c",
+    "prior_figure_sha256": "b5bcc12b50845da48a25f8edfc159f8879d3a2defa58ed5d3775ba17289e6580"
+  },
+  "source_replacements": [
+    {
+      "path": "cogarena/image_gen/false_belief_images.py",
+      "frozen_sha256": "5678fd1c4f67ed1b48361e9cbd6653e2257c0ab08e2f98e02d3bd0212afbea27",
+      "replacement_sha256": "6703ed74b623f9cd857c0bf81188612c37b8eb139c51c996764566d340c63f8f"
+    },
+    {
+      "path": "cogarena/image_gen/flanker_images.py",
+      "frozen_sha256": "a77fbfc30170d090a60ae80daafafdec1dbdcd9c7d3098384d7d40aabf56ad3e",
+      "replacement_sha256": "f35a77dd4a34de69fca0117df410f3c4dad524005e8ad619337f8a200f467ed2"
+    },
+    {
+      "path": "cogarena/image_gen/stroop_images.py",
+      "frozen_sha256": "4261d49dbf48dddbb292f071bf804d9a481f829f7188cf3900a6e54f5ccd0f13",
+      "replacement_sha256": "e7ae2d51ee2c7bb29f8238a308f15a115ee7b95c62279d06063d99789ea9060b"
+    },
+    {
+      "path": "paper/figures/generate_all.py",
+      "frozen_sha256": "3fe3190eb6760b8380fc3b60ba007ab1d89a9c716aa27fa20b893e467fa4f12d",
+      "replacement_sha256": "2bb993e8db92d158c7bc1e9dc930c08a006561222ab2eaf9e0a74236f76eb523"
+    }
+  ],
+  "scope_note": "This addendum replaces only the cross-system figure after the authority VLM rerun. It does not modify any frozen observational or intervention statistic."
+}

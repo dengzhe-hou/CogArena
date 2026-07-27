@@ -1,0 +1,33 @@
+{
+  "actual_context_tokens": 16384,
+  "all_probes_fully_gpu_served": true,
+  "closed_at": "2026-07-19T19:39:17.823096+00:00",
+  "execution_nodes": [
+    "c04"
+  ],
+  "hardware_labels": [
+    "pro6000"
+  ],
+  "model": "qwen2.5:32b",
+  "pilot_item_manifest_sha256": "07120819b2b7f2902f5e985d8b01902ffef1e11be27db757594aeda397ea8a35",
+  "probes": [
+    {
+      "label": "pro6000",
+      "sha256": "5130f4295373989b69e7f4ca48a1b797ab2a913801d22a9ad30b30c97951516b"
+    }
+  ],
+  "processor_requirement": "100% GPU",
+  "reasoning_effort": "none",
+  "reasoning_request_verified": true,
+  "required_gpu_name_fragment": "RTX PRO 6000",
+  "schema_version": "cogarena.causal_selectivity.capacity_gate.v1",
+  "served_model_digest": "9f13ba1299afea09d9a956fc6a85becc99115a6d596fae201a5487a03bdc4368",
+  "source_revision": "144fe23b4a0a5609e287c5ec0aad29b048f480f5",
+  "spec_sha256": "ca6251f199880eb176d9861388b42efa75692e630be30672976ecac4e08e6abd",
+  "status": "pass",
+  "stop_sequence_request_verified": true,
+  "stop_sequences": [
+    "\n"
+  ],
+  "study_id": "causal_selectivity_20260720"
+}

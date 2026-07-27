@@ -1,0 +1,19 @@
+{
+ "spec": "SM rerun manifest: regenerated (dedup-fixed) episodes x all models",
+ "task_ids": [
+  "em_srcmon_gen_medium_src4_s1870914451",
+  "em_srcmon_gen_medium_src4_s1006373501",
+  "em_srcmon_gen_medium_src4_s313377666",
+  "em_srcmon_gen_medium_src4_s1480059613",
+  "em_srcmon_gen_medium_src4_s656593681",
+  "em_srcmon_gen_hard_src5_s525279675",
+  "em_srcmon_gen_hard_src5_s1468399101",
+  "em_srcmon_gen_hard_src5_s212522555",
+  "em_srcmon_gen_hard_src5_s526649753",
+  "em_srcmon_gen_hard_src5_s2072125834",
+  "em_srcmon_gen_hard_src5_s941324913"
+ ],
+ "n_models": 55,
+ "n_runs": 605,
+ "note": "regenerated episodes keep their frozen task_id because ep_seed draws precede statement generation; stimulus differs, statements episode-unique"
+}

@@ -1,0 +1,164 @@
+{
+ "shared_items": "15/50 wagering items share their question with confidence_calibration",
+ "corrected_full": [
+  0.4958,
+  0.4147,
+  0.0812,
+  0.0372
+ ],
+ "A_meta_dedup": [
+  0.494,
+  0.413,
+  0.0811,
+  0.0368
+ ],
+ "A_meta_pair_r": {
+  "before": 0.8789,
+  "after_dedup": 0.8591
+ },
+ "B_drop_meta_pair": [
+  0.4575,
+  0.4147,
+  0.0429,
+  0.1646
+ ],
+ "C_leave_one_group_out": {
+  "minus_Control": [
+   0.5495,
+   0.4546,
+   0.0948,
+   0.05
+  ],
+  "minus_Episodic": [
+   0.5079,
+   0.4332,
+   0.0746,
+   0.0874
+  ],
+  "minus_Meta": [
+   0.4575,
+   0.3661,
+   0.0914,
+   0.0282
+  ],
+  "minus_ToM": [
+   0.502,
+   0.4117,
+   0.0904,
+   0.0232
+  ],
+  "minus_WM": [
+   0.4703,
+   0.4189,
+   0.0514,
+   0.1718
+  ]
+ },
+ "D_pair_shifts_top15": [
+  {
+   "pair": "digit_span x operation_span",
+   "kind": "WM",
+   "r_uncorrected": 0.04,
+   "r_corrected": 0.557,
+   "shift": 0.517
+  },
+  {
+   "pair": "confidence_calibration x go_nogo",
+   "kind": "cross",
+   "r_uncorrected": -0.076,
+   "r_corrected": 0.382,
+   "shift": 0.458
+  },
+  {
+   "pair": "drm_false_memory x go_nogo",
+   "kind": "cross",
+   "r_uncorrected": 0.01,
+   "r_corrected": 0.46,
+   "shift": 0.451
+  },
+  {
+   "pair": "n_back x operation_span",
+   "kind": "WM",
+   "r_uncorrected": 0.213,
+   "r_corrected": 0.622,
+   "shift": 0.409
+  },
+  {
+   "pair": "epitome_tom x go_nogo",
+   "kind": "cross",
+   "r_uncorrected": 0.141,
+   "r_corrected": 0.51,
+   "shift": 0.369
+  },
+  {
+   "pair": "go_nogo x stroop",
+   "kind": "Control",
+   "r_uncorrected": 0.15,
+   "r_corrected": 0.516,
+   "shift": 0.367
+  },
+  {
+   "pair": "go_nogo x source_monitoring",
+   "kind": "cross",
+   "r_uncorrected": 0.023,
+   "r_corrected": 0.388,
+   "shift": 0.365
+  },
+  {
+   "pair": "false_belief x operation_span",
+   "kind": "cross",
+   "r_uncorrected": 0.505,
+   "r_corrected": 0.146,
+   "shift": -0.359
+  },
+  {
+   "pair": "digit_span x go_nogo",
+   "kind": "cross",
+   "r_uncorrected": 0.168,
+   "r_corrected": 0.497,
+   "shift": 0.33
+  },
+  {
+   "pair": "operation_span x stroop",
+   "kind": "cross",
+   "r_uncorrected": 0.037,
+   "r_corrected": 0.36,
+   "shift": 0.323
+  },
+  {
+   "pair": "go_nogo x post_decision_wagering",
+   "kind": "cross",
+   "r_uncorrected": 0.118,
+   "r_corrected": 0.396,
+   "shift": 0.279
+  },
+  {
+   "pair": "confidence_calibration x operation_span",
+   "kind": "cross",
+   "r_uncorrected": 0.227,
+   "r_corrected": 0.504,
+   "shift": 0.276
+  },
+  {
+   "pair": "operation_span x post_decision_wagering",
+   "kind": "cross",
+   "r_uncorrected": 0.309,
+   "r_corrected": 0.575,
+   "shift": 0.266
+  },
+  {
+   "pair": "operation_span x source_monitoring",
+   "kind": "cross",
+   "r_uncorrected": 0.243,
+   "r_corrected": 0.496,
+   "shift": 0.252
+  },
+  {
+   "pair": "go_nogo x operation_span",
+   "kind": "cross",
+   "r_uncorrected": 0.054,
+   "r_corrected": 0.305,
+   "shift": 0.251
+  }
+ ]
+}

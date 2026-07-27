@@ -1,0 +1,68 @@
+{
+  "all_gates_passed": true,
+  "checks": {
+    "did_bet_difference_count": 0,
+    "disclosure_minimal_output": true,
+    "known_phi3_numeric_normalization_case": {
+      "archived_accuracy": 0.0,
+      "model": "phi3:14b",
+      "replayed_accuracy": 1.0,
+      "status": "verified",
+      "task_id": "mc_pdw_gen_easy_math_s1167672954"
+    },
+    "model_identity_checks": 2750,
+    "paradigm_dimension_checks": 2750,
+    "score_schema_checks": 5500,
+    "stored_text_type_checks": 2750,
+    "task_identity_checks": 2750,
+    "wager_construct_overlay_representable": true
+  },
+  "code": {
+    "files": {
+      "cogarena/core.py": "c381d26f0f5c941ec771760c2ace9d9041f8fcbf39e274b37a7f42d3bca66f40",
+      "cogarena/dimensions/metacognition.py": "affdcbf1784cdad2ed13b8fb002db3cbc074bbe66e7fcc098581d5804463a825",
+      "cogarena/generators/metacognition_gen.py": "61f8e85bd529735812ed2ae1c07e60b47ee98dd4694eb8d77923d81ca54377f4",
+      "scripts/experiments/profile_validity_20260720/wager_replay_audit.py": "9b64d8c7f7b28406acdd76f201a32218c10adf61ffffc40d9985bd7ebc7d63f4",
+      "scripts/experiments/profile_validity_20260720/wager_replay_audit.sbatch": "e765c135531bed87cdc06cf089f58a0d05625cf20d9c8d0d78c354ab15c6bf3a",
+      "tests/test_wager_overlay_chain.py": "7a27fb6b99dee461b2a66754d7c174bb4898ea1c629b1094dadb7a28f6203648",
+      "tests/test_wager_replay_audit.py": "0a2f929661ec7bb82ebceff6ad7d7a4ec7fd3b0af1a4d90d540757ec526aeb34"
+    },
+    "tree_sha256": "ba6da30e75d13bcf00685639e19f8864bd25d6bddc851795ad48a8344b90e61a"
+  },
+  "execution": {
+    "git_head": "9da9db6bdb283f60e2e8e91200705a8aa3bf7fd1",
+    "node": "c01",
+    "required_node": "c01",
+    "slurm_job_id": "7924"
+  },
+  "generator_contract": {
+    "entrypoint": "cogarena.generators.metacognition_gen.generate_mc_items",
+    "generated_item_bundle_sha256": "31410c960cab98d30719e06b14c6a0b8a3abb54fd2f7d6c0dfbeeadc262719e6",
+    "include_contamination_probes": false,
+    "n_per_paradigm": 50,
+    "score_entrypoint": "cogarena.dimensions.metacognition.PostDecisionWageringGenerator.score",
+    "seed": 42,
+    "task_id_alignment": "50/50 for every one of 55 models"
+  },
+  "inputs": {
+    "combined_consumed_tree_sha256": "599146cf4a65fb2997c78ab9a60528135e9bf3530dc7ffae54f2f714e19f3700",
+    "frozen_model_panel_sha256": "1bf1f87d95b676102f00c2c9e03f9654d4759737d9c51f184abb26fdbc2bc1e8",
+    "full_eval_20260526_2208": {
+      "n_files": 1000,
+      "path": "results/full_eval_20260526_2208",
+      "tree_sha256": "d6b7c3ea0804c2a58e8f0a8a22aa4f6f87cbbe04710ba165e8c6b654466ee511"
+    },
+    "full_eval_expansion": {
+      "n_files": 1750,
+      "path": "results/full_eval_expansion",
+      "tree_sha256": "82814b73c9708ff408e65076dc455dee77f4912a2b537825b7e073387d43a2f3"
+    }
+  },
+  "outputs": {
+    "results/reanalysis/profile_validity_20260720/wager_replay/wager_accuracy_overlay.json": "132b440a63a894484ffb6a9cbc452a10c968475f7a4954c3931f1cab6032f1ec",
+    "results/reanalysis/profile_validity_20260720/wager_replay/wager_replay_items.csv": "88d06ab9e9925ceb2fc2a3d15ad749d36be70f79df0e9c1e83e8b30f1305f4f4",
+    "results/reanalysis/profile_validity_20260720/wager_replay/wager_replay_results.json": "05080d9deb00c7bd4ecf629d56143a8df5073311295c6e7fcd595be8dce0d0e8"
+  },
+  "schema_version": "cogarena-wager-replay-manifest-v1",
+  "status": "final"
+}

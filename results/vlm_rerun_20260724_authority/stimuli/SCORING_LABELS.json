@@ -1,0 +1,4463 @@
+{
+  "image_manifest_sha256": "94fb4cb526ccc6161af5fe260e9681b7350492932d49e9e26da2caa39ad942b9",
+  "schema_version": 1,
+  "scorer_id": "paradigm-label-parser-v1",
+  "source_files": {
+    "scripts/experiments/vlm_rerun_20260724/build_scoring_contract.py": "f6d8b44bf551dc4222c1a999c4bc1374d49f9799377f190c098354a89d7a46a2",
+    "scripts/experiments/vlm_rerun_20260724/scoring.py": "f22fefb15e017072edf81083bf5600726f084788f3688174db0d3bbfd736eccd"
+  },
+  "source_revision": "76fce6076e64fd7a90bea32b5e94c0ab5c09fd72",
+  "status": "frozen",
+  "tasks": {
+    "img_false_belief_0000": {
+      "allowed_labels": [
+        "cupboard",
+        "box"
+      ],
+      "expected": "cupboard",
+      "label_space": [
+        "basket",
+        "box",
+        "cupboard",
+        "drawer",
+        "bag",
+        "jar"
+      ],
+      "paradigm": "false_belief",
+      "query_subject": "Sally"
+    },
+    "img_false_belief_0001": {
+      "allowed_labels": [
+        "basket",
+        "bag"
+      ],
+      "expected": "basket",
+      "label_space": [
+        "basket",
+        "box",
+        "cupboard",
+        "drawer",
+        "bag",
+        "jar"
+      ],
+      "paradigm": "false_belief",
+      "query_subject": "Anne"
+    },
+    "img_false_belief_0002": {
+      "allowed_labels": [
+        "basket",
+        "jar"
+      ],
+      "expected": "basket",
+      "label_space": [
+        "basket",
+        "box",
+        "cupboard",
+        "drawer",
+        "bag",
+        "jar"
+      ],
+      "paradigm": "false_belief",
+      "query_subject": "Tom"
+    },
+    "img_false_belief_0003": {
+      "allowed_labels": [
+        "bag",
+        "jar"
+      ],
+      "expected": "bag",
+      "label_space": [
+        "basket",
+        "box",
+        "cupboard",
+        "drawer",
+        "bag",
+        "jar"
+      ],
+      "paradigm": "false_belief",
+      "query_subject": "Mia"
+    },
+    "img_false_belief_0004": {
+      "allowed_labels": [
+        "jar",
+        "bag"
+      ],
+      "expected": "jar",
+      "label_space": [
+        "basket",
+        "box",
+        "cupboard",
+        "drawer",
+        "bag",
+        "jar"
+      ],
+      "paradigm": "false_belief",
+      "query_subject": "Tom"
+    },
+    "img_false_belief_0005": {
+      "allowed_labels": [
+        "bag",
+        "cupboard"
+      ],
+      "expected": "bag",
+      "label_space": [
+        "basket",
+        "box",
+        "cupboard",
+        "drawer",
+        "bag",
+        "jar"
+      ],
+      "paradigm": "false_belief",
+      "query_subject": "Anne"
+    },
+    "img_false_belief_0006": {
+      "allowed_labels": [
+        "jar",
+        "drawer"
+      ],
+      "expected": "jar",
+      "label_space": [
+        "basket",
+        "box",
+        "cupboard",
+        "drawer",
+        "bag",
+        "jar"
+      ],
+      "paradigm": "false_belief",
+      "query_subject": "Sam"
+    },
+    "img_false_belief_0007": {
+      "allowed_labels": [
+        "box",
+        "cupboard"
+      ],
+      "expected": "box",
+      "label_space": [
+        "basket",
+        "box",
+        "cupboard",
+        "drawer",
+        "bag",
+        "jar"
+      ],
+      "paradigm": "false_belief",
+      "query_subject": "Max"
+    },
+    "img_false_belief_0008": {
+      "allowed_labels": [
+        "basket",
+        "cupboard"
+      ],
+      "expected": "basket",
+      "label_space": [
+        "basket",
+        "box",
+        "cupboard",
+        "drawer",
+        "bag",
+        "jar"
+      ],
+      "paradigm": "false_belief",
+      "query_subject": "Sally"
+    },
+    "img_false_belief_0009": {
+      "allowed_labels": [
+        "basket",
+        "drawer"
+      ],
+      "expected": "basket",
+      "label_space": [
+        "basket",
+        "box",
+        "cupboard",
+        "drawer",
+        "bag",
+        "jar"
+      ],
+      "paradigm": "false_belief",
+      "query_subject": "Tom"
+    },
+    "img_false_belief_0010": {
+      "allowed_labels": [
+        "bag",
+        "cupboard"
+      ],
+      "expected": "bag",
+      "label_space": [
+        "basket",
+        "box",
+        "cupboard",
+        "drawer",
+        "bag",
+        "jar"
+      ],
+      "paradigm": "false_belief",
+      "query_subject": "Lily"
+    },
+    "img_false_belief_0011": {
+      "allowed_labels": [
+        "jar",
+        "basket"
+      ],
+      "expected": "jar",
+      "label_space": [
+        "basket",
+        "box",
+        "cupboard",
+        "drawer",
+        "bag",
+        "jar"
+      ],
+      "paradigm": "false_belief",
+      "query_subject": "Tom"
+    },
+    "img_false_belief_0012": {
+      "allowed_labels": [
+        "cupboard",
+        "basket"
+      ],
+      "expected": "cupboard",
+      "label_space": [
+        "basket",
+        "box",
+        "cupboard",
+        "drawer",
+        "bag",
+        "jar"
+      ],
+      "paradigm": "false_belief",
+      "query_subject": "Emma"
+    },
+    "img_false_belief_0013": {
+      "allowed_labels": [
+        "drawer",
+        "cupboard"
+      ],
+      "expected": "drawer",
+      "label_space": [
+        "basket",
+        "box",
+        "cupboard",
+        "drawer",
+        "bag",
+        "jar"
+      ],
+      "paradigm": "false_belief",
+      "query_subject": "Sam"
+    },
+    "img_false_belief_0014": {
+      "allowed_labels": [
+        "box",
+        "cupboard"
+      ],
+      "expected": "box",
+      "label_space": [
+        "basket",
+        "box",
+        "cupboard",
+        "drawer",
+        "bag",
+        "jar"
+      ],
+      "paradigm": "false_belief",
+      "query_subject": "Emma"
+    },
+    "img_false_belief_0015": {
+      "allowed_labels": [
+        "cupboard",
+        "basket"
+      ],
+      "expected": "cupboard",
+      "label_space": [
+        "basket",
+        "box",
+        "cupboard",
+        "drawer",
+        "bag",
+        "jar"
+      ],
+      "paradigm": "false_belief",
+      "query_subject": "Anne"
+    },
+    "img_false_belief_0016": {
+      "allowed_labels": [
+        "box",
+        "jar"
+      ],
+      "expected": "box",
+      "label_space": [
+        "basket",
+        "box",
+        "cupboard",
+        "drawer",
+        "bag",
+        "jar"
+      ],
+      "paradigm": "false_belief",
+      "query_subject": "Tom"
+    },
+    "img_false_belief_0017": {
+      "allowed_labels": [
+        "jar",
+        "bag"
+      ],
+      "expected": "jar",
+      "label_space": [
+        "basket",
+        "box",
+        "cupboard",
+        "drawer",
+        "bag",
+        "jar"
+      ],
+      "paradigm": "false_belief",
+      "query_subject": "Lily"
+    },
+    "img_false_belief_0018": {
+      "allowed_labels": [
+        "basket",
+        "box"
+      ],
+      "expected": "basket",
+      "label_space": [
+        "basket",
+        "box",
+        "cupboard",
+        "drawer",
+        "bag",
+        "jar"
+      ],
+      "paradigm": "false_belief",
+      "query_subject": "Emma"
+    },
+    "img_false_belief_0019": {
+      "allowed_labels": [
+        "drawer",
+        "cupboard"
+      ],
+      "expected": "drawer",
+      "label_space": [
+        "basket",
+        "box",
+        "cupboard",
+        "drawer",
+        "bag",
+        "jar"
+      ],
+      "paradigm": "false_belief",
+      "query_subject": "Sam"
+    },
+    "img_false_belief_0020": {
+      "allowed_labels": [
+        "jar",
+        "cupboard"
+      ],
+      "expected": "jar",
+      "label_space": [
+        "basket",
+        "box",
+        "cupboard",
+        "drawer",
+        "bag",
+        "jar"
+      ],
+      "paradigm": "false_belief",
+      "query_subject": "Mia"
+    },
+    "img_false_belief_0021": {
+      "allowed_labels": [
+        "drawer",
+        "jar"
+      ],
+      "expected": "drawer",
+      "label_space": [
+        "basket",
+        "box",
+        "cupboard",
+        "drawer",
+        "bag",
+        "jar"
+      ],
+      "paradigm": "false_belief",
+      "query_subject": "Emma"
+    },
+    "img_false_belief_0022": {
+      "allowed_labels": [
+        "box",
+        "bag"
+      ],
+      "expected": "box",
+      "label_space": [
+        "basket",
+        "box",
+        "cupboard",
+        "drawer",
+        "bag",
+        "jar"
+      ],
+      "paradigm": "false_belief",
+      "query_subject": "Mia"
+    },
+    "img_false_belief_0023": {
+      "allowed_labels": [
+        "drawer",
+        "bag"
+      ],
+      "expected": "drawer",
+      "label_space": [
+        "basket",
+        "box",
+        "cupboard",
+        "drawer",
+        "bag",
+        "jar"
+      ],
+      "paradigm": "false_belief",
+      "query_subject": "Emma"
+    },
+    "img_false_belief_0024": {
+      "allowed_labels": [
+        "box",
+        "bag"
+      ],
+      "expected": "box",
+      "label_space": [
+        "basket",
+        "box",
+        "cupboard",
+        "drawer",
+        "bag",
+        "jar"
+      ],
+      "paradigm": "false_belief",
+      "query_subject": "Max"
+    },
+    "img_false_belief_0025": {
+      "allowed_labels": [
+        "basket",
+        "box"
+      ],
+      "expected": "basket",
+      "label_space": [
+        "basket",
+        "box",
+        "cupboard",
+        "drawer",
+        "bag",
+        "jar"
+      ],
+      "paradigm": "false_belief",
+      "query_subject": "Sally"
+    },
+    "img_false_belief_0026": {
+      "allowed_labels": [
+        "drawer",
+        "bag"
+      ],
+      "expected": "drawer",
+      "label_space": [
+        "basket",
+        "box",
+        "cupboard",
+        "drawer",
+        "bag",
+        "jar"
+      ],
+      "paradigm": "false_belief",
+      "query_subject": "Sam"
+    },
+    "img_false_belief_0027": {
+      "allowed_labels": [
+        "bag",
+        "drawer"
+      ],
+      "expected": "bag",
+      "label_space": [
+        "basket",
+        "box",
+        "cupboard",
+        "drawer",
+        "bag",
+        "jar"
+      ],
+      "paradigm": "false_belief",
+      "query_subject": "Lily"
+    },
+    "img_false_belief_0028": {
+      "allowed_labels": [
+        "jar",
+        "basket"
+      ],
+      "expected": "jar",
+      "label_space": [
+        "basket",
+        "box",
+        "cupboard",
+        "drawer",
+        "bag",
+        "jar"
+      ],
+      "paradigm": "false_belief",
+      "query_subject": "Mia"
+    },
+    "img_false_belief_0029": {
+      "allowed_labels": [
+        "cupboard",
+        "basket"
+      ],
+      "expected": "cupboard",
+      "label_space": [
+        "basket",
+        "box",
+        "cupboard",
+        "drawer",
+        "bag",
+        "jar"
+      ],
+      "paradigm": "false_belief",
+      "query_subject": "Sam"
+    },
+    "img_false_belief_0030": {
+      "allowed_labels": [
+        "drawer",
+        "basket"
+      ],
+      "expected": "drawer",
+      "label_space": [
+        "basket",
+        "box",
+        "cupboard",
+        "drawer",
+        "bag",
+        "jar"
+      ],
+      "paradigm": "false_belief",
+      "query_subject": "Lily"
+    },
+    "img_false_belief_0031": {
+      "allowed_labels": [
+        "bag",
+        "basket"
+      ],
+      "expected": "bag",
+      "label_space": [
+        "basket",
+        "box",
+        "cupboard",
+        "drawer",
+        "bag",
+        "jar"
+      ],
+      "paradigm": "false_belief",
+      "query_subject": "Mia"
+    },
+    "img_false_belief_0032": {
+      "allowed_labels": [
+        "bag",
+        "jar"
+      ],
+      "expected": "bag",
+      "label_space": [
+        "basket",
+        "box",
+        "cupboard",
+        "drawer",
+        "bag",
+        "jar"
+      ],
+      "paradigm": "false_belief",
+      "query_subject": "Sam"
+    },
+    "img_false_belief_0033": {
+      "allowed_labels": [
+        "box",
+        "bag"
+      ],
+      "expected": "box",
+      "label_space": [
+        "basket",
+        "box",
+        "cupboard",
+        "drawer",
+        "bag",
+        "jar"
+      ],
+      "paradigm": "false_belief",
+      "query_subject": "Anne"
+    },
+    "img_false_belief_0034": {
+      "allowed_labels": [
+        "drawer",
+        "basket"
+      ],
+      "expected": "drawer",
+      "label_space": [
+        "basket",
+        "box",
+        "cupboard",
+        "drawer",
+        "bag",
+        "jar"
+      ],
+      "paradigm": "false_belief",
+      "query_subject": "Tom"
+    },
+    "img_false_belief_0035": {
+      "allowed_labels": [
+        "box",
+        "basket"
+      ],
+      "expected": "box",
+      "label_space": [
+        "basket",
+        "box",
+        "cupboard",
+        "drawer",
+        "bag",
+        "jar"
+      ],
+      "paradigm": "false_belief",
+      "query_subject": "Max"
+    },
+    "img_false_belief_0036": {
+      "allowed_labels": [
+        "basket",
+        "drawer"
+      ],
+      "expected": "basket",
+      "label_space": [
+        "basket",
+        "box",
+        "cupboard",
+        "drawer",
+        "bag",
+        "jar"
+      ],
+      "paradigm": "false_belief",
+      "query_subject": "Tom"
+    },
+    "img_false_belief_0037": {
+      "allowed_labels": [
+        "box",
+        "jar"
+      ],
+      "expected": "box",
+      "label_space": [
+        "basket",
+        "box",
+        "cupboard",
+        "drawer",
+        "bag",
+        "jar"
+      ],
+      "paradigm": "false_belief",
+      "query_subject": "Sam"
+    },
+    "img_false_belief_0038": {
+      "allowed_labels": [
+        "cupboard",
+        "bag"
+      ],
+      "expected": "cupboard",
+      "label_space": [
+        "basket",
+        "box",
+        "cupboard",
+        "drawer",
+        "bag",
+        "jar"
+      ],
+      "paradigm": "false_belief",
+      "query_subject": "Tom"
+    },
+    "img_false_belief_0039": {
+      "allowed_labels": [
+        "jar",
+        "box"
+      ],
+      "expected": "jar",
+      "label_space": [
+        "basket",
+        "box",
+        "cupboard",
+        "drawer",
+        "bag",
+        "jar"
+      ],
+      "paradigm": "false_belief",
+      "query_subject": "Anne"
+    },
+    "img_false_belief_0040": {
+      "allowed_labels": [
+        "jar",
+        "cupboard"
+      ],
+      "expected": "jar",
+      "label_space": [
+        "basket",
+        "box",
+        "cupboard",
+        "drawer",
+        "bag",
+        "jar"
+      ],
+      "paradigm": "false_belief",
+      "query_subject": "Lily"
+    },
+    "img_false_belief_0041": {
+      "allowed_labels": [
+        "basket",
+        "box"
+      ],
+      "expected": "basket",
+      "label_space": [
+        "basket",
+        "box",
+        "cupboard",
+        "drawer",
+        "bag",
+        "jar"
+      ],
+      "paradigm": "false_belief",
+      "query_subject": "Tom"
+    },
+    "img_false_belief_0042": {
+      "allowed_labels": [
+        "basket",
+        "bag"
+      ],
+      "expected": "basket",
+      "label_space": [
+        "basket",
+        "box",
+        "cupboard",
+        "drawer",
+        "bag",
+        "jar"
+      ],
+      "paradigm": "false_belief",
+      "query_subject": "Sally"
+    },
+    "img_false_belief_0043": {
+      "allowed_labels": [
+        "basket",
+        "jar"
+      ],
+      "expected": "basket",
+      "label_space": [
+        "basket",
+        "box",
+        "cupboard",
+        "drawer",
+        "bag",
+        "jar"
+      ],
+      "paradigm": "false_belief",
+      "query_subject": "Tom"
+    },
+    "img_false_belief_0044": {
+      "allowed_labels": [
+        "basket",
+        "cupboard"
+      ],
+      "expected": "basket",
+      "label_space": [
+        "basket",
+        "box",
+        "cupboard",
+        "drawer",
+        "bag",
+        "jar"
+      ],
+      "paradigm": "false_belief",
+      "query_subject": "Anne"
+    },
+    "img_false_belief_0045": {
+      "allowed_labels": [
+        "cupboard",
+        "drawer"
+      ],
+      "expected": "cupboard",
+      "label_space": [
+        "basket",
+        "box",
+        "cupboard",
+        "drawer",
+        "bag",
+        "jar"
+      ],
+      "paradigm": "false_belief",
+      "query_subject": "Tom"
+    },
+    "img_false_belief_0046": {
+      "allowed_labels": [
+        "jar",
+        "bag"
+      ],
+      "expected": "jar",
+      "label_space": [
+        "basket",
+        "box",
+        "cupboard",
+        "drawer",
+        "bag",
+        "jar"
+      ],
+      "paradigm": "false_belief",
+      "query_subject": "Tom"
+    },
+    "img_false_belief_0047": {
+      "allowed_labels": [
+        "drawer",
+        "box"
+      ],
+      "expected": "drawer",
+      "label_space": [
+        "basket",
+        "box",
+        "cupboard",
+        "drawer",
+        "bag",
+        "jar"
+      ],
+      "paradigm": "false_belief",
+      "query_subject": "Anne"
+    },
+    "img_false_belief_0048": {
+      "allowed_labels": [
+        "drawer",
+        "cupboard"
+      ],
+      "expected": "drawer",
+      "label_space": [
+        "basket",
+        "box",
+        "cupboard",
+        "drawer",
+        "bag",
+        "jar"
+      ],
+      "paradigm": "false_belief",
+      "query_subject": "Sally"
+    },
+    "img_false_belief_0049": {
+      "allowed_labels": [
+        "jar",
+        "basket"
+      ],
+      "expected": "jar",
+      "label_space": [
+        "basket",
+        "box",
+        "cupboard",
+        "drawer",
+        "bag",
+        "jar"
+      ],
+      "paradigm": "false_belief",
+      "query_subject": "Lily"
+    },
+    "img_flanker_0000": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "right",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0001": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "right",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0002": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "right",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0003": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "left",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0004": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "left",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0005": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "left",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0006": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "left",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0007": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "left",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0008": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "left",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0009": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "right",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0010": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "left",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0011": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "left",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0012": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "left",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0013": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "left",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0014": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "left",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0015": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "right",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0016": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "right",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0017": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "right",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0018": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "right",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0019": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "right",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0020": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "right",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0021": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "left",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0022": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "right",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0023": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "right",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0024": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "right",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0025": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "right",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0026": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "right",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0027": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "right",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0028": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "right",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0029": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "right",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0030": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "left",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0031": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "right",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0032": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "left",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0033": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "left",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0034": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "left",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0035": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "right",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0036": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "right",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0037": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "left",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0038": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "right",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0039": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "left",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0040": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "right",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0041": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "left",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0042": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "right",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0043": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "right",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0044": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "left",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0045": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "left",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0046": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "left",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0047": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "left",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0048": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "left",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0049": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "right",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0050": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "right",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0051": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "right",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0052": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "left",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0053": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "left",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0054": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "left",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0055": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "right",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0056": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "left",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0057": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "left",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0058": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "left",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0059": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "left",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0060": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "left",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0061": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "left",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0062": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "left",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0063": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "left",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0064": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "right",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0065": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "left",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0066": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "right",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0067": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "right",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0068": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "right",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0069": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "left",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0070": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "left",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0071": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "right",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0072": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "left",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0073": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "right",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0074": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "left",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0075": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "right",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0076": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "right",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0077": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "left",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0078": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "right",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0079": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "right",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0080": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "left",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0081": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "right",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0082": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "right",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0083": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "right",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0084": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "right",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0085": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "left",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0086": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "left",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0087": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "right",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0088": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "left",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0089": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "left",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0090": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "right",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0091": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "left",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0092": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "left",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0093": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "right",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0094": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "right",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0095": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "right",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0096": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "right",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0097": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "left",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0098": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "left",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_flanker_0099": {
+      "allowed_labels": [
+        "left",
+        "right"
+      ],
+      "expected": "right",
+      "label_space": [
+        "left",
+        "right"
+      ],
+      "paradigm": "flanker"
+    },
+    "img_stroop_0000": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "orange",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0001": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "red",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0002": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "green",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0003": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "blue",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0004": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "green",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0005": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "pink",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0006": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "red",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0007": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "brown",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0008": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "purple",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0009": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "purple",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0010": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "brown",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0011": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "red",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0012": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "orange",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0013": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "yellow",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0014": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "blue",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0015": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "yellow",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0016": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "yellow",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0017": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "brown",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0018": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "green",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0019": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "yellow",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0020": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "red",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0021": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "yellow",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0022": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "brown",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0023": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "blue",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0024": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "red",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0025": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "purple",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0026": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "purple",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0027": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "purple",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0028": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "orange",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0029": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "purple",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0030": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "pink",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0031": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "brown",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0032": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "red",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0033": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "green",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0034": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "pink",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0035": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "purple",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0036": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "yellow",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0037": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "brown",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0038": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "purple",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0039": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "brown",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0040": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "orange",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0041": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "red",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0042": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "orange",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0043": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "brown",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0044": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "brown",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0045": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "blue",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0046": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "yellow",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0047": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "green",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0048": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "blue",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0049": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "orange",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0050": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "pink",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0051": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "pink",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0052": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "blue",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0053": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "yellow",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0054": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "orange",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0055": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "green",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0056": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "pink",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0057": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "pink",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0058": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "orange",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0059": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "pink",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0060": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "pink",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0061": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "yellow",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0062": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "yellow",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0063": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "blue",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0064": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "orange",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0065": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "yellow",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0066": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "blue",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0067": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "purple",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0068": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "pink",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0069": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "green",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0070": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "red",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0071": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "pink",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0072": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "blue",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0073": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "blue",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0074": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "yellow",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0075": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "blue",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0076": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "brown",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0077": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "purple",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0078": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "orange",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0079": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "purple",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0080": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "purple",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0081": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "brown",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0082": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "green",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0083": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "red",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0084": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "blue",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0085": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "green",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0086": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "orange",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0087": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "pink",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0088": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "orange",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0089": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "green",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0090": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "red",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0091": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "green",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0092": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "purple",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0093": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "brown",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0094": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "red",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0095": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "red",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0096": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "green",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0097": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "yellow",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0098": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "yellow",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    },
+    "img_stroop_0099": {
+      "allowed_labels": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "expected": "purple",
+      "label_space": [
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "purple",
+        "orange",
+        "pink",
+        "brown"
+      ],
+      "paradigm": "stroop"
+    }
+  }
+}

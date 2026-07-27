@@ -1,0 +1,78 @@
+{
+ "seed": 42,
+ "n_boot": 5000,
+ "n_models": 55,
+ "n_families": 24,
+ "crossed_paradigms": {
+  "confidence_calibration": true,
+  "cvlt_word_list": true,
+  "digit_span": true,
+  "drm_false_memory": true,
+  "epitome_tom": false,
+  "false_belief": true,
+  "flanker": true,
+  "go_nogo": true,
+  "n_back": true,
+  "operation_span": true,
+  "post_decision_wagering": true,
+  "source_monitoring": true,
+  "stroop": true
+ },
+ "base_delta": 0.0521,
+ "base_pc1": 0.5026,
+ "committed_family_ci_anchor": [
+  -0.02,
+  0.09
+ ],
+ "results": {
+  "family_only_merged": {
+   "n_reps": 5000,
+   "delta_mean": 0.0447,
+   "delta_ci95": [
+    -0.0192,
+    0.0907
+   ]
+  },
+  "family_only_raw": {
+   "n_reps": 5000,
+   "delta_mean": 0.047,
+   "delta_ci95": [
+    -0.029,
+    0.1181
+   ]
+  },
+  "item_only": {
+   "n_reps": 5000,
+   "delta_mean": 0.0526,
+   "delta_ci95": [
+    0.0303,
+    0.0751
+   ]
+  },
+  "two_level_merged": {
+   "n_reps": 5000,
+   "delta_mean": 0.045,
+   "delta_ci95": [
+    -0.0247,
+    0.1007
+   ],
+   "pc1_ci95": [
+    0.4037,
+    0.5725
+   ]
+  },
+  "two_level_raw": {
+   "n_reps": 5000,
+   "delta_mean": 0.0487,
+   "delta_ci95": [
+    -0.0292,
+    0.1255
+   ],
+   "pc1_ci95": [
+    0.4143,
+    0.574
+   ]
+  }
+ },
+ "note": "two_level resamples families and items jointly; item resampling is crossed (one item draw per paradigm applied to all models) where the item-id sets are identical across models, otherwise independent per model. Accuracy matrix (confirmatory analysis)."
+}

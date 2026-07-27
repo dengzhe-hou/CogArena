@@ -1,0 +1,42 @@
+{
+  "schema_version": "cogarena.causal_selectivity.failed_attempt.v1",
+  "study_id": "causal_selectivity_20260720",
+  "attempt_jobs": {
+    "pilot_array": 7044,
+    "qwen_array_task": 7045,
+    "llama_array_task": 7050,
+    "capacity_canceled_before_run": 7046,
+    "pilot_closure_canceled_before_run": 7047,
+    "capacity_closure_canceled_before_run": 7048
+  },
+  "source_revision": "fff8630942eb240e6da2043feea0e9a124893474",
+  "spec_sha256": "1148ff92a241a748db19175ddba9fc92d1bfb2e501f82e5443fd6cd029589268",
+  "pilot_item_manifest_sha256": "da938c26a82c1c70ae9e64af61a5649427ba81e7b3de84bff2b5446b93931ead",
+  "qwen2.5_1.5b": {
+    "record_count": 273,
+    "api_call_count": 973,
+    "length_limited_api_call_count": 0,
+    "independent_replay_passed": true
+  },
+  "llama3.2_3b_at_cancellation": {
+    "record_count": 190,
+    "api_call_count": 632,
+    "length_limited_api_call_count": 9,
+    "length_limited_task_record_count": 5,
+    "length_limited_paradigms": {
+      "cvlt_word_list": 5
+    },
+    "condition_length_limited_record_counts": {
+      "baseline": 1,
+      "belief_state_ledger": 1,
+      "episodic_source_binding": 1,
+      "working_memory_ledger": 2
+    }
+  },
+  "early_stop_decision": "The array was canceled once working_memory_ledger had two length-limited CVLT records. With Qwen at zero, even an unrun Gemma at zero could yield no better than 2/117=0.017094, above the unchanged 0.01 gate.",
+  "outcome_accuracy_inspected": false,
+  "intervention_contrast_inspected": false,
+  "selectivity_estimate_inspected": false,
+  "records_reused": false,
+  "disposition": "All records, including the complete passing Qwen operational pilot, were quarantined. CVLT was moved to a fixed comma-separated single-line response wrapper already supported by its scorer; no task content or statistical specification changed."
+}

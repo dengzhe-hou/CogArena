@@ -1,0 +1,342 @@
+{
+  "legacy_note": "Legacy responses are replayed with paradigm-label-parser-v1. Their exact stimulus PNG bytes were not archived.",
+  "models": {
+    "openai/gemma3:4b": {
+      "accuracy_change": {
+        "false_belief": 0.08,
+        "flanker": 0.06,
+        "stroop": 0.30999999999999994
+      },
+      "legacy_corrected": {
+        "false_belief": {
+          "accuracy": 0.02,
+          "blank": 0,
+          "n": 50
+        },
+        "flanker": {
+          "accuracy": 0.44,
+          "blank": 0,
+          "congruency_advantage": -0.16000000000000003,
+          "congruent_accuracy": 0.36,
+          "incongruent_accuracy": 0.52,
+          "n": 100
+        },
+        "stroop": {
+          "accuracy": 0.56,
+          "blank": 0,
+          "congruency_advantage": 0.88,
+          "congruent_accuracy": 1.0,
+          "incongruent_accuracy": 0.12,
+          "n": 100
+        }
+      },
+      "rerun": {
+        "false_belief": {
+          "accuracy": 0.1,
+          "blank": 0,
+          "n": 50
+        },
+        "flanker": {
+          "accuracy": 0.5,
+          "blank": 0,
+          "congruency_advantage": 0.0,
+          "congruent_accuracy": 0.5,
+          "incongruent_accuracy": 0.5,
+          "n": 100
+        },
+        "stroop": {
+          "accuracy": 0.87,
+          "blank": 0,
+          "congruency_advantage": 0.26,
+          "congruent_accuracy": 1.0,
+          "incongruent_accuracy": 0.74,
+          "n": 100
+        }
+      }
+    },
+    "openai/llama3.2-vision:11b": {
+      "accuracy_change": {
+        "false_belief": 0.34,
+        "flanker": -0.16999999999999993,
+        "stroop": 0.31000000000000005
+      },
+      "legacy_corrected": {
+        "false_belief": {
+          "accuracy": 0.04,
+          "blank": 0,
+          "n": 50
+        },
+        "flanker": {
+          "accuracy": 0.84,
+          "blank": 0,
+          "congruency_advantage": 0.31999999999999995,
+          "congruent_accuracy": 1.0,
+          "incongruent_accuracy": 0.68,
+          "n": 100
+        },
+        "stroop": {
+          "accuracy": 0.6,
+          "blank": 0,
+          "congruency_advantage": 0.48,
+          "congruent_accuracy": 0.84,
+          "incongruent_accuracy": 0.36,
+          "n": 100
+        }
+      },
+      "rerun": {
+        "false_belief": {
+          "accuracy": 0.38,
+          "blank": 0,
+          "n": 50
+        },
+        "flanker": {
+          "accuracy": 0.67,
+          "blank": 0,
+          "congruency_advantage": 0.33999999999999997,
+          "congruent_accuracy": 0.84,
+          "incongruent_accuracy": 0.5,
+          "n": 100
+        },
+        "stroop": {
+          "accuracy": 0.91,
+          "blank": 0,
+          "congruency_advantage": 0.18000000000000005,
+          "congruent_accuracy": 1.0,
+          "incongruent_accuracy": 0.82,
+          "n": 100
+        }
+      }
+    },
+    "openai/llava:7b": {
+      "accuracy_change": {
+        "false_belief": 0.0,
+        "flanker": 0.5,
+        "stroop": 0.020000000000000018
+      },
+      "legacy_corrected": {
+        "false_belief": {
+          "accuracy": 0.0,
+          "blank": 0,
+          "n": 50
+        },
+        "flanker": {
+          "accuracy": 0.0,
+          "blank": 0,
+          "congruency_advantage": 0.0,
+          "congruent_accuracy": 0.0,
+          "incongruent_accuracy": 0.0,
+          "n": 100
+        },
+        "stroop": {
+          "accuracy": 0.48,
+          "blank": 0,
+          "congruency_advantage": 0.96,
+          "congruent_accuracy": 0.96,
+          "incongruent_accuracy": 0.0,
+          "n": 100
+        }
+      },
+      "rerun": {
+        "false_belief": {
+          "accuracy": 0.0,
+          "blank": 0,
+          "n": 50
+        },
+        "flanker": {
+          "accuracy": 0.5,
+          "blank": 0,
+          "congruency_advantage": 0.0,
+          "congruent_accuracy": 0.5,
+          "incongruent_accuracy": 0.5,
+          "n": 100
+        },
+        "stroop": {
+          "accuracy": 0.5,
+          "blank": 0,
+          "congruency_advantage": 1.0,
+          "congruent_accuracy": 1.0,
+          "incongruent_accuracy": 0.0,
+          "n": 100
+        }
+      }
+    },
+    "openai/minicpm-v:8b": {
+      "accuracy_change": {
+        "false_belief": 0.44000000000000006,
+        "flanker": -0.26,
+        "stroop": 0.08999999999999997
+      },
+      "legacy_corrected": {
+        "false_belief": {
+          "accuracy": 0.1,
+          "blank": 0,
+          "n": 50
+        },
+        "flanker": {
+          "accuracy": 0.76,
+          "blank": 0,
+          "congruency_advantage": 0.48,
+          "congruent_accuracy": 1.0,
+          "incongruent_accuracy": 0.52,
+          "n": 100
+        },
+        "stroop": {
+          "accuracy": 0.89,
+          "blank": 0,
+          "congruency_advantage": 0.21999999999999997,
+          "congruent_accuracy": 1.0,
+          "incongruent_accuracy": 0.78,
+          "n": 100
+        }
+      },
+      "rerun": {
+        "false_belief": {
+          "accuracy": 0.54,
+          "blank": 0,
+          "n": 50
+        },
+        "flanker": {
+          "accuracy": 0.5,
+          "blank": 0,
+          "congruency_advantage": 0.0,
+          "congruent_accuracy": 0.5,
+          "incongruent_accuracy": 0.5,
+          "n": 100
+        },
+        "stroop": {
+          "accuracy": 0.98,
+          "blank": 0,
+          "congruency_advantage": 0.040000000000000036,
+          "congruent_accuracy": 1.0,
+          "incongruent_accuracy": 0.96,
+          "n": 100
+        }
+      }
+    },
+    "openai/moondream:1.8b": {
+      "accuracy_change": {
+        "false_belief": 0.0,
+        "flanker": 0.0,
+        "stroop": 0.08
+      },
+      "legacy_corrected": {
+        "false_belief": {
+          "accuracy": 0.0,
+          "blank": 0,
+          "n": 50
+        },
+        "flanker": {
+          "accuracy": 0.0,
+          "blank": 100,
+          "congruency_advantage": 0.0,
+          "congruent_accuracy": 0.0,
+          "incongruent_accuracy": 0.0,
+          "n": 100
+        },
+        "stroop": {
+          "accuracy": 0.01,
+          "blank": 98,
+          "congruency_advantage": -0.02,
+          "congruent_accuracy": 0.0,
+          "incongruent_accuracy": 0.02,
+          "n": 100
+        }
+      },
+      "rerun": {
+        "false_belief": {
+          "accuracy": 0.0,
+          "blank": 0,
+          "n": 50
+        },
+        "flanker": {
+          "accuracy": 0.0,
+          "blank": 100,
+          "congruency_advantage": 0.0,
+          "congruent_accuracy": 0.0,
+          "incongruent_accuracy": 0.0,
+          "n": 100
+        },
+        "stroop": {
+          "accuracy": 0.09,
+          "blank": 85,
+          "congruency_advantage": 0.020000000000000004,
+          "congruent_accuracy": 0.1,
+          "incongruent_accuracy": 0.08,
+          "n": 100
+        }
+      }
+    },
+    "openai/qwen2.5vl:7b": {
+      "accuracy_change": {
+        "false_belief": 0.54,
+        "flanker": 0.0,
+        "stroop": 0.13
+      },
+      "legacy_corrected": {
+        "false_belief": {
+          "accuracy": 0.12,
+          "blank": 0,
+          "n": 50
+        },
+        "flanker": {
+          "accuracy": 1.0,
+          "blank": 0,
+          "congruency_advantage": 0.0,
+          "congruent_accuracy": 1.0,
+          "incongruent_accuracy": 1.0,
+          "n": 100
+        },
+        "stroop": {
+          "accuracy": 0.79,
+          "blank": 0,
+          "congruency_advantage": 0.42000000000000004,
+          "congruent_accuracy": 1.0,
+          "incongruent_accuracy": 0.58,
+          "n": 100
+        }
+      },
+      "rerun": {
+        "false_belief": {
+          "accuracy": 0.66,
+          "blank": 0,
+          "n": 50
+        },
+        "flanker": {
+          "accuracy": 1.0,
+          "blank": 0,
+          "congruency_advantage": 0.0,
+          "congruent_accuracy": 1.0,
+          "incongruent_accuracy": 1.0,
+          "n": 100
+        },
+        "stroop": {
+          "accuracy": 0.92,
+          "blank": 0,
+          "congruency_advantage": 0.16000000000000003,
+          "congruent_accuracy": 1.0,
+          "incongruent_accuracy": 0.84,
+          "n": 100
+        }
+      }
+    }
+  },
+  "paradigm_means": {
+    "false_belief": {
+      "legacy_corrected_mean": 0.04666666666666667,
+      "mean_change": 0.23333333333333336,
+      "rerun_mean": 0.28
+    },
+    "flanker": {
+      "legacy_corrected_mean": 0.5066666666666667,
+      "mean_change": 0.021666666666666612,
+      "rerun_mean": 0.5283333333333333
+    },
+    "stroop": {
+      "legacy_corrected_mean": 0.555,
+      "mean_change": 0.15666666666666673,
+      "rerun_mean": 0.7116666666666668
+    }
+  },
+  "rerun_note": "Rerun responses consume the frozen, hash-pinned readable stimulus set.",
+  "schema_version": 1
+}

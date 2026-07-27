@@ -1,0 +1,318 @@
+{
+ "paradigm_means_20": {
+  "confidence_calibration": 0.847,
+  "cvlt_word_list": 0.9036,
+  "digit_span": 0.745,
+  "drm_false_memory": 0.7094,
+  "epitome_tom": 0.814,
+  "false_belief": 0.768,
+  "flanker": 0.6417,
+  "go_nogo": 0.844,
+  "n_back": 0.5677,
+  "operation_span": 0.6921,
+  "post_decision_wagering": 0.784,
+  "source_monitoring": 0.6505,
+  "stroop": 0.9174
+ },
+ "group_means_20": {
+  "Meta": 0.8155,
+  "Episodic": 0.7545,
+  "WM": 0.6683,
+  "ToM": 0.791,
+  "Control": 0.801
+ },
+ "paradigm_means_55": {
+  "confidence_calibration": 0.8553,
+  "cvlt_word_list": 0.847,
+  "digit_span": 0.7636,
+  "drm_false_memory": 0.6888,
+  "epitome_tom": 0.8556,
+  "false_belief": 0.7789,
+  "flanker": 0.6146,
+  "go_nogo": 0.8531,
+  "n_back": 0.5534,
+  "operation_span": 0.6954,
+  "post_decision_wagering": 0.7982,
+  "source_monitoring": 0.5956,
+  "stroop": 0.9182
+ },
+ "group_means_55": {
+  "Meta": 0.8267,
+  "Episodic": 0.7105,
+  "WM": 0.6708,
+  "ToM": 0.8173,
+  "Control": 0.7953
+ },
+ "false_belief_by_order_20": {
+  "order1": 0.852,
+  "order2": 0.684
+ },
+ "n_back_by_difficulty_20": {
+  "easy": 0.6326,
+  "hard": 0.5543,
+  "medium": 0.5439
+ },
+ "paradigm_by_difficulty_20": {
+  "digit_span": {
+   "easy": 0.7417,
+   "medium": 0.75,
+   "hard": 0.7375
+  },
+  "stroop": {
+   "medium": 0.9167,
+   "easy": 0.9206,
+   "hard": 0.9156
+  },
+  "flanker": {
+   "medium": 0.7,
+   "easy": 0.55,
+   "hard": 0.6188
+  },
+  "go_nogo": {
+   "easy": 0.844
+  },
+  "drm_false_memory": {
+   "easy": 0.7478,
+   "medium": 0.7079,
+   "hard": 0.6744
+  },
+  "source_monitoring": {
+   "easy": 0.7339,
+   "medium": 0.6434,
+   "hard": 0.5824
+  },
+  "false_belief": {
+   "easy": 0.7375,
+   "medium": 0.8038,
+   "hard": 0.7208
+  },
+  "confidence_calibration": {
+   "easy": 0.8167,
+   "medium": 0.7962,
+   "hard": 0.8417
+  },
+  "post_decision_wagering": {
+   "easy": 0.8208,
+   "medium": 0.7981,
+   "hard": 0.7167
+  }
+ },
+ "gonogo_rates_55": {
+  "go": 0.8554,
+  "nogo": 0.8409
+ },
+ "scaling_r_55": {
+  "confidence_calibration": {
+   "r": 0.617,
+   "p": 0.0
+  },
+  "cvlt_word_list": {
+   "r": 0.233,
+   "p": 0.0865
+  },
+  "digit_span": {
+   "r": 0.525,
+   "p": 0.0
+  },
+  "drm_false_memory": {
+   "r": 0.72,
+   "p": 0.0
+  },
+  "epitome_tom": {
+   "r": 0.715,
+   "p": 0.0
+  },
+  "false_belief": {
+   "r": 0.442,
+   "p": 0.0007
+  },
+  "flanker": {
+   "r": 0.383,
+   "p": 0.0039
+  },
+  "go_nogo": {
+   "r": 0.574,
+   "p": 0.0
+  },
+  "n_back": {
+   "r": 0.234,
+   "p": 0.0858
+  },
+  "operation_span": {
+   "r": 0.274,
+   "p": 0.043
+  },
+  "post_decision_wagering": {
+   "r": 0.621,
+   "p": 0.0
+  },
+  "source_monitoring": {
+   "r": 0.609,
+   "p": 0.0
+  },
+  "stroop": {
+   "r": 0.509,
+   "p": 0.0001
+  }
+ },
+ "scaling_overall_55": {
+  "r": 0.716,
+  "p": 0.0
+ },
+ "scaling_mixedlm_55": [
+  {
+   "paradigm": "confidence_calibration",
+   "slope": 0.1724,
+   "p": 0.0
+  },
+  {
+   "paradigm": "cvlt_word_list",
+   "slope": 0.0995,
+   "p": 0.0988
+  },
+  {
+   "paradigm": "digit_span",
+   "slope": 0.2836,
+   "p": 0.0
+  },
+  {
+   "paradigm": "drm_false_memory",
+   "slope": 0.4088,
+   "p": 0.0
+  },
+  {
+   "paradigm": "epitome_tom",
+   "slope": 0.2385,
+   "p": 0.0
+  },
+  {
+   "paradigm": "false_belief",
+   "slope": 0.2494,
+   "p": 0.0001
+  },
+  {
+   "paradigm": "flanker",
+   "slope": 0.0996,
+   "p": 0.0012
+  },
+  {
+   "paradigm": "go_nogo",
+   "slope": 0.2772,
+   "p": 0.0
+  },
+  {
+   "paradigm": "n_back",
+   "slope": 0.1589,
+   "p": 0.002
+  },
+  {
+   "paradigm": "operation_span",
+   "slope": 0.1775,
+   "p": 0.0155
+  },
+  {
+   "paradigm": "post_decision_wagering",
+   "slope": 0.1973,
+   "p": 0.0
+  },
+  {
+   "paradigm": "source_monitoring",
+   "slope": 0.3201,
+   "p": 0.0
+  },
+  {
+   "paradigm": "stroop",
+   "slope": 0.1211,
+   "p": 0.0
+  }
+ ],
+ "scaling_mixedlm_n_sig": 12,
+ "split_half_corrected_20": {
+  "confidence_calibration": 0.966,
+  "digit_span": 0.98,
+  "drm_false_memory": 0.994,
+  "false_belief": 0.968,
+  "flanker": 0.783,
+  "go_nogo": 0.994,
+  "post_decision_wagering": 0.966,
+  "source_monitoring": 0.985,
+  "stroop": 0.968
+ },
+ "split_half_mean_excl_epitome": 0.956,
+ "split_half_mean_incl_epitome_CAVEAT_synthetic": 0.956,
+ "signatures_20": {
+  "stroop": {
+   "easy": 0.9422,
+   "hard": 0.8941,
+   "p": 0.0455,
+   "direction": "congruent>incongruent",
+   "p_bh": 0.0455
+  },
+  "flanker": {
+   "easy": 0.7578,
+   "hard": 0.5324,
+   "p": 1e-05,
+   "direction": "congruent>incongruent",
+   "p_bh": 4e-05
+  },
+  "false_belief": {
+   "easy": 0.852,
+   "hard": 0.684,
+   "p": 0.00654,
+   "direction": "order1>order2",
+   "p_bh": 0.00872
+  },
+  "n_back": {
+   "easy": 0.6326,
+   "hard": 0.5543,
+   "p": 0.0063,
+   "direction": "1back>3back",
+   "p_bh": 0.00872
+  }
+ },
+ "predictive_validity_overall": "failed: could not convert string to float: 'TinyLlama GitHub EVAL.md (base model GPT4All + Instruct-Eval suites)'",
+ "restricted_range_pc1_variants": {
+  "full": 0.4981,
+  "excl_mean_ge_0.9": 0.5002,
+  "high_variance_half": 0.5193
+ },
+ "paradigm_sd_55": {
+  "confidence_calibration": 0.1411,
+  "cvlt_word_list": 0.2511,
+  "digit_span": 0.2792,
+  "drm_false_memory": 0.3094,
+  "epitome_tom": 0.1793,
+  "false_belief": 0.2849,
+  "flanker": 0.1287,
+  "go_nogo": 0.2631,
+  "n_back": 0.259,
+  "operation_span": 0.2961,
+  "post_decision_wagering": 0.1675,
+  "source_monitoring": 0.2972,
+  "stroop": 0.1289
+ },
+ "model_claims": {
+  "phi3:14b": {
+   "n_back": 0.0904,
+   "operation_span": 0.3489,
+   "digit_span": 0.4
+  },
+  "deepseek-r1:7b": {
+   "false_belief": 0.34,
+   "source_monitoring": 0.2155,
+   "epitome_tom": 0.4
+  },
+  "deepseek-r1:14b": {
+   "false_belief": 1.0,
+   "source_monitoring": 0.4684
+  },
+  "llama3.2:1b": {
+   "false_belief": 0.48,
+   "n_back": 0.4754
+  },
+  "mixtral:8x7b": {
+   "digit_span": 0.68,
+   "operation_span": 0.5165
+  }
+ }
+}

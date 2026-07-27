@@ -1,0 +1,584 @@
+{
+  "models": {
+    "openai/gemma3:4b": {
+      "conditions": {
+        "flanker": {
+          "congruent": {
+            "accuracy": 0.5,
+            "blank": 0,
+            "blank_rate": 0.0,
+            "correct": 25,
+            "count": 50
+          },
+          "incongruent": {
+            "accuracy": 0.5,
+            "blank": 0,
+            "blank_rate": 0.0,
+            "correct": 25,
+            "count": 50
+          }
+        },
+        "stroop": {
+          "congruent": {
+            "accuracy": 1.0,
+            "blank": 0,
+            "blank_rate": 0.0,
+            "correct": 50,
+            "count": 50
+          },
+          "incongruent": {
+            "accuracy": 0.74,
+            "blank": 0,
+            "blank_rate": 0.0,
+            "correct": 37,
+            "count": 50
+          }
+        }
+      },
+      "model_digest": "a2af6cc3eb7fa8be8504abaf9b04e88f17a119ec3f04a3addf55f92841195f5a",
+      "model_id": "openai/gemma3:4b",
+      "n_records": 250,
+      "paradigms": {
+        "false_belief": {
+          "accuracy": 0.1,
+          "blank": 0,
+          "blank_rate": 0.0,
+          "correct": 5,
+          "count": 50,
+          "non_stop": 0
+        },
+        "flanker": {
+          "accuracy": 0.5,
+          "blank": 0,
+          "blank_rate": 0.0,
+          "correct": 50,
+          "count": 100,
+          "non_stop": 0
+        },
+        "stroop": {
+          "accuracy": 0.87,
+          "blank": 0,
+          "blank_rate": 0.0,
+          "correct": 87,
+          "count": 100,
+          "non_stop": 0
+        }
+      },
+      "record_counts_by_session": {
+        "5228b83bbd9ae23833b9d2f6": 250
+      },
+      "serving_sessions": {
+        "5228b83bbd9ae23833b9d2f6": {
+          "node": "c03",
+          "sha256": "1fcb57db9784e25a35a6700d18d168848cb5260b5952a42c99748d41b9aa9688",
+          "slurm_job_id": "8874",
+          "source_revision": "76fce6076e64fd7a90bea32b5e94c0ab5c09fd72"
+        }
+      },
+      "session_ids": [
+        "5228b83bbd9ae23833b9d2f6"
+      ],
+      "usage": {
+        "false_belief": {
+          "max_completion_tokens": 3,
+          "max_prompt_tokens": 323,
+          "min_prompt_tokens": 323
+        },
+        "flanker": {
+          "max_completion_tokens": 2,
+          "max_prompt_tokens": 302,
+          "min_prompt_tokens": 302
+        },
+        "stroop": {
+          "max_completion_tokens": 2,
+          "max_prompt_tokens": 313,
+          "min_prompt_tokens": 313
+        }
+      }
+    },
+    "openai/llama3.2-vision:11b": {
+      "conditions": {
+        "flanker": {
+          "congruent": {
+            "accuracy": 0.84,
+            "blank": 0,
+            "blank_rate": 0.0,
+            "correct": 42,
+            "count": 50
+          },
+          "incongruent": {
+            "accuracy": 0.5,
+            "blank": 0,
+            "blank_rate": 0.0,
+            "correct": 25,
+            "count": 50
+          }
+        },
+        "stroop": {
+          "congruent": {
+            "accuracy": 1.0,
+            "blank": 0,
+            "blank_rate": 0.0,
+            "correct": 50,
+            "count": 50
+          },
+          "incongruent": {
+            "accuracy": 0.82,
+            "blank": 0,
+            "blank_rate": 0.0,
+            "correct": 41,
+            "count": 50
+          }
+        }
+      },
+      "model_digest": "6f2f9757ae97e8a3f8ea33d6adb2b11d93d9a35bef277cd2c0b1b5af8e8d0b1e",
+      "model_id": "openai/llama3.2-vision:11b",
+      "n_records": 250,
+      "paradigms": {
+        "false_belief": {
+          "accuracy": 0.38,
+          "blank": 0,
+          "blank_rate": 0.0,
+          "correct": 19,
+          "count": 50,
+          "non_stop": 0
+        },
+        "flanker": {
+          "accuracy": 0.67,
+          "blank": 0,
+          "blank_rate": 0.0,
+          "correct": 67,
+          "count": 100,
+          "non_stop": 0
+        },
+        "stroop": {
+          "accuracy": 0.91,
+          "blank": 0,
+          "blank_rate": 0.0,
+          "correct": 91,
+          "count": 100,
+          "non_stop": 0
+        }
+      },
+      "record_counts_by_session": {
+        "246f564f1ecdd6b1fc2d218c": 250
+      },
+      "serving_sessions": {
+        "246f564f1ecdd6b1fc2d218c": {
+          "node": "c03",
+          "sha256": "f16dc5d05ab51ed06800fffa1d7dc8652e84830ebd729f077bb81612fdde91c9",
+          "slurm_job_id": "8876",
+          "source_revision": "76fce6076e64fd7a90bea32b5e94c0ab5c09fd72"
+        }
+      },
+      "session_ids": [
+        "246f564f1ecdd6b1fc2d218c"
+      ],
+      "usage": {
+        "false_belief": {
+          "max_completion_tokens": 239,
+          "max_prompt_tokens": 58,
+          "min_prompt_tokens": 58
+        },
+        "flanker": {
+          "max_completion_tokens": 9,
+          "max_prompt_tokens": 40,
+          "min_prompt_tokens": 40
+        },
+        "stroop": {
+          "max_completion_tokens": 7,
+          "max_prompt_tokens": 51,
+          "min_prompt_tokens": 51
+        }
+      }
+    },
+    "openai/llava:7b": {
+      "conditions": {
+        "flanker": {
+          "congruent": {
+            "accuracy": 0.5,
+            "blank": 0,
+            "blank_rate": 0.0,
+            "correct": 25,
+            "count": 50
+          },
+          "incongruent": {
+            "accuracy": 0.5,
+            "blank": 0,
+            "blank_rate": 0.0,
+            "correct": 25,
+            "count": 50
+          }
+        },
+        "stroop": {
+          "congruent": {
+            "accuracy": 1.0,
+            "blank": 0,
+            "blank_rate": 0.0,
+            "correct": 50,
+            "count": 50
+          },
+          "incongruent": {
+            "accuracy": 0.0,
+            "blank": 0,
+            "blank_rate": 0.0,
+            "correct": 0,
+            "count": 50
+          }
+        }
+      },
+      "model_digest": "8dd30f6b0cb19f555f2c7a7ebda861449ea2cc76bf1f44e262931f45fc81d081",
+      "model_id": "openai/llava:7b",
+      "n_records": 250,
+      "paradigms": {
+        "false_belief": {
+          "accuracy": 0.0,
+          "blank": 0,
+          "blank_rate": 0.0,
+          "correct": 0,
+          "count": 50,
+          "non_stop": 3
+        },
+        "flanker": {
+          "accuracy": 0.5,
+          "blank": 0,
+          "blank_rate": 0.0,
+          "correct": 50,
+          "count": 100,
+          "non_stop": 0
+        },
+        "stroop": {
+          "accuracy": 0.5,
+          "blank": 0,
+          "blank_rate": 0.0,
+          "correct": 50,
+          "count": 100,
+          "non_stop": 0
+        }
+      },
+      "record_counts_by_session": {
+        "13041d8875a76a37651e7cdc": 250
+      },
+      "serving_sessions": {
+        "13041d8875a76a37651e7cdc": {
+          "node": "c03",
+          "sha256": "ff2083144013701e4f683b215a612305f6ca80102c24cbd5b626d0e456d81358",
+          "slurm_job_id": "8873",
+          "source_revision": "76fce6076e64fd7a90bea32b5e94c0ab5c09fd72"
+        }
+      },
+      "session_ids": [
+        "13041d8875a76a37651e7cdc"
+      ],
+      "usage": {
+        "false_belief": {
+          "max_completion_tokens": 256,
+          "max_prompt_tokens": 642,
+          "min_prompt_tokens": 641
+        },
+        "flanker": {
+          "max_completion_tokens": 10,
+          "max_prompt_tokens": 623,
+          "min_prompt_tokens": 623
+        },
+        "stroop": {
+          "max_completion_tokens": 4,
+          "max_prompt_tokens": 632,
+          "min_prompt_tokens": 632
+        }
+      }
+    },
+    "openai/minicpm-v:8b": {
+      "conditions": {
+        "flanker": {
+          "congruent": {
+            "accuracy": 0.5,
+            "blank": 0,
+            "blank_rate": 0.0,
+            "correct": 25,
+            "count": 50
+          },
+          "incongruent": {
+            "accuracy": 0.5,
+            "blank": 0,
+            "blank_rate": 0.0,
+            "correct": 25,
+            "count": 50
+          }
+        },
+        "stroop": {
+          "congruent": {
+            "accuracy": 1.0,
+            "blank": 0,
+            "blank_rate": 0.0,
+            "correct": 50,
+            "count": 50
+          },
+          "incongruent": {
+            "accuracy": 0.96,
+            "blank": 0,
+            "blank_rate": 0.0,
+            "correct": 48,
+            "count": 50
+          }
+        }
+      },
+      "model_digest": "c92bfad0120556eda311984f1ac2f0d0a589b8d68c4053c13486b526276aa205",
+      "model_id": "openai/minicpm-v:8b",
+      "n_records": 250,
+      "paradigms": {
+        "false_belief": {
+          "accuracy": 0.54,
+          "blank": 0,
+          "blank_rate": 0.0,
+          "correct": 27,
+          "count": 50,
+          "non_stop": 0
+        },
+        "flanker": {
+          "accuracy": 0.5,
+          "blank": 0,
+          "blank_rate": 0.0,
+          "correct": 50,
+          "count": 100,
+          "non_stop": 0
+        },
+        "stroop": {
+          "accuracy": 0.98,
+          "blank": 0,
+          "blank_rate": 0.0,
+          "correct": 98,
+          "count": 100,
+          "non_stop": 0
+        }
+      },
+      "record_counts_by_session": {
+        "08fa84dae633e8a602d466e6": 250
+      },
+      "serving_sessions": {
+        "08fa84dae633e8a602d466e6": {
+          "node": "c03",
+          "sha256": "783ef5f497b52b2c8d33d35a7ce618d3c00c64e3949e85b4a16528cc7020e05a",
+          "slurm_job_id": "8870",
+          "source_revision": "76fce6076e64fd7a90bea32b5e94c0ab5c09fd72"
+        }
+      },
+      "session_ids": [
+        "08fa84dae633e8a602d466e6"
+      ],
+      "usage": {
+        "false_belief": {
+          "max_completion_tokens": 3,
+          "max_prompt_tokens": 387,
+          "min_prompt_tokens": 387
+        },
+        "flanker": {
+          "max_completion_tokens": 2,
+          "max_prompt_tokens": 236,
+          "min_prompt_tokens": 236
+        },
+        "stroop": {
+          "max_completion_tokens": 2,
+          "max_prompt_tokens": 115,
+          "min_prompt_tokens": 115
+        }
+      }
+    },
+    "openai/moondream:1.8b": {
+      "conditions": {
+        "flanker": {
+          "congruent": {
+            "accuracy": 0.0,
+            "blank": 50,
+            "blank_rate": 1.0,
+            "correct": 0,
+            "count": 50
+          },
+          "incongruent": {
+            "accuracy": 0.0,
+            "blank": 50,
+            "blank_rate": 1.0,
+            "correct": 0,
+            "count": 50
+          }
+        },
+        "stroop": {
+          "congruent": {
+            "accuracy": 0.1,
+            "blank": 39,
+            "blank_rate": 0.78,
+            "correct": 5,
+            "count": 50
+          },
+          "incongruent": {
+            "accuracy": 0.08,
+            "blank": 46,
+            "blank_rate": 0.92,
+            "correct": 4,
+            "count": 50
+          }
+        }
+      },
+      "model_digest": "55fc3abd386771e5b5d1bbcc732f3c3f4df6e9f9f08f1131f9cc27ba2d1eec5b",
+      "model_id": "openai/moondream:1.8b",
+      "n_records": 250,
+      "paradigms": {
+        "false_belief": {
+          "accuracy": 0.0,
+          "blank": 0,
+          "blank_rate": 0.0,
+          "correct": 0,
+          "count": 50,
+          "non_stop": 0
+        },
+        "flanker": {
+          "accuracy": 0.0,
+          "blank": 100,
+          "blank_rate": 1.0,
+          "correct": 0,
+          "count": 100,
+          "non_stop": 0
+        },
+        "stroop": {
+          "accuracy": 0.09,
+          "blank": 85,
+          "blank_rate": 0.85,
+          "correct": 9,
+          "count": 100,
+          "non_stop": 0
+        }
+      },
+      "record_counts_by_session": {
+        "dea59f3927812ca396fb2f01": 250
+      },
+      "serving_sessions": {
+        "dea59f3927812ca396fb2f01": {
+          "node": "c03",
+          "sha256": "d50835a33f6c6e5f81a2a08b0bb72786ddfd1f51c80291903e3c49e1e00c0a78",
+          "slurm_job_id": "8875",
+          "source_revision": "76fce6076e64fd7a90bea32b5e94c0ab5c09fd72"
+        }
+      },
+      "session_ids": [
+        "dea59f3927812ca396fb2f01"
+      ],
+      "usage": {
+        "false_belief": {
+          "max_completion_tokens": 215,
+          "max_prompt_tokens": 789,
+          "min_prompt_tokens": 789
+        },
+        "flanker": {
+          "max_completion_tokens": 1,
+          "max_prompt_tokens": 769,
+          "min_prompt_tokens": 769
+        },
+        "stroop": {
+          "max_completion_tokens": 70,
+          "max_prompt_tokens": 780,
+          "min_prompt_tokens": 780
+        }
+      }
+    },
+    "openai/qwen2.5vl:7b": {
+      "conditions": {
+        "flanker": {
+          "congruent": {
+            "accuracy": 1.0,
+            "blank": 0,
+            "blank_rate": 0.0,
+            "correct": 50,
+            "count": 50
+          },
+          "incongruent": {
+            "accuracy": 1.0,
+            "blank": 0,
+            "blank_rate": 0.0,
+            "correct": 50,
+            "count": 50
+          }
+        },
+        "stroop": {
+          "congruent": {
+            "accuracy": 1.0,
+            "blank": 0,
+            "blank_rate": 0.0,
+            "correct": 50,
+            "count": 50
+          },
+          "incongruent": {
+            "accuracy": 0.84,
+            "blank": 0,
+            "blank_rate": 0.0,
+            "correct": 42,
+            "count": 50
+          }
+        }
+      },
+      "model_digest": "5ced39dfa4bac325dc183dd1e4febaa1c46b3ea28bce48896c8e69c1e79611cc",
+      "model_id": "openai/qwen2.5vl:7b",
+      "n_records": 250,
+      "paradigms": {
+        "false_belief": {
+          "accuracy": 0.66,
+          "blank": 0,
+          "blank_rate": 0.0,
+          "correct": 33,
+          "count": 50,
+          "non_stop": 0
+        },
+        "flanker": {
+          "accuracy": 1.0,
+          "blank": 0,
+          "blank_rate": 0.0,
+          "correct": 100,
+          "count": 100,
+          "non_stop": 0
+        },
+        "stroop": {
+          "accuracy": 0.92,
+          "blank": 0,
+          "blank_rate": 0.0,
+          "correct": 92,
+          "count": 100,
+          "non_stop": 0
+        }
+      },
+      "record_counts_by_session": {
+        "93cefc6077496ee907af38b1": 250
+      },
+      "serving_sessions": {
+        "93cefc6077496ee907af38b1": {
+          "node": "c03",
+          "sha256": "4fd5997b9c168f86fe8ef99154b44f03a99dfe3d21e2c3d5050639acc4477308",
+          "slurm_job_id": "8872",
+          "source_revision": "76fce6076e64fd7a90bea32b5e94c0ab5c09fd72"
+        }
+      },
+      "session_ids": [
+        "93cefc6077496ee907af38b1"
+      ],
+      "usage": {
+        "false_belief": {
+          "max_completion_tokens": 3,
+          "max_prompt_tokens": 1005,
+          "min_prompt_tokens": 1005
+        },
+        "flanker": {
+          "max_completion_tokens": 2,
+          "max_prompt_tokens": 123,
+          "min_prompt_tokens": 123
+        },
+        "stroop": {
+          "max_completion_tokens": 2,
+          "max_prompt_tokens": 132,
+          "min_prompt_tokens": 132
+        }
+      }
+    }
+  },
+  "record_count": 1500,
+  "schema_version": 1,
+  "scorer_id": "paradigm-label-parser-v1",
+  "scoring_contract_sha256": "f356d3ec81fa79a6cf9b1451c2fc1aa934fc6ad1d76de36d4e048766308d054d"
+}

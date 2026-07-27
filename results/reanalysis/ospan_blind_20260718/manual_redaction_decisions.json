@@ -1,0 +1,77 @@
+{
+ "spec": "per-blind_id/line human MASK-KEEP decisions; authoritative over the rule engine (build_ospan_blind_package.py applies them last). Line indices refer to the RAW unmasked text. Recorded by the redaction auditor (non-annotator); the seven cases named in the 2026-07-18 sixth re-verification round are pinned here even where the fixed rules now agree, so rule drift cannot silently change them.",
+ "decisions": {
+  "b0038": {
+   "4": {"action": "mask", "reason": "Usage worked example restates a presented letter"},
+   "7": {"action": "mask", "reason": "instructional example embeds the full presented sequence and its compact form"}
+  },
+  "b0054": {
+   "0": {"action": "keep", "reason": "sole claimed recall sequence of the response (recall-attempt voice); masking would flip sequence to echo=0 and move the primary estimand"}
+  },
+  "b0070": {
+   "9": {"action": "mask", "reason": "per-trial plural letter-presentation echo"},
+   "13": {"action": "mask", "reason": "per-trial plural letter-presentation echo"}
+  },
+  "b0147": {
+   "2": {"action": "keep", "reason": "claimed recall sequence with per-item provenance (claim voice)"}
+  },
+  "b0283": {
+   "49": {"action": "mask", "reason": "imperative instruction-voice restatement of letters to remember"},
+   "71": {"action": "mask", "reason": "imperative instruction-voice restatement of letters to remember"}
+  },
+  "b0288": {
+   "2": {"action": "mask", "reason": "per-trial plural letter-presentation echo"},
+   "6": {"action": "mask", "reason": "per-trial plural letter-presentation echo"}
+  },
+  "b0417": {
+   "9": {"action": "mask", "reason": "per-trial plural letter-presentation echo"},
+   "12": {"action": "mask", "reason": "per-trial plural letter-presentation echo"}
+  },
+  "b0104": {
+   "2": {"action": "mask", "reason": "Sample Response teaching example with letters"}
+  },
+  "b0161": {
+   "88": {"action": "keep", "reason": "final gerund self-narration claim (LHE), the conflicting last candidate the annotator must see against the earlier LHEER claims"}
+  },
+  "b0167": {
+   "2": {"action": "keep", "reason": "first-person summary claim (I correctly remembered the letters ...)"}
+  },
+  "b0365": {
+   "8": {"action": "mask", "reason": "teaching bullet quoting transcript instruction via e.g."},
+   "9": {"action": "mask", "reason": "teaching bullet quoting the letter-presentation instruction via e.g."},
+   "10": {"action": "mask", "reason": "teaching bullet quoting the recall instruction with a gold-bearing sequence via e.g."}
+  },
+  "b0384": {
+   "0": {"action": "mask", "reason": "instructional intro restating required letters from the given material"}
+  },
+  "b0218": {
+   "1": {"action": "mask", "reason": "articleless per-trial echo (remember letter: S) leaking gold"},
+   "2": {"action": "mask", "reason": "articleless per-trial echo (remember letter: V) leaking gold"},
+   "3": {"action": "mask", "reason": "articleless per-trial echo (remember letter: H) leaking gold"}
+  },
+  "b0268": {
+   "2": {"action": "keep", "reason": "model's own 'correct order of the letters is ...' claim with mnemonic gloss; the echo scaffold before the colon carries no letter"},
+   "4": {"action": "keep", "reason": "model's own 'correct answer' claim; masking would remove annotation candidates"}
+  },
+  "b0278": {
+   "1": {"action": "keep", "reason": "final self-correction 'the correct answer is X Z Y' supersedes the earlier candidate per protocol; annotator must see it"}
+  },
+  "b0102": {
+   "10": {"action": "mask", "reason": "task-explanation scaffold ('Remembering the letter: The letter \"C\" ...') restating a presented letter; not a recall claim"}
+  },
+  "b0150": {
+   "0": {"action": "mask", "reason": "instruction-voice walk-through ('using the given material, you need to remember the letter H') whose arithmetic 'correct answer is YES/NO' tail is not a letter claim"},
+   "2": {"action": "mask", "reason": "instruction-voice walk-through restating a presented letter; arithmetic tail is not a letter claim"},
+   "4": {"action": "mask", "reason": "instruction-voice walk-through restating a presented letter; arithmetic tail is not a letter claim"},
+   "6": {"action": "mask", "reason": "instruction-voice walk-through restating a presented letter; arithmetic tail is not a letter claim"},
+   "8": {"action": "mask", "reason": "instruction-voice walk-through restating a presented letter; arithmetic tail is not a letter claim"},
+   "10": {"action": "mask", "reason": "instruction-voice walk-through restating a presented letter; arithmetic tail is not a letter claim"},
+   "12": {"action": "mask", "reason": "instruction-voice walk-through restating a presented letter; arithmetic tail is not a letter claim"},
+   "14": {"action": "mask", "reason": "instruction-voice walk-through restating a presented letter; arithmetic tail is not a letter claim"}
+  },
+  "b0425": {
+   "0": {"action": "keep", "reason": "per-item first-person-style recall claim ('remembered letter is J'), same class as b0113/b0135"},
+   "1": {"action": "keep", "reason": "per-item recall claim ('remembered letter is B'), same class as b0113/b0135"}
+  }
+ }
+}

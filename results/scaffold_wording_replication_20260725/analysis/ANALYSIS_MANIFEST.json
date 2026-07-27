@@ -1,0 +1,63 @@
+{
+  "analyzer_sha256": "400db81a59bcd91e59154ed2a1f1811477801fd04f995bf8c9de1c13aaea487f",
+  "completed_at": "2026-07-26T04:30:46.634840+00:00",
+  "confirmatory_gate_pass": false,
+  "exact_mapping_permutations": 120,
+  "execution_guard_sha256": {
+    "falcon3:10b": "fc9515ab8d4d0311fdb6b3008e3e531caf3cdaa74cc427df375cb2343dc16697",
+    "falcon3:7b": "055aa3ba18a8b41004b9612ef79651574809a0e618fbc853e6617fcc63afda84",
+    "gemma2:2b": "7bc2f5a557626343e8879a258ca5fab289730c5caaa4543e7d12f06389d21ccd",
+    "gemma2:9b": "e8454401034cdd0f93fe08a76d2c34c7d75d76c6c592a37e941e1b9b740b40a9",
+    "gemma3:12b": "8ff6794b1172365d7f3c491bf4b0a069bf67c7dd65f665a508acf8eb66bb1d82",
+    "gemma3:27b": "15bb32a51bdbc2716e442ee8a1f465609aa71f8256272bb5afbfc55b83cf2440",
+    "llama2:13b": "4ee0f9c1a183070f48af19f23c9fbf238ec9e3ee331a1afd65673ac80be32aaf",
+    "llama2:7b": "5ef7e8c63ff4ed443802c776c9cc8974ccc55d421336f40c98d24d206e6518f8",
+    "olmo2:13b": "2ac01bd795ca05d6b77b9012b7964d5b8d0a8211dfef8244dd9b0e3b8b088c61",
+    "olmo2:7b": "81d27c84657bb1ef04a6bcce8cfa25841c97aeae0d374985b964a2292ad8a45a",
+    "qwen2.5:14b": "15c47349be614a77fcae3cf4d4f3b87c1db2d8d102769cc59fa4bee776424fa7",
+    "qwen2.5:3b": "76431b0f9a42110a626cda587aef1c58d86caecd6958eaae158afd62cbac26fd"
+  },
+  "formal_item_manifest_sha256": "795ba14db8baa96564dc92e5bafe5c6a91a8ddf3c483d3a40c6e616df72ccea7",
+  "formal_run_manifest_sha256": "ef5d97cad53510f8a9f1d2449535b80eedf1b0b3aab2d4e26ec2d404ffef7c4e",
+  "launcher_sha256": "6529fc9e8c99de3c9496e2ec761b33c9b07f9ddfb225f6018236aebb1be2d877",
+  "model_manifest_sha256": {
+    "falcon3:10b": "ecd0a5234ed85b904a07546cc27f26675062a84bd3a46c2e57d72cf6eac6125f",
+    "falcon3:7b": "b32a6f71f480c9a3074e024c0ef8e3a1511e3e6688bdb164c754e327fe13dfbb",
+    "gemma2:2b": "8d6f142da8d6f88f79841ab11bbab2d91f6ae87c698b04ca78d55902dc92d96b",
+    "gemma2:9b": "87c8aa2a761e337f6e6883ffc56d1912c3906730df335be6ec1fc3f40d8b213b",
+    "gemma3:12b": "9e809d1eabc7605ced4b7f8dcc993cff931f223ca8ca97ee0374e89bb7e8e7ee",
+    "gemma3:27b": "c292c1097ab48e0d45e249928871f9807c7aeb3fae7cfed15139955a7c8588ef",
+    "llama2:13b": "c58205726c92dd4d7bf553b132738e62c7d4bd8ed66acfff3128ae5d9de47ac8",
+    "llama2:7b": "74ad91305f5e0284051e865d874827a1bb111f131276e9c67b7c92d9898a39df",
+    "olmo2:13b": "e5286394041710c278a386f8b21497d52835d17033611c6dd773d44b7512e9ab",
+    "olmo2:7b": "a8fdc979ccfd15dc62903537fe8c1c0aa50ad1d5264ecdb8617ea0b2518586d6",
+    "qwen2.5:14b": "1f62aeb83ed30c56189bf181bf206c9c01147c6185379160b53a4025c1fe4f48",
+    "qwen2.5:3b": "8e6826f0a5f48025f457d9f602eabdd0484d6609b374c98e95496379affe206f"
+  },
+  "n_bootstrap": 20000,
+  "numeric_runtime": {
+    "numpy": "2.4.3",
+    "platform": "Linux-6.12.0-124.55.3.el10_1.x86_64-x86_64-with-glibc2.39",
+    "python": "3.13.12",
+    "quantile_method": "numpy.quantile default linear"
+  },
+  "outputs_sha256": {
+    "analysis_results.json": "e346ba7d279d435def731e0fff7a734dad26589cce3e81891ede0fdee2b92f5c"
+  },
+  "raw_content_emitted": false,
+  "ridge_lambda_fixed": 1.0,
+  "schema_version": "cogarena.causal_selectivity.analysis_manifest.v2",
+  "seeds": {
+    "difficulty_crossed_bootstrap": {
+      "easy": 4201,
+      "hard": 4203,
+      "medium": 4202
+    },
+    "difficulty_interaction_crossed_bootstrap": 4204,
+    "main_canonical_and_format_sensitivity_crossed_bootstraps": 42
+  },
+  "source_revision": "a07798f31af846ad2603683b969cb01f372aff1d",
+  "spec_sha256": "045ff1668616b85f1425bad7aa146f29a1aff2fd63271809cb856ce9be0c4144",
+  "status": "complete",
+  "study_id": "scaffold_wording_replication_20260725"
+}

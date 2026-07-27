@@ -1,0 +1,801 @@
+{
+  "confirmatory_gate": {
+    "components": {
+      "at_least_four_of_six_family_gamma_positive": true,
+      "each_condition_task_record_invalid_rate_le_0_01": true,
+      "empty_exclusion_preserves_at_least_half_gamma_and_three_items_per_cell": false,
+      "exact_mapping_one_sided_p_le_0_05": true,
+      "family_lofo_selective_delta_log_likelihood_gt_zero": false,
+      "gamma_family_item_ci_lower_gt_zero": true,
+      "ospan_parse_exclusion_preserves_at_least_half_gamma_and_three_items_per_cell": false,
+      "protocol_invalid_exclusion_preserves_at_least_half_gamma_and_three_items_per_cell": true,
+      "response_length_adjustment_preserves_at_least_half_gamma": true
+    },
+    "numeric_thresholds": {
+      "gamma_ci_lower_strictly_above": 0.0,
+      "maximum_exact_mapping_one_sided_p": 0.05,
+      "maximum_formal_condition_task_record_invalid_rate": 0.01,
+      "minimum_positive_families": 4,
+      "minimum_sensitivity_gamma_preservation_ratio": 0.5,
+      "minimum_sensitivity_items_per_cell": 3,
+      "predictive_delta_log_likelihood_strictly_above": 0.0
+    },
+    "pass": false,
+    "rule": "all 9 frozen booleans must be true; no analyst override"
+  },
+  "dimensions": {
+    "checkpoints_per_family": 2,
+    "conditions": 7,
+    "families": 6,
+    "items_per_paradigm": 18,
+    "models": 12,
+    "paradigms": 13,
+    "records": 19656
+  },
+  "estimand": "per-item targeted-minus-placebo paired gain; item mean within model/intervention/paradigm; equal paradigm means for matched minus nonmatched S_j; equal five-intervention mean Gamma",
+  "postfreeze_reporting_amendment": {
+    "analysis_revision": "3f318e9f083a0d616acc9244f70de0142c9a303c",
+    "artifact_sha256": "ed663bf5765191680d3959bd8ee5e4619f18ac5243a9016009b37fafd9ec5deb",
+    "effect_aggregate_inspection_before_freeze": false,
+    "failed_analysis_job_id": "7148",
+    "failed_analysis_log_sha256": "e6a614fc8f3266f456eb0c6e079d88bb633d114b12e6ba60ed93348a9d4f8d82",
+    "frozen_analyzer_sha256": "400db81a59bcd91e59154ed2a1f1811477801fd04f995bf8c9de1c13aaea487f",
+    "scope": "Reporting and fail-closed estimability handling only. The closed 19,656-record raw run, frozen analyzer, primary estimand, secondary estimands, bootstrap seeds, thresholds, and all estimable sensitivity calculations remain unchanged.",
+    "status": "applied"
+  },
+  "predictive_family_lofo": {
+    "delta_log_likelihood": -0.904384917578227,
+    "delta_mean_log_likelihood_per_record": -6.44148801693894e-05,
+    "families_improved": 2,
+    "global_log_likelihood": -3855.2206270836455,
+    "method": "six-fold leave-one-family-out soft-Bernoulli ridge logistic; lambda=1 fixed; train-only placebo-accuracy standardization; global=placebo+additive intervention+paradigm+difficulty; selective adds five frozen diagonal interactions",
+    "per_family": [
+      {
+        "delta_log_likelihood": 1.163191744458345,
+        "family": "qwen2.5",
+        "global_log_likelihood": -563.341073664325,
+        "n_test_records": 2340,
+        "selective_log_likelihood": -562.1778819198666
+      },
+      {
+        "delta_log_likelihood": -0.5020699100751926,
+        "family": "gemma2",
+        "global_log_likelihood": -545.8198199424945,
+        "n_test_records": 2340,
+        "selective_log_likelihood": -546.3218898525697
+      },
+      {
+        "delta_log_likelihood": -1.4204147359529316,
+        "family": "llama2",
+        "global_log_likelihood": -959.9003764316586,
+        "n_test_records": 2340,
+        "selective_log_likelihood": -961.3207911676116
+      },
+      {
+        "delta_log_likelihood": 1.5983002386307135,
+        "family": "gemma3",
+        "global_log_likelihood": -409.60052565256296,
+        "n_test_records": 2340,
+        "selective_log_likelihood": -408.00222541393225
+      },
+      {
+        "delta_log_likelihood": -0.3229588812505426,
+        "family": "falcon3",
+        "global_log_likelihood": -687.1223364058635,
+        "n_test_records": 2340,
+        "selective_log_likelihood": -687.445295287114
+      },
+      {
+        "delta_log_likelihood": -1.420433373388505,
+        "family": "olmo2",
+        "global_log_likelihood": -689.4364949867409,
+        "n_test_records": 2340,
+        "selective_log_likelihood": -690.8569283601294
+      }
+    ],
+    "ridge_lambda": 1.0,
+    "selective_log_likelihood": -3856.1250120012237,
+    "solver_iterations_total": {
+      "global": 43,
+      "selective": 43
+    }
+  },
+  "primary": {
+    "bootstrap": {
+      "descriptive_bootstrap_sign_tail_fraction_two_sided": 0.0118,
+      "gamma_ci95": [
+        0.004130992411382345,
+        0.036002861914782705
+      ],
+      "n_bootstrap": 20000,
+      "s_ci95": [
+        [
+          0.005487891920193995,
+          0.08986373572530865
+        ],
+        [
+          -0.041444088100749565,
+          0.0492967299658289
+        ],
+        [
+          -0.01241996174125514,
+          0.08602177510471773
+        ],
+        [
+          -0.01160021051286677,
+          0.06975128056357212
+        ],
+        [
+          -0.048737615966209714,
+          0.03225794890873011
+        ]
+      ],
+      "seed": 42
+    },
+    "exact_mapping_permutation": {
+      "gamma_null_mean": -0.0012142790016567797,
+      "gamma_null_quantiles": [
+        -0.015520885956122065,
+        -0.012317509328403076,
+        -0.001977703209342098,
+        0.012469901079912868,
+        0.02101565424750147
+      ],
+      "gamma_p_one": 0.016666666666666666,
+      "gamma_p_two": 0.016666666666666666,
+      "n_exact_mappings": 120,
+      "s_distinct_group_assignments_each": 5,
+      "s_exact_p_resolution": 0.2,
+      "s_p_two": [
+        0.2,
+        0.6,
+        0.2,
+        0.4,
+        0.6
+      ],
+      "s_p_two_bh": [
+        0.5,
+        0.6,
+        0.5,
+        0.6,
+        0.6
+      ],
+      "tie_rule": "inclusive with absolute tolerance 1e-15",
+      "two_sided_rule": "distance from the exact permutation-null mean, not distance from zero"
+    },
+    "families_positive": 5,
+    "family_consistency_gate_at_least_4_of_6": true,
+    "family_gamma": {
+      "falcon3": 0.036243542608625945,
+      "gemma2": -0.0006656547218213886,
+      "gemma3": 0.02092061163219497,
+      "llama2": 0.04471703427128427,
+      "olmo2": 0.0007013392255892264,
+      "qwen2.5": 0.0176040892656726
+    },
+    "gamma": 0.019920160380257602,
+    "intervention_by_group_gain_matrix": [
+      {
+        "group_mean_gain": {
+          "cognitive_control": -0.0015432098765432098,
+          "episodic_memory": 0.014855761316872428,
+          "metacognition": -0.006944444444444444,
+          "theory_of_mind": -0.009259259259259259,
+          "working_memory": 0.045572916666666664
+        },
+        "intervention": "working_memory_ledger",
+        "target_group": "working_memory"
+      },
+      {
+        "group_mean_gain": {
+          "cognitive_control": 0.0030864197530864196,
+          "episodic_memory": 0.0020736037624926496,
+          "metacognition": 0.0,
+          "theory_of_mind": -0.011574074074074073,
+          "working_memory": 0.003259112286890064
+        },
+        "intervention": "control_rule_rehearsal",
+        "target_group": "cognitive_control"
+      },
+      {
+        "group_mean_gain": {
+          "cognitive_control": 0.009259259259259259,
+          "episodic_memory": 0.04641715902410346,
+          "metacognition": -0.004629629629629629,
+          "theory_of_mind": 0.016203703703703703,
+          "working_memory": 0.03489629262198706
+        },
+        "intervention": "episodic_source_binding",
+        "target_group": "episodic_memory"
+      },
+      {
+        "group_mean_gain": {
+          "cognitive_control": 0.0030864197530864196,
+          "episodic_memory": 0.004449426807760141,
+          "metacognition": -0.023148148148148147,
+          "theory_of_mind": 0.02546296296296296,
+          "working_memory": 0.006931584362139917
+        },
+        "intervention": "belief_state_ledger",
+        "target_group": "theory_of_mind"
+      },
+      {
+        "group_mean_gain": {
+          "cognitive_control": -0.010802469135802469,
+          "episodic_memory": -0.0066997721928277465,
+          "metacognition": -0.018518518518518517,
+          "theory_of_mind": -0.016203703703703703,
+          "working_memory": -0.019054967666078778
+        },
+        "intervention": "metacognitive_forecast",
+        "target_group": "metacognition"
+      }
+    ],
+    "interventions": [
+      {
+        "all_paradigm_mean_gain": 0.011096076685660018,
+        "bootstrap_ci95": [
+          0.005487891920193995,
+          0.08986373572530865
+        ],
+        "intervention": "working_memory_ledger",
+        "mapping_p_two": 0.2,
+        "mapping_p_two_bh": 0.5,
+        "matched_mean_gain": 0.045572916666666664,
+        "nonmatched_mean_gain": 0.000753024691358025,
+        "s": 0.04481989197530865,
+        "target_group": "working_memory"
+      },
+      {
+        "all_paradigm_mean_gain": 0.0001622507122507114,
+        "bootstrap_ci95": [
+          -0.041444088100749565,
+          0.0492967299658289
+        ],
+        "intervention": "control_rule_rehearsal",
+        "mapping_p_two": 0.6,
+        "mapping_p_two_bh": 0.6,
+        "matched_mean_gain": 0.0030864197530864196,
+        "nonmatched_mean_gain": -0.0007150000000000007,
+        "s": 0.00380141975308642,
+        "target_group": "cognitive_control"
+      },
+      {
+        "all_paradigm_mean_gain": 0.022682021604938266,
+        "bootstrap_ci95": [
+          -0.01241996174125514,
+          0.08602177510471773
+        ],
+        "intervention": "episodic_source_binding",
+        "mapping_p_two": 0.2,
+        "mapping_p_two_bh": 0.5,
+        "matched_mean_gain": 0.04641715902410346,
+        "nonmatched_mean_gain": 0.015561480379188714,
+        "s": 0.030855678644914755,
+        "target_group": "episodic_memory"
+      },
+      {
+        "all_paradigm_mean_gain": 0.0036947632614299283,
+        "bootstrap_ci95": [
+          -0.01160021051286677,
+          0.06975128056357212
+        ],
+        "intervention": "belief_state_ledger",
+        "mapping_p_two": 0.4,
+        "mapping_p_two_bh": 0.6,
+        "matched_mean_gain": 0.02546296296296296,
+        "nonmatched_mean_gain": -0.00026309122975789643,
+        "s": 0.025726054192720865,
+        "target_group": "theory_of_mind"
+      },
+      {
+        "all_paradigm_mean_gain": -0.013778159340659337,
+        "bootstrap_ci95": [
+          -0.048737615966209714,
+          0.03225794890873011
+        ],
+        "intervention": "metacognitive_forecast",
+        "mapping_p_two": 0.6,
+        "mapping_p_two_bh": 0.6,
+        "matched_mean_gain": -0.018518518518518517,
+        "nonmatched_mean_gain": -0.01291627585377585,
+        "s": -0.005602242664742665,
+        "target_group": "metacognition"
+      }
+    ]
+  },
+  "schema_version": "cogarena.causal_selectivity.analysis.v3",
+  "secondary": {
+    "canonical_whitespace_ospan_scoring": {
+      "bootstrap": {
+        "descriptive_bootstrap_sign_tail_fraction_two_sided": 0.0106,
+        "gamma_ci95": [
+          0.004313913237033029,
+          0.03563514222248943
+        ],
+        "n_bootstrap": 20000,
+        "s_ci95": [
+          [
+            0.008874013852145795,
+            0.0939661601998824
+          ],
+          [
+            -0.04310266278108466,
+            0.046905813023589
+          ],
+          [
+            -0.013779742522780716,
+            0.08512185603137863
+          ],
+          [
+            -0.012495156500521083,
+            0.06810009031285064
+          ],
+          [
+            -0.04983068109167068,
+            0.030123490385000746
+          ]
+        ],
+        "seed": 42
+      },
+      "exact_mapping_permutation": {
+        "gamma_null_mean": -0.0013399804606915719,
+        "gamma_null_quantiles": [
+          -0.01548895286863342,
+          -0.01229370314487467,
+          -0.002188180041152262,
+          0.01237136612721125,
+          0.02091704914889637
+        ],
+        "gamma_p_one": 0.016666666666666666,
+        "gamma_p_two": 0.016666666666666666,
+        "n_exact_mappings": 120,
+        "s_distinct_group_assignments_each": 5,
+        "s_exact_p_resolution": 0.2,
+        "s_p_two": [
+          0.2,
+          0.6,
+          0.2,
+          0.4,
+          0.4
+        ],
+        "s_p_two_bh": [
+          0.5,
+          0.6,
+          0.5,
+          0.5,
+          0.5
+        ],
+        "tie_rule": "inclusive with absolute tolerance 1e-15",
+        "two_sided_rule": "distance from the exact permutation-null mean, not distance from zero"
+      },
+      "gamma": 0.01982115444791834,
+      "s": [
+        0.04922906305114638,
+        0.0023023015873015864,
+        0.029995890285126395,
+        0.02452355299021966,
+        -0.006945035674202342
+      ]
+    },
+    "condition_pc1_share": {
+      "conditions": [
+        {
+          "condition": "baseline",
+          "delta_vs_neutral_placebo": 0.05751403555593282,
+          "invariant_paradigms": [],
+          "pc1_share": 0.6331744859264765
+        },
+        {
+          "condition": "neutral_placebo",
+          "delta_vs_neutral_placebo": 0.0,
+          "invariant_paradigms": [],
+          "pc1_share": 0.5756604503705437
+        },
+        {
+          "condition": "working_memory_ledger",
+          "delta_vs_neutral_placebo": 0.03497112223985055,
+          "invariant_paradigms": [],
+          "pc1_share": 0.6106315726103942
+        },
+        {
+          "condition": "control_rule_rehearsal",
+          "delta_vs_neutral_placebo": 0.09237861252479918,
+          "invariant_paradigms": [],
+          "pc1_share": 0.6680390628953429
+        },
+        {
+          "condition": "episodic_source_binding",
+          "delta_vs_neutral_placebo": 0.025557236664800254,
+          "invariant_paradigms": [],
+          "pc1_share": 0.601217687035344
+        },
+        {
+          "condition": "belief_state_ledger",
+          "delta_vs_neutral_placebo": 0.018956673267612523,
+          "invariant_paradigms": [],
+          "pc1_share": 0.5946171236381562
+        },
+        {
+          "condition": "metacognitive_forecast",
+          "delta_vs_neutral_placebo": 0.04758140702376945,
+          "invariant_paradigms": [],
+          "pc1_share": 0.6232418573943131
+        }
+      ],
+      "method": "item-mean 12-model x 13-paradigm matrix per condition; paradigm-wise population-z scores; invariant columns set to zero; SVD squared-singular-value share"
+    },
+    "difficulty_interaction": {
+      "bootstrap": {
+        "contrast": "hard_minus_easy",
+        "delta_gamma_ci95": [
+          -0.02594763769440436,
+          0.028331735419171823
+        ],
+        "delta_s_ci95": [
+          [
+            -0.0459928564814815,
+            0.10011677816358006
+          ],
+          [
+            -0.11537091393849207,
+            0.05624251909722222
+          ],
+          [
+            -0.09513125082671958,
+            0.032215930197310415
+          ],
+          [
+            -0.05294251525673401,
+            0.11525045770202018
+          ],
+          [
+            -0.09587425054112556,
+            0.10244961707852308
+          ]
+        ],
+        "n_bootstrap": 20000,
+        "seed": 4204
+      },
+      "contrast": "hard_minus_easy",
+      "delta_gamma": -9.506796135962461e-05,
+      "delta_s": [
+        0.028253935185185187,
+        -0.03618843253968254,
+        -0.03220542879188711,
+        0.03530563973063973,
+        0.004358946608946609
+      ]
+    },
+    "operation_span_math_process_metric": {
+      "interventions": [
+        {
+          "intervention": "working_memory_ledger",
+          "neutral_placebo_mean_math_accuracy": 0.5446538800705467,
+          "paired_gain": -0.027876984126984132,
+          "target_group": "working_memory",
+          "target_mean_math_accuracy": 0.5167768959435626
+        },
+        {
+          "intervention": "control_rule_rehearsal",
+          "neutral_placebo_mean_math_accuracy": 0.5446538800705467,
+          "paired_gain": 0.008167989417989416,
+          "target_group": "cognitive_control",
+          "target_mean_math_accuracy": 0.5528218694885361
+        },
+        {
+          "intervention": "episodic_source_binding",
+          "neutral_placebo_mean_math_accuracy": 0.5446538800705467,
+          "paired_gain": -0.027535273368606703,
+          "target_group": "episodic_memory",
+          "target_mean_math_accuracy": 0.51711860670194
+        },
+        {
+          "intervention": "belief_state_ledger",
+          "neutral_placebo_mean_math_accuracy": 0.5446538800705467,
+          "paired_gain": -0.021230158730158735,
+          "target_group": "theory_of_mind",
+          "target_mean_math_accuracy": 0.5234237213403881
+        },
+        {
+          "intervention": "metacognitive_forecast",
+          "neutral_placebo_mean_math_accuracy": 0.5446538800705467,
+          "paired_gain": -0.013888888888888888,
+          "target_group": "metacognition",
+          "target_mean_math_accuracy": 0.5307649911816578
+        }
+      ],
+      "status": "descriptive_only_not_part_of_gamma_or_success_gate"
+    }
+  },
+  "sensitivities": {
+    "difficulty_stratified": {
+      "easy": {
+        "bootstrap": {
+          "descriptive_bootstrap_sign_tail_fraction_two_sided": 0.1764,
+          "gamma_ci95": [
+            -0.0068847918560606056,
+            0.044007006299102105
+          ],
+          "n_bootstrap": 20000,
+          "s_ci95": [
+            [
+              -0.029973486111111107,
+              0.09972566358024693
+            ],
+            [
+              -0.05923603935185185,
+              0.09024510995370355
+            ],
+            [
+              0.004478373842592598,
+              0.09881040316358022
+            ],
+            [
+              -0.05587659617003367,
+              0.05252220328282813
+            ],
+            [
+              -0.06762450968013467,
+              0.04576593539562282
+            ]
+          ],
+          "seed": 4201
+        },
+        "gamma": 0.017172615319865317,
+        "s": [
+          0.03179016975308642,
+          0.021371574074074074,
+          0.04571635802469135,
+          -0.005723569023569023,
+          -0.007291456228956227
+        ]
+      },
+      "hard": {
+        "bootstrap": {
+          "descriptive_bootstrap_sign_tail_fraction_two_sided": 0.1357,
+          "gamma_ci95": [
+            -0.0057431757395382515,
+            0.039619402988215445
+          ],
+          "n_bootstrap": 20000,
+          "s_ci95": [
+            [
+              0.0152512538580247,
+              0.11406375733024685
+            ],
+            [
+              -0.06175176752645503,
+              0.03373286805555553
+            ],
+            [
+              -0.048699332010582005,
+              0.09349513888888879
+            ],
+            [
+              -0.03541708491161615,
+              0.09455344696969696
+            ],
+            [
+              -0.09037765519781145,
+              0.06596483525733518
+            ]
+          ],
+          "seed": 4203
+        },
+        "gamma": 0.017077547358505692,
+        "s": [
+          0.06004410493827161,
+          -0.014816858465608469,
+          0.013510929232804239,
+          0.02958207070707071,
+          -0.0029325096200096177
+        ]
+      },
+      "medium": {
+        "bootstrap": {
+          "descriptive_bootstrap_sign_tail_fraction_two_sided": 0.0039,
+          "gamma_ci95": [
+            0.009226884870530697,
+            0.04271424408269193
+          ],
+          "n_bootstrap": 20000,
+          "s_ci95": [
+            [
+              -0.016871147100970006,
+              0.10834375462962942
+            ],
+            [
+              -0.07098429712301588,
+              0.07993960019841258
+            ],
+            [
+              -0.024949442791005284,
+              0.10284642030423273
+            ],
+            [
+              -0.0010858737674362651,
+              0.12567141188672432
+            ],
+            [
+              -0.05901686132154882,
+              0.03960027852934093
+            ]
+          ],
+          "seed": 4202
+        },
+        "gamma": 0.025510318462401795,
+        "s": [
+          0.0426254012345679,
+          0.0048495436507936494,
+          0.03333974867724867,
+          0.05331966089466089,
+          -0.006582762145262145
+        ]
+      }
+    },
+    "exclude_ospan_pair_if_target_or_placebo_parse_none": {
+      "bootstrap": null,
+      "estimable": false,
+      "excluded_pairs": 262,
+      "failure_reason": "OSpan parse-none paired exclusion left at least one frozen model-by-intervention OSpan cell empty",
+      "gamma": null,
+      "minimum_ospan_items_per_model_intervention": 0,
+      "preservation_ratio_vs_primary": null,
+      "s": null
+    },
+    "exclude_pair_if_either_response_empty": {
+      "bootstrap": null,
+      "estimable": false,
+      "excluded_pairs": 855,
+      "failure_reason": "empty-response paired exclusion left at least one frozen model-by-intervention-by-paradigm cell empty",
+      "gamma": null,
+      "minimum_items_per_model_intervention_paradigm": 0,
+      "preservation_ratio_vs_primary": null,
+      "response_unit": "only responses consumed by the primary scorer; OSpan recall, CVLT designated recall turns, all n-back turns",
+      "s": null
+    },
+    "exclude_pair_if_either_task_record_protocol_invalid": {
+      "bootstrap": {
+        "descriptive_bootstrap_sign_tail_fraction_two_sided": 0.0108,
+        "gamma_ci95": [
+          0.004224829906201126,
+          0.03555188095681946
+        ],
+        "n_bootstrap": 20000,
+        "s_ci95": [
+          [
+            0.0026798653862147113,
+            0.0887629689447254
+          ],
+          [
+            -0.04217658180301226,
+            0.047425997502046166
+          ],
+          [
+            -0.0030804496908146384,
+            0.09027528571672613
+          ],
+          [
+            -0.012720411445292191,
+            0.06660952708585902
+          ],
+          [
+            -0.050540883754668926,
+            0.02956689486105021
+          ]
+        ],
+        "seed": 42
+      },
+      "estimable": true,
+      "excluded_pairs": 56,
+      "gamma": 0.019647803161949404,
+      "minimum_items_per_model_intervention_paradigm": 14,
+      "preservation_ratio_vs_primary": 0.9863275589599105,
+      "response_unit": "complete task record; a length completion or exhausted terminal-metadata fault in any logical call invalidates that record",
+      "s": [
+        0.0425739650119307,
+        0.002750244255109451,
+        0.037117577506311165,
+        0.023713372473568556,
+        -0.007916143437172849
+      ]
+    },
+    "exclude_pair_if_either_task_record_recovered_terminal_metadata_fault_exposed": {
+      "estimable": true,
+      "excluded_pairs": 0,
+      "exposure_unit": "complete task record; exposed when any ultimately valid logical call had at least one preceding HTTP-200 terminal-metadata-fault attempt; request-error-only retries are not exposed",
+      "gamma": 0.019920160380257602,
+      "minimum_items_per_model_intervention_paradigm": 18,
+      "preservation_ratio_vs_primary": 1.0,
+      "s": [
+        0.04481989197530865,
+        0.00380141975308642,
+        0.030855678644914755,
+        0.025726054192720865,
+        -0.005602242664742665
+      ],
+      "status": "prespecified_descriptive_sensitivity_not_a_confirmatory_gate"
+    },
+    "protocol_invalid_completion_policy": {
+      "condition_recovered_terminal_metadata_fault_task_record_rates": {
+        "baseline": 0.0,
+        "belief_state_ledger": 0.0,
+        "control_rule_rehearsal": 0.0,
+        "episodic_source_binding": 0.0,
+        "metacognitive_forecast": 0.0,
+        "neutral_placebo": 0.0,
+        "working_memory_ledger": 0.0
+      },
+      "condition_task_record_rates": {
+        "baseline": 0.0014245014245014246,
+        "belief_state_ledger": 0.003917378917378918,
+        "control_rule_rehearsal": 0.003205128205128205,
+        "episodic_source_binding": 0.0035612535612535613,
+        "metacognitive_forecast": 0.003917378917378918,
+        "neutral_placebo": 0.0017806267806267807,
+        "working_memory_ledger": 0.003917378917378918
+      },
+      "confirmatory_rate_threshold": 0.01,
+      "maximum_condition_task_record_rate": 0.003917378917378918,
+      "observed_invalid_logical_call_count": 62,
+      "observed_invalid_task_record_count": 61,
+      "observed_length_call_count": 61,
+      "observed_recovered_terminal_metadata_fault_logical_call_count": 0,
+      "observed_recovered_terminal_metadata_fault_task_record_count": 0,
+      "observed_transport_incomplete_call_count": 1,
+      "rule": "length completions are persisted once; listed terminal/usage-metadata faults retry the same canonical request-payload SHA-256 three total times; either qualifying exhausted failure invalidates the complete task record and receives primary accuracy zero"
+    },
+    "response_character_length_adjustment": {
+      "bootstrap": {
+        "descriptive_bootstrap_sign_tail_fraction_two_sided": 0.0039,
+        "gamma_ci95": [
+          0.005677941634826706,
+          0.031096318632441968
+        ],
+        "n_bootstrap": 20000,
+        "s_ci95": [
+          [
+            0.005447862870017625,
+            0.1049989572990757
+          ],
+          [
+            -0.036574393934411,
+            0.0452125349549271
+          ],
+          [
+            -0.0028052842558787825,
+            0.07273842070958578
+          ],
+          [
+            -0.026812214294829072,
+            0.05605407957396968
+          ],
+          [
+            -0.038501601912897435,
+            0.021862186839989764
+          ]
+        ],
+        "seed": 42
+      },
+      "estimable": true,
+      "excluded_protocol_invalid_pairs": 56,
+      "failure_reason": null,
+      "gamma": 0.018469274488837176,
+      "length_slope": 0.1260410539279645,
+      "length_slope_identifiable": true,
+      "mean_log_length_difference": 0.0002541618170612454,
+      "method": "descriptive OLS nuisance adjustment of paired gain by log1p target-minus-placebo primary-scoring response characters, with additive model/intervention/paradigm/difficulty fixed effects; pairs with either task record protocol-invalid are excluded before fitting and estimation; no tuning",
+      "minimum_items_per_model_intervention_paradigm": 14,
+      "preservation_ratio_vs_primary": 0.9271649492913538,
+      "protocol_invalid_pair_rule": "exclude paired target-placebo observation if either complete task record contains a length completion or an exhausted terminal-metadata fault",
+      "s": [
+        0.04955621531401447,
+        0.004441217764920723,
+        0.031215312879247406,
+        0.013656851445891708,
+        -0.006523224959888429
+      ]
+    }
+  }
+}
