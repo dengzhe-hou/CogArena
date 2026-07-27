@@ -4,13 +4,16 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "cogarena"
-version = "0.1.0"
+version = "1.0.0"
 description = "A benchmark of 13 cognitive-science paradigms for evaluating LLMs and agents"
 readme = "README.md"
 license = {text = "MIT"}
 requires-python = ">=3.10"
 authors = [
-    {name = "The CogArena Authors"},
+    {name = "Dengzhe Hou"},
+    {name = "Lingyu Jiang"},
+    {name = "Fangzhou Lin"},
+    {name = "Kazunori D. Yamada"},
 ]
 keywords = ["llm", "benchmark", "cognitive-science", "evaluation", "psychometrics"]
 dependencies = [

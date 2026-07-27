@@ -1,6 +1,6 @@
 """CogArena: Extensible Cognitive Evaluation Platform for LLMs and Agents."""
 
-__version__ = "0.1.0"
+__version__ = "1.0.0"
 
 from .core import (
     AdaptationDistance,
