@@ -1,0 +1,49 @@
+{
+  "schema_version": "cogarena.causal_selectivity.exploratory_spec.v1",
+  "study_id": "causal_selectivity_20260720",
+  "status": "post_hoc_exploratory_authored_after_primary_outcome_inspection",
+  "confirmatory_role": "none",
+  "scope": "Aggregate-only robustness analyses of the already closed 19,656-record formal run. No model inference, rescoring, imputation, rerun, primary-estimand change, threshold change, or confirmatory-gate override is permitted.",
+  "analyses": [
+    {
+      "id": "leave_one_paradigm_out",
+      "method": "Recompute the frozen equal-item, equal-paradigm, equal-model Gamma after omitting each of the 13 paradigms in turn. Each theoretical group retains at least one matched paradigm. Report all 13 values and their range; do not select exclusions."
+    },
+    {
+      "id": "family_paradigm_item_bootstrap",
+      "method": "Exploratory three-level bootstrap: resample six model families with replacement while retaining both checkpoints, resample paradigms with replacement within each of the five frozen theoretical groups while retaining original stratum sizes, then resample 18 items within each sampled paradigm. Recompute Gamma with equal sampled-paradigm weighting. This changes the target from the fixed battery to the observed paradigm strata and is weak with only two or three paradigms per stratum."
+    },
+    {
+      "id": "observable_response_validity_and_accuracy_contributions",
+      "method": "Define observable evaluability as protocol-valid and nonempty, plus a non-none strict parse for operation span. Compute Gamma on the target-minus-placebo evaluability indicator. Partition every primary paired accuracy gain into four mutually exclusive observed evaluability strata (both evaluable, target only, placebo only, neither); apply the frozen linear estimator to each contribution and verify that their Gammas and S values sum exactly to the primary estimates. This is a descriptive score-contribution identity, not mediation or counterfactual attribution, and cannot detect unobserved parse failures outside operation span."
+    },
+    {
+      "id": "neutral_placebo_vs_baseline",
+      "method": "On the identical held-out items, report neutral-placebo minus baseline primary accuracy, observable evaluability, and log1p response-character differences, with equal model/paradigm/item weighting; report paradigm, grouping, and family summaries plus family-by-item bootstrap intervals."
+    },
+    {
+      "id": "small_g_family_inference",
+      "method": "Average the two checkpoints within each of six frozen families. Report all family Gammas, leave-one-family-out Gamma values, the exact binomial sign test, and an exact 2^6 family sign-flip test. State the assumptions and coarse attainable resolution; do not use asymptotic cluster-robust claims."
+    }
+  ],
+  "bootstrap": {
+    "replicates": 20000,
+    "seeds": {
+      "family_paradigm_item_primary": 5201,
+      "observable_evaluability": 5202,
+      "neutral_placebo_accuracy": 5203,
+      "neutral_placebo_evaluability": 5204,
+      "neutral_placebo_log_response_length": 5205
+    },
+    "quantiles": [0.025, 0.975],
+    "quantile_method": "numpy.quantile default linear"
+  },
+  "interpretation_constraints": [
+    "All outputs are post-hoc and exploratory regardless of p-values or interval endpoints.",
+    "The frozen primary analysis_results.json and its nine-gate FAIL decision remain authoritative and unchanged.",
+    "The paradigm bootstrap is not strong population inference because each theoretical stratum contains only two or three paradigms.",
+    "Observable evaluability is a response-format diagnostic, not a complete measure of semantic parse validity.",
+    "Neutral-placebo comparisons audit the control condition and are not evidence for construct-selective effects.",
+    "With six families, exact family tests have coarse resolution and must be reported alongside every family estimate."
+  ]
+}

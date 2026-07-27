@@ -8,7 +8,9 @@ import random
 from pathlib import Path
 from typing import List, Dict, Any
 
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw
+
+from .font_utils import load_frozen_font
 
 
 WIDTH, HEIGHT = 500, 120
@@ -18,15 +20,7 @@ FONT_SIZE = 55
 
 
 def _get_font(size: int = FONT_SIZE):
-    for path in [
-        "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
-        "/usr/share/fonts/TTF/DejaVuSans-Bold.ttf",
-        "/usr/share/fonts/dejavu-sans-fonts/DejaVuSans-Bold.ttf",
-        "/System/Library/Fonts/Helvetica.ttc",
-    ]:
-        if Path(path).exists():
-            return ImageFont.truetype(path, size)
-    return ImageFont.load_default()
+    return load_frozen_font(size)
 
 
 # Arrow characters
@@ -63,6 +57,12 @@ def generate_flanker_image(
 
     bbox = draw.textbbox((0, 0), display, font=font)
     tw, th = bbox[2] - bbox[0], bbox[3] - bbox[1]
+    if tw < 5 * FONT_SIZE or th < int(0.55 * FONT_SIZE):
+        raise RuntimeError(
+            f"Flanker glyph geometry is too small: {tw}x{th} for size {FONT_SIZE}"
+        )
+    if tw > WIDTH or th > HEIGHT:
+        raise RuntimeError(f"Flanker glyph geometry overflows canvas: {tw}x{th}")
     x = (WIDTH - tw) // 2
     y = (HEIGHT - th) // 2
     draw.text((x, y), display, fill=ARROW_COLOR, font=font)
@@ -128,6 +128,52 @@ def generate_flanker_set(
         })
         idx += 1
 
+    rng.shuffle(trials)
+    return trials
+
+
+def generate_balanced_flanker_set(
+    seed: int = 42,
+    n_per_condition: int = 50,
+    n_flankers: int = 3,
+    out_dir: str = "data/images/flanker_balanced",
+) -> List[Dict[str, Any]]:
+    """Generate an exact target-direction by congruency factorial."""
+
+    if n_per_condition % 2:
+        raise ValueError("n_per_condition must be even")
+    rng = random.Random(seed)
+    out_dir_path = Path(out_dir)
+    prompt = (
+        "Look at the image. There is a row of arrows.\n"
+        "What direction does the CENTER arrow point?\n"
+        "Answer with exactly one word: left or right."
+    )
+    trials: List[Dict[str, Any]] = []
+    index = 0
+    per_direction = n_per_condition // 2
+    for congruent in (True, False):
+        for target in ("left", "right"):
+            flanker = target if congruent else ("right" if target == "left" else "left")
+            for _ in range(per_direction):
+                condition = "cong" if congruent else "incong"
+                image_path = generate_flanker_image(
+                    target,
+                    flanker,
+                    n_flankers,
+                    str(out_dir_path / f"flanker_{condition}_{index:03d}.png"),
+                )
+                trials.append(
+                    {
+                        "image_path": image_path,
+                        "target_dir": target,
+                        "flanker_dir": flanker,
+                        "congruent": congruent,
+                        "expected_response": target,
+                        "stimulus_text": prompt,
+                    }
+                )
+                index += 1
     rng.shuffle(trials)
     return trials
 

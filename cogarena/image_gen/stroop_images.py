@@ -9,7 +9,9 @@ import random
 from pathlib import Path
 from typing import List, Tuple, Dict, Any
 
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw
+
+from .font_utils import load_frozen_font
 
 
 # Color name → RGB
@@ -33,16 +35,8 @@ FONT_SIZE = 60
 
 
 def _get_font(size: int = FONT_SIZE):
-    """Get a font, falling back to default if no TTF available."""
-    for path in [
-        "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
-        "/usr/share/fonts/TTF/DejaVuSans-Bold.ttf",
-        "/usr/share/fonts/dejavu-sans-fonts/DejaVuSans-Bold.ttf",
-        "/System/Library/Fonts/Helvetica.ttc",
-    ]:
-        if Path(path).exists():
-            return ImageFont.truetype(path, size)
-    return ImageFont.load_default()
+    """Load the frozen font and fail rather than rendering tiny fallback text."""
+    return load_frozen_font(size)
 
 
 def generate_stroop_image(
@@ -68,6 +62,12 @@ def generate_stroop_image(
     # Center the text
     bbox = draw.textbbox((0, 0), word, font=font)
     tw, th = bbox[2] - bbox[0], bbox[3] - bbox[1]
+    if tw < 2 * FONT_SIZE or th < int(0.65 * FONT_SIZE):
+        raise RuntimeError(
+            f"Stroop glyph geometry is too small: {tw}x{th} for size {FONT_SIZE}"
+        )
+    if tw > WIDTH or th > HEIGHT:
+        raise RuntimeError(f"Stroop glyph geometry overflows canvas: {tw}x{th}")
     x = (WIDTH - tw) // 2
     y = (HEIGHT - th) // 2
     draw.text((x, y), word, fill=ink_rgb, font=font)
@@ -134,6 +134,85 @@ def generate_stroop_set(
         })
         idx += 1
 
+    rng.shuffle(trials)
+    return trials
+
+
+def generate_balanced_stroop_set(
+    seed: int = 42,
+    n_per_condition: int = 50,
+    out_dir: str = "data/images/stroop_balanced",
+) -> List[Dict[str, Any]]:
+    """Generate matched congruent/incongruent ink-color distributions.
+
+    The same color-count multiset is used in both conditions.  Incongruent
+    word labels are a deterministic derangement of the ink-color multiset, so
+    neither ink-response frequency nor word frequency is condition-confounded.
+    """
+
+    if n_per_condition < len(COLOR_NAMES):
+        raise ValueError("n_per_condition must cover every color")
+    rng = random.Random(seed)
+    color_order = list(COLOR_NAMES)
+    rng.shuffle(color_order)
+    base, remainder = divmod(n_per_condition, len(color_order))
+    counts = {
+        color: base + int(index < remainder)
+        for index, color in enumerate(color_order)
+    }
+    ink_labels = [
+        color for color in color_order for _ in range(counts[color])
+    ]
+    word_labels = list(ink_labels)
+    for _ in range(10000):
+        rng.shuffle(word_labels)
+        if all(word != ink for word, ink in zip(word_labels, ink_labels)):
+            break
+    else:
+        raise RuntimeError("failed to construct a color-label derangement")
+
+    out_dir_path = Path(out_dir)
+    trials: List[Dict[str, Any]] = []
+    prompt = (
+        "Look at the image. A color word is displayed in colored ink.\n"
+        "What color is the INK the word is printed in?\n"
+        "Answer with exactly one word (the ink color, not the word itself)."
+    )
+    for index, ink_color in enumerate(ink_labels):
+        word = ink_color.upper()
+        image_path = generate_stroop_image(
+            word,
+            ink_color,
+            str(out_dir_path / f"stroop_cong_{index:03d}.png"),
+        )
+        trials.append(
+            {
+                "image_path": image_path,
+                "word": word,
+                "ink_color": ink_color,
+                "congruent": True,
+                "expected_response": ink_color,
+                "stimulus_text": prompt,
+            }
+        )
+    for index, (word_color, ink_color) in enumerate(
+        zip(word_labels, ink_labels), start=n_per_condition
+    ):
+        image_path = generate_stroop_image(
+            word_color.upper(),
+            ink_color,
+            str(out_dir_path / f"stroop_incong_{index:03d}.png"),
+        )
+        trials.append(
+            {
+                "image_path": image_path,
+                "word": word_color.upper(),
+                "ink_color": ink_color,
+                "congruent": False,
+                "expected_response": ink_color,
+                "stimulus_text": prompt,
+            }
+        )
     rng.shuffle(trials)
     return trials
 

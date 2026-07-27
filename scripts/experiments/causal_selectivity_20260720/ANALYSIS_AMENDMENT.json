@@ -1,0 +1,24 @@
+{
+  "schema_version": "cogarena.causal_selectivity.analysis_amendment.v1",
+  "study_id": "causal_selectivity_20260720",
+  "status": "frozen_before_effect_inspection",
+  "authored_at": "2026-07-20T11:16:44Z",
+  "formal_raw_source_revision": "4d6c2ff920af5b6ff592b8361e9f5d03eb306da7",
+  "spec_sha256": "8367e0db2e9bd03a4fa3d3dc283b0be955203f938b889550e3a61a7b45b0ff40",
+  "formal_item_manifest_sha256": "0b8a54402104bcb266d06b7ee3c281d225876107e4b41e9c50c51bf8917202a0",
+  "formal_run_manifest_sha256": "ca92d4133add092af27b18bfceb7616e6437993346c749060553bb5de6b04894",
+  "frozen_analyzer_sha256": "400db81a59bcd91e59154ed2a1f1811477801fd04f995bf8c9de1c13aaea487f",
+  "failed_analysis_job_id": "7148",
+  "failed_analysis_log_sha256": "e6a614fc8f3266f456eb0c6e079d88bb633d114b12e6ba60ed93348a9d4f8d82",
+  "incident": "The frozen analyzer aborted before writing any analysis output because the empty-response paired-exclusion sensitivity left at least one model-by-intervention matched/nonmatched contrast unestimable.",
+  "decision_rule": "For any frozen exclusion sensitivity with a zero retained model-by-intervention-by-paradigm cell, report estimable=false, the excluded-pair and minimum-retained-item counts, a machine-readable failure reason, and null gamma, preservation ratio, S values, and bootstrap. Its confirmatory component is false because the frozen rule requires a defined preservation ratio and at least three retained items in every required cell.",
+  "prohibited_repairs": [
+    "do not impute excluded observations",
+    "do not convert empty responses to zero within the exclusion sensitivity",
+    "do not drop models, interventions, paradigms, or families",
+    "do not selectively rerun inference",
+    "do not alter the primary score or any frozen threshold"
+  ],
+  "scope": "Reporting and fail-closed estimability handling only. The closed 19,656-record raw run, frozen analyzer, primary estimand, secondary estimands, bootstrap seeds, thresholds, and all estimable sensitivity calculations remain unchanged.",
+  "effect_aggregate_inspection_before_freeze": false
+}

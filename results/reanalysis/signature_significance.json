@@ -1,6 +1,6 @@
 {
  "task": "P0-3 signature significance",
- "description": "One-sided binomial test (H0: p=0.5, alternative=greater) on per-model directional replication of behavioral signatures, BH-corrected across the 6 paradigms (5 condition-split: stroop, flanker, n-back load, false belief, EPITOME; plus DRM critical-lure vs unrelated false-recognition). Regenerated 2026-06-18 to include DRM, which the manuscript reports but an earlier artifact omitted. Regenerated from corrected scorers (2026-07); DRM uses pooled per-model false-alarm rates; EPITOME moved to the 35-model expansion pool. Regenerated from corrected scorers (2026-07); DRM uses pooled per-model false-alarm rates; EPITOME moved to the 35-model expansion pool.",
+ "description": "Signature significance battery regenerated from the active scorer regime (2026-07); DRM uses pooled per-model false-alarm rates; EPITOME moved to the 35-model expansion pool.",
  "n_models_total": 20,
  "bh_method": "fdr_bh across the 5 paradigms with 20-model per-item records (stroop, flanker, n_back_load, false_belief, drm_false_memory), alpha=0.05; EPITOME is evaluated separately on the 35-model expansion pool",
  "binom_null": "p=0.5, one-sided (alternative='greater')",

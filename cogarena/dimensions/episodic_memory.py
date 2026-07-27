@@ -1460,21 +1460,31 @@ class SourceMonitoringGenerator:
             source_statements: Dict[str, List[str]] = {}
             all_statements: List[Dict[str, str]] = []  # {source, statement}
 
+            # Statements must be unique across the whole episode, not just
+            # within one source: a statement shared by two sources makes the
+            # source-identification probe ambiguous (multiple correct answers).
+            used_statements: Set[str] = set()
             for source in sources:
                 stmts: List[str] = []
                 for _ in range(n_stmts_per):
                     stmt = _generate_statement(ep_rng)
-                    # Ensure no duplicate statements
                     attempts = 0
-                    while stmt in stmts and attempts < 20:
+                    while stmt in used_statements and attempts < 50:
                         stmt = _generate_statement(ep_rng)
                         attempts += 1
+                    used_statements.add(stmt)
                     stmts.append(stmt)
                     all_statements.append({
                         "source": source,
                         "statement": stmt,
                     })
                 source_statements[source] = stmts
+
+            if len({s["statement"] for s in all_statements}) != len(all_statements):
+                raise RuntimeError(
+                    f"source_monitoring episode seed={ep_seed}: statement "
+                    "pool exhausted, duplicate statements across sources"
+                )
 
             # Build study phase text
             study_text = "SOURCE MONITORING TASK\n\n"

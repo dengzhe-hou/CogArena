@@ -1,5 +1,5 @@
 {
- "method": "statsmodels MixedLM: accuracy ~ log10(size) with random intercept (1|family). Fixed-effect log10(size) slope, 95% CI (fe_params +/- 1.96*bse), and Wald p. Compared to paper bootstrap Pearson r and to naive OLS Pearson r on the same 20 points. Sensitivity: within-Qwen2.5 (n=6) and within-Gemma2 (n=3) OLS log10(size) slopes. Regenerated from corrected data (2026-07). Regenerated from corrected data (2026-07).",
+ "method": "statsmodels MixedLM: accuracy ~ log10(size) with random intercept (1|family), maximum likelihood (REML=False; optimizer sequence bfgs/lbfgs/cg), on the 20 primary checkpoints, rebuilt wholesale from the active matrix (primary (COGARENA_PRIMARY_MATRIX)); the 2026-07-03 production Pearson r is kept once under production_naive_pearson_r_20260703.",
  "n_models": 20,
  "models": [
   "command-r:35b",
@@ -42,356 +42,577 @@
   "n_back": {
    "domain": "WM",
    "n": 20,
+   "regime": "primary (COGARENA_PRIMARY_MATRIX)",
+   "pearson_r": 0.1176,
+   "pearson_p": 0.6214,
    "paper_bootstrap_pearson_r": 0.12,
-   "naive_pearson_r": 0.12951091925179453,
-   "naive_pearson_p": 0.5863055552145318,
-   "naive_ols_slope_log10size": 0.05781352693773818,
-   "lmm_fixed_slope_log10size": 0.13116459033950753,
-   "lmm_slope_se": 0.05347757376655589,
+   "lmm_fixed_slope_log10size": 0.1268,
+   "lmm_slope_se": 0.0465,
    "lmm_slope_ci95": [
-    0.026348545757057987,
-    0.2359806349219571
+    0.0357,
+    0.218
    ],
-   "lmm_slope_p": 0.01417874642717999,
-   "lmm_group_intercept_var": 0.08105642910999279,
-   "lmm_resid_var": 0.009267777121214595,
+   "lmm_slope_p": 0.0064,
    "lmm_converged": true,
-   "is_paper_strong_claim": false,
-   "still_strong": false,
-   "naive_ols_pearson_r": 0.1176,
-   "mlm_slope": 0.127,
-   "mlm_p": 0.0064,
+   "lmm_random_intercept_variance": 0.07349423,
+   "lmm_residual_variance": 0.00691792,
+   "lmm_random_intercept_icc": 0.913969,
+   "lmm_log_likelihood": 5.83822042,
+   "lmm_boundary_warning": false,
+   "lmm_warning_messages": [],
+   "lmm_estimation": "maximum likelihood (REML=False)",
+   "lmm_optimizer_sequence": [
+    "bfgs",
+    "lbfgs",
+    "cg"
+   ],
+   "lmm_n_families": 11,
+   "lmm_n_singleton_families": 7,
+   "mlm_slope_step4b": 0.127,
+   "mlm_p_step4b": 0.0064,
    "within_family_ols_slope": {
     "qwen2.5": 0.1,
     "gemma2": 0.1836
-   }
+   },
+   "production_naive_pearson_r_20260703": 0.1176
   },
   "digit_span": {
    "domain": "WM",
    "n": 20,
+   "regime": "primary (COGARENA_PRIMARY_MATRIX)",
+   "pearson_r": 0.6471,
+   "pearson_p": 0.002,
    "paper_bootstrap_pearson_r": 0.65,
-   "naive_pearson_r": 0.5404107552100037,
-   "naive_pearson_p": 0.013894937139913327,
-   "naive_ols_slope_log10size": 0.3106276215628077,
-   "lmm_fixed_slope_log10size": 0.3688619819762279,
-   "lmm_slope_se": 0.0956884770784248,
+   "lmm_fixed_slope_log10size": 0.3609,
+   "lmm_slope_se": 0.089,
    "lmm_slope_ci95": [
-    0.18131256690251527,
-    0.5564113970499405
+    0.1863,
+    0.5354
    ],
-   "lmm_slope_p": 0.00011581418107493152,
-   "lmm_group_intercept_var": 0.06366962597310165,
-   "lmm_resid_var": 0.03528874461500909,
+   "lmm_slope_p": 0.0001,
    "lmm_converged": true,
-   "is_paper_strong_claim": false,
-   "still_strong": false,
-   "naive_ols_pearson_r": 0.6471,
-   "mlm_slope": 0.361,
-   "mlm_p": 0.0001,
+   "lmm_random_intercept_variance": 0.01306274,
+   "lmm_residual_variance": 0.04036275,
+   "lmm_random_intercept_icc": 0.244504,
+   "lmm_log_likelihood": 1.36050233,
+   "lmm_boundary_warning": false,
+   "lmm_warning_messages": [],
+   "lmm_estimation": "maximum likelihood (REML=False)",
+   "lmm_optimizer_sequence": [
+    "bfgs",
+    "lbfgs",
+    "cg"
+   ],
+   "lmm_n_families": 11,
+   "lmm_n_singleton_families": 7,
+   "mlm_slope_step4b": 0.361,
+   "mlm_p_step4b": 0.0001,
    "within_family_ols_slope": {
     "qwen2.5": 0.3402,
     "gemma2": 0.3841
-   }
+   },
+   "production_naive_pearson_r_20260703": 0.6471
   },
   "operation_span": {
    "domain": "WM",
    "n": 20,
-   "paper_bootstrap_pearson_r": 0.34,
-   "naive_pearson_r": 0.2450853644834098,
-   "naive_pearson_p": 0.2976562607892646,
-   "naive_ols_slope_log10size": 0.05674261404783163,
-   "lmm_fixed_slope_log10size": 0.13055940878718858,
-   "lmm_slope_se": 0.06678394600061514,
+   "regime": "primary (COGARENA_PRIMARY_MATRIX)",
+   "pearson_r": 0.2769,
+   "pearson_p": 0.2373,
+   "paper_bootstrap_pearson_r": 0.28,
+   "lmm_fixed_slope_log10size": 0.2498,
+   "lmm_slope_se": 0.105,
    "lmm_slope_ci95": [
-    -0.00033712537401708875,
-    0.26145594294839425
+    0.0441,
+    0.4555
    ],
-   "lmm_slope_p": 0.050588736073476095,
-   "lmm_group_intercept_var": 0.0,
-   "lmm_resid_var": 0.013278187790716685,
+   "lmm_slope_p": 0.0173,
    "lmm_converged": true,
-   "is_paper_strong_claim": false,
-   "still_strong": false,
-   "naive_ols_pearson_r": 0.3391,
-   "mlm_slope": 0.092,
-   "mlm_p": 0.1626,
+   "lmm_random_intercept_variance": 0.05787903,
+   "lmm_residual_variance": 0.03682644,
+   "lmm_random_intercept_icc": 0.611148,
+   "lmm_log_likelihood": -2.13471907,
+   "lmm_boundary_warning": false,
+   "lmm_warning_messages": [],
+   "lmm_estimation": "maximum likelihood (REML=False)",
+   "lmm_optimizer_sequence": [
+    "bfgs",
+    "lbfgs",
+    "cg"
+   ],
+   "lmm_n_families": 11,
+   "lmm_n_singleton_families": 7,
+   "mlm_slope_step4b": 0.25,
+   "mlm_p_step4b": 0.0173,
    "within_family_ols_slope": {
-    "qwen2.5": 0.138,
-    "gemma2": 0.0907
-   }
+    "qwen2.5": 0.3551,
+    "gemma2": 0.1028
+   },
+   "production_naive_pearson_r_20260703": 0.3391
   },
   "stroop": {
    "domain": "Control",
    "n": 20,
+   "regime": "primary (COGARENA_PRIMARY_MATRIX)",
+   "pearson_r": 0.6477,
+   "pearson_p": 0.002,
    "paper_bootstrap_pearson_r": 0.65,
-   "naive_pearson_r": 0.7129901355420227,
-   "naive_pearson_p": 0.0004177971778455865,
-   "naive_ols_slope_log10size": 0.14237302244237998,
-   "lmm_fixed_slope_log10size": 0.15276949692944597,
-   "lmm_slope_se": 0.03155360220723459,
+   "lmm_fixed_slope_log10size": 0.1694,
+   "lmm_slope_se": 0.0386,
    "lmm_slope_ci95": [
-    0.09092443660326617,
-    0.21461455725562578
+    0.0937,
+    0.2451
    ],
-   "lmm_slope_p": 1.2880653255660748e-06,
-   "lmm_group_intercept_var": 0.0,
-   "lmm_resid_var": 0.002964097917825418,
+   "lmm_slope_p": 0.0,
    "lmm_converged": true,
-   "is_paper_strong_claim": true,
-   "still_strong": true,
-   "naive_ols_pearson_r": 0.6477,
-   "mlm_slope": 0.169,
-   "mlm_p": 0.0,
+   "lmm_random_intercept_variance": 0.0081246,
+   "lmm_residual_variance": 0.00621004,
+   "lmm_random_intercept_icc": 0.566781,
+   "lmm_log_likelihood": 16.33643484,
+   "lmm_boundary_warning": true,
+   "lmm_warning_messages": [
+    "The MLE may be on the boundary of the parameter space."
+   ],
+   "lmm_estimation": "maximum likelihood (REML=False)",
+   "lmm_optimizer_sequence": [
+    "bfgs",
+    "lbfgs",
+    "cg"
+   ],
+   "lmm_n_families": 11,
+   "lmm_n_singleton_families": 7,
+   "mlm_slope_step4b": 0.169,
+   "mlm_p_step4b": 0.0,
    "within_family_ols_slope": {
     "qwen2.5": 0.1377,
     "gemma2": 0.1399
-   }
+   },
+   "production_naive_pearson_r_20260703": 0.6477
   },
   "flanker": {
    "domain": "Control",
    "n": 20,
+   "regime": "primary (COGARENA_PRIMARY_MATRIX)",
+   "pearson_r": 0.5502,
+   "pearson_p": 0.0119,
    "paper_bootstrap_pearson_r": 0.55,
-   "naive_pearson_r": 0.5174017434419937,
-   "naive_pearson_p": 0.01947057092027754,
-   "naive_ols_slope_log10size": 0.11834751542659178,
-   "lmm_fixed_slope_log10size": 0.1404773927067192,
-   "lmm_slope_se": 0.04126834762434323,
+   "lmm_fixed_slope_log10size": 0.1141,
+   "lmm_slope_se": 0.0387,
    "lmm_slope_ci95": [
-    0.05959143136300647,
-    0.2213633540504319
+    0.0382,
+    0.19
    ],
-   "lmm_slope_p": 0.0006640712220759216,
-   "lmm_group_intercept_var": 0.009989460346585457,
-   "lmm_resid_var": 0.006514035916754491,
+   "lmm_slope_p": 0.0032,
    "lmm_converged": true,
-   "is_paper_strong_claim": false,
-   "still_strong": false,
-   "naive_ols_pearson_r": 0.5502,
-   "mlm_slope": 0.114,
-   "mlm_p": 0.0032,
+   "lmm_random_intercept_variance": 0.00276158,
+   "lmm_residual_variance": 0.00573271,
+   "lmm_random_intercept_icc": 0.32511,
+   "lmm_log_likelihood": 20.05967784,
+   "lmm_boundary_warning": true,
+   "lmm_warning_messages": [
+    "The MLE may be on the boundary of the parameter space."
+   ],
+   "lmm_estimation": "maximum likelihood (REML=False)",
+   "lmm_optimizer_sequence": [
+    "bfgs",
+    "lbfgs",
+    "cg"
+   ],
+   "lmm_n_families": 11,
+   "lmm_n_singleton_families": 7,
+   "mlm_slope_step4b": 0.114,
+   "mlm_p_step4b": 0.0032,
    "within_family_ols_slope": {
     "qwen2.5": 0.1049,
     "gemma2": 0.2969
-   }
+   },
+   "production_naive_pearson_r_20260703": 0.5502
   },
   "go_nogo": {
    "domain": "Control",
    "n": 20,
+   "regime": "primary (COGARENA_PRIMARY_MATRIX)",
+   "pearson_r": 0.7371,
+   "pearson_p": 0.0002,
    "paper_bootstrap_pearson_r": 0.74,
-   "naive_pearson_r": 0.1177903336322624,
-   "naive_pearson_p": 0.6208942257574839,
-   "naive_ols_slope_log10size": 0.04285907459706287,
-   "lmm_fixed_slope_log10size": 0.12701332530275738,
-   "lmm_slope_se": 0.06169526694885445,
+   "lmm_fixed_slope_log10size": 0.3806,
+   "lmm_slope_se": 0.0829,
    "lmm_slope_ci95": [
-    0.006090602083002661,
-    0.2479360485225121
+    0.218,
+    0.5431
    ],
-   "lmm_slope_p": 0.0395209987417975,
-   "lmm_group_intercept_var": 0.0,
-   "lmm_resid_var": 0.0113317856128177,
+   "lmm_slope_p": 0.0,
    "lmm_converged": true,
-   "is_paper_strong_claim": false,
-   "still_strong": false,
-   "naive_ols_pearson_r": 0.7371,
-   "mlm_slope": 0.381,
-   "mlm_p": 0.0,
+   "lmm_random_intercept_variance": 0.0004277,
+   "lmm_residual_variance": 0.03876642,
+   "lmm_random_intercept_icc": 0.010912,
+   "lmm_log_likelihood": 4.01467713,
+   "lmm_boundary_warning": true,
+   "lmm_warning_messages": [
+    "Maximum Likelihood optimization failed to converge. Check mle_retvals",
+    "Retrying MixedLM optimization with lbfgs",
+    "The MLE may be on the boundary of the parameter space."
+   ],
+   "lmm_estimation": "maximum likelihood (REML=False)",
+   "lmm_optimizer_sequence": [
+    "bfgs",
+    "lbfgs",
+    "cg"
+   ],
+   "lmm_n_families": 11,
+   "lmm_n_singleton_families": 7,
+   "mlm_slope_step4b": 0.381,
+   "mlm_p_step4b": 0.0,
    "within_family_ols_slope": {
     "qwen2.5": 0.5515,
     "gemma2": 0.0185
-   }
+   },
+   "production_naive_pearson_r_20260703": 0.7371
   },
   "cvlt_word_list": {
    "domain": "Episodic",
    "n": 20,
-   "paper_bootstrap_pearson_r": 0.1,
-   "naive_pearson_r": 0.10049122336979197,
-   "naive_pearson_p": 0.6733585930967002,
-   "naive_ols_slope_log10size": 0.03528923628707431,
-   "lmm_fixed_slope_log10size": 0.0888823991836141,
-   "lmm_slope_se": 0.051885236198711424,
+   "regime": "primary (COGARENA_PRIMARY_MATRIX)",
+   "pearson_r": 0.4789,
+   "pearson_p": 0.0327,
+   "paper_bootstrap_pearson_r": 0.48,
+   "lmm_fixed_slope_log10size": 0.124,
+   "lmm_slope_se": 0.0437,
    "lmm_slope_ci95": [
-    -0.012812663765860294,
-    0.1905774621330885
+    0.0383,
+    0.2097
    ],
-   "lmm_slope_p": 0.0867019398776789,
-   "lmm_group_intercept_var": 0.05336648344786906,
-   "lmm_resid_var": 0.008962761054731263,
+   "lmm_slope_p": 0.0046,
    "lmm_converged": true,
-   "is_paper_strong_claim": false,
-   "still_strong": false,
-   "naive_ols_pearson_r": 0.1005,
-   "mlm_slope": 0.089,
-   "mlm_p": 0.0714,
+   "lmm_random_intercept_variance": 0.0083354,
+   "lmm_residual_variance": 0.00830688,
+   "lmm_random_intercept_icc": 0.500857,
+   "lmm_log_likelihood": 14.32616422,
+   "lmm_boundary_warning": true,
+   "lmm_warning_messages": [
+    "The MLE may be on the boundary of the parameter space."
+   ],
+   "lmm_estimation": "maximum likelihood (REML=False)",
+   "lmm_optimizer_sequence": [
+    "bfgs",
+    "lbfgs",
+    "cg"
+   ],
+   "lmm_n_families": 11,
+   "lmm_n_singleton_families": 7,
+   "mlm_slope_step4b": 0.124,
+   "mlm_p_step4b": 0.0046,
    "within_family_ols_slope": {
-    "qwen2.5": 0.1235,
-    "gemma2": 0.0005
-   }
+    "qwen2.5": 0.1246,
+    "gemma2": 0.0012
+   },
+   "production_naive_pearson_r_20260703": 0.1005
   },
   "drm_false_memory": {
    "domain": "Episodic",
    "n": 20,
+   "regime": "primary (COGARENA_PRIMARY_MATRIX)",
+   "pearson_r": 0.6962,
+   "pearson_p": 0.0007,
    "paper_bootstrap_pearson_r": 0.7,
-   "naive_pearson_r": 0.696189198212171,
-   "naive_pearson_p": 0.0006507773430355887,
-   "naive_ols_slope_log10size": 0.38401810571041917,
-   "lmm_fixed_slope_log10size": 0.4084900305643893,
-   "lmm_slope_se": 0.10820290657926082,
+   "lmm_fixed_slope_log10size": 0.3841,
+   "lmm_slope_se": 0.0768,
    "lmm_slope_ci95": [
-    0.1964123336690381,
-    0.6205677274597405
+    0.2335,
+    0.5346
    ],
-   "lmm_slope_p": 0.00015986500468742628,
-   "lmm_group_intercept_var": 0.012184558530149324,
-   "lmm_resid_var": 0.04583059371939966,
-   "lmm_converged": true,
-   "is_paper_strong_claim": true,
-   "still_strong": true,
-   "naive_ols_pearson_r": 0.6962,
-   "mlm_slope": 0.384,
-   "mlm_p": 0.0,
+   "lmm_slope_p": 0.0,
+   "lmm_converged": false,
+   "lmm_random_intercept_variance": 3.492e-05,
+   "lmm_residual_variance": 0.05010861,
+   "lmm_random_intercept_icc": 0.000696,
+   "lmm_log_likelihood": 1.54989117,
+   "lmm_boundary_warning": true,
+   "lmm_warning_messages": [
+    "Maximum Likelihood optimization failed to converge. Check mle_retvals",
+    "Retrying MixedLM optimization with lbfgs",
+    "Retrying MixedLM optimization with cg",
+    "MixedLM optimization failed, trying a different optimizer may help.",
+    "Gradient optimization failed, |grad| = 0.024417",
+    "The MLE may be on the boundary of the parameter space.",
+    "The Hessian matrix at the estimated parameter values is not positive definite."
+   ],
+   "lmm_estimation": "maximum likelihood (REML=False)",
+   "lmm_optimizer_sequence": [
+    "bfgs",
+    "lbfgs",
+    "cg"
+   ],
+   "lmm_n_families": 11,
+   "lmm_n_singleton_families": 7,
+   "mlm_slope_step4b": 0.384,
+   "mlm_p_step4b": 0.0,
    "within_family_ols_slope": {
     "qwen2.5": 0.6005,
     "gemma2": 0.1078
-   }
+   },
+   "production_naive_pearson_r_20260703": 0.6962
   },
   "source_monitoring": {
    "domain": "Episodic",
    "n": 20,
-   "paper_bootstrap_pearson_r": 0.48,
-   "naive_pearson_r": 0.530265980826987,
-   "naive_pearson_p": 0.01616851768243571,
-   "naive_ols_slope_log10size": 0.22322651622974102,
-   "lmm_fixed_slope_log10size": 0.293932390649347,
-   "lmm_slope_se": 0.07065144767822552,
+   "regime": "primary (COGARENA_PRIMARY_MATRIX)",
+   "pearson_r": 0.5431,
+   "pearson_p": 0.0133,
+   "paper_bootstrap_pearson_r": 0.54,
+   "lmm_fixed_slope_log10size": 0.3272,
+   "lmm_slope_se": 0.0666,
    "lmm_slope_ci95": [
-    0.155455553200025,
-    0.432409228098669
+    0.1967,
+    0.4577
    ],
-   "lmm_slope_p": 3.1780673218082664e-05,
-   "lmm_group_intercept_var": 0.03650557316990578,
-   "lmm_resid_var": 0.01705593311384164,
+   "lmm_slope_p": 0.0,
    "lmm_converged": true,
-   "is_paper_strong_claim": false,
-   "still_strong": false,
-   "naive_ols_pearson_r": 0.4793,
-   "mlm_slope": 0.312,
-   "mlm_p": 0.0,
+   "lmm_random_intercept_variance": 0.04000104,
+   "lmm_residual_variance": 0.015573,
+   "lmm_random_intercept_icc": 0.719779,
+   "lmm_log_likelihood": 4.49540766,
+   "lmm_boundary_warning": false,
+   "lmm_warning_messages": [],
+   "lmm_estimation": "maximum likelihood (REML=False)",
+   "lmm_optimizer_sequence": [
+    "bfgs",
+    "lbfgs",
+    "cg"
+   ],
+   "lmm_n_families": 11,
+   "lmm_n_singleton_families": 7,
+   "mlm_slope_step4b": 0.327,
+   "mlm_p_step4b": 0.0,
    "within_family_ols_slope": {
-    "qwen2.5": 0.3371,
-    "gemma2": 0.2388
-   }
+    "qwen2.5": 0.3525,
+    "gemma2": 0.2471
+   },
+   "production_naive_pearson_r_20260703": 0.5431
   },
   "false_belief": {
    "domain": "ToM",
    "n": 20,
+   "regime": "primary (COGARENA_PRIMARY_MATRIX)",
+   "pearson_r": 0.5765,
+   "pearson_p": 0.0078,
    "paper_bootstrap_pearson_r": 0.58,
-   "naive_pearson_r": 0.622211126566581,
-   "naive_pearson_p": 0.0033951174069611254,
-   "naive_ols_slope_log10size": 0.3119716518073151,
-   "lmm_fixed_slope_log10size": 0.3556889106554626,
-   "lmm_slope_se": 0.0722008908672186,
+   "lmm_fixed_slope_log10size": 0.2491,
+   "lmm_slope_se": 0.079,
    "lmm_slope_ci95": [
-    0.21417516455571414,
-    0.497202656755211
+    0.0944,
+    0.4039
    ],
-   "lmm_slope_p": 8.376769364789908e-07,
-   "lmm_group_intercept_var": 0.0,
-   "lmm_resid_var": 0.015519572945033101,
-   "lmm_converged": true,
-   "is_paper_strong_claim": true,
-   "still_strong": true,
-   "naive_ols_pearson_r": 0.5765,
-   "mlm_slope": 0.249,
-   "mlm_p": 0.0016,
+   "lmm_slope_p": 0.0016,
+   "lmm_converged": false,
+   "lmm_random_intercept_variance": 2e-08,
+   "lmm_residual_variance": 0.03988577,
+   "lmm_random_intercept_icc": 1e-06,
+   "lmm_log_likelihood": 3.83857993,
+   "lmm_boundary_warning": true,
+   "lmm_warning_messages": [
+    "Maximum Likelihood optimization failed to converge. Check mle_retvals",
+    "Retrying MixedLM optimization with lbfgs",
+    "Retrying MixedLM optimization with cg",
+    "MixedLM optimization failed, trying a different optimizer may help.",
+    "Gradient optimization failed, |grad| = 0.001467",
+    "The MLE may be on the boundary of the parameter space.",
+    "The Hessian matrix at the estimated parameter values is not positive definite."
+   ],
+   "lmm_estimation": "maximum likelihood (REML=False)",
+   "lmm_optimizer_sequence": [
+    "bfgs",
+    "lbfgs",
+    "cg"
+   ],
+   "lmm_n_families": 11,
+   "lmm_n_singleton_families": 7,
+   "mlm_slope_step4b": 0.249,
+   "mlm_p_step4b": 0.0016,
    "within_family_ols_slope": {
     "qwen2.5": 0.3278,
     "gemma2": 0.2216
-   }
+   },
+   "production_naive_pearson_r_20260703": 0.5765
   },
   "epitome_tom": {
    "domain": "ToM",
    "n": 20,
+   "regime": "primary (COGARENA_PRIMARY_MATRIX)",
+   "pearson_r": 0.705,
+   "pearson_p": 0.0005,
    "paper_bootstrap_pearson_r": 0.7,
-   "naive_pearson_r": 0.7049823546169107,
-   "naive_pearson_p": 0.0005179739540099029,
-   "naive_ols_slope_log10size": 0.28363185204686614,
-   "lmm_fixed_slope_log10size": 0.2818664230659971,
-   "lmm_slope_se": 0.06411309187585339,
+   "lmm_fixed_slope_log10size": 0.293,
+   "lmm_slope_se": 0.0622,
    "lmm_slope_ci95": [
-    0.15620476298932442,
-    0.40752808314266975
+    0.171,
+    0.4149
    ],
-   "lmm_slope_p": 1.1006398769327425e-05,
-   "lmm_group_intercept_var": 0.0,
-   "lmm_resid_var": 0.012237370157072623,
+   "lmm_slope_p": 0.0,
    "lmm_converged": true,
-   "is_paper_strong_claim": true,
-   "still_strong": true,
-   "naive_ols_pearson_r": 0.705,
-   "mlm_slope": 0.293,
-   "mlm_p": 0.0,
+   "lmm_random_intercept_variance": 0.00458584,
+   "lmm_residual_variance": 0.021318,
+   "lmm_random_intercept_icc": 0.177033,
+   "lmm_log_likelihood": 8.40008633,
+   "lmm_boundary_warning": true,
+   "lmm_warning_messages": [
+    "The MLE may be on the boundary of the parameter space."
+   ],
+   "lmm_estimation": "maximum likelihood (REML=False)",
+   "lmm_optimizer_sequence": [
+    "bfgs",
+    "lbfgs",
+    "cg"
+   ],
+   "lmm_n_families": 11,
+   "lmm_n_singleton_families": 7,
+   "mlm_slope_step4b": 0.293,
+   "mlm_p_step4b": 0.0,
    "within_family_ols_slope": {
     "qwen2.5": 0.2286,
     "gemma2": 0.2179
-   }
+   },
+   "production_naive_pearson_r_20260703": 0.705
   },
   "confidence_calibration": {
    "domain": "Meta",
    "n": 20,
+   "regime": "primary (COGARENA_PRIMARY_MATRIX)",
+   "pearson_r": 0.6031,
+   "pearson_p": 0.0049,
    "paper_bootstrap_pearson_r": 0.6,
-   "naive_pearson_r": 0.5790081434556066,
-   "naive_pearson_p": 0.007471920562003838,
-   "naive_ols_slope_log10size": 0.1957077440551793,
-   "lmm_fixed_slope_log10size": 0.1796906908682941,
-   "lmm_slope_se": 0.044706800057819754,
+   "lmm_fixed_slope_log10size": 0.2012,
+   "lmm_slope_se": 0.0422,
    "lmm_slope_ci95": [
-    0.09206536275496738,
-    0.26731601898162083
+    0.1185,
+    0.2839
    ],
-   "lmm_slope_p": 5.836770925484736e-05,
-   "lmm_group_intercept_var": 0.031148773697002845,
-   "lmm_resid_var": 0.0065393570062382625,
+   "lmm_slope_p": 0.0,
    "lmm_converged": true,
-   "is_paper_strong_claim": false,
-   "still_strong": false,
-   "naive_ols_pearson_r": 0.6031,
-   "mlm_slope": 0.201,
-   "mlm_p": 0.0,
+   "lmm_random_intercept_variance": 0.02757971,
+   "lmm_residual_variance": 0.0059523,
+   "lmm_random_intercept_icc": 0.822489,
+   "lmm_log_likelihood": 11.45065598,
+   "lmm_boundary_warning": false,
+   "lmm_warning_messages": [],
+   "lmm_estimation": "maximum likelihood (REML=False)",
+   "lmm_optimizer_sequence": [
+    "bfgs",
+    "lbfgs",
+    "cg"
+   ],
+   "lmm_n_families": 11,
+   "lmm_n_singleton_families": 7,
+   "mlm_slope_step4b": 0.201,
+   "mlm_p_step4b": 0.0,
    "within_family_ols_slope": {
     "qwen2.5": 0.1903,
     "gemma2": 0.0905
-   }
+   },
+   "production_naive_pearson_r_20260703": 0.6031
   },
   "post_decision_wagering": {
    "domain": "Meta",
    "n": 20,
-   "paper_bootstrap_pearson_r": 0.57,
-   "naive_pearson_r": 0.5719151029023767,
-   "naive_pearson_p": 0.008420573626183465,
-   "naive_ols_slope_log10size": 0.2090575869178044,
-   "lmm_fixed_slope_log10size": 0.19822913765985667,
-   "lmm_slope_se": 0.050163536432649536,
+   "regime": "primary (COGARENA_PRIMARY_MATRIX)",
+   "pearson_r": 0.5753,
+   "pearson_p": 0.008,
+   "paper_bootstrap_pearson_r": 0.58,
+   "lmm_fixed_slope_log10size": 0.1989,
+   "lmm_slope_se": 0.0478,
    "lmm_slope_ci95": [
-    0.09990860625186358,
-    0.29654966906784974
+    0.1051,
+    0.2926
    ],
-   "lmm_slope_p": 7.761161950315982e-05,
-   "lmm_group_intercept_var": 0.03286594470782403,
-   "lmm_resid_var": 0.008564103578529684,
+   "lmm_slope_p": 0.0,
    "lmm_converged": true,
-   "is_paper_strong_claim": false,
-   "still_strong": false,
-   "naive_ols_pearson_r": 0.5719,
-   "mlm_slope": 0.198,
-   "mlm_p": 0.0,
+   "lmm_random_intercept_variance": 0.02898114,
+   "lmm_residual_variance": 0.00779136,
+   "lmm_random_intercept_icc": 0.78812,
+   "lmm_log_likelihood": 9.7810137,
+   "lmm_boundary_warning": false,
+   "lmm_warning_messages": [],
+   "lmm_estimation": "maximum likelihood (REML=False)",
+   "lmm_optimizer_sequence": [
+    "bfgs",
+    "lbfgs",
+    "cg"
+   ],
+   "lmm_n_families": 11,
+   "lmm_n_singleton_families": 7,
+   "mlm_slope_step4b": 0.199,
+   "mlm_p_step4b": 0.0,
    "within_family_ols_slope": {
     "qwen2.5": 0.1827,
     "gemma2": 0.0536
-   }
+   },
+   "production_naive_pearson_r_20260703": 0.5753
   }
  },
  "within_family_slopes": {
+  "gemma2": {
+   "models": [
+    "gemma2:27b",
+    "gemma2:2b",
+    "gemma2:9b"
+   ],
+   "n": 3,
+   "regime": "primary (COGARENA_PRIMARY_MATRIX)",
+   "per_paradigm": {
+    "n_back": {
+     "n": 3,
+     "ols_slope_log10size": 0.1836
+    },
+    "digit_span": {
+     "n": 3,
+     "ols_slope_log10size": 0.3841
+    },
+    "operation_span": {
+     "n": 3,
+     "ols_slope_log10size": 0.1028
+    },
+    "stroop": {
+     "n": 3,
+     "ols_slope_log10size": 0.1399
+    },
+    "flanker": {
+     "n": 3,
+     "ols_slope_log10size": 0.2969
+    },
+    "go_nogo": {
+     "n": 3,
+     "ols_slope_log10size": 0.0185
+    },
+    "cvlt_word_list": {
+     "n": 3,
+     "ols_slope_log10size": 0.0012
+    },
+    "drm_false_memory": {
+     "n": 3,
+     "ols_slope_log10size": 0.1078
+    },
+    "source_monitoring": {
+     "n": 3,
+     "ols_slope_log10size": 0.2471
+    },
+    "false_belief": {
+     "n": 3,
+     "ols_slope_log10size": 0.2216
+    },
+    "epitome_tom": {
+     "n": 3,
+     "ols_slope_log10size": 0.2179
+    },
+    "confidence_calibration": {
+     "n": 3,
+     "ols_slope_log10size": 0.0905
+    },
+    "post_decision_wagering": {
+     "n": 3,
+     "ols_slope_log10size": 0.0536
+    }
+   }
+  },
   "qwen2.5": {
    "models": [
     "qwen2.5:0.5b",
@@ -402,174 +623,286 @@
     "qwen2.5:7b"
    ],
    "n": 6,
+   "regime": "primary (COGARENA_PRIMARY_MATRIX)",
    "per_paradigm": {
     "n_back": {
      "n": 6,
-     "ols_slope_log10size": 0.09999824079226782,
-     "pearson_r": 0.5823265930711902,
-     "pearson_p": 0.2252448248946301
+     "ols_slope_log10size": 0.1
     },
     "digit_span": {
      "n": 6,
-     "ols_slope_log10size": 0.3402268806059458,
-     "pearson_r": 0.9443174685781284,
-     "pearson_p": 0.004564493380462299
+     "ols_slope_log10size": 0.3402
     },
     "operation_span": {
      "n": 6,
-     "ols_slope_log10size": 0.13962866797809176,
-     "pearson_r": 0.9016476762715308,
-     "pearson_p": 0.01403407952927932
+     "ols_slope_log10size": 0.3551
     },
     "stroop": {
      "n": 6,
-     "ols_slope_log10size": 0.1376768189125904,
-     "pearson_r": 0.8246584845219485,
-     "pearson_p": 0.043421564071905026
+     "ols_slope_log10size": 0.1377
     },
     "flanker": {
      "n": 6,
-     "ols_slope_log10size": 0.10492539695070714,
-     "pearson_r": 0.8175862400078269,
-     "pearson_p": 0.0468772809004634
+     "ols_slope_log10size": 0.1049
     },
     "go_nogo": {
      "n": 6,
-     "ols_slope_log10size": 0.015046095093234768,
-     "pearson_r": 0.08104275220403159,
-     "pearson_p": 0.8787020131618795
+     "ols_slope_log10size": 0.5515
     },
     "cvlt_word_list": {
      "n": 6,
-     "ols_slope_log10size": 0.12352748825607315,
-     "pearson_r": 0.9387131347903958,
-     "pearson_p": 0.005519020591173771
+     "ols_slope_log10size": 0.1246
     },
     "drm_false_memory": {
      "n": 6,
-     "ols_slope_log10size": 0.6005011710376658,
-     "pearson_r": 0.907044297866092,
-     "pearson_p": 0.012559539763479975
+     "ols_slope_log10size": 0.6005
     },
     "source_monitoring": {
      "n": 6,
-     "ols_slope_log10size": 0.33425175512634925,
-     "pearson_r": 0.8684998449129961,
-     "pearson_p": 0.02480146672164949
+     "ols_slope_log10size": 0.3525
     },
     "false_belief": {
      "n": 6,
-     "ols_slope_log10size": 0.3538157025778311,
-     "pearson_r": 0.8465011025067811,
-     "pearson_p": 0.03353450357598126
+     "ols_slope_log10size": 0.3278
     },
     "epitome_tom": {
      "n": 6,
-     "ols_slope_log10size": 0.22861433144273574,
-     "pearson_r": 0.8998102510459189,
-     "pearson_p": 0.014554127054795704
+     "ols_slope_log10size": 0.2286
     },
     "confidence_calibration": {
      "n": 6,
-     "ols_slope_log10size": 0.16387741345863088,
-     "pearson_r": 0.8242637043848715,
-     "pearson_p": 0.04361121480593873
+     "ols_slope_log10size": 0.1903
     },
     "post_decision_wagering": {
      "n": 6,
-     "ols_slope_log10size": 0.18268411924070485,
-     "pearson_r": 0.8864402009800366,
-     "pearson_p": 0.01861151811488659
-    }
-   }
-  },
-  "gemma2": {
-   "models": [
-    "gemma2:27b",
-    "gemma2:2b",
-    "gemma2:9b"
-   ],
-   "n": 3,
-   "per_paradigm": {
-    "n_back": {
-     "n": 3,
-     "ols_slope_log10size": 0.18354381464440986,
-     "pearson_r": 0.9174717777665169,
-     "pearson_p": 0.2604530268534876
-    },
-    "digit_span": {
-     "n": 3,
-     "ols_slope_log10size": 0.384084512166075,
-     "pearson_r": 0.940223784410694,
-     "pearson_p": 0.22123142116491848
-    },
-    "operation_span": {
-     "n": 3,
-     "ols_slope_log10size": 0.07479648893820699,
-     "pearson_r": 0.9817371572542261,
-     "pearson_p": 0.1218547573255409
-    },
-    "stroop": {
-     "n": 3,
-     "ols_slope_log10size": 0.13985986575208867,
-     "pearson_r": 0.9073345135478649,
-     "pearson_p": 0.27622709542477286
-    },
-    "flanker": {
-     "n": 3,
-     "ols_slope_log10size": 0.29686854857908074,
-     "pearson_r": 0.9190952955091594,
-     "pearson_p": 0.25784248178026054
-    },
-    "go_nogo": {
-     "n": 3,
-     "ols_slope_log10size": 0.4896301957148064,
-     "pearson_r": 0.991442443163937,
-     "pearson_p": 0.08334512691964426
-    },
-    "cvlt_word_list": {
-     "n": 3,
-     "ols_slope_log10size": 0.00048202870125383924,
-     "pearson_r": 0.003566427188726815,
-     "pearson_p": 0.9977295371217745
-    },
-    "drm_false_memory": {
-     "n": 3,
-     "ols_slope_log10size": 0.10778223495427416,
-     "pearson_r": 0.6321909473865877,
-     "pearson_p": 0.5643116414076591
-    },
-    "source_monitoring": {
-     "n": 3,
-     "ols_slope_log10size": 0.23487502263672444,
-     "pearson_r": 0.8876705638867282,
-     "pearson_p": 0.30464472290242234
-    },
-    "false_belief": {
-     "n": 3,
-     "ols_slope_log10size": 0.2215601833696457,
-     "pearson_r": 0.9073345135478648,
-     "pearson_p": 0.27622709542477286
-    },
-    "epitome_tom": {
-     "n": 3,
-     "ols_slope_log10size": 0.2179143746388409,
-     "pearson_r": 0.9616831304989133,
-     "pearson_p": 0.17680181137336076
-    },
-    "confidence_calibration": {
-     "n": 3,
-     "ols_slope_log10size": 0.07203049009114691,
-     "pearson_r": 0.981751683666019,
-     "pearson_p": 0.12180613711350594
-    },
-    "post_decision_wagering": {
-     "n": 3,
-     "ols_slope_log10size": 0.05356714147700963,
-     "pearson_r": 0.994961813181089,
-     "pearson_p": 0.06393148041511518
+     "ols_slope_log10size": 0.1827
     }
    }
   }
- }
+ },
+ "schema_version": "cogarena-scaling-mixedlm-v2",
+ "fit_population": {
+  "n_checkpoints": 20,
+  "n_families": 11,
+  "n_singleton_families": 7,
+  "family_counts": {
+   "command-r": 1,
+   "deepseek-r1": 2,
+   "gemma2": 3,
+   "llama3.1": 1,
+   "llama3.2": 2,
+   "mistral": 1,
+   "mixtral": 1,
+   "phi3": 1,
+   "qwen2.5": 6,
+   "tinyllama": 1,
+   "yi": 1
+  }
+ },
+ "software": {
+  "statsmodels": "0.14.6",
+  "numpy": "2.4.3"
+ },
+ "publication_table": [
+  {
+   "grouping": "WM",
+   "paradigm": "N-back",
+   "paradigm_key": "n_back",
+   "n_checkpoints": 20,
+   "n_families": 11,
+   "fixed_slope_per_log10_parameter": 0.1268215,
+   "fixed_slope_se": 0.04650906,
+   "wald_p": 0.0063949302,
+   "random_intercept_variance": 0.0734942346,
+   "residual_variance": 0.0069179161,
+   "random_intercept_icc": 0.91396927,
+   "converged": true,
+   "boundary_warning": false
+  },
+  {
+   "grouping": "WM",
+   "paradigm": "Digit span",
+   "paradigm_key": "digit_span",
+   "n_checkpoints": 20,
+   "n_families": 11,
+   "fixed_slope_per_log10_parameter": 0.36086828,
+   "fixed_slope_se": 0.08904017,
+   "wald_p": 5.0593e-05,
+   "random_intercept_variance": 0.0130627395,
+   "residual_variance": 0.0403627518,
+   "random_intercept_icc": 0.24450387,
+   "converged": true,
+   "boundary_warning": false
+  },
+  {
+   "grouping": "WM",
+   "paradigm": "Operation span",
+   "paradigm_key": "operation_span",
+   "n_checkpoints": 20,
+   "n_families": 11,
+   "fixed_slope_per_log10_parameter": 0.24980634,
+   "fixed_slope_se": 0.10495923,
+   "wald_p": 0.0173111322,
+   "random_intercept_variance": 0.0578790323,
+   "residual_variance": 0.0368264435,
+   "random_intercept_icc": 0.61114769,
+   "converged": true,
+   "boundary_warning": false
+  },
+  {
+   "grouping": "Control",
+   "paradigm": "Stroop",
+   "paradigm_key": "stroop",
+   "n_checkpoints": 20,
+   "n_families": 11,
+   "fixed_slope_per_log10_parameter": 0.16939372,
+   "fixed_slope_se": 0.0386185,
+   "wald_p": 1.15276e-05,
+   "random_intercept_variance": 0.0081245965,
+   "residual_variance": 0.00621004,
+   "random_intercept_icc": 0.56678078,
+   "converged": true,
+   "boundary_warning": true
+  },
+  {
+   "grouping": "Control",
+   "paradigm": "Flanker",
+   "paradigm_key": "flanker",
+   "n_checkpoints": 20,
+   "n_families": 11,
+   "fixed_slope_per_log10_parameter": 0.11412113,
+   "fixed_slope_se": 0.03873061,
+   "wald_p": 0.0032135538,
+   "random_intercept_variance": 0.0027615793,
+   "residual_variance": 0.0057327054,
+   "random_intercept_icc": 0.32511028,
+   "converged": true,
+   "boundary_warning": true
+  },
+  {
+   "grouping": "Control",
+   "paradigm": "Go/No-Go",
+   "paradigm_key": "go_nogo",
+   "n_checkpoints": 20,
+   "n_families": 11,
+   "fixed_slope_per_log10_parameter": 0.38058194,
+   "fixed_slope_se": 0.08293525,
+   "wald_p": 4.4558e-06,
+   "random_intercept_variance": 0.0004277042,
+   "residual_variance": 0.0387664247,
+   "random_intercept_icc": 0.01091246,
+   "converged": true,
+   "boundary_warning": true
+  },
+  {
+   "grouping": "Episodic",
+   "paradigm": "CVLT",
+   "paradigm_key": "cvlt_word_list",
+   "n_checkpoints": 20,
+   "n_families": 11,
+   "fixed_slope_per_log10_parameter": 0.12399149,
+   "fixed_slope_se": 0.04372334,
+   "wald_p": 0.0045708328,
+   "random_intercept_variance": 0.0083354021,
+   "residual_variance": 0.0083068826,
+   "random_intercept_icc": 0.50085684,
+   "converged": true,
+   "boundary_warning": true
+  },
+  {
+   "grouping": "Episodic",
+   "paradigm": "DRM",
+   "paradigm_key": "drm_false_memory",
+   "n_checkpoints": 20,
+   "n_families": 11,
+   "fixed_slope_per_log10_parameter": 0.38409661,
+   "fixed_slope_se": 0.07681201,
+   "wald_p": 5.719e-07,
+   "random_intercept_variance": 3.49205e-05,
+   "residual_variance": 0.0501086138,
+   "random_intercept_icc": 0.00069641,
+   "converged": false,
+   "boundary_warning": true
+  },
+  {
+   "grouping": "Episodic",
+   "paradigm": "Source monitoring",
+   "paradigm_key": "source_monitoring",
+   "n_checkpoints": 20,
+   "n_families": 11,
+   "fixed_slope_per_log10_parameter": 0.32720789,
+   "fixed_slope_se": 0.06657303,
+   "wald_p": 8.877e-07,
+   "random_intercept_variance": 0.0400010408,
+   "residual_variance": 0.0155729968,
+   "random_intercept_icc": 0.71977928,
+   "converged": true,
+   "boundary_warning": false
+  },
+  {
+   "grouping": "ToM",
+   "paradigm": "False belief",
+   "paradigm_key": "false_belief",
+   "n_checkpoints": 20,
+   "n_families": 11,
+   "fixed_slope_per_log10_parameter": 0.2491411,
+   "fixed_slope_se": 0.07896368,
+   "wald_p": 0.001604236,
+   "random_intercept_variance": 2.02e-08,
+   "residual_variance": 0.0398857738,
+   "random_intercept_icc": 5.1e-07,
+   "converged": false,
+   "boundary_warning": true
+  },
+  {
+   "grouping": "ToM",
+   "paradigm": "EPITOME",
+   "paradigm_key": "epitome_tom",
+   "n_checkpoints": 20,
+   "n_families": 11,
+   "fixed_slope_per_log10_parameter": 0.2929664,
+   "fixed_slope_se": 0.06220344,
+   "wald_p": 2.4795e-06,
+   "random_intercept_variance": 0.0045858438,
+   "residual_variance": 0.0213179969,
+   "random_intercept_icc": 0.17703335,
+   "converged": true,
+   "boundary_warning": true
+  },
+  {
+   "grouping": "Meta",
+   "paradigm": "Calibration",
+   "paradigm_key": "confidence_calibration",
+   "n_checkpoints": 20,
+   "n_families": 11,
+   "fixed_slope_per_log10_parameter": 0.20120049,
+   "fixed_slope_se": 0.04221291,
+   "wald_p": 1.8762e-06,
+   "random_intercept_variance": 0.0275797071,
+   "residual_variance": 0.0059523009,
+   "random_intercept_icc": 0.82248898,
+   "converged": true,
+   "boundary_warning": false
+  },
+  {
+   "grouping": "Meta",
+   "paradigm": "Wagering",
+   "paradigm_key": "post_decision_wagering",
+   "n_checkpoints": 20,
+   "n_families": 11,
+   "fixed_slope_per_log10_parameter": 0.19885046,
+   "fixed_slope_se": 0.0478407,
+   "wald_p": 3.23143e-05,
+   "random_intercept_variance": 0.0289811411,
+   "residual_variance": 0.0077913582,
+   "random_intercept_icc": 0.78811997,
+   "converged": true,
+   "boundary_warning": false
+  }
+ ],
+ "nonconverged_paradigms": [
+  "drm_false_memory",
+  "false_belief"
+ ],
+ "interpretation_guardrail": "Fixed-effect estimates from non-converged fits are diagnostic only. In this run DRM and false belief did not converge; they must not be used to claim that family-random-intercept models preserve the Pearson scaling ordering."
 }

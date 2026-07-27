@@ -18,7 +18,12 @@ data/sanity_items/
 data/verify_fix*/
 
 # --- Paper sources & build artifacts (not part of the code release) ---
-paper/
+# The figure-generation script is the one exception: it is analysis code
+# and ships with the release; everything else under paper/ stays ignored.
+paper/*
+!paper/figures/
+paper/figures/*
+!paper/figures/generate_all.py
 
 # --- Internal project / pipeline notes (not part of the release) ---
 .aris/
@@ -40,3 +45,5 @@ EXPERIMENT_AUDIT*
 .idea/
 .vscode/
 *.swp
+papers/
+ops_private/

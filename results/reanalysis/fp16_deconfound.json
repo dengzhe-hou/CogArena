@@ -10,16 +10,16 @@
  "n_models": 6,
  "static_only": true,
  "per_paradigm": {
-  "pearson_r": 0.781,
+  "pearson_r": 0.779,
   "n_cells": 60,
-  "mean_abs_delta_pp": 6.3
+  "mean_abs_delta_pp": 6.4
  },
  "domain": {
   "pearson_r": 0.808,
   "n_cells": 30,
   "mean_abs_delta_pp": 5.8
  },
- "note": "fp16 re-run of single-turn battery vs default-quant (Q4); re-aggregated from per-item details.json (the inline aggregate undercounts dict-scored paradigms). Each cell is [Q4, fp16] per-paradigm continuous-mean accuracy. 'domain' = the 5 theory groupings; no systematic precision reordering. Regenerated from corrected scorers + go_nogo rerun (2026-07). Regenerated from corrected scorers + go_nogo rerun (2026-07).",
+ "note": "fp16 deconfound regenerated from the active scorer regime + go_nogo rerun (2026-07); fp16 configs keep the historical per-item path by design.",
  "table_q4_vs_fp16": {
   "gemma2:9b": {
    "digit_span": [
@@ -43,7 +43,7 @@
     0.9535
    ],
    "source_monitoring": [
-    0.9855,
+    0.993,
     0.984
    ],
    "false_belief": [
@@ -85,7 +85,7 @@
     0.9796
    ],
    "source_monitoring": [
-    0.9315,
+    0.9403,
     0.929
    ],
    "false_belief": [
@@ -127,7 +127,7 @@
     0.7531
    ],
    "source_monitoring": [
-    0.7669,
+    0.7647,
     0.5638
    ],
    "false_belief": [
@@ -169,7 +169,7 @@
     0.2299
    ],
    "source_monitoring": [
-    0.2644,
+    0.2609,
     0.2748
    ],
    "false_belief": [
@@ -211,7 +211,7 @@
     0.9743
    ],
    "source_monitoring": [
-    0.6384,
+    0.6558,
     0.2917
    ],
    "false_belief": [
@@ -253,7 +253,7 @@
     0.9352
    ],
    "source_monitoring": [
-    0.9015,
+    0.9023,
     0.876
    ],
    "false_belief": [

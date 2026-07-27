@@ -1,14 +1,13 @@
 {
- "confidence_calibration": 0.966,
- "digit_span": 0.98,
- "drm_false_memory": 0.994,
- "epitome_tom": 0.982,
- "false_belief": 0.968,
- "flanker": 0.783,
- "go_nogo": 0.994,
- "post_decision_wagering": 0.966,
- "source_monitoring": 0.986,
- "stroop": 0.968,
- "mean": 0.956,
- "mean_note": "mean over single-turn paradigms EXCLUDING epitome_tom, whose 20-model per-item records are a forced-choice rerun placeholder"
+  "confidence_calibration": 0.965,
+  "digit_span": 0.98,
+  "drm_false_memory": 0.994,
+  "false_belief": 0.968,
+  "flanker": 0.781,
+  "go_nogo": 0.994,
+  "post_decision_wagering": 0.965,
+  "source_monitoring": 0.984,
+  "stroop": 0.969,
+  "mean": 0.956,
+  "mean_note": "mean over the nine single-turn paradigms with real per-item records; epitome_tom excluded because its details.json per-item records are forced-choice-rerun placeholders, not measurements"
 }

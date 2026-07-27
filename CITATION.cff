@@ -1,12 +1,26 @@
 cff-version: 1.2.0
 message: "If you use CogArena, please cite the paper below."
-title: "CogArena: Cognitive-Science Paradigms Reveal Broad Competence, Not Separable Cognitive Domains in LLMs"
+title: "CogArena: A Multimethod Evaluation of Cognitive Ability Structure in Large Language Models"
 authors:
-  - name: "Anonymous"
+  - family-names: "Hou"
+    given-names: "Dengzhe"
+  - family-names: "Jiang"
+    given-names: "Lingyu"
+  - family-names: "Lin"
+    given-names: "Fangzhou"
+  - family-names: "Yamada"
+    given-names: "Kazunori D"
 year: 2026
 preferred-citation:
   type: article
-  title: "CogArena: Cognitive-Science Paradigms Reveal Broad Competence, Not Separable Cognitive Domains in LLMs"
+  title: "CogArena: A Multimethod Evaluation of Cognitive Ability Structure in Large Language Models"
   authors:
-    - name: "Anonymous"
+    - family-names: "Hou"
+      given-names: "Dengzhe"
+    - family-names: "Jiang"
+      given-names: "Lingyu"
+    - family-names: "Lin"
+      given-names: "Fangzhou"
+    - family-names: "Yamada"
+      given-names: "Kazunori D"
   year: 2026

@@ -19,6 +19,11 @@ Usage:
     python scripts/run_contamination_test.py --model openai/qwen2.5:7b
 """
 
+# This is an executable experiment driver.  Its ``test_*`` functions are
+# paradigm runners, not pytest tests; keep repository-wide pytest discovery
+# from treating their runtime arguments as fixtures.
+__test__ = False
+
 import argparse
 import json
 import os

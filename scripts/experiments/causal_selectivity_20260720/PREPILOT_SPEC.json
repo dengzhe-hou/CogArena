@@ -1,0 +1,297 @@
+{
+  "schema_version": "cogarena.causal_selectivity.spec.v2",
+  "study_id": "causal_selectivity_20260720",
+  "status": "formal_frozen_after_pilot",
+  "frozen_at": "2026-07-20T04:59:48Z",
+  "pilot_gate_manifest_sha256": "eadfc1c52eab95a40f40d8fcba965f6d6b83d2982e2d27061d0ed60c42cf55c1",
+  "capacity_gate_manifest_sha256": "91d2b50bef88e7004f9ef76ffcbd37895b54f89c46e6f8d998f69716ac700e4f",
+  "authored_on": "2026-07-20",
+  "repository_base_revision": "590462cc9195925bcbf31c01607ea963281a5dea",
+  "purpose": "Test whether construct-targeted, answer-free scaffolds produce selective gains beyond a length-matched placebo and a global competence gain.",
+  "novelty_boundary": {
+    "borrowed_from_cogbench": "Use programmatically generated cognitive experiments, distinguish task performance from behaviorally meaningful metrics, respect nested model lineages, and treat prompt interventions as hypotheses rather than benchmark-wide score inflation.",
+    "distinct_contribution": "CogBench phenotypes models and demonstrates task-specific prompt effects. This experiment instead estimates a pre-specified 5 intervention x 5 theory-group selectivity matrix on identical held-out items, subtracts a length-matched neutral intervention, and asks with family-blocked inference whether intervention gains have diagonal structure beyond a global gain.",
+    "nonclaim": "A positive scaffold effect alone is not evidence for a separable ability; only selective matched-over-nonmatched transfer that passes all frozen family, placebo, mapping-permutation, predictive, parser, and response-format gates supports that interpretation."
+  },
+  "scope": {
+    "formal_items_per_paradigm": 18,
+    "formal_items_per_difficulty": 6,
+    "pilot_items_per_paradigm": 3,
+    "pilot_items_per_difficulty": 1,
+    "n_paradigms": 13,
+    "n_conditions": 7,
+    "formal_task_records_per_model": 1638,
+    "formal_task_records_total": 19656,
+    "temperature": 0,
+    "max_completion_tokens": 512,
+    "served_context_tokens": 4096,
+    "reasoning_effort": "none",
+    "response_terminator": "<END_COGARENA_RESPONSE>",
+    "response_format_policy": {
+      "single_line": {
+        "paradigms": ["digit_span", "n_back", "operation_span", "stroop", "flanker", "go_nogo", "cvlt_word_list", "false_belief", "epitome_tom"],
+        "stop_sequences": ["\n", "<END_COGARENA_RESPONSE>"]
+      },
+      "multiline": {
+        "paradigms": ["drm_false_memory", "source_monitoring", "confidence_calibration", "post_decision_wagering"],
+        "stop_sequences": ["\n\n", "<END_COGARENA_RESPONSE>"]
+      }
+    }
+  },
+  "response_format_overrides": {
+    "cvlt_word_list": "Return the complete requested list on one line, separating entries with commas. Do not use line breaks or add an explanation."
+  },
+  "item_generation": {
+    "formal_seed": 2026072001,
+    "pilot_seed": 2026072002,
+    "include_contamination_probes": false,
+    "formal_pool_n_per_paradigm": {
+      "working_memory": 36,
+      "cognitive_control": 180,
+      "episodic_memory": 36,
+      "theory_of_mind": 48,
+      "metacognition": 36
+    },
+    "pilot_pool_n_per_paradigm": {
+      "working_memory": 36,
+      "cognitive_control": 180,
+      "episodic_memory": 36,
+      "theory_of_mind": 48,
+      "metacognition": 36
+    },
+    "formal_strata": {
+      "default": "six deterministically selected items per difficulty",
+      "digit_span": "two forward, two backward, and two sequencing items per difficulty",
+      "stroop": "three congruent and three incongruent items per difficulty",
+      "flanker": "three congruent and three incongruent items per difficulty",
+      "go_nogo": "five go and one no-go item per difficulty, preserving a rare no-go event",
+      "false_belief": "three first-order and three second-order items per difficulty",
+      "epitome_tom": "six items per difficulty with capacity quotas rotated so totals differ by at most one"
+    },
+    "pilot_exclusion_rule": "Pilot model IDs are disjoint from the formal panel. Pilot task IDs, complete item fingerprints, and complete presented-stimulus hashes (top-level stimulus plus every presented turn) must be disjoint from the formal manifest. The builder fails closed otherwise."
+  },
+  "grouping": {
+    "working_memory": ["digit_span", "n_back", "operation_span"],
+    "cognitive_control": ["stroop", "flanker", "go_nogo"],
+    "episodic_memory": ["cvlt_word_list", "drm_false_memory", "source_monitoring"],
+    "theory_of_mind": ["false_belief", "epitome_tom"],
+    "metacognition": ["confidence_calibration", "post_decision_wagering"]
+  },
+  "system_base": "You are taking a cognitive evaluation. Follow the instructions precisely. Give only the requested answer, nothing else. Do not reveal hidden reasoning or add explanations.",
+  "transport_instruction": "After completing the entire requested answer, append exactly <END_COGARENA_RESPONSE> on a new final line. This delimiter is transport framing, not part of the answer. Do not emit it until every requested answer line or field is complete, and emit nothing after it.",
+  "conditions": [
+    {
+      "id": "baseline",
+      "kind": "baseline",
+      "target_group": null,
+      "scaffold": ""
+    },
+    {
+      "id": "neutral_placebo",
+      "kind": "placebo",
+      "target_group": null,
+      "scaffold": "Before each response, silently use a careful and orderly approach. Attend to the complete instruction, keep the requested output format unchanged, check that your response addresses the current trial, and avoid adding explanations. Apply this same general routine to every kind of task without favoring any particular information or strategy."
+    },
+    {
+      "id": "working_memory_ledger",
+      "kind": "targeted",
+      "target_group": "working_memory",
+      "scaffold": "Before each response, silently maintain a compact ordered ledger of the currently relevant symbols, positions, and intermediate results. Update that ledger after every trial, protect its order from later distractors, and consult it before answering. Keep the requested output format unchanged and never print the ledger or any hidden reasoning."
+    },
+    {
+      "id": "control_rule_rehearsal",
+      "kind": "targeted",
+      "target_group": "cognitive_control",
+      "scaffold": "Before each response, silently restate the current response rule, identify the task-relevant feature, and suppress tempting but irrelevant features or habitual responses. Recheck that the selected answer follows the active rule rather than a distractor. Keep the requested output format unchanged and never print this rehearsal or hidden reasoning."
+    },
+    {
+      "id": "episodic_source_binding",
+      "kind": "targeted",
+      "target_group": "episodic_memory",
+      "scaffold": "Before each response, silently encode each presented element together with its source, list, and temporal position. Keep similar episodes distinct, mark whether information was actually presented, and retrieve from those bindings rather than familiarity alone. Keep the requested output format unchanged and never print the bindings or hidden reasoning."
+    },
+    {
+      "id": "belief_state_ledger",
+      "kind": "targeted",
+      "target_group": "theory_of_mind",
+      "scaffold": "Before each response, silently maintain a separate belief state for every agent: what each observed, missed, wants, and currently believes. Update only the agent who received new evidence and answer from the queried perspective, not your own. Keep the requested output format unchanged and never print the ledger or hidden reasoning."
+    },
+    {
+      "id": "metacognitive_forecast",
+      "kind": "targeted",
+      "target_group": "metacognition",
+      "scaffold": "Before each response, silently forecast whether your candidate answer is likely correct, distinguish knowledge from guessing, and align any confidence or wager with that forecast and the stated payoff. Reconsider unsupported certainty once, then answer. Keep the requested output format unchanged and never print this forecast or hidden reasoning."
+    }
+  ],
+  "formal_model_panel": [
+    {"model": "qwen2.5:3b", "family": "qwen2.5", "size_b": 3},
+    {"model": "qwen2.5:14b", "family": "qwen2.5", "size_b": 14},
+    {"model": "gemma2:2b", "family": "gemma2", "size_b": 2},
+    {"model": "gemma2:9b", "family": "gemma2", "size_b": 9},
+    {"model": "llama2:7b", "family": "llama2", "size_b": 7},
+    {"model": "llama2:13b", "family": "llama2", "size_b": 13},
+    {"model": "gemma3:12b", "family": "gemma3", "size_b": 12},
+    {"model": "gemma3:27b", "family": "gemma3", "size_b": 27},
+    {"model": "falcon3:7b", "family": "falcon3", "size_b": 7},
+    {"model": "falcon3:10b", "family": "falcon3", "size_b": 10},
+    {"model": "olmo2:7b", "family": "olmo2", "size_b": 7},
+    {"model": "olmo2:13b", "family": "olmo2", "size_b": 13}
+  ],
+  "pilot_model_panel": [
+    {"model": "qwen2.5:1.5b", "family": "qwen2.5", "size_b": 1.5, "pilot_role": "sacrificial Qwen-family format and truncation probe; disjoint from formal checkpoints"},
+    {"model": "llama3.2:3b", "family": "llama3.2", "size_b": 3, "pilot_role": "sacrificial Llama-family format and truncation probe; disjoint from formal checkpoints"},
+    {"model": "gemma3:1b", "family": "gemma3", "size_b": 1, "pilot_role": "small-model format and 4,096-context engineering probe"}
+  ],
+  "engineering_adaptation_log": [
+    {
+      "stage": "pre-freeze pilot infrastructure",
+      "jobs": [6880],
+      "decision_basis": "Generator-local task identifiers were not globally unique; item reconstruction was replaced by a frozen presentation-and-gold fingerprint tuple before any intervention contrast was inspected."
+    },
+    {
+      "stage": "pre-freeze pilot model compatibility",
+      "jobs": [6902, 6917],
+      "decision_basis": "Sacrificial Qwen3, SmolLM2, Phi-3, and Mistral probes produced finish_reason=length under the frozen 1,024-token ceiling. Their raw attempts were quarantined, no intervention outcome aggregate was inspected, and they were replaced by disjoint Qwen2.5 and Llama3.2 engineering probes. Gemma3:1b is retained and rerun under the same new source revision."
+    },
+    {
+      "stage": "pre-freeze deterministic completion contract",
+      "jobs": [6902, 6917],
+      "decision_basis": "Repeated deterministic length finishes showed that aborting an entire model run and selecting replacement models on response-format compliance was not a stable formal-run policy. Before inspecting any intervention outcome aggregate, finish_reason=length was frozen as a single-attempt protocol-invalid task response scored zero, with a fixed multi-turn history sentinel, explicit rate accounting, and a paired truncation-exclusion sensitivity. The 1,024-token ceiling was not changed."
+    },
+    {
+      "stage": "pre-freeze verified hardware scope",
+      "decision_basis": "The initial pre-freeze plan restricted the capacity gate and inference arrays to c03/c04 rather than the occupied V100 node, while retaining exact 100% GPU, 8,192-context, digest, and source-revision gates. This initial two-class plan was superseded before formal freeze by the single-hardware decision below."
+    },
+    {
+      "stage": "pre-freeze pilot truncation-gate correction",
+      "jobs": [6961, 6963],
+      "decision_basis": "No intervention accuracy or contrast was inspected. Operational closure showed that two conditions each had 2/117 task records (1.71%) reach the 1,024-token completion ceiling, exceeding the already specified 1% pilot gate. It also exposed that verify_run recorded PASS without enforcing that gate, although formal preflight would later have rejected it. The attempt was quarantined, closure was made fail-closed at the pilot boundary, and the completion ceiling was raised once to 2,048 before formal freeze; the single-attempt task-zero rule remains active for any residual length finish."
+    },
+    {
+      "stage": "pre-freeze homogeneous hardware scope",
+      "jobs": [6947, 6954, 6955, 6959, 6960, 6961, 6963],
+      "decision_basis": "Slurm interprets --nodelist=c03,c04 as a simultaneous two-node request rather than either node, and all four c03 A100s were allocated by unrelated multi-day jobs through at least 2026-07-23. Before formal freeze and without inspecting pilot effects, pilot, capacity, and formal inference were therefore restricted to the available c04 RTX PRO 6000 class. This removes cross-hardware variation and avoids an availability-driven delay. A nonformal Qwen2.5-32B probe, larger than the 27B maximum formal checkpoint, must be served at 100% GPU and context 8,192 on c04; every formal model independently repeats the same runtime gates."
+    },
+    {
+      "stage": "pre-freeze final completion-budget correction",
+      "jobs": [6972, 6974, 6975, 6976],
+      "decision_basis": "No intervention accuracy or contrast was inspected. At a 2,048-token ceiling, Gemma3-1B had zero truncated task records, Llama3.2-3B had one, and Qwen2.5-1.5B had three; metacognitive_forecast still had 2/117 (1.71%), so the fail-closed pilot correctly refused formal freeze. The complete attempt and its same-revision 8,192-context capacity probe were quarantined. Before formal freeze, the final completion ceiling was set to 4,096 and served context to 16,384, with a conservative runtime gate requiring the estimated prompt plus maximum completion to fit. The 1% truncation threshold, panel, items, scorers, and task-zero sensitivity contract were not weakened."
+    },
+    {
+      "stage": "pre-freeze hidden-reasoning request correction",
+      "jobs": [6979, 6981, 6982, 6983],
+      "decision_basis": "No intervention accuracy or contrast was inspected. At the 4,096-token ceiling and 16,384-token context, the operational pilot still had metacognitive_forecast at 2/117 length-limited task records (1.71%). The affected calls stored empty visible response content while reporting exactly 4,096 completion tokens, implicating server-side reasoning-token expenditure rather than a verbose visible answer. The pilot correctly failed and its same-revision capacity gate was invalidated. Before formal freeze, the OpenAI-compatible request contract was therefore extended once to set reasoning_effort=none for every readiness, capacity, pilot, and formal request; the model panel, items, prompts, scorers, context, completion budget, and 1% gate were unchanged."
+    },
+    {
+      "stage": "pre-freeze single-line response-format correction",
+      "jobs": [6989, 6990, 6991, 6992],
+      "decision_basis": "No intervention accuracy or contrast was inspected. The reasoning-off pilot still failed the unchanged 1% gate at metacognitive_forecast=2/117 (1.71%). A response-shape-only audit showed that every length-limited call contained 289 to 2,048 visible lines of repetition (12,285 to 14,656 visible characters), rather than hidden reasoning. Every paradigm's declared answer is representable on one line, and the system prompt already requires only the requested answer. Before formal freeze, a newline stop sequence was therefore added uniformly to every readiness, capacity, pilot, and formal request. This enforces the pre-existing answer format without parsing or selecting answer content; reasoning_effort=none, the model panel, items, prompts, scorers, context, completion budget, and 1% gate remain unchanged."
+    },
+    {
+      "stage": "post-freeze pre-analysis context-and-format compatibility amendment",
+      "jobs": [7006, 7007, 7008, 7009, 7018, 7019, 7020],
+      "decision_basis": "No response accuracy, intervention contrast, or selectivity estimate was inspected. A static task-format audit found that the uniform newline stop used by jobs 7006--7009 would truncate required multi-line outputs (up to 35 DRM lines, 22 source-monitoring lines, and two metacognitive lines); that operational pilot was therefore superseded despite passing its truncation gate. Formal runtime metadata then showed that the frozen 16,384-token setting exceeded the retained Gemma2 tags' 8,192-token native context and Llama2 tags' 4,096-token native context. Jobs 7018--7020 were canceled, and every record produced under that configuration, including two complete Qwen2.5 checkpoints, was quarantined without reuse. The specification was reopened before any aggregate analysis, with the panel-wide context set to the minimum verified native window (4,096), a 512-token ceiling more than seven times the largest declared reference answer's 71 whitespace tokens, and a uniform answer-free end marker as the stop sequence. The marker preserves complete multi-line outputs and is stripped by the transport. The model panel, hardware class, tasks, items, conditions, intervention text, seeds, scorers, estimands, thresholds, and analysis code were unchanged; pilot and capacity gates must be rerun and rebound before a new formal freeze."
+    },
+    {
+      "stage": "pre-freeze response-format routing amendment",
+      "jobs": [7038, 7039],
+      "decision_basis": "No response accuracy, intervention contrast, or selectivity estimate was inspected. During the first end-marker pilot, Qwen2.5-1.5B already had three metacognitive task records reach the 512-token ceiling, making the unchanged final condition gate at least 3/117 (2.56%) even if both remaining pilot models had zero length finishes. The array and its pending capacity/closure jobs were canceled immediately. A response-shape-only audit found that 60 length-limited n-back calls contained 205--256 lines but only one or two unique lines; all five length-limited CVLT calls contained blank-line-separated repetition. The transport was therefore routed by each paradigm's pre-existing declared response format: eight single-line paradigms stop at newline or the answer-free marker, while the five legitimately multiline paradigms stop only at a blank line or that marker. Routing depends only on paradigm, never intervention condition or response content. Context, completion budget, panel, hardware, items, prompts, intervention text, seeds, scorers, estimands, thresholds, and analysis code remain unchanged; all partial records were quarantined and pilot/capacity must rerun from empty directories."
+    },
+    {
+      "stage": "pre-freeze CVLT response-format standardization",
+      "jobs": [7044, 7045, 7050],
+      "decision_basis": "No response accuracy, intervention contrast, or selectivity estimate was inspected. The routed pilot eliminated every Qwen2.5-1.5B length finish (273 records, 973 calls) and all single-line-paradigm repetition. During Llama3.2-3B, however, CVLT alone produced two length-limited records in working_memory_ledger, making the best possible final condition rate 2/117 (1.71%) above the unchanged 1% gate. The array and pending capacity/closure jobs were canceled immediately and all records, including the complete Qwen pilot, were quarantined without reuse. CVLT's scorer already treats comma- and newline-separated words identically; therefore a fixed paradigm-only user-prompt suffix now requests the complete list as one comma-separated line, and CVLT joins the single-line transport class. Stimuli, expected words, turn order, scorer, item selection, conditions, interventions, panel, hardware, context, completion budget, estimands, thresholds, and analysis code remain unchanged."
+    },
+    {
+      "stage": "post-freeze pre-analysis terminal-metadata amendment",
+      "jobs": [7067, 7069, 7070, 7092, 7093, 7094, 7107],
+      "decision_basis": "No response accuracy, intervention contrast, selectivity estimate, or confirmatory gate was inspected. Eleven of twelve formal array tasks completed, while Qwen2.5-14B reproducibly returned an HTTP-200 response body for one CVLT turn without terminal completion metadata or real usage; a retry with the same canonical request payload, the native streaming endpoint, the legacy engine, and the current official server release showed the same missing terminal event. Closure and analysis never ran. Before analysis, the specification was reopened and the entire mixed-schema formal attempt was declared non-reusable and quarantined. The outcome-blind transport rule now retries the same canonical normalized OpenAI-compatible request payload (identical SHA-256) three total times; if all three attempts contain listed terminal/usage-metadata faults and none is a request exception, the logical call is labeled transport_incomplete, its complete task record receives primary accuracy zero without native parsing, later turns receive [INVALID_TRANSPORT_COMPLETION], and the record counts against the same per-condition 1% generic protocol-invalid gate and paired-exclusion sensitivity as a length completion. A later valid response is consumed normally. Any task record containing an ultimately valid logical call that was preceded by an HTTP-200 terminal-metadata fault is separately labeled recovered-terminal-metadata-fault exposed; closure reports total and per-condition exposure, and an outcome-blind pre-rerun descriptive paired-exclusion sensitivity removes target-placebo pairs exposed on either side without adding a confirmatory gate. Request-error-only retries do not qualify for that exposure sensitivity. Request exceptions may be retried, but an exhausted sequence containing any request exception remains fatal rather than being converted to transport_incomplete. Items, panel, prompts, conditions, interventions, seeds, native scorers, estimands, thresholds, hardware, context, and completion budget are unchanged; pilot and capacity gates must rerun and be rebound before a new formal freeze."
+    }
+  ],
+  "capacity_probe": {
+    "model": "qwen2.5:32b",
+    "excluded_from_formal_inference": true,
+    "required_hardware_labels": {
+      "pro6000": "PRO 6000"
+    },
+    "purpose": "Operationally verify that a nonformal 32B model, larger than the maximum 27B formal checkpoint, is fully GPU-served at the uniform 4096-token context on the single eligible RTX PRO 6000 hardware class before formal submission."
+  },
+  "estimands": {
+    "primary": "For each targeted intervention j, S_j is mean gain versus neutral_placebo on paradigms matched to j minus mean gain on nonmatched paradigms. Gamma is the unweighted mean of the five S_j values.",
+    "primary_inference": "A 20,000-draw seed-42 crossed family-by-item percentile bootstrap gives the 95% interval for Gamma. The exact 5! intervention-to-group mapping permutation gives a directional p value for the frozen mapping and a centered two-sided sensitivity.",
+    "confirmatory_success_gate": {
+      "all_required": true,
+      "analyst_override": false,
+      "numeric_thresholds": {
+        "gamma_ci_lower_strictly_above": 0.0,
+        "minimum_positive_families": 4,
+        "predictive_delta_log_likelihood_strictly_above": 0.0,
+        "maximum_exact_mapping_one_sided_p": 0.05,
+        "maximum_formal_condition_task_record_invalid_rate": 0.01,
+        "minimum_sensitivity_gamma_preservation_ratio": 0.5,
+        "minimum_sensitivity_items_per_cell": 3
+      },
+      "rules": [
+        {"id": "gamma_family_item_ci_lower_gt_zero", "pass_if": "primary percentile CI lower endpoint > 0"},
+        {"id": "at_least_four_of_six_family_gamma_positive", "pass_if": "at least 4 of 6 equal-checkpoint family Gamma estimates > 0"},
+        {"id": "family_lofo_selective_delta_log_likelihood_gt_zero", "pass_if": "summed held-out selective log likelihood minus global log likelihood > 0 exactly"},
+        {"id": "exact_mapping_one_sided_p_le_0_05", "pass_if": "inclusive exact directional mapping p <= .05"},
+        {"id": "each_condition_task_record_invalid_rate_le_0_01", "pass_if": "for every one of the seven conditions, task records containing at least one length completion or exhausted terminal-metadata fault are <= 1%"},
+        {"id": "protocol_invalid_exclusion_preserves_at_least_half_gamma_and_three_items_per_cell", "pass_if": "after excluding a paired target-placebo observation if either complete task record contains a length completion or exhausted terminal-metadata fault, Gamma / primary Gamma >= .50 and every model x intervention x paradigm retains >= 3 items"},
+        {"id": "empty_exclusion_preserves_at_least_half_gamma_and_three_items_per_cell", "pass_if": "empty-excluded Gamma / primary Gamma >= .50 and every model x intervention x paradigm retains >= 3 items"},
+        {"id": "ospan_parse_exclusion_preserves_at_least_half_gamma_and_three_items_per_cell", "pass_if": "OSpan parse-none-excluded Gamma / primary Gamma >= .50 and every model x intervention OSpan cell retains >= 3 items"},
+        {"id": "response_length_adjustment_preserves_at_least_half_gamma", "pass_if": "length-adjusted Gamma / primary Gamma >= .50"}
+      ]
+    },
+    "secondary": [
+      "Five S_j contrasts with Benjamini-Hochberg correction.",
+      "Hard-minus-easy interaction in Gamma and the five S_j values with a crossed family-by-item interval.",
+      "Change in the first principal-component share across conditions.",
+      "Canonical-whitespace operation-span sensitivity alongside strict-v4 primary scoring.",
+      "Descriptive operation-span mathematics-process targeted-minus-placebo contrasts; never part of Gamma or the success gate."
+    ],
+    "analysis_contract": {
+      "crossed_bootstrap": "20,000 draws; resample six families with replacement while retaining both frozen checkpoints of every sampled family; independently resample 18 items within each paradigm with replacement using the same item draw across every model and condition; NumPy linear percentile quantiles; main seed 42; easy/medium/hard seeds 4201/4202/4203; hard-minus-easy seed 4204.",
+      "mapping_permutation": "Enumerate all 120 bijections from the five targeted intervention rows to the five fixed theory groups, which carries each group's 2- or 3-paradigm size with it. Directional p is the inclusive fraction Gamma_perm >= Gamma_observed with tolerance 1e-15. Two-sided p is the inclusive fraction whose absolute distance from the exact permutation mean is at least the observed distance, tolerance 1e-15. Each S_j has only five distinct assigned-group values (exact p resolution .2); BH adjusts those five centered two-sided values.",
+      "family_lofo_predictive": "Six fixed leave-one-family-out folds. Rows are model x targeted intervention x paradigm x item. Fractional primary accuracy is scored with soft-Bernoulli log likelihood. Global features are neutral-placebo item accuracy, four intervention reference dummies, twelve paradigm reference dummies, and medium/hard dummies. Selective adds five frozen indicators for intervention j x a paradigm in j's theory group. Ridge lambda=1 is fixed; intercept unpenalized and every slope penalized; only placebo accuracy is standardized using each training fold; Newton solve has 100 iterations, step tolerance 1e-9, probability-weight floor 1e-6. Success is summed held-out delta log likelihood > 0, with no tuning.",
+      "empty_and_length_units": "Only response units consumed by the primary score are used: OSpan final recall only, CVLT turns carrying expected_words, all n-back turns, and the single response for static paradigms. Thus math-process and filler text cannot drive empty or character-length sensitivity. Because a protocol-invalid task record bypasses its native scorer, response-length adjustment excludes the paired target-placebo observation whenever either complete task record contains a length completion or exhausted terminal-metadata fault.",
+      "protocol_invalid_contract": "A successful API response with finish_reason=length is persisted on its first occurrence and is never retried. A response with one or more listed terminal/usage-metadata faults is retried with the same canonical normalized request payload (identical SHA-256) for three total attempts; if all three attempts contain listed faults and none is a request exception, the logical call is persisted as transport_incomplete. Fault subtypes may differ across attempts. Any task record with either failure receives primary accuracy zero without native scoring. Later turns receive [INVALID_COMPLETION_AT_TOKEN_LIMIT] after length and [INVALID_TRANSPORT_COMPLETION] after transport_incomplete. Closure reports physical attempts partitioned exactly into accepted valid-usage, HTTP-200 terminal-metadata-fault, and request-error attempts; logical calls; task records; subtypes; and per-condition union rates. Confirmatory analysis requires every condition's union task-record rate <= .01 and a paired target-placebo protocol-invalid-exclusion sensitivity that preserves at least half of Gamma with at least three items per model x intervention x paradigm.",
+      "recovered_terminal_metadata_fault_exposure_sensitivity": "A complete task record is exposed when any ultimately valid logical call contains at least one preceding HTTP-200 protocol_fault attempt; a retry history containing only request_error before acceptance is not exposed. Model and run closure report exposed task-record totals and exact per-condition counts/rates. Analysis excludes each paired target-placebo item observation when either side is exposed and reports excluded pairs, Gamma, Gamma/primary-Gamma preservation ratio, S_j values, estimability, and the minimum retained items per model x intervention x paradigm. This outcome-blind pre-rerun descriptive transport sensitivity was frozen after the terminal-metadata incident and does not add or modify any confirmatory success gate.",
+      "response_length_adjustment": "After paired exclusion whenever either target or placebo task record contains a length completion or exhausted terminal-metadata fault, OLS of paired item gain on log1p(target primary-response characters)-log1p(placebo primary-response characters), plus additive model/intervention/paradigm/difficulty fixed effects; subtract the fitted length component and recompute Gamma on the same protocol-valid pairs; no tuning.",
+      "pc1": "For each of seven conditions, average the 18 items into a 12-model x 13-paradigm matrix, population-z-score each paradigm across models, set invariant columns to zero, and report squared first singular value divided by total squared singular values plus change from neutral placebo.",
+      "canonical_ospan": "Replace only operation-span strict-v4 accuracy with the scorer-persisted canonical whitespace positional accuracy and rerun Gamma, S_j, the seed-42 crossed bootstrap, and exact mapping permutation.",
+      "output_policy": "Only aggregates and provenance hashes may be written; raw responses, stimuli, gold, task identifiers, item fingerprints, and item-level scores are forbidden."
+    }
+  },
+  "scoring_contract": {
+    "operation_span_primary": "strict-v4 positional recall partial credit",
+    "operation_span_sensitivity": "canonical whitespace positional recall partial credit",
+    "operation_span_math": "independent process metric",
+    "cvlt": "unique-hit recall, capped by set intersection; each designated recall turn is thresholded at 0.5 and episode accuracy is their mean",
+    "n_back": "current production strict turn scorer; an empty or response without an admissible MATCH/NO MATCH answer is wrong rather than an implicit NO MATCH",
+    "other_paradigms": "current CogArena paradigm-native scorer at the frozen repository revision",
+    "empty_or_unparseable": "zero, never missing",
+    "protocol_invalid_completion": "finish_reason=length is persisted once; a listed terminal/usage-metadata fault is retried with the same canonical request-payload SHA-256 three total times and then labeled transport_incomplete if all attempts contain listed faults and none is a request exception. Either makes the complete task record protocol-invalid: retain the body only in private raw audit data, bypass the native scorer, score top-level primary_accuracy as zero, use the corresponding fixed sentinel in later multi-turn history, report subtype and union rates, and run the frozen paired-exclusion sensitivity."
+  },
+  "execution_contract": {
+    "inference_location": "Slurm GPU compute node only",
+    "no_login_node_inference": true,
+    "eligible_inference_nodes": ["c04"],
+    "required_gpu_name_fragment": "RTX PRO 6000",
+    "processor_requirement": "For the selected model row in ollama ps, PROCESSOR must equal exactly 100% GPU; CPU/GPU split offload is forbidden for pilot, formal, and capacity runs.",
+    "one_model_per_array_task": true,
+    "all_seven_conditions_same_job": true,
+    "reasoning_control": "Every OpenAI-compatible readiness, capacity, pilot, and formal request carries the top-level field reasoning_effort=none. Runtime records and all closure manifests must bind this request field; a missing or different value fails closed.",
+    "response_format_control": "Every request instructs the model to append the answer-free marker <END_COGARENA_RESPONSE> only after all requested answer lines or fields. Transport is routed only by the paradigm's declared answer format. Digit span, n-back, operation span, Stroop, flanker, Go/No-Go, CVLT, false belief, and EPITOME stop at newline or the marker; CVLT receives a fixed instruction to render its already-supported word list as one comma-separated line. DRM, source monitoring, confidence calibration, and wagering stop at a blank line or the marker, preserving required internal newlines. Runtime records and all closure manifests bind the complete policy, CVLT wrapper, and each call's exact stop list; missing, leaked, or different values fail closed.",
+    "condition_order": "deterministic model-by-item randomization fixed by SHA-256-derived seeds",
+    "model_download_during_job": false,
+    "atomic_per_record_writes": true,
+    "resume_policy": "No per-record or per-model resume is permitted. The runner atomically creates a model root that must not already exist; any interruption leaves that root occupied and therefore blocks automatic resubmission. Recovery requires quarantining the entire profile attempt and restarting every model in a fresh profile root.",
+    "execution_guard_policy": {"model_root_acquisition": "atomic_mkdir_must_not_exist", "record_reuse": false, "interrupted_attempt_policy": "quarantine_entire_profile_attempt_and_restart_in_a_fresh_profile_root", "states": ["in_progress", "records_complete", "verified_complete"], "same_slurm_job_model_verification": true, "profile_attempt_identity": "all model guards share one SLURM_ARRAY_JOB_ID"},
+    "transport_retry_policy": {"maximum_total_attempts": 3, "request_identity": "canonical normalized request payload has identical SHA-256 across attempts", "retryable_http_200_faults": ["missing_finish_reason", "missing_usage", "zero_usage", "nonpositive_prompt_tokens", "nonpositive_total_tokens", "nonempty_content_zero_completion_tokens"], "exhausted_status": "transport_incomplete", "sdk_internal_retries": 0, "request_exception_policy": {"retry_identical_request": true, "accept_later_valid_response": true, "exhausted_sequence_with_request_exception": "fatal"}, "native_endpoint_fallback": false},
+    "recovered_terminal_metadata_fault_exposure": "For every valid logical call, preserve whether one or more preceding physical attempts had an HTTP-200 terminal/usage-metadata fault. A complete task record is exposed if any of its logical calls meets that rule. Request-error-only recovery is reported in request-error attempt accounting but is outside this exposure definition. Model/run manifests must replay total and per-condition exposed-record counts/rates, and formal analysis runs the paired-exclusion sensitivity defined under estimands.analysis_contract.",
+    "pilot_maximum_condition_task_record_invalid_rate": 0.01,
+    "pilot_policy": "Engineering-only. Do not inspect or report pilot outcome contrasts. No pilot model or exact pilot item enters formal inference. Historical attempts were inspected only for context, processor, finish reason, completeness, parser coverage, response presence/shape, token usage, and condition-level protocol-invalid rates; no intervention outcome aggregate was used to alter this contract. The current Qwen2.5-1.5B, Llama3.2-3B, and Gemma3-1B panel exercises three ordinary format paths at a uniform 4,096 context, a 512-token completion ceiling, reasoning_effort=none, paradigm-declared single-line versus multiline stop routing, a comma-separated single-line CVLT wrapper already accepted by its scorer, and the common answer-free end marker. A length finish is persisted once and scored zero. A listed terminal/usage-metadata fault is retried with the same canonical request-payload SHA-256 three total times; qualifying exhaustion is persisted as transport_incomplete and scored zero. Neither failure may select a replacement model. The bound pilot is operationally acceptable only if every condition's union task-record invalid rate is at most 0.01.",
+    "formal_freeze_gate": "The formal runner refuses this pre-pilot status. After the engineering pilot and single-class 32B capacity gate pass, the root operator must record the actual freeze timestamp plus both gate-manifest hashes, change status to formal_frozen_after_pilot, rebuild both item manifests, and commit. The login-node submission injects that resulting commit as COGARENA_GIT_HEAD; runtime records it and independently verifies every frozen source-file hash, avoiding a circular commit-hash-inside-its-own-commit requirement."
+  }
+}

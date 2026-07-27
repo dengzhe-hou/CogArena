@@ -8,8 +8,8 @@
    "max": 0.98
   },
   "cvlt_word_list": {
-   "mean": 0.8108,
-   "std": 0.2751,
+   "mean": 0.847,
+   "std": 0.2534,
    "min": 0.0,
    "max": 1.0
   },
@@ -56,22 +56,22 @@
    "max": 0.8719
   },
   "operation_span": {
-   "mean": 0.5005,
-   "std": 0.1795,
-   "min": 0.0033,
-   "max": 0.9204
+   "mean": 0.6954,
+   "std": 0.2988,
+   "min": 0.0,
+   "max": 1.0
   },
   "post_decision_wagering": {
-   "mean": 0.7975,
-   "std": 0.1691,
+   "mean": 0.7982,
+   "std": 0.169,
    "min": 0.02,
    "max": 0.96
   },
   "source_monitoring": {
-   "mean": 0.5899,
-   "std": 0.2952,
+   "mean": 0.5956,
+   "std": 0.3,
    "min": 0.0,
-   "max": 0.9873
+   "max": 1.0
   },
   "stroop": {
    "mean": 0.9182,
@@ -89,50 +89,50 @@
   {
    "condition": "Full (13 paradigms)",
    "pc1": 0.5,
-   "raw_delta": 0.055,
-   "raw_p_onesided": 0.11,
-   "resid_delta": 0.148,
-   "resid_p_onesided": 0.04
+   "raw_delta": 0.081,
+   "raw_p_onesided": 0.037,
+   "resid_delta": 0.216,
+   "resid_p_onesided": 0.004
   },
   {
    "condition": "Drop NB,CV,GN",
    "pc1": 0.58,
-   "raw_delta": 0.037,
-   "raw_p_onesided": 0.25,
-   "resid_delta": 0.125,
-   "resid_p_onesided": 0.17
+   "raw_delta": 0.084,
+   "raw_p_onesided": 0.048,
+   "resid_delta": 0.239,
+   "resid_p_onesided": 0.026
   },
   {
    "condition": "Drop 3 lowest-variance",
-   "pc1": 0.52,
-   "raw_delta": 0.041,
-   "raw_p_onesided": 0.27,
-   "resid_delta": 0.057,
-   "resid_p_onesided": 0.28
+   "pc1": 0.51,
+   "raw_delta": 0.085,
+   "raw_p_onesided": 0.125,
+   "resid_delta": 0.179,
+   "resid_p_onesided": 0.039
   },
   {
    "condition": "Leave out CVLT",
    "pc1": 0.53,
-   "raw_delta": 0.048,
-   "raw_p_onesided": 0.16,
-   "resid_delta": 0.183,
-   "resid_p_onesided": 0.03
+   "raw_delta": 0.074,
+   "raw_p_onesided": 0.062,
+   "resid_delta": 0.237,
+   "resid_p_onesided": 0.006
   },
   {
    "condition": "Leave out Go/No-Go",
    "pc1": 0.52,
-   "raw_delta": 0.062,
-   "raw_p_onesided": 0.12,
-   "resid_delta": 0.123,
-   "resid_p_onesided": 0.1
+   "raw_delta": 0.096,
+   "raw_p_onesided": 0.039,
+   "resid_delta": 0.216,
+   "resid_p_onesided": 0.016
   },
   {
    "condition": "Leave out n-back",
    "pc1": 0.52,
-   "raw_delta": 0.02,
-   "raw_p_onesided": 0.33,
-   "resid_delta": 0.118,
-   "resid_p_onesided": 0.09
+   "raw_delta": 0.047,
+   "raw_p_onesided": 0.163,
+   "resid_delta": 0.188,
+   "resid_p_onesided": 0.013
   }
  ]
 }

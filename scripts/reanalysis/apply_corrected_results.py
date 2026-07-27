@@ -16,6 +16,7 @@ import glob
 import json
 import os
 import sys
+import warnings
 from collections import defaultdict
 
 import numpy as np
@@ -25,6 +26,13 @@ ROOT = os.environ.get("COGARENA_ROOT",
                       os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 RC = os.path.join(ROOT, "results", "recompute_20260703")
 RESCORE = os.path.join(ROOT, "results", "rescore_20260702", "new_scores")
+# Final SM overlay adapter: see build_and_recompute.py. The fp16 sweep keeps
+# the historical path (fp16 configs are not in the 55-model overlay; the
+# quantization comparison is internally consistent on the frozen battery).
+SM_OVERLAY = (json.load(open(os.environ["COGARENA_SM_OVERLAY"]))
+              if os.environ.get("COGARENA_SM_OVERLAY") else None)
+WAGER_OVERLAY = (json.load(open(os.environ["COGARENA_WAGER_OVERLAY"]))
+                 if os.environ.get("COGARENA_WAGER_OVERLAY") else None)
 GONOGO = os.path.join(ROOT, "results", "gonogo_rerun_20260702")
 sys.path.insert(0, os.path.join(ROOT, "scripts"))
 os.environ["COGARENA_ROOT"] = ROOT
@@ -35,7 +43,8 @@ STEP4B = json.load(open(os.path.join(RC, "step4b_artifacts.json")))
 FINAL = json.load(open(os.path.join(RC, "final_inference.json")))
 
 # corrected matrix
-_rows = list(csv.reader(open(os.path.join(RC, "corrected_matrix.csv"))))
+_rows = list(csv.reader(open(os.environ.get("COGARENA_PRIMARY_MATRIX")
+                             or os.path.join(RC, "corrected_matrix.csv"))))
 HDR = _rows[0][1:]
 MAT = {r[0]: {p: float(v) for p, v in zip(HDR, r[1:])} for r in _rows[1:]}
 ALL_MODELS = list(MAT.keys())
@@ -82,7 +91,13 @@ def corrected_static_items(model):
         p = r.get("paradigm")
         if p not in b2.STATIC_PARADIGMS or p == "go_nogo":
             continue
-        out[r["task_id"]] = (p, float(ov.get(r["task_id"], b2.item_accuracy(r.get("score")))), r.get("score") or {})
+        if p == "source_monitoring" and SM_OVERLAY is not None and model in SM_OVERLAY:
+            acc = SM_OVERLAY[model][r["task_id"]]
+        elif p == "post_decision_wagering" and WAGER_OVERLAY is not None:
+            acc = WAGER_OVERLAY[model][r["task_id"]]
+        else:
+            acc = ov.get(r["task_id"], b2.item_accuracy(r.get("score")))
+        out[r["task_id"]] = (p, float(acc), r.get("score") or {})
     gg = f"{GONOGO}/openai_{model}/text/details.json"
     if os.path.exists(gg):
         for r in json.load(open(gg)):
@@ -180,7 +195,7 @@ def do_split_half():
 def do_pv():
     p = f"{ROOT}/results/predictive_validity.json"
     d = json.load(open(p))
-    cells = STEP4B["pv_table_gsm8k"]
+    cells = STEP4B["pv_grouping_cells"]
     biv = {}
     for key, v in cells.items():
         g, bm = key.split("|")
@@ -224,34 +239,274 @@ def do_restricted():
 
 
 # ------------------------------------------------------------ scaling_mixedeffects
+_SCALING_DISPLAY = {
+    "n_back": "N-back",
+    "digit_span": "Digit span",
+    "operation_span": "Operation span",
+    "stroop": "Stroop",
+    "flanker": "Flanker",
+    "go_nogo": "Go/No-Go",
+    "cvlt_word_list": "CVLT",
+    "drm_false_memory": "DRM",
+    "source_monitoring": "Source monitoring",
+    "false_belief": "False belief",
+    "epitome_tom": "EPITOME",
+    "confidence_calibration": "Calibration",
+    "post_decision_wagering": "Wagering",
+}
+
+_SCALING_ORDER = [
+    "n_back", "digit_span", "operation_span",
+    "stroop", "flanker", "go_nogo",
+    "cvlt_word_list", "drm_false_memory", "source_monitoring",
+    "false_belief", "epitome_tom",
+    "confidence_calibration", "post_decision_wagering",
+]
+
+
+def _scaling_p_text(p):
+    """Publication display for a two-sided Wald p value."""
+    if p < .001:
+        return "<.001"
+    return f"{p:.3f}".lstrip("0")
+
+
+def _scaling_var_text(value):
+    """Keep near-boundary random-effect estimates visible rather than 0.0000."""
+    if 0 < abs(value) < 1e-4:
+        coefficient, exponent = f"{value:.2e}".split("e")
+        return rf"${coefficient}\mathord{{\times}}10^{{{int(exponent)}}}$"
+    return f"{value:.4f}"
+
+
+def _write_scaling_mixedlm_publication_artifacts(results):
+    """Write machine-readable and ready-to-include versions of the full table.
+
+    The JSON remains the single numeric source.  CSV and LaTeX are deterministic
+    projections of ``publication_table`` so that manuscript updates do not
+    require hand transcription.
+    """
+    out_dir = os.path.join(ROOT, "results", "reanalysis")
+    csv_path = os.path.join(out_dir, "scaling_mixedeffects_table.csv")
+    tex_path = os.path.join(out_dir, "scaling_mixedeffects_table.tex")
+    rows = results["publication_table"]
+    fields = [
+        "grouping", "paradigm", "paradigm_key", "n_checkpoints", "n_families",
+        "fixed_slope_per_log10_parameter", "fixed_slope_se", "wald_p",
+        "random_intercept_variance", "residual_variance",
+        "random_intercept_icc", "converged", "boundary_warning",
+    ]
+
+    csv_tmp = csv_path + ".tmp"
+    with open(csv_tmp, "w", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=fields, lineterminator="\n")
+        writer.writeheader()
+        writer.writerows([{key: row[key] for key in fields} for row in rows])
+    os.replace(csv_tmp, csv_path)
+
+    lines = [
+        "% Auto-generated by scripts/reanalysis/apply_corrected_results.py.",
+        "% Do not edit by hand; regenerate from the frozen primary matrix.",
+        r"\begin{table*}[t]",
+        r"\caption{Family-random-intercept scaling models on the 20-checkpoint "
+        r"primary pool. The fixed slope is the accuracy-unit change associated "
+        r"with a tenfold increase in parameter count. Models were fit by maximum "
+        r"likelihood with a random intercept for model family (11 families; seven "
+        r"singletons). $\widehat{\mathrm{Var}}(u_f)$ and $\mathrm{ICC}_f$ summarize "
+        r"the family intercept. Wald statistics are two-sided. "
+        r"$^\dagger$The DRM and false-belief optimizers did not converge; their "
+        r"coefficients are retained for transparency but treated only as "
+        r"diagnostics, not as evidence that scaling ranks are preserved.}",
+        r"\label{tab:scaling_mixedlm_full}",
+        r"\centering",
+        r"\small",
+        r"\begin{tabular}{llrrrrrc}",
+        r"\toprule",
+        r"Grouping & Paradigm & $\hat{\beta}_{\log_{10}B}$ & SE & "
+        r"$p_{\mathrm{Wald}}$ & $\widehat{\mathrm{Var}}(u_f)$ & "
+        r"$\mathrm{ICC}_f$ & Converged \\",
+        r"\midrule",
+    ]
+    previous_group = None
+    for row in rows:
+        if previous_group is not None and row["grouping"] != previous_group:
+            lines.append(r"\addlinespace[2pt]")
+        suffix = "" if row["converged"] else r"$^\dagger$"
+        lines.append(
+            f"{row['grouping']} & {row['paradigm']} & "
+            f"{row['fixed_slope_per_log10_parameter']:.3f} & "
+            f"{row['fixed_slope_se']:.3f} & "
+            f"{_scaling_p_text(row['wald_p'])} & "
+            f"{_scaling_var_text(row['random_intercept_variance'])} & "
+            f"{row['random_intercept_icc']:.3f} & "
+            f"{'Yes' if row['converged'] else 'No'}{suffix} \\\\"
+        )
+        previous_group = row["grouping"]
+    lines.extend([
+        r"\bottomrule",
+        r"\end{tabular}",
+        r"\end{table*}",
+        "",
+    ])
+    tex_tmp = tex_path + ".tmp"
+    with open(tex_tmp, "w") as handle:
+        handle.write("\n".join(lines))
+    os.replace(tex_tmp, tex_path)
+
+
 def do_scaling_mlm():
+    """Rebuild every per-paradigm block coherently in the ACTIVE regime.
+
+    The pre-rebuild file mixed three generations (2026-07-03 production
+    lmm_*/naive_* fields, later primary paper values, and a method string
+    that grew one 'Regenerated' clause per run).  Each block is now
+    recomputed wholesale from the active matrix, with the 2026-07-03
+    production Pearson r preserved once under an explicitly historical key.
+    """
     p = f"{ROOT}/results/reanalysis/scaling_mixedeffects.json"
     d = json.load(open(p))
+    import statsmodels
     import statsmodels.formula.api as smf
     import pandas as pd_
     ls = {m: np.log10(SIZE[m]) for m in OLD_MODELS}
     fam = {m: b2.OLD_MODELS[m][1] for m in OLD_MODELS}
     r20 = STEP4B["scaling_r_20"]
     mlm20 = STEP4B["scaling_mixedlm_20"]
-    for pp, blk in d["paradigms"].items():
+    # the historical production reference is RECOMPUTED from the frozen
+    # production matrix on every run (inheriting it from the mutable JSON
+    # let a stale generation leak through; 9/13 paradigms had drifted)
+    _prod_rows = list(csv.reader(open(os.path.join(RC, "corrected_matrix.csv"))))
+    _PROD20 = {r[0]: {pp: float(v) for pp, v in zip(_prod_rows[0][1:], r[1:])}
+               for r in _prod_rows[1:]}
+    regime = ("primary (COGARENA_PRIMARY_MATRIX)"
+              if os.environ.get("COGARENA_PRIMARY_MATRIX") else "corrected (production)")
+    publication_rows = []
+    for pp in _SCALING_ORDER:
+        blk = d["paradigms"][pp]
         y = np.array([MAT[m][pp] for m in OLD_MODELS])
         x = np.array([ls[m] for m in OLD_MODELS])
-        ols_r = float(stats.pearsonr(x, y)[0])
-        blk["paper_bootstrap_pearson_r"] = r20[pp]["r"]
-        blk["naive_ols_pearson_r"] = round(ols_r, 4)
-        blk["mlm_slope"] = mlm20[pp]["slope"]
-        blk["mlm_p"] = mlm20[pp]["p"]
-        # within-family OLS slopes (Qwen2.5 n=6, Gemma2 n=3)
+        r, pv = stats.pearsonr(x, y)
+        hist = float(stats.pearsonr(x, np.array([_PROD20[m][pp] for m in OLD_MODELS]))[0])
+        df = pd_.DataFrame({"acc": y, "ls": x,
+                            "fam": [fam[m] for m in OLD_MODELS]})
+        with warnings.catch_warnings(record=True) as caught:
+            warnings.simplefilter("always")
+            md = smf.mixedlm("acc ~ ls", df, groups=df["fam"]).fit(
+                reml=False, method=["bfgs", "lbfgs", "cg"])
+        warning_messages = list(dict.fromkeys(str(w.message) for w in caught))
+        slope = float(md.params["ls"]); se = float(md.bse["ls"])
+        group_var = float(np.asarray(md.cov_re).ravel()[0])
+        resid_var = float(md.scale)
+        variance_total = group_var + resid_var
+        group_icc = group_var / variance_total if variance_total > 0 else float("nan")
+        boundary_warning = any("boundary" in message.lower()
+                               for message in warning_messages)
         wf = {}
         for f, members in (("qwen2.5", [m for m in OLD_MODELS if fam[m] == "qwen2.5"]),
                            ("gemma2", [m for m in OLD_MODELS if fam[m] == "gemma2"])):
             xs = np.array([ls[m] for m in members]); ys = np.array([MAT[m][pp] for m in members])
             if len(members) >= 3 and xs.std() > 0:
                 wf[f] = round(float(np.polyfit(xs, ys, 1)[0]), 4)
-        blk["within_family_ols_slope"] = wf
-    d["method"] = d["method"] + " Regenerated from corrected data (2026-07)."
+        d["paradigms"][pp] = {
+            "domain": blk.get("domain"),
+            "n": len(OLD_MODELS),
+            "regime": regime,
+            "pearson_r": round(float(r), 4),
+            "pearson_p": round(float(pv), 4),
+            "paper_bootstrap_pearson_r": r20[pp]["r"],
+            "lmm_fixed_slope_log10size": round(slope, 4),
+            "lmm_slope_se": round(se, 4),
+            "lmm_slope_ci95": [round(slope - 1.96 * se, 4), round(slope + 1.96 * se, 4)],
+            "lmm_slope_p": round(float(md.pvalues["ls"]), 4),
+            "lmm_converged": bool(md.converged),
+            "lmm_random_intercept_variance": round(group_var, 8),
+            "lmm_residual_variance": round(resid_var, 8),
+            "lmm_random_intercept_icc": round(group_icc, 6),
+            "lmm_log_likelihood": round(float(md.llf), 8),
+            "lmm_boundary_warning": boundary_warning,
+            "lmm_warning_messages": warning_messages,
+            "lmm_estimation": "maximum likelihood (REML=False)",
+            "lmm_optimizer_sequence": ["bfgs", "lbfgs", "cg"],
+            "lmm_n_families": len(set(fam.values())),
+            "lmm_n_singleton_families": sum(
+                1 for family in set(fam.values())
+                if sum(f == family for f in fam.values()) == 1),
+            "mlm_slope_step4b": mlm20[pp]["slope"],
+            "mlm_p_step4b": mlm20[pp]["p"],
+            "within_family_ols_slope": wf,
+            "production_naive_pearson_r_20260703": (round(float(hist), 4)
+                                                    if hist is not None else None),
+        }
+        publication_rows.append({
+            "grouping": blk.get("domain"),
+            "paradigm": _SCALING_DISPLAY[pp],
+            "paradigm_key": pp,
+            "n_checkpoints": len(OLD_MODELS),
+            "n_families": len(set(fam.values())),
+            "fixed_slope_per_log10_parameter": round(slope, 8),
+            "fixed_slope_se": round(se, 8),
+            "wald_p": round(float(md.pvalues["ls"]), 10),
+            "random_intercept_variance": round(group_var, 10),
+            "residual_variance": round(resid_var, 10),
+            "random_intercept_icc": round(group_icc, 8),
+            "converged": bool(md.converged),
+            "boundary_warning": boundary_warning,
+        })
+    # top-level within-family OLS slopes rebuilt in the same regime (the
+    # 2026-07-03 production block conflicted with the per-paradigm blocks)
+    tl = {}
+    for f in sorted(set(fam.values())):
+        members = sorted([m for m in OLD_MODELS if fam[m] == f])
+        if len(members) < 3:
+            continue
+        xs = np.array([ls[m] for m in members])
+        if xs.std() == 0:
+            continue
+        pp_slopes = {}
+        for pp in d["paradigms"]:
+            ys = np.array([MAT[m][pp] for m in members])
+            pp_slopes[pp] = {"n": len(members),
+                             "ols_slope_log10size": round(float(np.polyfit(xs, ys, 1)[0]), 4)}
+        tl[f] = {"models": members, "n": len(members), "regime": regime,
+                 "per_paradigm": pp_slopes}
+    d["within_family_slopes"] = tl
+
+    nonconverged = [row["paradigm_key"] for row in publication_rows
+                    if not row["converged"]]
+    d["schema_version"] = "cogarena-scaling-mixedlm-v2"
+    d["method"] = ("statsmodels MixedLM: accuracy ~ log10(size) with random intercept "
+                   "(1|family), maximum likelihood (REML=False; optimizer sequence "
+                   "bfgs/lbfgs/cg), on the 20 primary checkpoints, rebuilt wholesale "
+                   f"from the active matrix ({regime}); the 2026-07-03 production "
+                   "Pearson r is kept once under "
+                   "production_naive_pearson_r_20260703.")
+    d["fit_population"] = {
+        "n_checkpoints": len(OLD_MODELS),
+        "n_families": len(set(fam.values())),
+        "n_singleton_families": sum(
+            1 for family in set(fam.values())
+            if sum(f == family for f in fam.values()) == 1),
+        "family_counts": {
+            family: sum(f == family for f in fam.values())
+            for family in sorted(set(fam.values()))
+        },
+    }
+    d["software"] = {
+        "statsmodels": statsmodels.__version__,
+        "numpy": np.__version__,
+    }
+    d["publication_table"] = publication_rows
+    d["nonconverged_paradigms"] = nonconverged
+    d["interpretation_guardrail"] = (
+        "Fixed-effect estimates from non-converged fits are diagnostic only. "
+        "In this run DRM and false belief did not converge; they must not be "
+        "used to claim that family-random-intercept models preserve the "
+        "Pearson scaling ordering.")
     save(p, d)
-    return f"n-back r {d['paradigms']['n_back']['paper_bootstrap_pearson_r']}, GN r {d['paradigms']['go_nogo']['paper_bootstrap_pearson_r']}"
+    _write_scaling_mixedlm_publication_artifacts(d)
+    return (f"regime {regime}; n-back r {d['paradigms']['n_back']['pearson_r']}, "
+            f"cvlt r {d['paradigms']['cvlt_word_list']['pearson_r']}; "
+            f"non-converged {nonconverged}")
 
 
 # ------------------------------------------------------------ signature_significance
@@ -374,7 +629,7 @@ def do_signature():
     d["bh_method"] = ("fdr_bh across the 5 paradigms with 20-model per-item records "
                       "(stroop, flanker, n_back_load, false_belief, drm_false_memory), alpha=0.05; "
                       "EPITOME is evaluated separately on the 35-model expansion pool")
-    d["description"] = d["description"] + " Regenerated from corrected scorers (2026-07); DRM uses pooled per-model false-alarm rates; EPITOME moved to the 35-model expansion pool."
+    d["description"] = ("Signature significance battery regenerated from the active scorer regime (2026-07); DRM uses pooled per-model false-alarm rates; EPITOME moved to the 35-model expansion pool.")
     save(p, d)
     return "; ".join(f"{k} {counts[k]}/20" for k in counts) + f"; epitome {STEP4B['signature_epitome_35']}"
 
@@ -426,7 +681,7 @@ def do_fp16():
     d["domain"] = {"pearson_r": round(r_grp, 3), "n_cells": len(grp_fp),
         "mean_abs_delta_pp": round(float(np.mean(np.abs(np.array(grp_fp) - np.array(grp_q)))) * 100, 1)}
     d["table_q4_vs_fp16"] = table
-    d["note"] = d["note"] + " Regenerated from corrected scorers + go_nogo rerun (2026-07)."
+    d["note"] = ("fp16 deconfound regenerated from the active scorer regime + go_nogo rerun (2026-07); fp16 configs keep the historical per-item path by design.")
     save(p, d)
     return f"cell r {round(r_cell,3)}, domain r {round(r_grp,3)}, n {len(cells_fp)}"
 
@@ -450,6 +705,7 @@ def do_scorer_robustness():
 
 
 def main():
+    failed = []
     for name, fn in [("b2_expanded", do_b2), ("pca_partialcorr", do_pca),
                      ("split_half", do_split_half), ("predictive_validity", do_pv),
                      ("restricted_range", do_restricted), ("scaling_mixedeffects", do_scaling_mlm),
@@ -460,7 +716,11 @@ def main():
             print(f"[OK] {name}: {msg}", flush=True)
         except Exception as e:
             import traceback
+            failed.append(name)
             print(f"[FAIL] {name}: {e}\n{traceback.format_exc()}", flush=True)
+    if failed:
+        print(f"[done with FAILURES] {failed}", flush=True)
+        sys.exit(1)
     print("[done]", flush=True)
 
 

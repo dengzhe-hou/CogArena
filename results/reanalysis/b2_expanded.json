@@ -29,24 +29,24 @@
  },
  "repro20_matches_paper": true,
  "paper_target": {
-  "within": 0.4834,
-  "cross": 0.4286,
-  "delta": 0.0548,
-  "p": 0.1106,
+  "within": 0.4958,
+  "cross": 0.4147,
+  "delta": 0.0812,
+  "p": 0.0372,
   "note": "corrected 55-model headline (all scorer fixes)"
  },
  "aggregation_note": "Regenerated after the 2026-07 scorer corrections (source_monitoring/epitome/go_nogo/digit_span/false_belief/stroop/flanker/multi-turn fixes) and the fixed-prompt go_nogo rerun. exp55 is the corrected within-minus-cross separability on 55 models; repro20 retains the pre-correction 20-model self-check for provenance. Model-bootstrap and family-clustered 95% CIs for delta are in the *_bootstrap_ci95 fields.",
  "exp55": {
   "n_models": 55,
-  "within_mean": 0.4834,
-  "cross_mean": 0.4286,
-  "delta": 0.0548,
-  "ci_lo": -0.0827,
-  "ci_hi": 0.0911,
-  "p_value": 0.1106,
+  "within_mean": 0.4958,
+  "cross_mean": 0.4147,
+  "delta": 0.0812,
+  "ci_lo": -0.0806,
+  "ci_hi": 0.0901,
+  "p_value": 0.0372,
   "n_perm": 5000,
   "seed": 42,
-  "pass": false
+  "pass": true
  },
  "scaling": {
   "confidence_calibration": {
@@ -55,9 +55,9 @@
    "mlm_p": 0.0
   },
   "cvlt_word_list": {
-   "pearson_r": 0.204,
-   "mlm_beta": 0.1043,
-   "mlm_p": 0.1125
+   "pearson_r": 0.233,
+   "mlm_beta": 0.0995,
+   "mlm_p": 0.0988
   },
   "digit_span": {
    "pearson_r": 0.525,
@@ -95,18 +95,18 @@
    "mlm_p": 0.002
   },
   "operation_span": {
-   "pearson_r": 0.398,
-   "mlm_beta": 0.1427,
-   "mlm_p": 0.0007
+   "pearson_r": 0.274,
+   "mlm_beta": 0.1775,
+   "mlm_p": 0.0155
   },
   "post_decision_wagering": {
-   "pearson_r": 0.619,
-   "mlm_beta": 0.1967,
+   "pearson_r": 0.621,
+   "mlm_beta": 0.1973,
    "mlm_p": 0.0
   },
   "source_monitoring": {
-   "pearson_r": 0.594,
-   "mlm_beta": 0.3059,
+   "pearson_r": 0.609,
+   "mlm_beta": 0.3201,
    "mlm_p": 0.0
   },
   "stroop": {
@@ -175,11 +175,11 @@
   "zephyr:7b"
  ],
  "exp55_model_bootstrap_ci95": [
-  -0.0104,
-  0.1203
+  -0.0001,
+  0.1676
  ],
  "exp55_family_bootstrap_ci95": [
-  -0.0215,
-  0.0948
+  -0.0124,
+  0.144
  ]
 }

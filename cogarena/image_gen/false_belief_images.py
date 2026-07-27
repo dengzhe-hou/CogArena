@@ -9,7 +9,9 @@ import random
 from pathlib import Path
 from typing import List, Dict, Any, Tuple, Optional
 
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw
+
+from .font_utils import load_frozen_font
 
 
 # Scene settings
@@ -59,21 +61,14 @@ NAMES = ["Sally", "Anne", "Max", "Lily", "Tom", "Emma", "Sam", "Mia"]
 
 
 def _get_font(size: int = FONT_SIZE):
-    """Get a font, falling back to default if no TTF available."""
-    for path in [
-        "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
-        "/usr/share/fonts/TTF/DejaVuSans-Bold.ttf",
-        "/usr/share/fonts/dejavu-sans-fonts/DejaVuSans-Bold.ttf",
-        "/System/Library/Fonts/Helvetica.ttc",
-    ]:
-        if Path(path).exists():
-            return ImageFont.truetype(path, size)
-    return ImageFont.load_default()
+    """Load the same frozen font used by the other VLM paradigms."""
+    return load_frozen_font(size)
 
 
 def _draw_stick_figure(draw: ImageDraw.Draw, cx: int, base_y: int,
                        color: Tuple[int, int, int], name: str,
-                       faded: bool = False):
+                       faded: bool = False, *, label_font_size: int = LABEL_FONT_SIZE,
+                       small_font_size: int = 9):
     """Draw a simple stick figure with a name label above.
 
     Args:
@@ -116,17 +111,33 @@ def _draw_stick_figure(draw: ImageDraw.Draw, cx: int, base_y: int,
     draw.line([(cx, hip_y), (cx + 12, base_y)], fill=color, width=line_w)
 
     # Name label above head
-    font = _get_font(LABEL_FONT_SIZE)
+    font = _get_font(label_font_size)
     bbox = draw.textbbox((0, 0), name, font=font)
     tw = bbox[2] - bbox[0]
-    draw.text((cx - tw // 2, head_y - 18), name, fill=text_color, font=font)
+    name_y = (
+        head_y - label_font_size - 21
+        if label_font_size > LABEL_FONT_SIZE
+        else head_y - 18
+    )
+    draw.text((cx - tw // 2, name_y), name, fill=text_color, font=font)
+    name_box = draw.textbbox((cx - tw // 2, name_y), name, font=font)
 
     if faded:
         # Draw "(away)" under name
-        away_font = _get_font(9)
+        away_font = _get_font(small_font_size)
         bbox = draw.textbbox((0, 0), "(away)", font=away_font)
         tw = bbox[2] - bbox[0]
-        draw.text((cx - tw // 2, head_y - 7), "(away)",
+        away_y = (
+            head_y - small_font_size - 1
+            if label_font_size > LABEL_FONT_SIZE
+            else head_y - 7
+        )
+        away_box = draw.textbbox(
+            (cx - tw // 2, away_y), "(away)", font=away_font
+        )
+        if label_font_size > LABEL_FONT_SIZE and away_box[1] < name_box[3] + 2:
+            raise RuntimeError("false-belief name and away labels overlap")
+        draw.text((cx - tw // 2, away_y), "(away)",
                   fill=(180, 180, 180), font=away_font)
 
 
@@ -136,7 +147,9 @@ def _draw_container(draw: ImageDraw.Draw, cx: int, base_y: int,
                     has_object: bool = False,
                     obj_label: str = "",
                     obj_color: Tuple[int, int, int] = (0, 0, 0),
-                    obj_shape: str = "circle"):
+                    obj_shape: str = "circle", *,
+                    label_font_size: int = LABEL_FONT_SIZE,
+                    small_font_size: int = 9):
     """Draw a labeled container, optionally with an object inside."""
     x0 = cx - w // 2
     y0 = base_y - h
@@ -144,7 +157,7 @@ def _draw_container(draw: ImageDraw.Draw, cx: int, base_y: int,
     draw.rectangle([x0, y0, x0 + w, base_y], fill=CONTAINER_FILL,
                    outline=border_color, width=2)
     # Label below
-    font = _get_font(LABEL_FONT_SIZE)
+    font = _get_font(label_font_size)
     bbox = draw.textbbox((0, 0), label, font=font)
     tw = bbox[2] - bbox[0]
     draw.text((cx - tw // 2, base_y + 4), label, fill=TEXT_COLOR, font=font)
@@ -163,7 +176,7 @@ def _draw_container(draw: ImageDraw.Draw, cx: int, base_y: int,
                             obj_cx + obj_r, obj_cy + obj_r],
                            fill=obj_color, outline=(0, 0, 0), width=1)
         # Object label
-        small_font = _get_font(9)
+        small_font = _get_font(small_font_size)
         bbox = draw.textbbox((0, 0), obj_label, font=small_font)
         tw = bbox[2] - bbox[0]
         draw.text((obj_cx - tw // 2, obj_cy + obj_r + 1), obj_label,
@@ -177,6 +190,8 @@ def generate_false_belief_scene(
     container_b: str,
     scene_state: Dict[str, Any],
     out_path: str,
+    *,
+    montage_readable: bool = False,
 ) -> str:
     """Generate a single scene image for a false belief story.
 
@@ -195,7 +210,8 @@ def generate_false_belief_scene(
     Returns:
         Path to saved image
     """
-    img = Image.new("RGB", (WIDTH, HEIGHT), BG_COLOR)
+    canvas_height = 360 if montage_readable else HEIGHT
+    img = Image.new("RGB", (WIDTH, canvas_height), BG_COLOR)
     draw = ImageDraw.Draw(img)
 
     # Floor line
@@ -230,18 +246,26 @@ def generate_false_belief_scene(
     container_positions = [210, 340]
     container_w, container_h = 70, 55
 
+    label_font_size = 24 if montage_readable else LABEL_FONT_SIZE
+    caption_font_size = 24 if montage_readable else CAPTION_FONT_SIZE
+    small_font_size = 16 if montage_readable else 9
+
     # Draw containers
     obj_in = scene_state.get("object_in", "a")
     _draw_container(draw, container_positions[0], FLOOR_Y, container_w,
                     container_h, container_a, cont_a_color,
                     has_object=(obj_in == "a"),
                     obj_label=object_name, obj_color=obj_color,
-                    obj_shape=obj_shape)
+                    obj_shape=obj_shape,
+                    label_font_size=label_font_size,
+                    small_font_size=small_font_size)
     _draw_container(draw, container_positions[1], FLOOR_Y, container_w,
                     container_h, container_b, cont_b_color,
                     has_object=(obj_in == "b"),
                     obj_label=object_name, obj_color=obj_color,
-                    obj_shape=obj_shape)
+                    obj_shape=obj_shape,
+                    label_font_size=label_font_size,
+                    small_font_size=small_font_size)
 
     # Draw characters
     char_present = scene_state.get("char_present", [True, True])
@@ -250,21 +274,54 @@ def generate_false_belief_scene(
         if char_present[i]:
             _draw_stick_figure(draw, char_positions[i], FLOOR_Y,
                                CHAR_COLORS[i % len(CHAR_COLORS)], name,
-                               faded=char_faded[i])
+                               faded=char_faded[i],
+                               label_font_size=label_font_size,
+                               small_font_size=small_font_size)
 
     # Caption at the bottom
     caption = scene_state.get("caption", "")
     if caption:
-        font = _get_font(CAPTION_FONT_SIZE)
+        font = _get_font(caption_font_size)
         bbox = draw.textbbox((0, 0), caption, font=font)
         tw = bbox[2] - bbox[0]
-        draw.text(((WIDTH - tw) // 2, HEIGHT - 25), caption,
-                  fill=TEXT_COLOR, font=font)
+        if montage_readable:
+            if tw > WIDTH - 30:
+                words = caption.split()
+                lines: list[str] = []
+                current = ""
+                for word in words:
+                    candidate = f"{current} {word}".strip()
+                    candidate_width = draw.textbbox(
+                        (0, 0), candidate, font=font
+                    )[2]
+                    if current and candidate_width > WIDTH - 30:
+                        lines.append(current)
+                        current = word
+                    else:
+                        current = candidate
+                if current:
+                    lines.append(current)
+                if len(lines) > 2:
+                    raise RuntimeError(f"false-belief caption needs >2 lines: {caption}")
+            else:
+                lines = [caption]
+            for line_index, line in enumerate(lines):
+                line_bbox = draw.textbbox((0, 0), line, font=font)
+                line_width = line_bbox[2] - line_bbox[0]
+                draw.text(
+                    ((WIDTH - line_width) // 2, 296 + line_index * 27),
+                    line,
+                    fill=TEXT_COLOR,
+                    font=font,
+                )
+        else:
+            draw.text(((WIDTH - tw) // 2, HEIGHT - 25), caption,
+                      fill=TEXT_COLOR, font=font)
 
     # Scene number in top-left if provided
     scene_num = scene_state.get("scene_num")
     if scene_num is not None:
-        font = _get_font(LABEL_FONT_SIZE)
+        font = _get_font(label_font_size)
         draw.text((10, 8), f"Scene {scene_num}", fill=TEXT_COLOR, font=font)
 
     Path(out_path).parent.mkdir(parents=True, exist_ok=True)
@@ -276,6 +333,8 @@ def generate_false_belief_set(
     seed: int = 42,
     n_items: int = 10,
     out_dir: str = "data/images/false_belief",
+    *,
+    montage_readable: bool = False,
 ) -> List[Dict[str, Any]]:
     """Generate a full set of Sally-Anne false belief stories.
 
@@ -322,7 +381,8 @@ def generate_false_belief_set(
         }
         p1 = generate_false_belief_scene(
             char_pair, obj_name, cont_a_name, cont_b_name, state1,
-            str(story_dir / "scene_1.png"))
+            str(story_dir / "scene_1.png"),
+            montage_readable=montage_readable)
         image_paths.append(p1)
 
         # Scene 2: Character B leaves
@@ -335,7 +395,8 @@ def generate_false_belief_set(
         }
         p2 = generate_false_belief_scene(
             char_pair, obj_name, cont_a_name, cont_b_name, state2,
-            str(story_dir / "scene_2.png"))
+            str(story_dir / "scene_2.png"),
+            montage_readable=montage_readable)
         image_paths.append(p2)
 
         # Scene 3: Character A moves object to container B
@@ -349,7 +410,8 @@ def generate_false_belief_set(
         }
         p3 = generate_false_belief_scene(
             char_pair, obj_name, cont_a_name, cont_b_name, state3,
-            str(story_dir / "scene_3.png"))
+            str(story_dir / "scene_3.png"),
+            montage_readable=montage_readable)
         image_paths.append(p3)
 
         # Scene 4: Character B returns
@@ -362,7 +424,8 @@ def generate_false_belief_set(
         }
         p4 = generate_false_belief_scene(
             char_pair, obj_name, cont_a_name, cont_b_name, state4,
-            str(story_dir / "scene_4.png"))
+            str(story_dir / "scene_4.png"),
+            montage_readable=montage_readable)
         image_paths.append(p4)
 
         # Correct answer: B will look in container A (where they last saw it)

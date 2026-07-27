@@ -1,0 +1,6 @@
+openai/qwen2.5vl:7b
+openai/llava:7b
+openai/gemma3:4b
+openai/moondream:1.8b
+openai/llama3.2-vision:11b
+openai/minicpm-v:8b

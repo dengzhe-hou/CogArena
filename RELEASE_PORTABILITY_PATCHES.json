@@ -1,0 +1,14 @@
+{
+  "patches": [
+    {
+      "binding_note": "The authority VLM manifest retains the hash of the executed runner. The released copy differs only in how the local Ollama binary directory is supplied.",
+      "field": "PATH bootstrap",
+      "file": "scripts/experiments/vlm_rerun_20260724/run_array.sbatch",
+      "original_sha256": "cc74087350d56164bdc37c9c67c6ce3876f1da9af3ca7126509d99aff7f4175d",
+      "reason": "anonymous-release replacement of a machine-local Ollama binary directory with an explicit environment override",
+      "released_sha256": "738f04b7c74da658c390b3ab72c4b4f102b964a85795d43eb2a7ad63db2f6930",
+      "replacement": "COGARENA_OLLAMA_BIN_DIR"
+    }
+  ],
+  "schema_version": "cogarena.release_portability_patches.v1"
+}

@@ -39,11 +39,15 @@ MODELS = [
     'gemma2:27b', 'qwen2.5:32b', 'mixtral:8x7b', 'yi:34b', 'command-r:35b',
 ]
 
-# 10 single-turn paradigms (n-back, operation span, CVLT are multi-turn -> excluded).
+# 9 single-turn paradigms (n-back, operation span, CVLT are multi-turn -> excluded).
+# epitome_tom is also excluded: its details.json per-item records are synthesized
+# placeholders reconstructing the forced-choice rerun's sub-capacity aggregates
+# (response text says "per-item response not stored"; first-k-correct patterns),
+# so a split-half estimate on them is an artifact of the reconstruction, not data.
 PARADIGMS = [
     'stroop', 'flanker', 'go_nogo', 'digit_span',
     'drm_false_memory', 'source_monitoring',
-    'false_belief', 'epitome_tom',
+    'false_belief',
     'confidence_calibration', 'post_decision_wagering',
 ]
 
@@ -62,17 +66,22 @@ def item_accuracy(score):
 
 
 def model_items(model):
-    """Return {paradigm: [(task_id, accuracy), ...]} for one model from details.json."""
-    path = os.path.join(STATIC_DIR, "openai_" + model, "text", "details.json")
-    if not os.path.exists(path):
+    """Return {paradigm: [(task_id, accuracy), ...]} for one model, using the
+    CORRECTED per-item accuracies (rescore overlays + go_nogo rerun) via
+    apply_corrected_results.corrected_static_items — the same item source as
+    the corrected matrix, so this artifact matches the paper's scoring canon."""
+    import sys as _sys
+    _sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import apply_corrected_results as ACR
+    try:
+        items = ACR.corrected_static_items(model)
+    except FileNotFoundError:
         return None
-    items = json.load(open(path))
     by_par = defaultdict(list)
-    for it in items:
-        par = it.get('paradigm')
+    for tid, (par, acc, _score) in items.items():
         if par in PARADIGMS:
-            by_par[par].append((it.get('task_id', ''), item_accuracy(it.get('score'))))
-    return by_par
+            by_par[par].append((tid, float(acc)))
+    return by_par or None
 
 
 def spearman_brown(r):
@@ -119,6 +128,9 @@ def main():
     vals = [v for v in result.values() if v is not None]
     result_out = dict(sorted(result.items()))
     result_out["mean"] = round(float(np.mean(vals)), 3)
+    result_out["mean_note"] = ("mean over the nine single-turn paradigms with real per-item "
+                               "records; epitome_tom excluded because its details.json per-item "
+                               "records are forced-choice-rerun placeholders, not measurements")
 
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     json.dump(result_out, open(OUT, "w"), indent=2)
