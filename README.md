@@ -25,7 +25,7 @@ contamination from familiar task templates.
 ## Install
 
 ```bash
-git clone https://github.com/dengzhe-hou/cogarena.git
+git clone https://github.com/dengzhe-hou/CogArena.git
 cd cogarena
 pip install -e .            # core (gymnasium)
 pip install -e ".[openai]"  # + OpenAI / any OpenAI-compatible endpoint
