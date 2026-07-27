@@ -37,10 +37,10 @@ _CAPACITY_RELEASED_SHA256 = (
 def _verified_capacity_release_redaction(
     path, expected_sha256: object, actual_sha256: str
 ) -> bool:
-    """Accept the one documented anonymous-release rewrite, and nothing else.
+    """Accept the one documented public-release rewrite, and nothing else.
 
     The frozen specification remains bound to the original execution artifact.
-    A submission archive may replace only the machine-local project-root prefix
+    A public archive may replace only the machine-local project-root prefix
     in the capacity-probe path.  The release ledger must bind both byte hashes,
     name the exact JSON field, and agree with the released payload on disk.
     """
@@ -83,7 +83,7 @@ def _verified_capacity_release_redaction(
     if redaction != {
         "file": "results/causal_selectivity_20260720/CAPACITY_GATE_MANIFEST.json",
         "field": "probes[0].path",
-        "reason": "anonymous-release removal of a machine-local absolute project root",
+        "reason": "public-release removal of a machine-local absolute project root",
         "replacement": "${COGARENA_ROOT}",
         "original_sha256": expected_sha256,
         "released_sha256": actual_sha256,

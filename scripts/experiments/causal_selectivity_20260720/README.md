@@ -118,7 +118,7 @@ transport-valid logical call, server-reported token usage must leave the full
 512-token completion budget inside the uniform 4,096-token context.
 
 Batch nodes are not assumed to have Git. On the login node, inject the exact
-committed revision at submission time; no runtime script calls `git`:
+committed revision at job launch; no runtime script calls `git`.
 
 ```bash
 mkdir -p results/causal_selectivity_20260720/{slurm,ollama}
@@ -392,7 +392,7 @@ units, empty responses, and usage extrema against both model and run manifests;
 any disagreement fails closed.
 
 The commit value is not embedded inside the commit it names (which would be
-circular). Instead it is mandatory submission metadata, while the item
+circular). Instead it is mandatory launch metadata, while the item
 manifest independently pins every runtime source file by SHA-256.
 
 No paper file is read or modified by this experiment.

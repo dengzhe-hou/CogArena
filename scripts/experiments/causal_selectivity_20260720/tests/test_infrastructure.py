@@ -382,7 +382,7 @@ def test_formal_source_revision_gate_is_closed_before_pilot():
         validate_source_revision(spec, "formal", "a" * 40)
 
 
-def test_anonymous_release_redaction_is_exact_and_fail_closed(tmp_path, monkeypatch):
+def test_public_release_redaction_is_exact_and_fail_closed(tmp_path, monkeypatch):
     results_root = tmp_path / "results" / "causal_selectivity_20260720"
     capacity_path = results_root / "CAPACITY_GATE_MANIFEST.json"
     capacity_path.parent.mkdir(parents=True)
@@ -413,7 +413,7 @@ def test_anonymous_release_redaction_is_exact_and_fail_closed(tmp_path, monkeypa
         "redactions": [{
             "file": "results/causal_selectivity_20260720/CAPACITY_GATE_MANIFEST.json",
             "field": "probes[0].path",
-            "reason": "anonymous-release removal of a machine-local absolute project root",
+            "reason": "public-release removal of a machine-local absolute project root",
             "replacement": "${COGARENA_ROOT}",
             "original_sha256": original_sha256,
             "released_sha256": released_sha256,

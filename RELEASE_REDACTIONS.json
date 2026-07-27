@@ -5,7 +5,7 @@
       "field": "probes[0].path",
       "file": "results/causal_selectivity_20260720/CAPACITY_GATE_MANIFEST.json",
       "original_sha256": "91d2b50bef88e7004f9ef76ffcbd37895b54f89c46e6f8d998f69716ac700e4f",
-      "reason": "anonymous-release removal of a machine-local absolute project root",
+      "reason": "public-release removal of a machine-local absolute project root",
       "released_sha256": "7d63e46146e4d86bbb8fd3b6daed69e1530043503c00efab5912cc41a3ffdb25",
       "replacement": "${COGARENA_ROOT}"
     }
