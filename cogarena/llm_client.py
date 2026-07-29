@@ -1,7 +1,8 @@
 """Unified LLM API client for CogArena.
 
-Supports OpenAI-compatible APIs, Anthropic, Google GenAI, and local servers
-through a single ``LLMClient.generate()`` interface.
+Supports OpenAI-compatible APIs, Anthropic, Google GenAI, local servers, and
+direct Hugging Face Transformers loading through one
+``LLMClient.generate()`` interface.
 
 Features:
 - Retry with exponential backoff (configurable)
@@ -19,7 +20,6 @@ import os
 import time
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Union
-
 
 # ---------------------------------------------------------------------------
 # Token-bucket rate limiter
@@ -68,6 +68,7 @@ class LLMClient:
     - ``"anthropic"`` uses the Anthropic Messages API (Claude)
     - ``"google"`` uses Google Generative AI (Gemini)
     - ``"local"`` uses an OpenAI-compatible server (e.g. vLLM, Ollama)
+    - ``"huggingface"`` loads a text-generation model with Transformers
 
     Example::
 
@@ -97,6 +98,9 @@ class LLMClient:
         self.initial_backoff: float = float(cfg.get("initial_backoff", 1.0))
         self.temperature: float = float(cfg.get("temperature", 0.0))
         self.max_tokens: int = int(cfg.get("max_tokens", 1024))
+        self.device: str = str(cfg.get("device", "auto"))
+        self.dtype: str = str(cfg.get("dtype", "auto"))
+        self.trust_remote_code: bool = bool(cfg.get("trust_remote_code", False))
 
         # Rate limiter: default 10 requests/sec, burst of 20
         rate = float(cfg.get("rate_limit_rps", 10))
@@ -116,6 +120,8 @@ class LLMClient:
         self._openai_client: Any = None
         self._anthropic_client: Any = None
         self._google_model: Any = None
+        self._hf_model: Any = None
+        self._hf_tokenizer: Any = None
 
     # -- Public API ---------------------------------------------------------
 
@@ -185,6 +191,10 @@ class LLMClient:
             )
         elif provider in ("google", "google-genai", "gemini"):
             return self._call_google(
+                prompt, system_prompt, temperature, max_tokens, images
+            )
+        elif provider in ("huggingface", "hf", "transformers"):
+            return self._call_huggingface(
                 prompt, system_prompt, temperature, max_tokens, images
             )
         else:
@@ -399,6 +409,122 @@ class LLMClient:
             self.last_token_counts = {}
 
         return text
+
+    # -- Hugging Face Transformers -----------------------------------------
+
+    def _get_huggingface_model(self) -> tuple[Any, Any]:
+        if self._hf_model is not None and self._hf_tokenizer is not None:
+            return self._hf_model, self._hf_tokenizer
+        try:
+            import torch
+            from transformers import AutoModelForCausalLM, AutoTokenizer
+        except ImportError:
+            raise ImportError(
+                "The 'huggingface' provider requires Transformers, PyTorch, "
+                "and Accelerate. Install them with: "
+                "pip install -e \".[huggingface]\""
+            )
+
+        dtype_map = {
+            "auto": "auto",
+            "float16": torch.float16,
+            "fp16": torch.float16,
+            "bfloat16": torch.bfloat16,
+            "bf16": torch.bfloat16,
+            "float32": torch.float32,
+            "fp32": torch.float32,
+        }
+        if self.dtype.lower() not in dtype_map:
+            raise ValueError(
+                "--dtype must be one of auto, float16, bfloat16, or float32"
+            )
+        model_kwargs: Dict[str, Any] = {
+            "trust_remote_code": self.trust_remote_code,
+            "torch_dtype": dtype_map[self.dtype.lower()],
+        }
+        if self.device == "auto":
+            model_kwargs["device_map"] = "auto"
+        elif self.device == "cpu":
+            model_kwargs["device_map"] = {"": "cpu"}
+        elif self.device.startswith("cuda"):
+            model_kwargs["device_map"] = {"": self.device}
+        else:
+            raise ValueError("--device must be auto, cpu, cuda, or cuda:<index>")
+
+        self._hf_tokenizer = AutoTokenizer.from_pretrained(
+            self.model,
+            trust_remote_code=self.trust_remote_code,
+        )
+        self._hf_model = AutoModelForCausalLM.from_pretrained(
+            self.model,
+            **model_kwargs,
+        )
+        return self._hf_model, self._hf_tokenizer
+
+    def _call_huggingface(
+        self,
+        prompt: str,
+        system_prompt: Optional[str],
+        temperature: float,
+        max_tokens: int,
+        images: Optional[List[str]],
+    ) -> str:
+        if images:
+            raise ValueError(
+                "Direct Hugging Face loading currently supports text models. "
+                "For a Hugging Face VLM, serve it through vLLM, TGI, or another "
+                "OpenAI-compatible endpoint and use --provider local."
+            )
+        import torch
+
+        model, tokenizer = self._get_huggingface_model()
+        messages: List[Dict[str, str]] = []
+        if system_prompt:
+            messages.append({"role": "system", "content": system_prompt})
+        messages.append({"role": "user", "content": prompt})
+        if hasattr(tokenizer, "apply_chat_template") and getattr(
+            tokenizer, "chat_template", None
+        ):
+            text = tokenizer.apply_chat_template(
+                messages,
+                tokenize=False,
+                add_generation_prompt=True,
+            )
+        else:
+            parts = []
+            if system_prompt:
+                parts.append(system_prompt)
+            parts.append(prompt)
+            text = "\n\n".join(parts)
+
+        encoded = tokenizer(text, return_tensors="pt")
+        try:
+            model_device = next(model.parameters()).device
+            encoded = {k: v.to(model_device) for k, v in encoded.items()}
+        except (StopIteration, AttributeError):
+            pass
+
+        generation_kwargs: Dict[str, Any] = {
+            "max_new_tokens": max_tokens,
+            "do_sample": temperature > 0,
+        }
+        if temperature > 0:
+            generation_kwargs["temperature"] = temperature
+        pad_token_id = getattr(tokenizer, "pad_token_id", None)
+        if pad_token_id is None:
+            pad_token_id = getattr(tokenizer, "eos_token_id", None)
+        if pad_token_id is not None:
+            generation_kwargs["pad_token_id"] = pad_token_id
+
+        with torch.inference_mode():
+            output = model.generate(**encoded, **generation_kwargs)
+        input_len = int(encoded["input_ids"].shape[-1])
+        generated = output[0][input_len:]
+        self.last_token_counts = {
+            "prompt_tokens": input_len,
+            "completion_tokens": int(generated.shape[-1]),
+        }
+        return tokenizer.decode(generated, skip_special_tokens=True).strip()
 
     # -- Checkpointing ------------------------------------------------------
 

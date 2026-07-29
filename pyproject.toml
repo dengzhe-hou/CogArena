@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "cogarena"
-version = "1.0.0"
+version = "1.1.0"
 description = "A benchmark of 13 cognitive-science paradigms for evaluating LLMs and agents"
 readme = "README.md"
 license = {text = "MIT"}
@@ -25,7 +25,8 @@ openai = ["openai>=1.0"]
 anthropic = ["anthropic>=0.20"]
 google = ["google-generativeai>=0.5"]
 image = ["pillow>=9.0", "matplotlib"]
-all = ["openai>=1.0", "anthropic>=0.20", "google-generativeai>=0.5", "pillow>=9.0", "matplotlib"]
+huggingface = ["transformers>=4.45", "torch>=2.1", "accelerate>=0.33"]
+all = ["openai>=1.0", "anthropic>=0.20", "google-generativeai>=0.5", "pillow>=9.0", "matplotlib", "transformers>=4.45", "torch>=2.1", "accelerate>=0.33"]
 analysis = ["numpy", "scipy", "pandas", "scikit-learn", "matplotlib", "statsmodels", "cairosvg>=2.9", "pymupdf>=1.24"]
 dev = ["pytest", "ruff"]
 

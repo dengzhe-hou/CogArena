@@ -28,21 +28,23 @@ git clone https://github.com/dengzhe-hou/CogArena.git
 cd CogArena
 pip install -e .            # core (gymnasium)
 pip install -e ".[openai]"  # + OpenAI / any OpenAI-compatible endpoint
-# extras: ".[anthropic]", ".[google]", ".[image]", ".[all]", ".[analysis]"
+# extras: ".[anthropic]", ".[google]", ".[huggingface]", ".[image]", ".[all]"
 ```
 
 Requires Python ≥ 3.10.
 
 ## Quickstart
 
-The single-turn battery (10 paradigms across 5 groupings) runs out of the box.
+The default text evaluation runs all 13 paradigms. CogArena handles the three
+multi-turn paradigms within the same command.
 
 ```bash
-# 0. Check your install (no API key needed)
-cogarena eval --dry-run --model test
+# 0. Check all 13 paradigms without calling a model
+cogarena eval --dry-run --model test --n 1
 
 # 1. Any OpenAI-compatible endpoint, including Ollama, vLLM, TGI, and LM Studio
-cogarena eval --provider local --base-url http://localhost:11434/v1 --model qwen2.5:7b
+cogarena eval --provider local --base-url http://localhost:11434/v1 \
+  --model qwen2.5:7b --n 50
 
 # 2. Hosted APIs (set the matching key in your environment)
 OPENAI_API_KEY=...    cogarena eval --provider openai    --model gpt-4o-mini
@@ -56,14 +58,56 @@ Useful flags include `--n` (items per paradigm, default 50), `--seed`,
 `--paradigms stroop flanker ...`, `--temperature`, `--max-tokens`, and
 `--output DIR`.
 
+### Load a Hugging Face model directly
+
+No serving layer is required for a Transformers causal language model.
+
+```bash
+pip install -e ".[huggingface]"
+cogarena eval --provider huggingface \
+  --model Qwen/Qwen2.5-7B-Instruct --device auto --dtype bfloat16
+```
+
+Use `--device cpu`, `--device cuda`, or `--device cuda:1` when needed. Models
+that require custom repository code also need `--trust-remote-code`.
+
+### VLM evaluation
+
+VLM mode generates and evaluates the Stroop, Flanker, and false-belief image
+adaptations.
+
+```bash
+pip install -e ".[openai,image]"
+cogarena eval --mode vlm --provider local \
+  --base-url http://localhost:8000/v1 --model my-vlm --n 50
+```
+
+The endpoint must accept OpenAI-compatible image messages. The native OpenAI,
+Anthropic, and Google providers also accept images.
+
+### Agent evaluation
+
+Agent mode adds a ReAct-style loop with memory, note-taking, and arithmetic
+tools. It works with any of the 13 registered paradigms.
+
+```bash
+cogarena eval --mode agent --provider local \
+  --base-url http://localhost:11434/v1 --model qwen2.5:7b \
+  --paradigms n_back false_belief --n 5
+```
+
+Agent-mode scores describe the tool-using interaction protocol. They should not
+be mixed with the direct text-battery scores.
+
 ### Bring your own model
 
-Three integration routes are available.
+Four integration routes are available.
 
 1. Use an **OpenAI-compatible server** for most local and hosted models with
    `--provider local --base-url <url>`.
 2. Use a **native SDK** with `--provider {openai,anthropic,google}`.
-3. For another interface, subclass the client and override one method.
+3. Load a Transformers model directly with `--provider huggingface`.
+4. For another interface, subclass the client and override one method.
 
    ```python
    from cogarena.llm_client import LLMClient
@@ -77,7 +121,7 @@ Three integration routes are available.
 
 ## Output
 
-Results are written to `cogarena_results/<model>/`.
+Results are written to `cogarena_results/<model>/<mode>/`.
 
 - `aggregate.json` contains overall accuracy, per-paradigm accuracy, and the five grouping means.
 - `details.json` contains the prompt id, paradigm, model response, and full score record for each item.
@@ -86,16 +130,16 @@ The console prints a summary table (per-paradigm + grouping + overall).
 
 ## The battery
 
-| Grouping | Single-turn paradigms (CLI) |
+| Grouping | Text paradigms |
 |---|---|
-| Working Memory | digit span |
+| Working Memory | digit span, n-back, operation span |
 | Cognitive Control | Stroop, Flanker, Go/No-Go |
-| Episodic Memory | DRM false memory, source monitoring |
+| Episodic Memory | DRM false memory, source monitoring, CVLT |
 | Theory of Mind | false belief, EPITOME |
 | Metacognition | confidence calibration, post-decision wagering |
 
-Three further paradigms are **multi-turn** (n-back, operation span, CVLT) and the agent/VLM
-modes use the Gymnasium API:
+The CLI runs the complete text battery. The same paradigms are also registered
+as Gymnasium environments for custom interactive integrations:
 
 ```python
 import gymnasium as gym

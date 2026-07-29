@@ -12,7 +12,7 @@ convention than these paradigm scorers).
 from __future__ import annotations
 
 import importlib
-from typing import Any, Dict
+from typing import Any, Dict, List
 
 # paradigm name -> "module:Class.method" scorer (matches scripts/run_eval.py)
 PARADIGM_SCORERS = {
@@ -77,6 +77,31 @@ def score_static(item, response: str) -> Dict[str, Any]:
         return {"scored": False}
     correct = exp == act
     return {"accuracy": 1.0 if correct else 0.0, "correct": correct}
+
+
+def score_episode(item, responses: List[str]) -> Dict[str, Any]:
+    """Score a completed multi-turn episode with its paradigm scorer.
+
+    The n-back, operation-span, and CVLT scorers accept the generated
+    :class:`~cogarena.core.TaskInstance` plus one response per turn. Keeping
+    this routing beside :func:`score_static` gives the installed CLI and
+    third-party integrations one canonical scoring surface.
+    """
+    paradigm = _paradigm_of(item)
+    path = PARADIGM_SCORERS.get(paradigm)
+    if not path:
+        return {"scored": False, "accuracy": 0.0}
+    try:
+        score = _resolve_scorer(path)(item, list(responses))
+    except Exception as exc:
+        return {
+            "scored": False,
+            "accuracy": 0.0,
+            "error": f"{type(exc).__name__}: {exc}",
+        }
+    if not isinstance(score, dict):
+        return {"accuracy": float(score)}
+    return score
 
 
 def item_accuracy(score) -> float:
